@@ -5,7 +5,7 @@ import { css } from "styled-components/macro";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings";
 import {SectionDescription} from "components/misc/Typography";
-import { ReactComponent as TwitterIcon} from "images/twitter-icon.svg";
+import { ReactComponent as FacebookIcon} from "images/facebook-icon.svg";
 import { ReactComponent as LinkedinIcon} from "images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 
@@ -49,10 +49,11 @@ export default ({
       imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
       position: "Founder",
       name: "Adam Cuppy",
+      info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
           url: "https://twitter.com",
-          icon: TwitterIcon,
+          icon: FacebookIcon,
         },
         {
           url: "https://linkedin.com",
@@ -68,10 +69,11 @@ export default ({
       imageSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
       position: "Sr. Designer",
       name: "Charlotte Hale",
+      info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
           url: "https://twitter.com",
-          icon: TwitterIcon,
+          icon: FacebookIcon,
         },
         {
           url: "https://linkedin.com",
@@ -87,10 +89,11 @@ export default ({
       imageSrc: "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
       position: "Jr. Designer",
       name: "Silvester Wize",
+      info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
           url: "https://twitter.com",
-          icon: TwitterIcon,
+          icon: FacebookIcon,
         },
         {
           url: "https://linkedin.com",
@@ -106,10 +109,11 @@ export default ({
       imageSrc: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
       position: "Lead Developer",
       name: "Himali Turn",
+      info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
           url: "https://twitter.com",
-          icon: TwitterIcon,
+          icon: FacebookIcon,
         },
         {
           url: "https://linkedin.com",
@@ -125,10 +129,11 @@ export default ({
       imageSrc: "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
       position: "Sr. Developer",
       name: "Troye Sivan",
+      info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
           url: "https://twitter.com",
-          icon: TwitterIcon,
+          icon: FacebookIcon,
         },
         {
           url: "https://linkedin.com",
@@ -144,10 +149,11 @@ export default ({
       imageSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
       position: "Quality Assurance",
       name: "Holo Wo",
+      info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
           url: "https://twitter.com",
-          icon: TwitterIcon,
+          icon: FacebookIcon,
         },
         {
           url: "https://linkedin.com",
@@ -176,6 +182,7 @@ export default ({
               <CardContent>
                 <span className="position">{card.position}</span>
                 <span className="name">{card.name}</span>
+                <span className="info">{card.info}</span>
                 <CardLinks>
                   {card.links.map((link, linkIndex) => (
                     <a key={linkIndex} className="link" href={link.url}>
