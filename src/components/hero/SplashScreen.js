@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import NavBar from "helpers/library.js";
 import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
+import {Link} from 'react-scroll'
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none w-full`}
@@ -35,8 +36,7 @@ const Heading = styled.h1`
 
 const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-gray-100 font-bold shadow transition duration-300 bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:outline-none focus:shadow-outline`;
 
-export default () => {
-
+export default (props) => {
   return (
     <Container>
       <OpacityOverlay />
@@ -44,11 +44,11 @@ export default () => {
         <NavBar />
         <Content>
           <Heading>
-              Book Music & Comedy Events
+              Lorem Ipsum Dorito
               <br />
-              anywhere in New York
+              Cornito Pepito
           </Heading>
-          <PrimaryAction>Search Events Near Me</PrimaryAction>
+          <Link to="ContactUs" smooth={true}><PrimaryAction onClick={e=>props.onClick()}>Get in Touch</PrimaryAction></Link>
         </Content>
       </HeroContainer>
     </Container>
