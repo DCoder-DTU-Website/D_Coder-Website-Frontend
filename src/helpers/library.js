@@ -2,7 +2,7 @@ import React from 'react';
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, NavToggle, DesktopNavLinks } from "../components/headers/light.js";
+import Header, { NavLink, NavLinks, BlueLink as BlueLinkBase, LogoLink, NavToggle, DesktopNavLinks } from "../components/headers/light.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,11 +17,11 @@ const StyledHeader = styled(Header)`
     ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
   }
   ${NavToggle}.closed {
-    ${tw`text-gray-100 hover:text-primary-500`}
+    ${tw`text-gray-100 hover:text-blue-500`}
   }
 `;
 
-const PrimaryLink = tw(PrimaryLinkBase)`rounded-full`;
+const BlueLink = tw(BlueLinkBase)`rounded-full`;
 
 const navLinks = [
     <NavLinks key={1}>
@@ -45,9 +45,9 @@ const navLinks = [
       </NavLink>
     </NavLinks>,
     <NavLinks key={2}>
-      <PrimaryLink href="/admin">
+      <BlueLink href="/admin">
         Login
-      </PrimaryLink>
+      </BlueLink>
     </NavLinks>
   ];
 
