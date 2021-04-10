@@ -5,7 +5,7 @@ import Hero from "components/hero/SplashScreen"
 import GalPrev from "components/cards/GalPreview"
 import AboutUs from "components/features/AboutUs"
 import WhyDCoder from "components/features/WhyDCoder"
-import Footer from "components/footers/HomePageFooter"
+import Footer from "components/footers/Footer"
 import Testimonials from "components/testimonials/HomePageReviews"
 import ContactUs from "components/forms/HomePageContact"
 
