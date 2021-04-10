@@ -175,10 +175,10 @@ export default ({
           {heading && <Heading>{heading}</Heading> }
           {description && <Description>{description}</Description> }
         </HeadingContainer>
-        <Cards>
+        <Cards >
           {cards.map((card, index) => (
             <Card key={index}>
-              <CardImage imageSrc={card.imageSrc} />
+              <CardImage style = {{boxShadow: "10px 10px 5px black", border:"1px solid black"}} imageSrc={card.imageSrc} />
               <CardContent>
                 <span className="position">{card.position}</span>
                 <span className="name">{card.name}</span>

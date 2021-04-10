@@ -178,7 +178,7 @@ export default ({
         <Cards>
           {cards.map((card, index) => (
             <Card key={index}>
-              <CardImage imageSrc={card.imageSrc} />
+              <CardImage style = {{boxShadow: "10px 10px 5px grey"}} imageSrc={card.imageSrc} />
               <CardContent>
                 <span className="position">{card.position}</span>
                 <span className="name">{card.name}</span>
