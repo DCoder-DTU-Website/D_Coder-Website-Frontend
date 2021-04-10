@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useMediaQuery } from 'react-responsive'
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -14,6 +15,7 @@ import './council.css';
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`;
 const Header = tw(SectionHeading)``;
 const TabsControl = tw.div`flex flex-wrap bg-gray-200 px-2 py-2 rounded leading-none mt-12 xl:mt-0`;
+const TabsControls = tw.div`flex flex-col bg-gray-200 px-2 py-2 rounded leading-none mt-12 xl:mt-0`;
 
 const TabControl = styled.div`
   ${tw`cursor-pointer px-6 py-3 mt-2 sm:mt-0 sm:mr-2 last:mr-0 text-gray-600 font-medium rounded-sm transition duration-300 text-sm sm:text-base w-1/2 sm:w-auto text-center`}
@@ -21,6 +23,15 @@ const TabControl = styled.div`
     ${tw`bg-gray-300 text-gray-700`}
   }
   ${props => props.active && tw`bg-primary-500! text-gray-100!`}
+  }
+`;
+
+const TabControls = styled.div`
+  ${tw`cursor-pointer px-6 py-3 mt-2 sm:mt-0 sm:mr-2 last:mr-0 text-gray-600 font-medium rounded-sm transition duration-300 text-sm sm:text-base w-1/5 sm:w-auto text-center`}
+  &:hover {
+    ${tw`bg-gray-300 w-full text-gray-700`}
+  }
+  ${props => props.active && tw`bg-primary-500! w-full text-gray-100!`}
   }
 `;
 
@@ -69,7 +80,8 @@ const CardLinks = styled.div`
 `
 
 export default ({
-  heading = "Council",
+  
+  heading = "Team",
   subHeading = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, harum repellat assumenda, itaque error minima natus quos, nisi iste quas praesentium laboriosam doloremque exercitationem libero?",
   tabs = {
     Heads: [
@@ -167,7 +179,8 @@ export default ({
    */
   const tabsKeys = Object.keys(tabs);
   const [activeTab, setActiveTab] = useState(tabsKeys[0]);
-
+  const isMobile = useMediaQuery({ query: '(max-width: 640px)' });
+  const isnotMobile = useMediaQuery({ query: '(min-width: 641px)' });
   return (
     <Container className = "councilStyle">
       <ContentWithPaddingXl>
@@ -184,6 +197,16 @@ export default ({
             {subHeading}
           </Header>
         <HeaderRow>
+          {isMobile&&
+          <TabsControls style = {{widht: "400px"}}>
+            {Object.keys(tabs).map((tabName, index) => (
+              <TabControls key={index} active={activeTab === tabName} onClick={() => setActiveTab(tabName)}>
+                {tabName}
+              </TabControls>
+            ))}
+          </TabsControls>
+          }
+          {isnotMobile&&
           <TabsControl>
             {Object.keys(tabs).map((tabName, index) => (
               <TabControl key={index} active={activeTab === tabName} onClick={() => setActiveTab(tabName)}>
@@ -191,6 +214,7 @@ export default ({
               </TabControl>
             ))}
           </TabsControl>
+          }
         </HeaderRow>
 
         {tabsKeys.map((tabKey, index) => (
