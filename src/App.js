@@ -1,8 +1,8 @@
-import React from "react"
-import "style.css"
-import "tailwindcss/dist/base.css"
-import AnimationRevealPage from "helpers/AnimationRevealPage"
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React from "react";
+import "style.css";
+import "tailwindcss/dist/base.css";
+import AnimationRevealPage from "helpers/AnimationRevealPage";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "pages/home/App";
 import Events from "pages/events/App";
 import Council from "pages/council/App";
@@ -39,12 +39,12 @@ function App() {
             <Admin />
           </Route>
           <Route path="/">
-     	 	<Home/>
+            <Home />
           </Route>
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>
-  )
+  );
 }
 
-export default App
+export default App;
