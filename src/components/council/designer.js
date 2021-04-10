@@ -8,7 +8,7 @@ import {SectionDescription} from "components/misc/Typography";
 import { ReactComponent as FacebookIcon} from "images/facebook-icon.svg";
 import { ReactComponent as LinkedinIcon} from "images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "images/github-icon.svg";
-
+import './cardcss.css'
 const HeadingContainer = tw.div``
 const Heading = tw(SectionHeading)``
 const Subheading = tw(SubheadingBase)`text-center mb-3`
@@ -178,10 +178,10 @@ export default ({
         <Cards>
           {cards.map((card, index) => (
             <Card key={index}>
-              <CardImage style = {{boxShadow: "10px 10px 5px grey"}} imageSrc={card.imageSrc} />
+              <CardImage className = "imageStyle" imageSrc={card.imageSrc} />
               <CardContent>
                 <span className="position">{card.position}</span>
-                <span className="name">{card.name}</span>
+                <span style = {{color:"grey"}} className="name">{card.name}</span>
                 <span className="info">{card.info}</span>
                 <CardLinks>
                   {card.links.map((link, linkIndex) => (

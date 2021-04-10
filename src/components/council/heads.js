@@ -8,6 +8,7 @@ import {SectionDescription} from "components/misc/Typography";
 import { ReactComponent as FacebookIcon} from "images/facebook-icon.svg";
 import { ReactComponent as LinkedinIcon} from "images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "images/github-icon.svg";
+import './cardcss.css'
 
 const HeadingContainer = tw.div``
 const Heading = tw(SectionHeading)``
@@ -47,8 +48,8 @@ export default ({
   cards = [
     {
       imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Founder",
-      name: "Adam Cuppy",
+      position: "Vice - President",
+      name: "Siddharth Singh",
       info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
@@ -67,8 +68,8 @@ export default ({
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Sr. Designer",
-      name: "Charlotte Hale",
+      position: "President",
+      name: "Mahek Jain",
       info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
@@ -87,8 +88,8 @@ export default ({
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Jr. Designer",
-      name: "Silvester Wize",
+      position: "Vice - President",
+      name: "Rahul",
       info: "Hello I am a senior Web Developer and I welcome you all to my Website! Thank You",
       links: [
         {
@@ -170,18 +171,18 @@ export default ({
   return (
     <Container>
       <ContentWithPaddingXl>
-        <HeadingContainer>
+        <HeadingContainer >
           {subheading && <Subheading>{subheading}</Subheading>}
-          {heading && <Heading>{heading}</Heading> }
+          {heading && <Heading >{heading}</Heading> }
           {description && <Description>{description}</Description> }
         </HeadingContainer>
         <Cards >
           {cards.map((card, index) => (
-            <Card key={index}>
-              <CardImage style = {{boxShadow: "10px 10px 5px black", border:"1px solid black"}} imageSrc={card.imageSrc} />
+            <Card  key={index}>
+              <CardImage className = "imageStyle" imageSrc={card.imageSrc} />
               <CardContent>
                 <span className="position">{card.position}</span>
-                <span className="name">{card.name}</span>
+                <span style = {{color:"grey"}} className="name">{card.name}</span>
                 <span className="info">{card.info}</span>
                 
                 <CardLinks>
