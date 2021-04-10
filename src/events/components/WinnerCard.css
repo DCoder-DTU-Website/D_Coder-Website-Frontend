@@ -1,7 +1,3 @@
-.WinnerCard-root:hover {
-  cursor: pointer;
-}
-
 .WinnerCard-img {
   opacity: 1;
   display: block;
@@ -11,28 +7,30 @@
   backface-visibility: hidden;
 }
 
-.container:hover .image {
-  opacity: 0.3;
-}
-
-.container:hover .middle {
-  opacity: 1;
-}
-
-#middle {
+.middle {
   transition: 0.5s ease;
   opacity: 0;
   position: absolute;
-  top: 50%;
+  top: 34%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.Winner-name {
-  background-color: #4caf50;
-  color: white;
+.container:hover .WinnerCard-img {
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.container:hover .middle {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.text {
+  color: black;
+  font-weight: 700;
   font-size: 16px;
   padding: 16px 32px;
 }

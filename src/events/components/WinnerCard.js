@@ -38,11 +38,12 @@ function WinnerCard({ evt, name, img, pos, links }) {
   AOS.init();
   return (
     <Card data-aos="zoom-in" className="WinnerCard-root">
-      <CardImage imageSrc={img} className="WinnerCard-img">
-        <div id="middle">
-          <div className="Winner-name">{name}</div>
+      <div className="container">
+        <CardImage imageSrc={img} className="WinnerCard-img" />
+        <div className="middle">
+          <div className="text">{name}</div>
         </div>
-      </CardImage>
+      </div>
       <CardContent>
         <span className="position">{pos}</span>
         <span className="name">{evt}</span>
