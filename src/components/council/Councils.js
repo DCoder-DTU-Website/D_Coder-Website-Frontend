@@ -70,6 +70,7 @@ const CardLinks = styled.div`
 
 export default ({
   heading = "Council",
+  subHeading = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, harum repellat assumenda, itaque error minima natus quos, nisi iste quas praesentium laboriosam doloremque exercitationem libero?",
   tabs = {
     Heads: [
       {
@@ -171,8 +172,17 @@ export default ({
     <Container className = "councilStyle">
       <ContentWithPaddingXl>
         <HeaderRow>
-          <Header>{heading}</Header>
+          <Header style = {{fontSize:"60px", marginBottom: "35px",fontWeight:"light"}} >{heading}</Header>
         </HeaderRow>
+          <Header style = {{
+            fontSize:"20px",
+            fontWeight:"lighter",
+            marginBottom:"35px",
+            color:"grey",
+            padding: "0px 100px"
+            }} >
+            {subHeading}
+          </Header>
         <HeaderRow>
           <TabsControl>
             {Object.keys(tabs).map((tabName, index) => (
