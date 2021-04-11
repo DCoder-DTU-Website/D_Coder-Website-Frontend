@@ -33,6 +33,14 @@ export const PrimaryLink = tw(NavLink)`
   border-b-0
 `;
 
+export const BlueLink = tw(NavLink)`
+  lg:mx-0
+  px-8 py-3 rounded bg-blue-600 text-gray-100
+  hocus:bg-blue-700 hocus:text-gray-200 focus:shadow-outline
+  border-b-0
+`;
+
+
 export const LogoLink = styled(NavLink)`
   ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
 

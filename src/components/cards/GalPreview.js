@@ -16,9 +16,9 @@ import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`
-const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20`;
+const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20 text-center sm:text-justify`;
 const PrimaryLink = styled(PrimaryLinkBase)`
-  ${tw`inline-flex justify-center xl:justify-start items-center mt-8 text-lg mx-10`}
+  ${tw`inline-flex justify-center xl:justify-start items-center mt-8 text-lg sm:mx-10`}
   svg {
     ${tw`ml-2 w-5 h-5`}
   }
@@ -45,15 +45,15 @@ const CardSlider = styled(Slider)`
   }
 `;
 
-const Card = tw.div`h-full flex! flex-col sm:border-2 sm:border-white max-w-sm sm:rounded-tl-4xl sm:rounded-br-5xl relative focus:outline-none`;
+const Card = tw.div`h-full flex! flex-col border-2 border-white max-w-sm rounded-tl-4xl rounded-br-5xl relative focus:outline-none`;
 const CardImage = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`w-full h-56 sm:h-64 bg-cover bg-center rounded sm:rounded-none sm:rounded-tl-4xl`
+  tw`w-full h-56 h-64 bg-cover bg-center rounded rounded-none rounded-tl-4xl`
 ]);
 
 const TextInfo = tw.div`py-6 sm:px-10 sm:py-6`;
 const TitleReviewContainer = tw.div`flex flex-col sm:flex-row sm:justify-between sm:items-center`;
-const Title = tw.h5`text-2xl font-bold`;
+const Title = tw.h5`w-80 text-2xl font-bold`;
 
 const RatingsInfo = styled.div`
   ${tw`flex items-center sm:ml-4 mt-2 sm:mt-0`}
@@ -117,7 +117,7 @@ export default () => {
   const cards = [
     {
       imageSrc: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
-      title: "Wyatt Residency",
+      title: "Wyatt Residency saigno",
       description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
       locationText: "Rome, Italy",
       dateText: "8 April 2021",
@@ -170,20 +170,6 @@ export default () => {
                 <TitleReviewContainer>
                   <Title>{card.title}</Title>
                 </TitleReviewContainer>
-                <SecondaryInfoContainer>
-                  <IconWithText>
-                    <IconContainer>
-                      <CalendarIcon />
-                    </IconContainer>
-                    <Text>{card.locationText}</Text>
-                  </IconWithText>
-                  <IconWithText>
-                    <IconContainer>
-                      <PriceIcon />
-                    </IconContainer>
-                    <Text>{card.dateText}</Text>
-                  </IconWithText>
-                </SecondaryInfoContainer>
               </TextInfo>
             </Card>
           ))}

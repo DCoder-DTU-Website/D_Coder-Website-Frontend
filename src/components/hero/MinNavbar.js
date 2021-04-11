@@ -7,7 +7,7 @@ import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, Na
 import {Link} from 'react-scroll'
 
 const StyledHeader = styled(Header)`
-  ${tw`pt-8 max-w-none w-full`}
+  ${tw`pt-16 pb-16 max-w-none w-full`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
     ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
   }
@@ -18,13 +18,12 @@ const StyledHeader = styled(Header)`
 
 const PrimaryLink = tw(PrimaryLinkBase)`rounded-full`
 const Container = styled.div`
-  ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
-  background-image: url("https://images.unsplash.com/photo-1536300007881-7e482242baa5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80");
+  ${tw`relative -mx-8 -mt-8`}
 `;
 
-const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-black opacity-75`;
+const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-secondary-900`;
 
-const HeroContainer = tw.div`z-20 relative px-6 sm:px-8 mx-auto h-full flex flex-col`;
+const HeroContainer = tw.div`z-20 relative px-6 sm:px-8 mx-auto h-full flex flex-col `;
 const Content = tw.div`px-4 flex flex-1 flex-col justify-center items-center`;
 
 const Heading = styled.h1`
@@ -42,14 +41,6 @@ export default (props) => {
       <OpacityOverlay />
       <HeroContainer>
         <NavBar />
-        <Content>
-          <Heading>
-              Lorem Ipsum Dorito
-              <br />
-              Cornito Pepito
-          </Heading>
-          <Link to="ContactUs" smooth={true}><PrimaryAction onClick={e=>props.onClick()}>Get in Touch</PrimaryAction></Link>
-        </Content>
       </HeroContainer>
     </Container>
   );

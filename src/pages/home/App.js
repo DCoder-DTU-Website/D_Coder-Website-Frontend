@@ -1,7 +1,7 @@
 import React from "react"
 import "style.css"
 import "tailwindcss/dist/base.css"
-import Hero from "components/hero/SplashScreen"
+import Hero from "components/hero/HomePageSplashScreen"
 import GalPrev from "components/cards/GalPreview"
 import AboutUs from "components/features/AboutUs"
 import WhyDCoder from "components/features/WhyDCoder"
