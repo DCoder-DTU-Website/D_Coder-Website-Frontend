@@ -10,8 +10,8 @@ import { SectionDescription } from "components/misc/Typography";
 import WinnerConfetti from "./WinnerConfetti";
 
 const HeadingContainer = tw.div``;
-const Heading = tw(SectionHeading)``;
-const Subheading = tw(SubheadingBase)`text-center mb-3`;
+const Heading = tw(SectionHeading)`text-white`; //text-white
+const Subheading = tw(SubheadingBase)`text-center mb-3 text-blue-600`;
 const Description = tw(SectionDescription)`mx-auto text-center`;
 
 const Cards = tw.div`flex flex-wrap flex-row justify-center sm:max-w-2xl lg:max-w-5xl mx-auto`;
