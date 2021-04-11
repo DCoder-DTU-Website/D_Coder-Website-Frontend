@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import tw from "twin.macro";
+import Hero from "components/hero/SplashScreenWithHeading";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { ReactComponent as SvgDotPatternIcon } from "../images/dot-pattern.svg";
+import { ReactComponent as SvgDotPatternIcon } from "../../../src/images/dot-pattern.svg";
 import EvtCard from "./components/EvtCard";
-import "./EventPage.css";
 
 import fakeData from "./data";
 import WinnerCard from "./components/WinnerCard";
 import Winners from "./components/Winners";
 
-const Container = tw.div`relative bg-gray-900`; //bg-gray-900
+const Container = tw.div`relative`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-// const HeadingTitle = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center text-white`; //text-white
-const Subheading = tw.h3`text-3xl mt-5 font-bold text-blue-600`;
+const HeadingTitle = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center`;
+const Subheading = tw.h3`text-3xl mt-5 font-bold text-primary-500`;
 const Content = tw.div`mt-16`;
 
 const SvgDotPattern1 = tw(
@@ -79,11 +79,12 @@ function EventPage() {
     //   loader={<h4>Loading...</h4>}
     //   endMessage={<h1>Done</h1>}
     // >
-    <Container className="EventPage-root">
+    <Container>
+      <Hero title="Events"/>
       <SingleColumn>
-        {/* <HeadingInfoContainer>
+        <HeadingInfoContainer>
           <HeadingTitle>Events</HeadingTitle>
-        </HeadingInfoContainer> */}
+        </HeadingInfoContainer>
         <section>
           <HeadingInfoContainer>
             <Subheading>Upcoming Events</Subheading>

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
+import { BlueButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { ReactComponent as StarIcon } from "images/star-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
@@ -23,7 +23,7 @@ const TabControl = styled.div`
   &:hover {
     ${tw`bg-gray-300 text-gray-700`}
   }
-  ${props => props.active && tw`bg-primary-500! text-gray-100!`}
+  ${props => props.active && tw`bg-blue-500! text-gray-100!`}
   }
 `;// width > 640px simple,hover and active styling
 
@@ -32,7 +32,7 @@ const TabControls = styled.div`
   &:hover {
     ${tw`bg-gray-300 w-full text-gray-700`}
   }
-  ${props => props.active && tw`bg-primary-500! w-full text-gray-100!`}
+  ${props => props.active && tw`bg-blue-500! w-full text-gray-100!`}
   }
 `; // width <= 640px simple,hover and active styling
 
@@ -47,14 +47,14 @@ const CardImageContainer = styled.div`
 `
 
 const CardText = tw.div`p-4 text-gray-900`;
-const CardTitle = tw.h5`text-lg font-semibold group-hover:text-primary-500`;
+const CardTitle = tw.h5`text-lg font-semibold group-hover:text-blue-500`;
 const CardContent = tw.p`mt-1 text-sm font-medium text-gray-600`;
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 transform translate-x-2/3 -translate-y-12 text-pink-400`}
 `;
 const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
-  ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 transform -translate-x-2/3 text-primary-500`}
+  ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 transform -translate-x-2/3 text-blue-500`}
 `;
 
 //Cards For Heads

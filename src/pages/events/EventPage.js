@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import tw from "twin.macro";
 import "style.css";
 import "tailwindcss/dist/base.css";
-import AnimationRevealPage from "helpers/AnimationRevealPage";
-import Hero from "components/hero/SplashScreenWithHeading";
-import Footer from "components/footers/Footer";
+import tw from "twin.macro";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ReactComponent as SvgDotPatternIcon } from "images/dot-pattern.svg";
 import EvtCard from "./components/EvtCard";
 import "./EventPage.css";
+
 import fakeData from "./data";
 import WinnerCard from "./components/WinnerCard";
 import Winners from "./components/Winners";
+
 const Container = tw.div`relative bg-gray-900`; //bg-gray-900
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
@@ -80,8 +79,6 @@ function EventPage() {
     //   loader={<h4>Loading...</h4>}
     //   endMessage={<h1>Done</h1>}
     // >
-    <>
-    <Hero title="Events" />
     <Container className="EventPage-root">
       <SingleColumn>
         {/* <HeadingInfoContainer>
@@ -108,11 +105,8 @@ function EventPage() {
       <SvgDotPattern3 />
       <SvgDotPattern4 />
     </Container>
-    <Footer />
-    </>
     // </InfiniteScroll>
   );
 }
 
 export default EventPage;
-
