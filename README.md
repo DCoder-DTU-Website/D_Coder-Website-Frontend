@@ -81,11 +81,11 @@ Route - /events
    Path - src/pages/events/hooks
    This hook calculates the width and height of the window where it is being used.
    
-##Council 
+## Council 
 
 Route - /gallery
 
-###Components
+### Components
 
 1. **App**
    Path - src/pages/council/App
@@ -96,27 +96,37 @@ Route - /gallery
 2. **Council**
    Path - src/components/council/councils.js
    Components in Council.js
-      
-      a. council.css (import)
-         Path - src/components/council.council.css
-         Set -ve margin and background color of the council page
-      b. export default function
-         Contains Heading -> Team
-         and Sub-Heading
-         Object tabs - Contains image url, name, post of the heads
-      c. TabControl - 
-         section switch tab for sreen width > 640 px
-      d. TabControls - 
-         section switch tab for screen width <= 640 px
-      e. CardContainer - 
-         Card defining the image,name, position of a person
-      f. getCoHeads- 
-         Contains details of all Co-Heads
-      g. getDesigner - 
-         Contains details of all Designers
-      h. getDevelopers - 
-         getDesigner - 
-         Contains details of all Developers
+
+
+## 3 - 10 Point for council.js
+
+3. **council.css (import)**
+   Path - src/components/council.council.css
+   Set -ve margin and background color of the council page
+   
+4. **export default function**
+   Contains Heading -> Team
+   and Sub-Heading
+   Object tabs - Contains image url, name, post of the heads
+   
+5. **TabControl** 
+   section switch tab for sreen width > 640 px
+   
+6. **TabControls**
+   section switch tab for screen width <= 640 px
+   
+7. **CardContainer**
+   Card defining the image,name, position of a person
+   
+8. **getCoHeads**
+   Contains details of all Co-Heads
+   
+9. **getDesigner** 
+   Contains details of all Designers
+   
+10. **getDevelopers**
+   getDesigner - 
+   Contains details of all Developers
          
 
 
