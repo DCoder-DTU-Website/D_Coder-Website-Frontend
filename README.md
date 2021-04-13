@@ -1,5 +1,43 @@
 # Documentation
 
+## Homepage
+
+Route - /
+
+### Components
+import Hero from "components/hero/HomePageSplashScreen"
+import GalPrev from "components/cards/GalPreview"
+import AboutUs from "components/features/AboutUs"
+import WhyDCoder from "components/features/WhyDCoder"
+import Footer from "components/footers/Footer"
+import Testimonials from "components/testimonials/HomePageReviews"
+import ContactUs from "components/forms/HomePageContact"
+
+1. **HomePageSplashScreen**
+   Basic Splash Screen for homepage with navbar. Can be reused using component SplashScreenWithHeading (props: title = "xxx")
+
+2. **AboutUs**
+   Path - components/features/AboutUs
+   Basic reskin of the existing feature element for D_Coder homepage.
+
+3. **WhyDCoder**
+   Path - components/features/WhyDCoder
+   Basic reskin of the existing feature element for D_Coder homepage.
+
+4. **GalPrev**
+   Image gallery preview component. Includes slider controls and hover on slider.
+
+5. **Testimonials**
+   Reskin of Testimonial component for D_Coder homepage.
+
+6. **ContactUs**
+   Reskin of Contact us component for D_Coder homepage. Accepts form and can submit to DB/ mail to account.
+   
+7. **Footer**
+   Reskin of footer component for use across all D_Coder pages.
+
+
+
 ## Events
 
 Route - /events
