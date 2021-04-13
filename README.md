@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Events
 
-## Available Scripts
+Route - /events
 
-In the project directory, you can run:
+### Components
 
-### `npm start`
+1. **App**
+   Path - src/pages/events
+   The parent component of the Events page.
+   It defines the layout of the page and encapsulates all the other components.
+   It fetches data of the events from the creates the complete page using other components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. **EvtCard**
+   Path - src/pages/events/components
+   Props - count, title, description, image and schedule
+   This component renders events as a card.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. **WinnerCard**
+   Path - src/pages/events/component
+   Props - event, name, image, position and social media links
+   This component renders the layout for the winners.
 
-### `npm test`
+4. **Winner**
+   Path - src/pages/events/components
+   Props - winners
+   This component accepts the array of WinnerCard as a prop
+   and arranges them in a grid with the confetti animation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. **WinnerConfetti**
+   Path - src/pages/events/components
+   Props - none
+   This component uses the useWindowSize hook to calculate
+   the screen size and accordingly creates the confetti effect
+   using the react-confetti library.
 
-### `npm run build`
+### Hooks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **useWindowSize**
+   Path - src/pages/events/hooks
+   This hook calculates the width and height of the window where it is being used.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Libraries
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. [aos](https://www.npmjs.com/package/aos)
+2. [react-confetti](https://www.npmjs.com/package/react-confetti)
+3. [react-scroll-trigger](https://www.npmjs.com/package/react-scroll-trigger)
