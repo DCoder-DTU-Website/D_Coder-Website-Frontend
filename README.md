@@ -72,12 +72,53 @@ Route - /events
    This component uses the useWindowSize hook to calculate
    the screen size and accordingly creates the confetti effect
    using the react-confetti library.
-
+   
+   
+  
 ### Hooks
 
 1. **useWindowSize**
    Path - src/pages/events/hooks
    This hook calculates the width and height of the window where it is being used.
+   
+##Council 
+
+Route - /gallery
+
+###Components
+
+1. **App**
+   Path - src/pages/council/App
+   This component is the Parent Component of Council Page
+   and in contains Council Component 
+      Council Component Path - src/components/council/Council.js
+      
+2. **Council**
+   Path - src/components/council/councils.js
+   Components in Council.js
+      
+      a. council.css (import)
+         Path - src/components/council.council.css
+         Set -ve margin and background color of the council page
+      b. export default function
+         Contains Heading -> Team
+         and Sub-Heading
+         Object tabs - Contains image url, name, post of the heads
+      c. TabControl - 
+         section switch tab for sreen width > 640 px
+      d. TabControls - 
+         section switch tab for screen width <= 640 px
+      e. CardContainer - 
+         Card defining the image,name, position of a person
+      f. getCoHeads- 
+         Contains details of all Co-Heads
+      g. getDesigner - 
+         Contains details of all Designers
+      h. getDevelopers - 
+         getDesigner - 
+         Contains details of all Developers
+         
+
 
 ### Libraries
 
