@@ -1,3 +1,17 @@
 .Lectures-root {
   margin: -35px;
 }
+
+.Lectures-container-close {
+  transition: all 200ms ease-in-out;
+}
+
+.Lectures-container-open {
+  transition: all 200ms ease-in-out;
+  margin-left: 270px;
+}
+
+.SideNav-container {
+  margin-left: -32px;
+  position: absolute;
+}
