@@ -1,14 +1,18 @@
 .Lectures-root {
-  margin: -35px;
+  margin: 0 -35px;
+  display: flex;
 }
 
+.Lectures-video-container {
+  margin-left: 75px;
+}
 .Lectures-container-close {
   transition: all 200ms ease-in-out;
 }
 
 .Lectures-container-open {
   transition: all 200ms ease-in-out;
-  margin-left: 270px;
+  /* margin-left: 270px; */
 }
 
 .SideNav-container {

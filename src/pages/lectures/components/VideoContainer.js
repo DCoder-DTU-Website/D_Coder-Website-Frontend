@@ -5,8 +5,10 @@ import YoutubeVideo from "./YoutubeVideo";
 
 import fakeData from "../fakeData";
 
-const GridContainer = tw.div`grid grid-cols-3 gap-4`;
+const GridContainer = tw.div`grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3`;
 const VideoSection = tw.div`m-10 flex justify-center items-center`;
+const HeadingInfoContainer = tw.div`flex flex-col items-center`;
+const Subheading = tw.h3`text-3xl mb-5 font-bold text-blue-600`;
 
 function VideoContainer({ history, location, match }) {
   const { topic, subtopic } = match.params;
@@ -28,7 +30,14 @@ function VideoContainer({ history, location, match }) {
     </VideoSection>
   ));
 
-  return <GridContainer>{displayVideos}</GridContainer>;
+  return (
+    <>
+      <HeadingInfoContainer>
+        <Subheading>{subtopic.toUpperCase()}</Subheading>
+      </HeadingInfoContainer>
+      <GridContainer>{displayVideos}</GridContainer>
+    </>
+  );
 }
 
 export default VideoContainer;

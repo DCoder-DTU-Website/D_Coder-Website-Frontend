@@ -6,12 +6,10 @@ $icon-bg-color: #1a202c;
 @import "~react-pro-sidebar/dist/scss/styles.scss";
 
 .Sidenav-root {
-  height: auto;
+  height: 100%;
   background-color: white;
 }
 
 .Sidenav-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 50px;
 }

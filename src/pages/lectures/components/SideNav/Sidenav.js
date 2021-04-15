@@ -12,14 +12,12 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { FaDatabase, FaNetworkWired } from "react-icons/fa";
 import { MdPersonalVideo } from "react-icons/md";
 
-import dCoderLogo from "./D_CODER_LOGO_WHITE.png";
-
 import "./Sidenav.scss";
 
 import { Link } from "react-router-dom";
 
 function Sidenav({ navOpen }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
@@ -93,9 +91,7 @@ function Sidenav({ navOpen }) {
         </Menu>
       </SidebarContent>
       <SidebarFooter className="Sidenav-footer">
-        <Menu iconShape="circle">
-          <MenuItem icon={<img src={dCoderLogo} height={60} width={100} />} />
-        </Menu>
+        <Menu iconShape="circle"></Menu>
       </SidebarFooter>
     </ProSidebar>
   );

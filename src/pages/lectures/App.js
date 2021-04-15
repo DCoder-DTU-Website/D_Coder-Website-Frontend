@@ -10,19 +10,44 @@ import SideNav from "./components/SideNav/Sidenav";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
+const BigContainer = tw.div`bg-gray-900`;
 const Container = tw.div`relative bg-gray-900`; //bg-gray-900
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-const HeadingTitle = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center text-white`; //text-white
-const Subheading = tw.h3`text-3xl mt-5 font-bold text-blue-600`;
-const Content = tw.div`mt-16`;
+const HeadingTitle = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center text-white `; //text-white
+const Content = tw.div`mt-8`;
 
 export default function Lectures() {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(true);
   return (
     <BrowserRouter>
       <MinNavbar className="Navbar" />
-      <div className="SideNav-container">
+      <BigContainer className="Lectures-root">
+        <Container className="Lectures-sidenav-container">
+          <SideNav navOpen={setIsNavOpen} />
+        </Container>
+        <Container className="Lectures-video-container">
+          <section
+            className={`Lectures-container-close ${
+              isNavOpen && "Lectures-container-open"
+            }`}
+          >
+            <SingleColumn>
+              <HeadingInfoContainer>
+                <HeadingTitle>Lectures</HeadingTitle>
+              </HeadingInfoContainer>
+              <Content>
+                <Route
+                  exact
+                  path="/lectures/:topic/:subtopic"
+                  component={VideoContainer}
+                />
+              </Content>
+            </SingleColumn>
+          </section>
+        </Container>
+      </BigContainer>
+      {/* <div className="SideNav-container">
         <SideNav navOpen={setIsNavOpen} />
       </div>
       <Container className="Lectures-root">
@@ -34,7 +59,6 @@ export default function Lectures() {
           <SingleColumn>
             <HeadingInfoContainer>
               <HeadingTitle>Lectures</HeadingTitle>
-              <Subheading>Watch and Learn</Subheading>
             </HeadingInfoContainer>
             <Content>
               <Route
@@ -45,7 +69,7 @@ export default function Lectures() {
             </Content>
           </SingleColumn>
         </section>
-      </Container>
+      </Container> */}
       <Footer />
     </BrowserRouter>
   );
