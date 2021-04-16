@@ -29,7 +29,7 @@ function App() {
           <Route path="/projects">
             <Projects />
           </Route>
-          <Route path="/lectures">
+          <Route path="/lectures/dsa/arrays">
             <Lectures />
           </Route>
           <Route path="/alumni">
