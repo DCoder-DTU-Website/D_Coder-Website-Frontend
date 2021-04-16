@@ -3,6 +3,7 @@ import Gallery from "react-photo-gallery";
 import { photos } from "./photos";
 import Car from "../Gallery/coverFlow"
 import Carousel, { Modal, ModalGateway } from "react-images";
+import CoverFlow from '../Gallery/coverFlow'
 
 
 export default function PhotoIndex() {
@@ -20,23 +21,20 @@ const openLightbox = useCallback((event, { photo, index }) => {
   };
   return (
     <div style = {{
-        padding:"7%",
+        padding:"10%",
         // backgroundColor:"rgb(26,32,44)",
         marginLeft:"-35px",
         marginRight:"-35px",
+        marginBottom:"-35px"
     }} >
       <Gallery photos={photos}  onClick = {openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={photos.map(x => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title
-              }))}
+            <CoverFlow 
+            slideIndex={currentImage}
             />
+            
           </Modal>
         ) : null}
       </ModalGateway>

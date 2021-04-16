@@ -76,7 +76,6 @@ body {
   transform: perspective(1000px) translateX(calc(100% * var(--offset)))
     rotateY(calc(-45deg * var(--dir)));
     border-radius: 5%;
-    box-shadow: 10px 10px 5px white;
 }
 
 .slideContentInner {
@@ -93,6 +92,13 @@ body {
   letter-spacing: 0.2ch;
   text-transform: uppercase;
   margin: 0;
+}
+
+
+.slideTitle{
+  text-align: center;
+  padding-top: 560px;
+  color: white;
 }
 .slideContentInner .slideSubtitle::before {
   content: "— ";

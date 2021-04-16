@@ -5,7 +5,7 @@ export const photos = [
     src: "https://www.picsum.photos/700/700",
     width: w,
     height: h,
-    title:"President"
+    title:"Senior Se Mulaqat"
   },
   {
     src: "https://www.picsum.photos/401/601",
