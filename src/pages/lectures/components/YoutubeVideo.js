@@ -8,7 +8,7 @@ function YoutubeVideo({ count, link, subtopic }) {
         height="196.88"
         src={link}
         title={`${subtopic} - ${count}`}
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
       ></iframe>
     </div>

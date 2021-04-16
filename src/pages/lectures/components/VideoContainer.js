@@ -5,10 +5,10 @@ import YoutubeVideo from "./YoutubeVideo";
 
 import fakeData from "../fakeData";
 
-const GridContainer = tw.div`grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3`;
+const GridContainer = tw.div`grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3`;
 const VideoSection = tw.div`m-10 flex justify-center items-center`;
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-const Subheading = tw.h3`text-3xl mb-5 font-bold text-blue-600`;
+const HeadingTitle = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center text-white`;
 
 function VideoContainer({ history, location, match }) {
   const { topic, subtopic } = match.params;
@@ -20,9 +20,9 @@ function VideoContainer({ history, location, match }) {
   );
 
   const displayVideos = topicVideos.map((video, index) => (
-    <VideoSection>
+    <VideoSection key={index}>
       <YoutubeVideo
-        key={video.id}
+        key={index}
         count={index}
         link={video.link}
         subtopic={video.subtopic}
@@ -33,9 +33,15 @@ function VideoContainer({ history, location, match }) {
   return (
     <>
       <HeadingInfoContainer>
-        <Subheading>{subtopic.toUpperCase()}</Subheading>
+        <HeadingTitle>{subtopic.toUpperCase()}</HeadingTitle>
       </HeadingInfoContainer>
-      <GridContainer>{displayVideos}</GridContainer>
+      {displayVideos.length ? (
+        <GridContainer>{displayVideos}</GridContainer>
+      ) : (
+        <HeadingInfoContainer>
+          <HeadingTitle>Coming Soon...</HeadingTitle>
+        </HeadingInfoContainer>
+      )}
     </>
   );
 }

@@ -13,3 +13,12 @@ $icon-bg-color: #1a202c;
 .Sidenav-footer {
   height: 50px;
 }
+
+.Sidenav-root-mobile {
+  width: 100%;
+}
+
+.pro-sidebar-layout::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+}

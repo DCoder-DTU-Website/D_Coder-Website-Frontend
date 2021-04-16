@@ -36,6 +36,24 @@ const fakeData = [
     subtopic: "Arrays",
   },
   {
+    id: 25,
+    link: "https://www.youtube.com/embed/VB_GWz25B3Q",
+    topic: "DSA",
+    subtopic: "Arrays",
+  },
+  {
+    id: 26,
+    link: "https://www.youtube.com/embed/VB_GWz25B3Q",
+    topic: "DSA",
+    subtopic: "Arrays",
+  },
+  {
+    id: 27,
+    link: "https://www.youtube.com/embed/VB_GWz25B3Q",
+    topic: "DSA",
+    subtopic: "Arrays",
+  },
+  {
     id: 7,
     link: "https://www.youtube.com/embed/Jzfpyo-q-RM",
     topic: "DSA",

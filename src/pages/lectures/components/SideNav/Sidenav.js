@@ -10,11 +10,18 @@ import {
 } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 import { FaDatabase, FaNetworkWired } from "react-icons/fa";
-import { MdPersonalVideo } from "react-icons/md";
+import { BsChevronDoubleRight, BsChevronDoubleLeft } from "react-icons/bs";
 
 import "./Sidenav.scss";
 
 import { Link } from "react-router-dom";
+
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 
 function Sidenav({ navOpen }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,13 +32,21 @@ function Sidenav({ navOpen }) {
   };
 
   return (
-    <ProSidebar className="Sidenav-root" collapsed={isOpen}>
+    <ProSidebar
+      className={`Sidenav-root ${isMobile && `Sidenav-root-mobile`}`}
+      collapsed={isOpen}
+    >
       <SidebarHeader>
-        <Menu iconShape="circle">
-          <MenuItem icon={<MdPersonalVideo />} onClick={toggleNav}>
-            Lectures
-          </MenuItem>
-        </Menu>
+        <BrowserView>
+          <Menu iconShape="circle">
+            <MenuItem
+              icon={isOpen ? <BsChevronDoubleRight /> : <BsChevronDoubleLeft />}
+              onClick={toggleNav}
+            >
+              Lectures
+            </MenuItem>
+          </Menu>
+        </BrowserView>
       </SidebarHeader>
       <SidebarContent>
         <Menu iconShape="circle">
