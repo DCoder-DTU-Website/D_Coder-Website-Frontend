@@ -2,9 +2,10 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
-import "./WinnerCard.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import "./WinnerCard.css";
 
 const Card = tw.div`mt-24 w-full sm:w-1/2 lg:w-1/3 flex flex-col items-center`;
 const CardImage = styled.div`
@@ -20,7 +21,7 @@ const CardContent = styled.div`
     ${tw`uppercase font-bold tracking-widest text-xs text-blue-600`}
   }
   .name {
-    ${tw`mt-1 text-xl font-medium text-gray-900`}
+    ${tw`mt-1 text-xl font-medium text-white`}
   9
 `;
 

@@ -7,10 +7,11 @@ import {
   Subheading as SubheadingBase,
 } from "components/misc/Headings";
 import { SectionDescription } from "components/misc/Typography";
+
 import WinnerConfetti from "./WinnerConfetti";
 
 const HeadingContainer = tw.div``;
-const Heading = tw(SectionHeading)`text-white`; //text-white
+const Heading = tw(SectionHeading)`text-white`;
 const Subheading = tw(SubheadingBase)`text-center mb-3 text-blue-600`;
 const Description = tw(SectionDescription)`mx-auto text-center`;
 
