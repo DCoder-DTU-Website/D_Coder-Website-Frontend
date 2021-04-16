@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import tw from "twin.macro";
 import "style.css";
 import "tailwindcss/dist/base.css";
-import AnimationRevealPage from "helpers/AnimationRevealPage";
 import Hero from "components/hero/SplashScreenWithHeading";
 import Footer from "components/footers/Footer";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { ReactComponent as SvgDotPatternIcon } from "images/dot-pattern.svg";
+
+import "./App.css";
 import EvtCard from "./components/EvtCard";
-import "./EventPage.css";
 import fakeData from "./data";
 import WinnerCard from "./components/WinnerCard";
 import Winners from "./components/Winners";
-const Container = tw.div`relative bg-gray-900`; //bg-gray-900
+
+const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-// const HeadingTitle = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center text-white`; //text-white
 const Subheading = tw.h3`text-3xl mt-5 font-bold text-blue-600`;
 const Content = tw.div`mt-16`;
 
@@ -68,51 +67,35 @@ function EventPage() {
     />
   ));
 
-  // const fetchMoreEvts = () => {
-  //   previousEvents = previousEvents * 2;
-  // };
-
   return (
-    // <InfiniteScroll
-    //   dataLength={previousEvents.length}
-    //   next={fetchMoreEvts}
-    //   hasMore={true}
-    //   loader={<h4>Loading...</h4>}
-    //   endMessage={<h1>Done</h1>}
-    // >
     <>
-    <Hero title="Events" />
-    <Container className="EventPage-root">
-      <SingleColumn>
-        {/* <HeadingInfoContainer>
-          <HeadingTitle>Events</HeadingTitle>
-        </HeadingInfoContainer> */}
-        <section>
-          <HeadingInfoContainer>
-            <Subheading>Upcoming Events</Subheading>
-          </HeadingInfoContainer>
-          <Content>{upcomingEvents}</Content>
-        </section>
-        <section>
-          <Winners winners={winners} />
-        </section>
-        <section>
-          <HeadingInfoContainer>
-            <Subheading>Previous Events</Subheading>
-          </HeadingInfoContainer>
-          <Content>{previousEvents}</Content>
-        </section>
-      </SingleColumn>
-      <SvgDotPattern1 />
-      <SvgDotPattern2 />
-      <SvgDotPattern3 />
-      <SvgDotPattern4 />
-    </Container>
-    <Footer />
+      <Hero title="Events" />
+      <Container className="EventPage-root">
+        <SingleColumn>
+          <section>
+            <HeadingInfoContainer>
+              <Subheading>Upcoming Events</Subheading>
+            </HeadingInfoContainer>
+            <Content>{upcomingEvents}</Content>
+          </section>
+          <section>
+            <Winners winners={winners} />
+          </section>
+          <section>
+            <HeadingInfoContainer>
+              <Subheading>Previous Events</Subheading>
+            </HeadingInfoContainer>
+            <Content>{previousEvents}</Content>
+          </section>
+        </SingleColumn>
+        <SvgDotPattern1 />
+        <SvgDotPattern2 />
+        <SvgDotPattern3 />
+        <SvgDotPattern4 />
+      </Container>
+      <Footer />
     </>
-    // </InfiniteScroll>
   );
 }
 
 export default EventPage;
-
