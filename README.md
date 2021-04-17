@@ -179,7 +179,6 @@ Route - /gallery
 
 Route - /lectures/dsa/arrays
 
-### Libraries
 ### Components
 
 1. **App**
