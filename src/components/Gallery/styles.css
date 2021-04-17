@@ -63,8 +63,8 @@ body {
 }
 
 .slideContent {
-  width: 30vw;
-  height: 40vw;
+  width: 20vw;
+  height: 30vw;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -97,7 +97,7 @@ body {
 
 .slideTitle{
   text-align: center;
-  padding-top: 560px;
+  padding-top: 500px;
   color: white;
 }
 .slideContentInner .slideSubtitle::before {
