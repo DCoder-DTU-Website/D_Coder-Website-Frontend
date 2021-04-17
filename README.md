@@ -98,7 +98,7 @@ Route - /council
    Components in Council.js
 
 
-### 3 - 10 Point for council.js
+**3 - 10 Point for council.js**
 
 3. **council.css (import)**
    Path - src/components/council.council.css
