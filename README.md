@@ -83,7 +83,7 @@ Route - /events
    
 ## Council 
 
-Route - /gallery
+Route - /council
 
 ### Components
 
@@ -98,7 +98,7 @@ Route - /gallery
    Components in Council.js
 
 
-## 3 - 10 Point for council.js
+### 3 - 10 Point for council.js
 
 3. **council.css (import)**
    Path - src/components/council.council.css
@@ -128,44 +128,55 @@ Route - /gallery
    getDesigner - 
    Contains details of all Developers
          
-## Lectures
+         
+## Gallery 
 
-Route - /lectures/dsa/arrays
+Route - /gallery
 
 ### Components
+   1. **App.js**
+      Parent File of Gallery that includes - 
+      a. **Hero** - Header 
+      b. **PhotoIndex** - Main Content of Gallery discussed in Pt. 2
+      c. **Footer** - Footer
+      
+   2. **photoindex.js**
+      Path - src/components/PhotoGallery/photoindex.js
+      ### Require Modules Importes - 
+      a. **react-photo-gallery     (npm install react-photo-gallery) **   
+         Module Used to arrange all the photos imported from the photos file in the by default manner as per the module.
+      b. **./photos                (src/components/PhotoGallery/photos.js)**
+         File contains the information of all the images is an array photos; Fields in the array - src(image url),w(width of the image to be set as constant or manually),h(height of the image to be set as constant or manually), title (brief description of the images)
+      c. **react-images            (npm install react-images)**
+         Import Modal and ModalGateway from the react-images used to open the 3D Carousel by clicking an image
+      d. **./Gallery/coverFlow     (src/components/Gallery/coverFlow.js)**
+         Import Carousel from the coverFlow file that is the 3D Carousel
+         
+         
+   3. **photos.js**
+      Path - src/components/PhotoGallery/photos.js
+      File contains the information of all the images is an array photos; Fields in the array - src(image url),w(width of the image to be set as constant or manually),h(height of the image to be set as constant or manually), title (brief description of the images)
+      
+   4. **coverFlow.js**
+       Path - src/components/Gallery/coverFlow.css
+       File Conatiner the Code for the 3D Carousel appeard on clicked any image
+       
+       ### Components within coverFlow.js
+       a. **slides** 
+          Data of the Images
+       b. **slideReducer**
+          Function that changes the image on clicking the next or previous button
+       c. **Slide**
+          Function that delivers the Slide Content
+       d. **export default**
+          Main function that is to be exported. Takes slideIndex as parameter and takes the value of slideIndex from the file photoIndex.js (src/components/PhotoGallery/photoindex.js) that takes the value of the index of the image that is clicked by the user. This function is resonsible for the arranging the slides and let traversing.
+       
+   5. **styles.js**
+      Path - src/components/Gallery/styles.css
+      File styled the 3D Carousel
 
-1. **App**
-   Path - src/pages/lectures
-   The parent component of the Lectures page.
-   It defines the layout of the page and encapsulates all the other components.
-   It fetches data of the lectures from the backend and creates the complete page using other components.
-   Sidenav component is used to route to a particular topic and subtopic and the component renders the videos
-   accordingly.
-
-2. **VideoContainer**
-   Path - src/pages/lectures/components
-   Props - history, location, match (from react-router)
-   This component picks the topic and subtopic from the url params and filters out the videos
-   received as a response object from the backend and renders the videos.
-
-3. **YoutubeVideo**
-   Path - src/pages/lectures/components
-   Props - count, link, subtopic
-   This component embeds the youtube video using the "iframe" tag.
-
-4. **Sidenav**
-   Path - src/pages/lectures/components/SideNav
-   Props - navOpen
-   This is the sidenav component which is used to filter the videos according to
-   the topic and the subtopic. The navOpen prop is used to update the parent component
-   regarding the state of the navbar.
-   
-
-## Libraries
+### Libraries
 
 1. [aos](https://www.npmjs.com/package/aos)
 2. [react-confetti](https://www.npmjs.com/package/react-confetti)
 3. [react-scroll-trigger](https://www.npmjs.com/package/react-scroll-trigger)
-4. [react-device-detect](https://www.npmjs.com/package/react-device-detect)
-5. [react-icons](https://www.npmjs.com/package/react-icons)
-6. [react-pro-sidebar](https://www.npmjs.com/package/react-pro-sidebar)
