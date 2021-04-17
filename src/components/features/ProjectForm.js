@@ -8,10 +8,11 @@ import {
 } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import EmailIllustrationSrc from "images/projectUpload.svg";
-import Upload from "./ImageUpload";
+import Upload from "./Upload/Upload";
+import Textarea from "./Textarea";
 
 const Container = tw.div`relative px-10`;
-const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto `;
+const TwoColumn = tw.div`flex flex-col-reverse md:flex-row justify-between max-w-screen-xl mx-auto items-center`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto`;
 const TextColumn = styled(Column)((props) => [
@@ -34,20 +35,15 @@ const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:t
 
 const Form = tw.form`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`;
 const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-blue-600`;
-const Textarea = styled(Input).attrs({ as: "textarea" })`
-  ${tw`h-24`}
-`;
+// const Textarea = styled(Input).attrs({ as: "textarea" })`
+//   ${tw`h-24 w-full `}
+// `;
 
 const SubmitButton = tw(
   PrimaryButtonBase
 )`inline-block mt-8 bg-blue-600 hocus:bg-blue-800`;
 
 export default ({
-  heading = (
-    <>
-      Enter The <span tw="text-blue-600">Details</span>
-    </>
-  ),
   submitButtonText = "Upload",
   formAction = "#",
   formMethod = "get",
@@ -58,12 +54,12 @@ export default ({
   return (
     <Container>
       <TwoColumn>
-        <ImageColumn>
-          <Image imageSrc={EmailIllustrationSrc} />
-        </ImageColumn>
+        <TextColumn>
+          <Textarea rows={7} cols={50} limit={300} value="" />,
+          <Upload />
+        </TextColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
-            <Heading>{heading}</Heading>
             <Form action={formAction} method={formMethod}>
               <Input
                 type="text"
@@ -84,9 +80,7 @@ export default ({
                 placeholder="Tech Stack"
                 required
               />
-              <Textarea name="description" placeholder="Description" required />
               <br />
-              <Upload />
               <SubmitButton type="submit">{submitButtonText}</SubmitButton>
             </Form>
           </TextContent>

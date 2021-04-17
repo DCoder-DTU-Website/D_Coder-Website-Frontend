@@ -76,14 +76,6 @@ export default function FullScreenDialog() {
             <Typography variant="h6" className={classes.title}>
               Enter Details
             </Typography>
-            <Button
-              autoFocus
-              color="inherit"
-              onClick={handleClose}
-              style={{ outline: "0" }}
-            >
-              Upload
-            </Button>
           </Toolbar>
         </AppBar>
         <Form/>
