@@ -128,10 +128,44 @@ Route - /gallery
    getDesigner - 
    Contains details of all Developers
          
+## Lectures
 
+Route - /lectures/dsa/arrays
 
-### Libraries
+### Components
+
+1. **App**
+   Path - src/pages/lectures
+   The parent component of the Lectures page.
+   It defines the layout of the page and encapsulates all the other components.
+   It fetches data of the lectures from the backend and creates the complete page using other components.
+   Sidenav component is used to route to a particular topic and subtopic and the component renders the videos
+   accordingly.
+
+2. **VideoContainer**
+   Path - src/pages/lectures/components
+   Props - history, location, match (from react-router)
+   This component picks the topic and subtopic from the url params and filters out the videos
+   received as a response object from the backend and renders the videos.
+
+3. **YoutubeVideo**
+   Path - src/pages/lectures/components
+   Props - count, link, subtopic
+   This component embeds the youtube video using the "iframe" tag.
+
+4. **Sidenav**
+   Path - src/pages/lectures/components/SideNav
+   Props - navOpen
+   This is the sidenav component which is used to filter the videos according to
+   the topic and the subtopic. The navOpen prop is used to update the parent component
+   regarding the state of the navbar.
+   
+
+## Libraries
 
 1. [aos](https://www.npmjs.com/package/aos)
 2. [react-confetti](https://www.npmjs.com/package/react-confetti)
 3. [react-scroll-trigger](https://www.npmjs.com/package/react-scroll-trigger)
+4. [react-device-detect](https://www.npmjs.com/package/react-device-detect)
+5. [react-icons](https://www.npmjs.com/package/react-icons)
+6. [react-pro-sidebar](https://www.npmjs.com/package/react-pro-sidebar)
