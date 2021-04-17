@@ -121,7 +121,7 @@ Route - /gallery
 2. [react-confetti](https://www.npmjs.com/package/react-confetti)
 3. [react-scroll-trigger](https://www.npmjs.com/package/react-scroll-trigger)
 
-## Homepage
+## Projects
 
 Route - /projects
 
