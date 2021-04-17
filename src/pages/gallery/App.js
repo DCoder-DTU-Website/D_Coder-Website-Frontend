@@ -19,7 +19,8 @@ export default function Council() {
   return (
     <Router> 
     <div className = "back">
-      <Hero title = "A Glance At The Past" />
+      <div style = {{zIndex:"0"}}>
+      <Hero title = "A Glance At The Past" /></div>
       <div style = {{
         backgroundColor:"rgb(26,32,44)",
         margin:"-35px"
