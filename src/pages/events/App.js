@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../api/apiClient";
+
 import tw from "twin.macro";
 import "style.css";
 import "tailwindcss/dist/base.css";
@@ -33,28 +35,83 @@ const SvgDotPattern4 = tw(
 
 function EventPage() {
   const [evtData, setEvtData] = useState(fakeData);
+  const [evtsB, setEvtsB] = useState([]);
 
-  const upcomingEvents = evtData.upcomingEvents.map((evt, i) => (
+  const getEvents = async () => {
+    try {
+      const { data } = await api.get("/event/all");
+      const { data: evts } = data;
+      evts.forEach((evt) => {
+        evt.startDate = Date.parse(evt.startDate);
+        evt.endDate = Date.parse(evt.endDate);
+      });
+      setEvtsB(evts);
+    } catch (err) {
+      console.log("Could not retrieve Events!", err);
+    }
+  };
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+
+  const upcomingEventsData = evtsB.filter(
+    (evt) => evt.endDate - Date.now() >= 0
+  );
+
+  upcomingEventsData.sort((a, b) => a.startDate - b.startDate);
+
+  const previousEventsData = evtsB.filter(
+    (evt) => evt.endDate - Date.now() < 0
+  );
+
+  previousEventsData.sort((a, b) => a.startDate - b.startDate);
+
+  const upcomingEvents = upcomingEventsData.map((evt, i) => (
     <EvtCard
       key={i}
       count={i}
       title={evt.title}
-      desc={evt.description}
+      desc={evt.desc}
       img={evt.image}
-      schedule={evt.schedule}
+      startDate={evt.startDate}
+      endDate={evt.endDate}
     />
   ));
 
-  const previousEvents = evtData.previousEvents.map((evt, i) => (
+  // const upcomingEvents = evtData.upcomingEvents.map((evt, i) => (
+  //   <EvtCard
+  //     key={i}
+  //     count={i}
+  //     title={evt.title}
+  //     desc={evt.description}
+  //     img={evt.image}
+  //     schedule={evt.schedule}
+  //   />
+  // ));
+
+  const previousEvents = previousEventsData.map((evt, i) => (
     <EvtCard
       key={i}
       count={i}
       title={evt.title}
-      desc={evt.description}
+      desc={evt.desc}
       img={evt.image}
-      schedule={evt.schedule}
+      startDate={evt.startDate}
+      endDate={evt.endDate}
     />
   ));
+
+  // const previousEvents = evtData.previousEvents.map((evt, i) => (
+  //   <EvtCard
+  //     key={i}
+  //     count={i}
+  //     title={evt.title}
+  //     desc={evt.description}
+  //     img={evt.image}
+  //     schedule={evt.schedule}
+  //   />
+  // ));
 
   const winners = evtData.winners.map((winner, i) => (
     <WinnerCard
