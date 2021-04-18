@@ -217,7 +217,7 @@ Route - /alumni
 1. **App**
    Path - src/pages/alumni/App
    This component is the Parent Component of Alumni Page
-   and in contains Alumni Component 
+   and contains Alumni Component 
       Council Component Path - src/components/alumni/Alumnis.js
       
 2. **Alumnis Component**
@@ -235,8 +235,38 @@ Route - /alumni
 5. **CardContainer**
    Card defining the image,name, position of a person
 
-         
+ ## Error Pages
+ 
+ 
+ 
+### Admin Error
 
+Route-/miscellaneous/AdminError
+
+1. **Main Page**
+   Path - src/pages/miscellaneous/AdminError/index.js
+   This component is the Parent Component of Admin Error Page
+   and contains Admin Error Component 
+      Admin Error Component Path - src/pages/miscellaneous/AdminError/App.js
+      
+2. **Admin Error Component**
+   Path - src/pages/miscellaneous/AdminError/App.js
+   Components in AdminError
+  
+4. **AdminError css path (import)**
+   Path - src/pages/miscellaneous/AdminError/App.css
+   
+  
+### Error404
+
+Route-/miscellaneous/Error404
+
+1. **Main Page**
+   Path - src/pages/miscellaneous/Error404/index.js
+   
+4. **Error404.css path (import)**
+   Path - src/pages/miscellaneous/Error404/Error404.css
+   
 ## Libraries
 
 1. [aos](https://www.npmjs.com/package/aos)
