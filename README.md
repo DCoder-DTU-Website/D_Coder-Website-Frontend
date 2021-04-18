@@ -101,7 +101,7 @@ Route - /council
 **3 - 10 Point for council.js**
 
 3. **council.css (import)**
-   Path - src/components/council.council.css
+   Path - src/components/council/council.css
    Set -ve margin and background color of the council page
    
 4. **export default function**
@@ -206,7 +206,36 @@ Route - /lectures/dsa/arrays
    This is the sidenav component which is used to filter the videos according to
    the topic and the subtopic. The navOpen prop is used to update the parent component
    regarding the state of the navbar.
+   
 
+## Alumni
+
+Route - /alumni
+
+### Components
+
+1. **App**
+   Path - src/pages/alumni/App
+   This component is the Parent Component of Alumni Page
+   and in contains Alumni Component 
+      Council Component Path - src/components/alumni/Alumnis.js
+      
+2. **Alumnis Component **
+   Path - src/components/alumni/Alumnis.js
+   Components in Alumnis.js
+   
+3. **export default function**
+   Contains Heading -> Team
+   and Sub-Heading
+   Object tabs - Contains image url, name, post of the heads
+
+4. **alumni.css (import)**
+   Path - src/components/alumni/alumni.css
+   
+5. **CardContainer**
+   Card defining the image,name, position of a person
+
+         
 
 ## Libraries
 
