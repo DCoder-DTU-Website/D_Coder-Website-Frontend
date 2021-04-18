@@ -220,7 +220,7 @@ Route - /alumni
    and in contains Alumni Component 
       Council Component Path - src/components/alumni/Alumnis.js
       
-2. **Alumnis Component **
+2. **Alumnis Component**
    Path - src/components/alumni/Alumnis.js
    Components in Alumnis.js
    
