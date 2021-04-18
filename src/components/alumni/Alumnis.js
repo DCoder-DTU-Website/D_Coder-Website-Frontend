@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { useMediaQuery } from 'react-responsive'
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
-import { BlueButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import { ReactComponent as StarIcon } from "images/star-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 import './alumni.css';
@@ -115,9 +112,6 @@ export default ({
    * To see what attributes are configurable of each object inside this array see the example above for "Starters".
    */
   const tabsKeys = Object.keys(tabs);
-  const [activeTab, setActiveTab] = useState(tabsKeys[0]);
-  const isMobile = useMediaQuery({ query: '(max-width: 640px)' });
-  const isnotMobile = useMediaQuery({ query: '(min-width: 641px)' });
   return (
     <Container className="councilStyle" style={{ textAlign: "center" }}>
       <ContentWithPaddingXl>
