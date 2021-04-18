@@ -10,7 +10,7 @@ import Gallery from "pages/gallery/App";
 import Lectures from "pages/lectures/App";
 import Projects from "pages/projects/App";
 import Alumni from "pages/alumni/App";
-import Admin from "pages/admin/App";
+import Admin from "pages/admin/index";
 
 function App() {
   return (
