@@ -1,25 +1,20 @@
-import React from "react"
-import "style.css"
-import "tailwindcss/dist/base.css"
-import Hero from "components/hero/MinNavbar"
-import GalPrev from "components/cards/GalPreview"
-import AboutUs from "components/features/AboutUs"
-import WhyDCoder from "components/features/WhyDCoder"
-import Footer from "components/footers/Footer"
-import Testimonials from "components/testimonials/HomePageReviews"
-import ContactUs from "components/forms/HomePageContact"
+import React from "react";
+import "style.css";
+import "tailwindcss/dist/base.css";
+import AnimationRevealPage from "helpers/AnimationRevealPage";
+import Navbar from "components/hero/MinNavbar";
+import Hero from "../../components/hero/SplashScreenWithHeading";
+import GalPrev from "components/cards/GalPreview";
+import Testimonials from "components/testimonials/HomePageReviews";
+import Alumnis from "../../components/alumni/Alumnis";
+import Footer from "../../components/footers/Footer";
 
-export default function Events() {
+export default function Alumni() {
   return (
-  	<>
-    <Hero onClick={e=>console.log(1)}/>
- 	<AboutUs />
- 	<WhyDCoder />
- 	<GalPrev />
-	<Testimonials/>
-	<div id="ContactUs"><ContactUs /></div>
-	<Footer />
-	</>
+    <div>
+      <Navbar />
+      <Alumnis />
+      <Footer />
+    </div>
   );
 }
-
