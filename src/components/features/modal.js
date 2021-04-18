@@ -10,6 +10,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import Form from "./ProjectForm"
 
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
@@ -76,14 +77,6 @@ export default function FullScreenDialog() {
             <Typography variant="h6" className={classes.title}>
               Enter Details
             </Typography>
-            <Button
-              autoFocus
-              color="inherit"
-              onClick={handleClose}
-              style={{ outline: "0" }}
-            >
-              Upload
-            </Button>
           </Toolbar>
         </AppBar>
         <Form/>

@@ -275,3 +275,29 @@ Route-/miscellaneous/Error404
 4. [react-device-detect](https://www.npmjs.com/package/react-device-detect)
 5. [react-icons](https://www.npmjs.com/package/react-icons)
 6. [react-pro-sidebar](https://www.npmjs.com/package/react-pro-sidebar)
+
+## Projects
+
+Route - /projects
+
+### Components
+1. **App**
+   Path - src/pages/projects/
+2. **Project**
+   Path - src/components/features/project.js
+   This is project interface.
+3. **Modal**
+   Path - src/components/features/modal.js
+   This is for the full screen modal that opens up on clicking upload project on main project page
+4. **ProjectForm**
+   Path - src/components/features/ProjectForm.js
+   This is component inside the modal
+5. **Textarea**
+   Path - src/components/features/Textarea.js
+   This is compoment used in ProjectForm for description
+6. **Upload**
+   Path - src/components/features/Upload/Upload.js
+   This is component inside the ProjectForm
+
+   For uploading used this [module](https://www.npmjs.com/package/react-images-uploading)
+
