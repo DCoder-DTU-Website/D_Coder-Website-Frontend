@@ -13,6 +13,12 @@ import EvtCard from "./components/EvtCard";
 import WinnerCard from "./components/WinnerCard";
 import Winners from "./components/Winners";
 
+import dummyImage from "./dummyImage.jpg";
+
+import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
+import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
+import { ReactComponent as GithubIcon } from "images/github-icon.svg";
+
 const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
@@ -31,12 +37,6 @@ const SvgDotPattern3 = tw(
 const SvgDotPattern4 = tw(
   SvgDotPatternIcon
 )`absolute bottom-0 right-0 transform translate-x-20 rotate-90 -translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
-
-import dummyImage from "./dummyImage.jpg";
-
-import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
-import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
-import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 
 const winners = [
   {
@@ -177,7 +177,7 @@ function EventPage() {
     (evt) => evt.endDate - Date.now() < 0
   );
 
-  previousEventsData.sort((a, b) => a.startDate - b.startDate);
+  previousEventsData.sort((a, b) => b.startDate - a.startDate);
 
   const upcomingEvents = upcomingEventsData.map((evt, i) => (
     <EvtCard
