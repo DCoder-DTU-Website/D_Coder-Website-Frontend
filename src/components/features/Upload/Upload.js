@@ -1,6 +1,5 @@
 import React from "react";
 import ImageUploading from "react-images-uploading";
-import { FaUpload } from "react-icons/fa";
 import "./style.css";
 
 export default () => {
@@ -8,7 +7,6 @@ export default () => {
   const maxNumber = 1;
 
   const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
@@ -31,7 +29,6 @@ export default () => {
           isDragging,
           dragProps,
         }) => (
-          // write your building UI
           <div className="upload__image-wrapper">
             <button
               style={isDragging ? { backgroundColor: "#1A202C" } : undefined}

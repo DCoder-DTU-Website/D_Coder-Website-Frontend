@@ -1,91 +1,187 @@
 import React from "react";
-import tw from "twin.macro";
-import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import {
-  SectionHeading,
-  Subheading as SubheadingBase,
-} from "components/misc/Headings.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import EmailIllustrationSrc from "images/projectUpload.svg";
+import api from "../../api/apiClient";
+import formurlencoded from "form-urlencoded";
+
+import { makeStyles } from "@material-ui/styles";
+
+import { TextField, Button } from "@material-ui/core";
+
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import Upload from "./Upload/Upload";
-import Textarea from "./Textarea";
 
-const Container = tw.div`relative px-10`;
-const TwoColumn = tw.div`flex flex-col-reverse md:flex-row justify-between max-w-screen-xl mx-auto items-center`;
-const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
-const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto`;
-const TextColumn = styled(Column)((props) => [
-  tw`md:w-7/12 mt-16 md:mt-0`,
-  props.textOnLeft
-    ? tw`md:mr-12 lg:mr-16 md:order-first`
-    : tw`md:ml-12 lg:ml-16 md:order-last`,
-]);
+const validationSchema = Yup.object().shape({
+  title: Yup.string()
+    .required()
+    .max(30)
+    .matches(/^[a-z0-9 ]+$/i, "Project Title must be alpha-numeric.")
+    .label("Title"),
+  desc: Yup.string().required().min(20).max(500).label("Description"),
+  dev: Yup.string().required().max(20).label("Owner Name"),
+  techStack: Yup.string().required().label("Tech Stack"),
+  linkedin: Yup.string()
+    .required()
+    .label("LinkedIn")
+    .matches(
+      new RegExp("^https://www.linkedin\\.com/in/"),
+      "The URL must be a valid Linked In URL."
+    ),
+  github: Yup.string()
+    .required()
+    .label("Github")
+    .matches(
+      new RegExp("^https://github\\.com/"),
+      "The URL must be a valid Github URL."
+    ),
+});
 
-const Image = styled.div((props) => [
-  `background-image: url("${props.imageSrc}");`,
-  tw`rounded bg-contain bg-no-repeat bg-center h-full`,
-]);
-const TextContent = tw.div`lg:py-8 text-center md:text-left`;
+export default function () {
+  const classes = useStyles();
 
-const Heading = tw(
-  SectionHeading
-)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
+  const clickSubmit = async () => {
+    try {
+      let project = formik.values;
+      project = { ...project, confirmed: true };
+      console.log(project);
+      await api.post("/project/add", formurlencoded(project));
+    } catch (err) {
+      console.log(err, "Upload Failed");
+    }
+  };
 
-const Form = tw.form`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`;
-const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-blue-600`;
-// const Textarea = styled(Input).attrs({ as: "textarea" })`
-//   ${tw`h-24 w-full `}
-// `;
-
-const SubmitButton = tw(
-  PrimaryButtonBase
-)`inline-block mt-8 bg-blue-600 hocus:bg-blue-800`;
-
-export default ({
-  submitButtonText = "Upload",
-  formAction = "#",
-  formMethod = "get",
-  textOnLeft = true,
-}) => {
-  // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      dev: "",
+      desc: "",
+      techStack: "",
+      linkedIn: "",
+      github: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: clickSubmit,
+  });
 
   return (
-    <Container>
-      <TwoColumn>
-        <TextColumn>
-          <Textarea rows={7} cols={50} limit={300} value="" />,
+    <div className={classes.container}>
+      <form
+        className={classes.twoColumn}
+        onSubmit={formik.handleSubmit}
+        method="POST"
+      >
+        <div className={classes.column}>
+          <TextField
+            className={classes.textField}
+            label="Project Title"
+            id="title"
+            name="title"
+            value={formik.values.title}
+            onChange={formik.handleChange}
+            error={formik.touched.title && Boolean(formik.errors.title)}
+            helperText={formik.touched.title && formik.errors.title}
+          />
+          <TextField
+            className={classes.textField}
+            label="Owner Name"
+            id="dev"
+            name="dev"
+            value={formik.values.dev}
+            onChange={formik.handleChange}
+            error={formik.touched.dev && Boolean(formik.errors.dev)}
+            helperText={formik.touched.dev && formik.errors.dev}
+          />
+          <TextField
+            className={classes.textField}
+            label="Tech Stack"
+            id="techStack"
+            name="techStack"
+            value={formik.values.techStack}
+            onChange={formik.handleChange}
+            error={formik.touched.techStack && Boolean(formik.errors.techStack)}
+            helperText={formik.touched.techStack && formik.errors.techStack}
+          />
+          <TextField
+            className={classes.textField}
+            label="LinkedIn"
+            id="linkedin"
+            name="linkedin"
+            value={formik.values.linkedin}
+            onChange={formik.handleChange}
+            error={formik.touched.linkedin && Boolean(formik.errors.linkedin)}
+            helperText={formik.touched.linkedin && formik.errors.linkedin}
+          />
+          <TextField
+            className={classes.textField}
+            label="Github"
+            id="github"
+            name="github"
+            value={formik.values.github}
+            onChange={formik.handleChange}
+            error={formik.touched.github && Boolean(formik.errors.github)}
+            helperText={formik.touched.github && formik.errors.github}
+          />
+        </div>
+        <div className={classes.column}>
+          <TextField
+            className={classes.textField}
+            label="Description"
+            id="desc"
+            name="desc"
+            value={formik.values.desc}
+            onChange={formik.handleChange}
+            error={formik.touched.desc && Boolean(formik.errors.desc)}
+            helperText={formik.touched.desc && formik.errors.desc}
+            multiline
+            rows={8}
+          />
           <Upload />
-        </TextColumn>
-        <TextColumn textOnLeft={textOnLeft}>
-          <TextContent>
-            <Form action={formAction} method={formMethod}>
-              <Input
-                type="text"
-                name="name"
-                placeholder="Project Name"
-                required
-              />
-              <Input type="text" name="github" placeholder="Github" required />
-              <Input
-                type="text"
-                name="linkedin"
-                placeholder="Linkedin"
-                required
-              />
-              <Input
-                type="text"
-                name="techstack"
-                placeholder="Tech Stack"
-                required
-              />
-              <br />
-              <SubmitButton type="submit">{submitButtonText}</SubmitButton>
-            </Form>
-          </TextContent>
-        </TextColumn>
-      </TwoColumn>
-    </Container>
+          <Button
+            className={classes.textField && classes.button}
+            variant="contained"
+            type="submit"
+          >
+            Upload
+          </Button>
+        </div>
+      </form>
+    </div>
   );
-};
+}
+
+const useStyles = makeStyles({
+  container: {
+    position: "relative",
+    padding: "0 2.5rem",
+    width: "100%",
+    height: "100%",
+  },
+  twoColumn: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: "0 auto",
+    width: "100%",
+    height: "100%",
+  },
+  column: {
+    width: "50%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  textField: {
+    margin: "2rem",
+    width: "75%",
+  },
+  button: {
+    margin: "2rem",
+    width: "75%",
+    backgroundColor: "#3182ce",
+    color: "white ",
+    "&:hover": {
+      backgroundColor: "#2c5282",
+    },
+  },
+});
