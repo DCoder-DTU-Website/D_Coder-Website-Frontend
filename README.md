@@ -101,7 +101,7 @@ Route - /council
 **3 - 10 Point for council.js**
 
 3. **council.css (import)**
-   Path - src/components/council.council.css
+   Path - src/components/council/council.css
    Set -ve margin and background color of the council page
    
 4. **export default function**
@@ -206,8 +206,67 @@ Route - /lectures/dsa/arrays
    This is the sidenav component which is used to filter the videos according to
    the topic and the subtopic. The navOpen prop is used to update the parent component
    regarding the state of the navbar.
+   
 
+## Alumni
 
+Route - /alumni
+
+### Components
+
+1. **App**
+   Path - src/pages/alumni/App
+   This component is the Parent Component of Alumni Page
+   and contains Alumni Component 
+      Council Component Path - src/components/alumni/Alumnis.js
+      
+2. **Alumnis Component**
+   Path - src/components/alumni/Alumnis.js
+   Components in Alumnis.js
+   
+3. **export default function**
+   Contains Heading -> Team
+   and Sub-Heading
+   Object tabs - Contains image url, name, post of the heads
+
+4. **alumni.css (import)**
+   Path - src/components/alumni/alumni.css
+   
+5. **CardContainer**
+   Card defining the image,name, position of a person
+
+ ## Error Pages
+ 
+ 
+ 
+### Admin Error
+
+Route-/miscellaneous/AdminError
+
+1. **Main Page**
+   Path - src/pages/miscellaneous/AdminError/index.js
+   This component is the Parent Component of Admin Error Page
+   and contains Admin Error Component 
+      Admin Error Component Path - src/pages/miscellaneous/AdminError/App.js
+      
+2. **Admin Error Component**
+   Path - src/pages/miscellaneous/AdminError/App.js
+   Components in AdminError
+  
+4. **AdminError css path (import)**
+   Path - src/pages/miscellaneous/AdminError/App.css
+   
+  
+### Error404
+
+Route-/miscellaneous/Error404
+
+1. **Main Page**
+   Path - src/pages/miscellaneous/Error404/index.js
+   
+4. **Error404.css path (import)**
+   Path - src/pages/miscellaneous/Error404/Error404.css
+   
 ## Libraries
 
 1. [aos](https://www.npmjs.com/package/aos)
@@ -216,3 +275,29 @@ Route - /lectures/dsa/arrays
 4. [react-device-detect](https://www.npmjs.com/package/react-device-detect)
 5. [react-icons](https://www.npmjs.com/package/react-icons)
 6. [react-pro-sidebar](https://www.npmjs.com/package/react-pro-sidebar)
+
+## Projects
+
+Route - /projects
+
+### Components
+1. **App**
+   Path - src/pages/projects/
+2. **Project**
+   Path - src/components/features/project.js
+   This is project interface.
+3. **Modal**
+   Path - src/components/features/modal.js
+   This is for the full screen modal that opens up on clicking upload project on main project page
+4. **ProjectForm**
+   Path - src/components/features/ProjectForm.js
+   This is component inside the modal
+5. **Textarea**
+   Path - src/components/features/Textarea.js
+   This is compoment used in ProjectForm for description
+6. **Upload**
+   Path - src/components/features/Upload/Upload.js
+   This is component inside the ProjectForm
+
+   For uploading used this [module](https://www.npmjs.com/package/react-images-uploading)
+
