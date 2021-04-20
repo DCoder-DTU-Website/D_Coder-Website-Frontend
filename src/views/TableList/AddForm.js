@@ -8,7 +8,7 @@ import {
 } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import EmailIllustrationSrc from "images/projectUpload.svg";
-import Upload from "components/features/Upload/Upload";
+import Upload from "./Upload/Upload";
 import Textarea from "components/features/Textarea";
 
 const Container = tw.div`relative px-10`;
