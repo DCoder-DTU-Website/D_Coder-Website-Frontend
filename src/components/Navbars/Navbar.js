@@ -1,6 +1,8 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { Route } from "react-router-dom";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -22,7 +24,7 @@ export default function Header(props) {
   const classes = useStyles();
   function makeBrand() {
     var name;
-    props.routes.map(prop => {
+    props.routes.map((prop) => {
       if (window.location.href.indexOf(prop.layout + prop.path) !== -1) {
         name = props.rtlActive ? prop.rtlName : prop.name;
       }
@@ -32,28 +34,57 @@ export default function Header(props) {
   }
   const { color } = props;
   const appBarClasses = classNames({
-    [" " + classes[color]]: color
+    [" " + classes[color]]: color,
   });
   return (
-    <AppBar className={classes.appBar + appBarClasses} style = {{color:"white"}}>
+    <AppBar
+      className={classes.appBar + appBarClasses}
+      style={{ color: "white" }}
+    >
       <Toolbar className={classes.container}>
-        <div className={classes.flex}>
-          {/* Here we create navbar brand, based on route name */}
-          <Button color="transparent" href="#" className={classes.title}>
-            {makeBrand()}
-          </Button>
-        </div>
         <Hidden smDown implementation="css">
-          {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className={classes.flex}>
+              {/* Here we create navbar brand, based on route name */}
+              <Button color="transparent" href="#" className={classes.title}>
+                {makeBrand()}
+              </Button>
+            </div>
+            {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
+          </div>
         </Hidden>
         <Hidden mdUp implementation="css">
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={props.handleDrawerToggle}
+          <div
+            style={{
+              display: "flex",
+              gap: "30%",
+            }}
           >
-            <Menu />
-          </IconButton>
+            <Route
+              render={({ history }) => (
+                <Button
+                  onClick={() => {
+                    history.push("/admin/dashboard");
+                  }}
+                  style={{ backgroundColor: "rgba(49,130,206)" }}
+                >
+                  Dashboard
+                </Button>
+              )}
+            />
+            <Route
+              render={({ history }) => (
+                <Button
+                  onClick={() => {
+                    history.push("/admin/table");
+                  }}
+                  style={{ backgroundColor: "rgba(49,130,206)" }}
+                >
+                  Members
+                </Button>
+              )}
+            />
+          </div>
         </Hidden>
       </Toolbar>
     </AppBar>
@@ -64,5 +95,5 @@ Header.propTypes = {
   color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
   rtlActive: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
-  routes: PropTypes.arrayOf(PropTypes.object)
+  routes: PropTypes.arrayOf(PropTypes.object),
 };
