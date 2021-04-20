@@ -54,10 +54,11 @@ export default function AdminNavbarLinks() {
           render={({ history }) => (
             <Button
               onClick={() => {
-                history.push("/admin/table");
+                history.push("/admin/dashboard");
               }}
+              style={{ backgroundColor: "rgba(49,130,206)" }}
             >
-              Members
+              Dashboard
             </Button>
           )}
         />
@@ -65,10 +66,11 @@ export default function AdminNavbarLinks() {
           render={({ history }) => (
             <Button
               onClick={() => {
-                history.push("/admin/dashboard");
+                history.push("/admin/table");
               }}
+              style={{ backgroundColor: "rgba(49,130,206)" }}
             >
-              Dashboard
+              Members
             </Button>
           )}
         />
