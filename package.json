@@ -11,6 +11,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "aos": "^2.3.4",
+    "axios": "^0.21.1",
     "feather-icons": "^4.28.0",
     "framer-motion": "^3.10.6",
     "package-lock-only": "0.0.4",
