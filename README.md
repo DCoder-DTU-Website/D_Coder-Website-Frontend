@@ -246,16 +246,14 @@ Route-/miscellaneous/AdminError
 1. **Main Page**
    Path - src/pages/miscellaneous/AdminError/index.js
    This component is the Parent Component of Admin Error Page
-   and contains Admin Error Component 
-      Admin Error Component Path - src/pages/miscellaneous/AdminError/App.js
+   and contains Admin Error Component - src/pages/miscellaneous/AdminError/App.js
       
 2. **Admin Error Component**
    Path - src/pages/miscellaneous/AdminError/App.js
    Components in AdminError
   
-4. **AdminError css path (import)**
+3. **AdminError css path (import)**
    Path - src/pages/miscellaneous/AdminError/App.css
-   
   
 ### Error404
 
@@ -266,6 +264,26 @@ Route-/miscellaneous/Error404
    
 4. **Error404.css path (import)**
    Path - src/pages/miscellaneous/Error404/Error404.css
+   
+   
+
+ ## Testimonial Page
+
+Route-/testimonial
+
+1. **Main Page**
+   Path - src/pages/testimonial/App.js
+   This component is the Parent Component of Testimonial Page
+   and contains Testimonial Component 
+   Testimonial Component Path- src/pages/testimonial/Components/testimonial.js
+      
+2. **Testimonial Component**
+   Path - src/pages/testimonial/Components/testimonial.js
+   Components in Testimonial
+  
+3. **Testimonial css path (import)**
+   Path - src/pages/testimonial/Components/testimonial.css
+   
    
 ## Libraries
 
