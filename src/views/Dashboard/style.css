@@ -1,0 +1,13 @@
+@media screen and (max-width: 960px) {
+    .adminboxes{
+        display:grid;
+    }
+}
+
+@media screen and (min-width: 961px) {
+    .adminboxes{
+        display:flex;
+        max-width: 73vw;
+    }
+}
+

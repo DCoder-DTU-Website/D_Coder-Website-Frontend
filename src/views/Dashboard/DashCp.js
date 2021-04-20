@@ -30,20 +30,12 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import DropDown from "./dropdownTitle";
-import DropSubT from "./dropdownSubT"
 import Forms from "./Form"
 import Forms2 from "./Form2"
 import Forms3 from "./Form3"
+import Testimonial from "components/testimonials/AdminProjects"
+import "./style.css"
 
-
-import { bugs, website, server } from "variables/general.js";
-
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from "variables/charts.js";
 
 import styles from "../../assets/jss/material-dashboard-react/views/dst.js";
 
@@ -56,26 +48,21 @@ export default function Dashboard() {
       
       
       <GridContainer>
-        
-        
-        
-        <GridItem xs={12} sm={12} md={6}>
-          <Card>
-            <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Lectures</h4>
+        <GridItem xs={12} sm={12} md={6} >
+          <Card style = {{minWidth:"70vw"}}>
+            <CardHeader color="info">
+              <h4 className={classes.cardTitleWhite}>Projects</h4>
               <p className={classes.cardCategoryWhite}>
-                Upload Lectures
+                Verify Projects
               </p>
             </CardHeader>
-            <CardBody>
-              <Forms />
-            </CardBody>
+              <Testimonial />
           </Card>
         </GridItem>
-
-
-        <GridItem xs={12} sm={12} md={6}>
-          <Card>
+        
+        
+        <GridItem xs={12} sm={12} md={6} >
+          <Card style = {{minWidth:"70vw"}}>
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Events</h4>
               <p className={classes.cardCategoryWhite}>
@@ -88,23 +75,37 @@ export default function Dashboard() {
           </Card>
         </GridItem>
 
-
-
+        <div className = "adminboxes" >
+        <GridItem xs={12} sm={12} md={6}>
+          <Card  >
+            <CardHeader color="warning">
+              <h4 className={classes.cardTitleWhite}>Lectures</h4>
+              <p className={classes.cardCategoryWhite}>
+                Upload Lectures
+              </p>
+            </CardHeader>
+            <CardBody style={{maxHeight:"40vw !important"}}>
+              <Forms />
+            </CardBody>
+          </Card>
+        </GridItem>
 
 
         <GridItem xs={12} sm={12} md={6}>
-          <Card>
-            <CardHeader color="primary">
+          <Card >
+            <CardHeader color="success">
               <h4 className={classes.cardTitleWhite}>Gallery</h4>
               <p className={classes.cardCategoryWhite}>
                 Update Gallery
               </p>
             </CardHeader>
-            <CardBody>
+            <CardBody style={{maxHeight:"40vw !important"}}>
               <Forms3 />
             </CardBody>
           </Card>
         </GridItem>
+        </div>
+        
         
         
       </GridContainer>

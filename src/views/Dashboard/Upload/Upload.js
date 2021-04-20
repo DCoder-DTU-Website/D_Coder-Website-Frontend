@@ -38,7 +38,7 @@ export default () => {
               onClick={onImageUpload}
               {...dragProps}
             >
-              CLICK OR DROP IMAGE
+              DROP IMAGE
             </button>
             &nbsp;
             {imageList.map((image, index) => (

@@ -9,8 +9,7 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import tw from "twin.macro";
-// import SingleFileUploadWithProgress from "./Upload/singleUpload"
-const SubmitButton = tw.button`w-full sm:w-32 mt-6 py-3 bg-white text-gray-700 rounded-lg font-bold tracking-wide  uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-gray-300 hover:text-gray-700 hocus:-translate-y-px hocus:shadow-xl`;
+const SubmitButton = tw.button`w-full sm:w-32 mt-6 ml-96 py-3 bg-white text-gray-600 rounded-lg font-bold tracking-wide  uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-gray-300 hover:text-gray-700 hocus:-translate-y-px hocus:shadow-xl`;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +29,7 @@ export default function BasicTextFields() {
     setAge(event.target.value);
   };
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form className={classes.root} method = "GET">
       {/* Title Dropdown */}
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label">Title</InputLabel>
@@ -40,6 +39,7 @@ export default function BasicTextFields() {
         //   value={age}
         //   onChange={handleChange}
           label="Title"
+          name="Title"
         >
           <MenuItem value="">
             <em>None</em>
@@ -55,6 +55,7 @@ export default function BasicTextFields() {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
+          name="SubTitle"
           value={age}
           onChange={handleChange}
           label="Sub-Title"
@@ -75,10 +76,11 @@ export default function BasicTextFields() {
           label="Image Url"
           placeholder="E.g. https://www.youtube.com"
           multiline
+          name="url"
           variant="outlined"
         />
       {/* <SingleFileUploadWithProgress /> */}
-      <SubmitButton type="submit" value="Submit">Upload</SubmitButton>
+      <SubmitButton style = {{marginLeft:"10px"}} type="submit" value="Submit">Upload</SubmitButton>
     </form>
   );
 }
