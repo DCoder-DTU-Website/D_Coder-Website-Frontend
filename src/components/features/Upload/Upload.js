@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
 import "./style.css";
+import { Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 
-export default () => {
-  const [images, setImages] = React.useState([]);
+export default ({ images, setImages }) => {
+  const classes = useStyles();
   const maxNumber = 1;
 
   const onChange = (imageList, addUpdateIndex) => {
-    console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
 
@@ -30,20 +31,31 @@ export default () => {
           dragProps,
         }) => (
           <div className="upload__image-wrapper">
-            <button
-              style={isDragging ? { backgroundColor: "#1A202C" } : undefined}
+            <Button
+              className={classes.button}
+              style={isDragging ? { backgroundColor: "#3182ce" } : undefined}
               onClick={onImageUpload}
               {...dragProps}
             >
               Click or Drop Image
-            </button>
+            </Button>
             &nbsp;
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
                 <img src={image["data_url"]} alt="" width="100" />
                 <div className="image-item__btn-wrapper">
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
+                  <Button
+                    className={classes.button}
+                    onClick={() => onImageUpdate(index)}
+                  >
+                    Update
+                  </Button>
+                  <Button
+                    className={classes.button}
+                    onClick={() => onImageRemove(index)}
+                  >
+                    Remove
+                  </Button>
                 </div>
               </div>
             ))}
@@ -53,3 +65,13 @@ export default () => {
     </div>
   );
 };
+
+const useStyles = makeStyles({
+  button: {
+    backgroundColor: "#3182ce",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#2c5282",
+    },
+  },
+});

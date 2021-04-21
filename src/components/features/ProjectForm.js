@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import api from "../../api/apiClient";
 import formurlencoded from "form-urlencoded";
 
@@ -37,13 +38,30 @@ const validationSchema = Yup.object().shape({
 
 export default function () {
   const classes = useStyles();
+  const [images, setImages] = useState();
+
+  const uploadImage = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", images[0].file);
+      formData.append("upload_preset", "gekvwtzt");
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
+        formData
+      );
+      return res.data.url;
+    } catch (err) {
+      console.error(err, "Image Upload Failed!");
+    }
+  };
 
   const clickSubmit = async () => {
     try {
       let project = formik.values;
-      project = { ...project, confirmed: true };
-      console.log(project);
+      const imageUrl = await uploadImage();
+      project = { ...project, confirmed: true, image: imageUrl };
       await api.post("/project/add", formurlencoded(project));
+      alert("Succesfully Uploaded Project! :D");
     } catch (err) {
       console.log(err, "Upload Failed");
     }
@@ -55,7 +73,7 @@ export default function () {
       dev: "",
       desc: "",
       techStack: "",
-      linkedIn: "",
+      linkedin: "",
       github: "",
     },
     validationSchema: validationSchema,
@@ -134,7 +152,7 @@ export default function () {
             multiline
             rows={8}
           />
-          <Upload />
+          <Upload images={images} setImages={setImages} />
           <Button
             className={classes.textField && classes.button}
             variant="contained"
