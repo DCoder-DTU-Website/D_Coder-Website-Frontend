@@ -8,23 +8,119 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import SearchBar from "material-ui-search-bar";
-import Modal from "./modal"
-
-
+import Modal from "./modal";
+import UserModal from "./userModal";
+import Hidden from "@material-ui/core/Hidden";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650
-  }
+    minWidth: 650,
+  },
 });
 
 const originalRows = [
-  { name: "Pizza", calories: 200, fat: 6.0, carbs: 24, protein: 4.0 },
-  { name: "Hot Dog", calories: 300, fat: 6.0, carbs: 24, protein: 4.0 },
-  { name: "Burger", calories: 400, fat: 6.0, carbs: 24, protein: 4.0 },
-  { name: "Hamburger", calories: 500, fat: 6.0, carbs: 24, protein: 4.0 },
-  { name: "Fries", calories: 600, fat: 6.0, carbs: 24, protein: 4.0 },
-  { name: "Ice Cream", calories: 700, fat: 6.0, carbs: 24, protein: 4.0 }
+  {
+    firstName: "Aditya",
+    lastName: "Teltia",
+    email: "teltia.aditya22@gmail.com",
+    contact: "9255790854",
+    year: 4.0,
+    description:"Experienced Campus Ambassador with a demonstrated history of working in the education management industry. Skilled in C++, Front-end Development",
+    username: "adityateltia22",
+    branch: "COE",
+    leetcode: "",
+    codeforces: "adityateltia22",
+    codechef: "adityateltia22",
+    techStack: "WebD",
+    linkedin: "AdityaTeltia",
+    github: "TeltiaAditya",
+    workingWith: "Tech team",
+  },
+  {
+    firstName: "Vibhor",
+    lastName: "Jain",
+    email: "teltia.aditya22@gmail.com",
+    contact: "9255790854",
+    year: 4.0,
+    description: "",
+    username: "adityateltia22",
+    branch: "COE",
+    leetcode: "adityateltia22",
+    codeforces: "adityateltia22",
+    codechef: "adityateltia22",
+    techStack: "WebD",
+    linkedin: "AdityaTeltia",
+    github: "TeltiaAditya",
+    workingWith: "Tech team",
+  },
+  {
+    firstName: "Satyam",
+    lastName: "Gaur",
+    email: "teltia.aditya22@gmail.com",
+    contact: "9255790854",
+    year: 4.0,
+    description: "",
+    username: "adityateltia22",
+    branch: "COE",
+    leetcode: "adityateltia22",
+    codeforces: "adityateltia22",
+    codechef: "adityateltia22",
+    techStack: "WebD",
+    linkedin: "AdityaTeltia",
+    github: "TeltiaAditya",
+    workingWith: "Tech team",
+  },
+  {
+    firstName: "Vaibhav",
+    lastName: "Surname",
+    email: "teltia.aditya22@gmail.com",
+    contact: "9255790854",
+    year: 4.0,
+    description: "",
+    username: "adityateltia22",
+    branch: "COE",
+    leetcode: "adityateltia22",
+    codeforces: "adityateltia22",
+    codechef: "adityateltia22",
+    techStack: "WebD",
+    linkedin: "AdityaTeltia",
+    github: "TeltiaAditya",
+    workingWith: "Tech team",
+  },
+  {
+    firstName: "Naman",
+    lastName: "Surname",
+    email: "teltia.aditya22@gmail.com",
+    contact: "9255790854",
+    year: 4.0,
+    description: "",
+    username: "adityateltia22",
+    branch: "COE",
+    leetcode: "adityateltia22",
+    codeforces: "adityateltia22",
+    codechef: "adityateltia22",
+    techStack: "WebD",
+    linkedin: "AdityaTeltia",
+    github: "TeltiaAditya",
+    workingWith: "Tech team",
+  },
+  {
+    firstName: "Sachin",
+    lastName: "Surname",
+    email: "teltia.aditya22@gmail.com",
+    contact: "9255790854",
+    year: 4.0,
+    description: "",
+    username: "adityateltia22",
+    branch: "COE",
+    leetcode: "adityateltia22",
+    codeforces: "adityateltia22",
+    codechef: "adityateltia22",
+    techStack: "WebD",
+    linkedin: "AdityaTeltia",
+    github: "TeltiaAditya",
+    workingWith: "Tech team",
+  },
 ];
 
 export default function BasicTable() {
@@ -34,7 +130,8 @@ export default function BasicTable() {
 
   const requestSearch = (searchedVal) => {
     const filteredRows = originalRows.filter((row) => {
-      return row.name.toLowerCase().includes(searchedVal.toLowerCase());
+      const fullName = row.firstName + " " + row.lastName;
+      return fullName.toLowerCase().includes(searchedVal.toLowerCase());
     });
     setRows(filteredRows);
   };
@@ -46,7 +143,7 @@ export default function BasicTable() {
 
   return (
     <>
-      <Modal/>
+      <Modal />
       <Paper>
         <SearchBar
           value={searched}
@@ -57,23 +154,42 @@ export default function BasicTable() {
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell align="center">Email</TableCell>
+                <TableCell align="center">Contact</TableCell>
+                <TableCell align="center">Year</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
+                <TableRow key={row.firstName}>
+                  <TableCell>
+                    <UserModal
+                      firstName={row.firstName}
+                      lastName={row.lastName}
+                      email={row.email}
+                      contact={row.contact}
+                      year={row.year}
+                      description={row.description}
+                      branch={row.branch}
+                      leetcode={row.leetcode}
+                      codeforces={row.codeforces}
+                      codechef={row.codechef}
+                      techStack={row.techStack}
+                      linkedin={row.linkedin}
+                      github={row.github}
+                      username={row.username}
+                      workingWith={row.workingWith}
+                    />
                   </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
+                  <TableCell align="center">{row.email}</TableCell>
+                  <TableCell align="center">{row.contact}</TableCell>
+                  <TableCell align="center">{row.year}</TableCell>
+                  <TableCell scope="row" style={{ display: "none" }}>
+                    <div>
+                      {row.firstName}&nbsp;{row.lastName}
+                    </div>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

@@ -1,0 +1,22 @@
+@media screen and (max-width: 1000px) {
+    .container{
+        text-align: center;        
+    }
+  .mob_view {
+    display: flex;
+    flex-direction: column;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  .educational {
+    padding-bottom: 20px;
+  }
+  textarea{
+      width:50%;
+  }
+  .desc{
+      display:flex;
+      justify-content: center;
+  }
+}

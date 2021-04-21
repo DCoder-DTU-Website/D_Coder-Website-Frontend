@@ -41,10 +41,10 @@ const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-m
 
 const SubmitButton = tw(
   PrimaryButtonBase
-)`inline-block mt-8 bg-blue-600 hocus:bg-blue-800`;
+)`inline-block text-center bg-blue-600 hocus:bg-blue-800`;
 
 export default ({
-  submitButtonText = "Upload",
+  submitButtonText = "Add member",
   formAction = "#",
   formMethod = "get",
   textOnLeft = true,
@@ -53,39 +53,30 @@ export default ({
 
   return (
     <Container>
-      <TwoColumn>
+      <div>
         <TextColumn>
-          <Textarea rows={7} cols={50} limit={300} value="" />,
-          <Upload />
-        </TextColumn>
-        <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
             <Form action={formAction} method={formMethod}>
-              <Input
-                type="text"
-                name="name"
-                placeholder="Name"
-                required
-              />
-              <Input type="text" name="github" placeholder="Github" required />
-              <Input
-                type="text"
-                name="linkedin"
-                placeholder="Linkedin"
-                required
-              />
-              <Input
-                type="text"
-                name="techstack"
-                placeholder="Tech Stack"
-                required
-              />
-              <br />
+              <div>
+                <Input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  required
+                />
+                <Input
+                  type="password"
+                  name="github"
+                  placeholder="Password"
+                  required
+                />
+                <br />
+              </div>
               <SubmitButton type="submit">{submitButtonText}</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>
-      </TwoColumn>
+      </div>
     </Container>
   );
 };
