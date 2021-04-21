@@ -51,7 +51,7 @@ export default ({
     <form className={classes.root} noValidate autoComplete="off">
       <TwoColumn>
         <TextColumn>
-        <Upload />
+        <Upload style = {{backgroundColor:"white !important", color:"gray"}}/>
         
         </TextColumn>
         <TextColumn textOnLeft={textOnLeft}>
@@ -63,7 +63,7 @@ export default ({
           name="name"
           variant="outlined"
         />
-        <div style = {{display:"flex"}}>
+        <div className="eventstyle">
         <TextField
           id="date"
           label="Starting Date"
@@ -100,7 +100,7 @@ export default ({
         </TextColumn>
         
       </TwoColumn>
-      <div sytle = {{padding:"10px",margin:"auto"}}>
+      <div sytle = {{padding:"10px",margin:"auto", backgroundColor:"rgb(49,130,206)"}}>
         <SubmitButton type="submit" value="Submit">Upload</SubmitButton></div>
     </form>
   );

@@ -44,13 +44,13 @@ const useStyles = makeStyles(styles);
 export default function Dashboard() {
   const classes = useStyles();
   return (
-    <div>
+    <div className= "dashboard" >
       
       
-      <GridContainer>
-        <GridItem xs={12} sm={12} md={6} >
+      <GridContainer style = {{alignContent:"center"}}>
+        <GridItem className = "project" xs={12} sm={12} md={6} >
           <Card style = {{minWidth:"70vw"}}>
-            <CardHeader color="info">
+            <CardHeader style = {{backgroundColor:"rgb(49,130,206)"}}>
               <h4 className={classes.cardTitleWhite}>Projects</h4>
               <p className={classes.cardCategoryWhite}>
                 Verify Projects
@@ -63,7 +63,7 @@ export default function Dashboard() {
         
         <GridItem xs={12} sm={12} md={6} >
           <Card style = {{minWidth:"70vw"}}>
-            <CardHeader color="primary">
+            <CardHeader style = {{backgroundColor:"rgb(49,130,206)"}}>
               <h4 className={classes.cardTitleWhite}>Events</h4>
               <p className={classes.cardCategoryWhite}>
                 Upload Events
@@ -78,13 +78,13 @@ export default function Dashboard() {
         <div className = "adminboxes" >
         <GridItem xs={12} sm={12} md={6}>
           <Card  >
-            <CardHeader color="warning">
+            <CardHeader style = {{backgroundColor:"rgb(49,130,206)"}}>
               <h4 className={classes.cardTitleWhite}>Lectures</h4>
               <p className={classes.cardCategoryWhite}>
                 Upload Lectures
               </p>
             </CardHeader>
-            <CardBody style={{maxHeight:"40vw !important"}}>
+            <CardBody className="sameheight">
               <Forms />
             </CardBody>
           </Card>
@@ -93,13 +93,13 @@ export default function Dashboard() {
 
         <GridItem xs={12} sm={12} md={6}>
           <Card >
-            <CardHeader color="success">
+            <CardHeader style = {{backgroundColor:"rgb(49,130,206)"}}>
               <h4 className={classes.cardTitleWhite}>Gallery</h4>
               <p className={classes.cardCategoryWhite}>
                 Update Gallery
               </p>
             </CardHeader>
-            <CardBody style={{maxHeight:"40vw !important"}}>
+            <CardBody className="sameheight">
               <Forms3 />
             </CardBody>
           </Card>

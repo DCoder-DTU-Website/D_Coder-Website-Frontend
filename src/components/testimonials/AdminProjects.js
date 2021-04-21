@@ -12,7 +12,7 @@ import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-
 import "slick-carousel/slick/slick.css";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import "views/Dashboard/style.css"
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -38,7 +38,7 @@ const Image = styled.div(props => [
   tw`rounded bg-cover bg-center h-80 sm:h-32 lg:h-64`
 ]);
 
-const ControlContainer = tw.div`absolute bottom-0 right-0 bg-gray-100 px-6 py-4 rounded-tl-3xl border`;
+const ControlContainer = tw.div`absolute bottom-0 right-0 bg-gray-100  rounded-tl-3xl border`;
 const ControlButton = styled(BlueButton)`
   ${tw`mx-3 rounded-full text-gray-100 p-2`}
   svg {
@@ -66,7 +66,7 @@ const DecoratorBlob2 = tw(
 )`absolute w-32 bottom-0 right-0 -z-10 text-pink-500 opacity-15 transform translate-x-2/3 translate-y-8`;
 
 export default ({
-  heading = "Project Details",
+  heading = "",
   testimonials = null,
   textOnLeft = false
 }) => {
@@ -123,16 +123,16 @@ export default ({
         <TestimonialsContainer>
           <Testimonials>
             <Testimonial>
-              <TestimonialImageSlider style = {{}} arrows={false} ref={setImageSliderRef} asNavFor={textSliderRef} fade={true}>
+              <TestimonialImageSlider arrows={false} ref={setImageSliderRef} asNavFor={textSliderRef} fade={true}>
                 {testimonials.map((testimonial, index) => (
                   <ImageAndControlContainer key={index}>
                     <Image imageSrc={testimonial.imageSrc} />
-                    <ControlContainer>
-                      <ControlButton onClick={imageSliderRef?.slickPrev}>
-                        <ChevronLeftIcon />
+                    <ControlContainer >
+                      <ControlButton  onClick={imageSliderRef?.slickPrev}>
+                        <ChevronLeftIcon className = "arr" style = {{opacity:"1 !important"}}/>
                       </ControlButton>
-                      <ControlButton onClick={imageSliderRef?.slickNext}>
-                        <ChevronRightIcon />
+                      <ControlButton  onClick={imageSliderRef?.slickNext}>
+                        <ChevronRightIcon className = "arr"  />
                       </ControlButton>
                     </ControlContainer>
                   </ImageAndControlContainer>
@@ -163,11 +163,11 @@ export default ({
                           {testimonial.description}
                         </Quote>
                       </QuoteContainer>
-                      <div style ={{marginTop:"5%"}}>
-                       <Button style ={{marginRight:"5%"}} variant="contained" color="primary">
+                      <div style ={{marginTop:"5%", textAlign:"center !important"}}>
+                       <Button  variant="contained" style = {{backgroundColor:"green", color:"white",marginRight:"5%"}}>
                           Permit
                         </Button>
-                       <Button variant="contained" color="secondary">
+                       <Button variant="contained" style = {{backgroundColor:"red", color:"white"}}>
                           Deny
                         </Button>
                       </div>

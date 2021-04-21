@@ -2,6 +2,11 @@
     .adminboxes{
         display:grid;
     }
+    .dashboard{
+        min-width: 40vw;
+        width: 70%;
+        margin-left: 6vw !important;
+    }
 }
 
 @media screen and (min-width: 961px) {
@@ -9,5 +14,35 @@
         display:flex;
         max-width: 73vw;
     }
+    .dashboard{
+        /* text-align: center; */
+        align-items: center;
+        justify-content: center;
+        margin-left: 13vw !important;
+    }
 }
 
+@media screen and (min-width: 766px){
+    .eventstyle{
+        display:flex;
+    }
+}
+
+
+
+.sameheight{
+    max-height: 55vw !important;
+    height: 350px;
+}
+
+.project{
+    text-align: center;
+}
+
+/* .arrows{
+    background-color:rgba(0, 0, 0, 0.5);
+}
+
+.arr{
+    z-index: 999 !important;    
+} */
