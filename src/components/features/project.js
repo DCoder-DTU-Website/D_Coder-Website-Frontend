@@ -19,9 +19,9 @@ const Image = styled.div((props) => [
   tw`rounded md:w-1/2 flex-shrink-0 h-80 md:h-80 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
 ]);
 const Details = tw.div`mt-4 md:mt-0 md:max-w-md mx-4 sm:mx-8 md:mx-4 lg:mx-8`;
-const Subtitle = tw.div`font-bold tracking-wide text-blue-600`;
+const Subtitle = tw.div`font-bold tracking-wide text-blue-600 -mt-4`;
 const Title = tw.h4`float-left mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight text-white`;
-const Description = tw.div`mt-2 text-sm leading-loose text-white`;
+const Description = tw.p`mt-2 text-sm leading-loose text-white`;
 const Link = tw.a`inline-block mt-4 text-sm text-blue-600 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-blue-600`;
 
 const linkstyle = {
@@ -94,6 +94,7 @@ export default () => {
               <Image imageSrc={card.image} />
               <Details>
                 <Title>{card.title}</Title>
+                <br />
                 <br />
                 <br />
                 <br />
