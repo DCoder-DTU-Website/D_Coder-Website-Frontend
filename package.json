@@ -12,6 +12,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "aos": "^2.3.4",
+    "bootstrap": "^5.0.0-alpha1",
     "chartist": "^0.10.1",
     "classnames": "2.2.6",
     "feather-icons": "^4.28.0",

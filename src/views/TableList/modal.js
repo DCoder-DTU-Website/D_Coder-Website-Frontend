@@ -1,37 +1,30 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import Form from "./AddForm";
 import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import CloseIcon from "@material-ui/icons/Close";
-import Slide from "@material-ui/core/Slide";
-import Form from "./AddForm"
-
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-    background: "rgb(26,32,44)",
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
   },
 }));
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
-export default function FullScreenDialog() {
+export default function TransitionsModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-
-  const handleClickOpen = () => {
+  const handleOpen = () => {
     setOpen(true);
   };
 
@@ -48,40 +41,36 @@ export default function FullScreenDialog() {
       }}
     >
       <Button
+        type="button"
         variant="contained"
-        onClick={handleClickOpen}
+        onClick={handleOpen}
         style={{
           color: "white",
           backgroundColor: "rgba(49,130,206,var(--text-opacity))",
           outline: "0",
-          marginBottom : "20px",
+          marginBottom: "20px",
         }}
       >
         Add Member
       </Button>
-      <Dialog
-        fullScreen
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
         open={open}
         onClose={handleClose}
-        TransitionComponent={Transition}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
       >
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Enter Details
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Form/>
-      </Dialog>
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <Form />
+          </div>
+        </Fade>
+      </Modal>
     </div>
   );
 }
