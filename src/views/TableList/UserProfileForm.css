@@ -1,10 +1,27 @@
+hr {
+  width: 50%;
+}
+
+textarea {
+  resize: none;
+}
+
 @media screen and (max-width: 1000px) {
-    .container{
-        text-align: center;        
-    }
-  .mob_view {
+  .container {
+    text-align: center;
+    overflow: visible !important;
+  }
+  .profile {
+    border: 0 !important;
+    height: 50vh !important;
+  }
+  .details {
     display: flex;
     flex-direction: column;
+  }
+  .mob_view {
+    display: flex !important;
+    flex-direction: column-reverse;
   }
   h2 {
     font-size: 40px;
@@ -12,11 +29,14 @@
   .educational {
     padding-bottom: 20px;
   }
-  textarea{
-      width:50%;
+  textarea {
+    width: 70%;
   }
-  .desc{
-      display:flex;
-      justify-content: center;
+  .desc {
+    display: flex;
+    justify-content: center;
+  }
+  hr {
+    width: 100%;
   }
 }
