@@ -1,6 +1,5 @@
 import logo from "./logo.svg";
 import "./App.css";
-import "./appScript.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 function App() {
   return (

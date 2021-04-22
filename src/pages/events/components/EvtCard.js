@@ -19,8 +19,14 @@ const Subtitle = tw.div`flex font-bold tracking-wide text-secondary-100`;
 const Title = tw.h4`flex text-3xl font-bold text-gray-900 text-blue-600`;
 const Description = tw.p`mt-2 text-sm leading-loose`;
 
-function EvtCard({ count, title, desc, img, schedule }) {
+function EvtCard({ count, title, desc, img, startDate, endDate }) {
   AOS.init();
+
+  const getDate = (date) => {
+    const d = new Date(date);
+    return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+  };
+
   return (
     <Card
       className="EvtCard-root"
@@ -32,7 +38,7 @@ function EvtCard({ count, title, desc, img, schedule }) {
       <Details>
         <Title>{title}</Title>
         <Subtitle>
-          {schedule.startDate}-{schedule.endDate}
+          {getDate(startDate)}-{getDate(endDate)}
         </Subtitle>
 
         <Description>{desc}</Description>

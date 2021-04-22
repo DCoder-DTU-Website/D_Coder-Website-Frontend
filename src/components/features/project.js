@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import Modal from "./modal";
+import api from "../../api/apiClient";
 
 const Container = tw.div`relative bg-gray-900 -m-8`;
 
@@ -18,7 +19,7 @@ const Image = styled.div((props) => [
   tw`rounded md:w-1/2 flex-shrink-0 h-80 md:h-80 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
 ]);
 const Details = tw.div`mt-4 md:mt-0 md:max-w-md mx-4 sm:mx-8 md:mx-4 lg:mx-8`;
-const Subtitle = tw.div`font-bold tracking-wide text-blue-600`;
+const Subtitle = tw.div`font-bold tracking-wide text-blue-600 -mt-4`;
 const Title = tw.h4`float-left mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight text-white`;
 const Description = tw.p`mt-2 text-sm leading-loose text-white`;
 const Link = tw.a`inline-block mt-4 text-sm text-blue-600 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-blue-600`;
@@ -28,63 +29,80 @@ const linkstyle = {
   gap: "20px",
 };
 
+const cards = [
+  {
+    imageSrc:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
+    subtitle: "Javascript , Html , css",
+    title: "Games of Codes",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    url: "https://timerse.com",
+    linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
+    ownerName: "Aditya Teltia",
+  },
+
+  {
+    imageSrc:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
+    subtitle: "Javascript , Html , css",
+    title: "Games of Codes",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    url: "https://timerse.com",
+    linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
+    ownerName: "Aditya Teltia",
+  },
+
+  {
+    imageSrc:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
+    subtitle: "Javascript , Html , css",
+    title: "Games of Codes",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    url: "https://timerse.com",
+    linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
+    ownerName: "Aditya Teltia",
+  },
+];
+
 export default () => {
-  const cards = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      subtitle: "Javascript , Html , css",
-      title: "Games of Codes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com",
-      linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
-      ownerName: "Aditya Teltia",
-    },
+  const [projects, setProjects] = useState([]);
 
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      subtitle: "Javascript , Html , css",
-      title: "Games of Codes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com",
-      linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
-      ownerName: "Aditya Teltia",
-    },
+  const getProjects = async () => {
+    try {
+      const { data } = await api.get("/project/all");
+      const { data: projectsData } = data;
+      setProjects(projectsData);
+    } catch (err) {
+      console.log("Could not retrieve Projects!", err);
+    }
+  };
 
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      subtitle: "Javascript , Html , css",
-      title: "Games of Codes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com",
-      linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
-      ownerName: "Aditya Teltia",
-    },
-  ];
+  useEffect(() => {
+    getProjects();
+  }, []);
 
   return (
     <Container>
       <SingleColumn>
         <Modal />
         <Content>
-          {cards.map((card, i) => (
+          {projects.map((card, i) => (
             <Card key={i} reversed={i % 2 === 1}>
-              <Image imageSrc={card.imageSrc} />
+              <Image imageSrc={card.image} />
               <Details>
                 <Title>{card.title}</Title>
                 <br />
                 <br />
                 <br />
-                <Subtitle>{card.subtitle}</Subtitle>
-                <Description>{card.description}</Description>
+                <br />
+                <Subtitle>{card.techStack}</Subtitle>
+                <Description>{card.desc}</Description>
                 <div className="links" style={linkstyle}>
-                  <Link href={card.url}>Github</Link>
-                  <Link href={card.linkedin}>{card.ownerName}</Link>
+                  <Link href={card.github}>Github</Link>
+                  <Link href={card.linkedin}>{card.dev}</Link>
                 </div>
               </Details>
             </Card>
