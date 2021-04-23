@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import Form from "./AddForm";
+import Form from "./loginForm";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +40,7 @@ export default function TransitionsModal() {
         display: "flex",
         flexDirection: "row-reverse",
         justifyContent: "space-around",
+        borderRadius: "10px",
       }}
     >
       <Button
@@ -50,10 +51,9 @@ export default function TransitionsModal() {
           color: "white",
           backgroundColor: "rgba(49,130,206,var(--text-opacity))",
           outline: "0",
-          marginBottom: "20px",
         }}
       >
-        Add Member
+        Login
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"

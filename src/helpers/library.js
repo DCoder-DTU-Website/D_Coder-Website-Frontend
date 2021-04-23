@@ -4,11 +4,12 @@ import styled from "styled-components";
 import Header, {
   NavLink,
   NavLinks,
-  BlueLink as BlueLinkBase,
   LogoLink,
   NavToggle,
   DesktopNavLinks,
 } from "../components/headers/light.js";
+import Login from "./loginModal";
+
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 pb-2 max-w-none w-full`}
@@ -20,7 +21,6 @@ const StyledHeader = styled(Header)`
   }
 `;
 
-const BlueLink = tw(BlueLinkBase)`rounded-full`;
 
 const navLinks = [
   <NavLinks key={1}>
@@ -32,7 +32,7 @@ const navLinks = [
     <NavLink href="/alumni">Alumni</NavLink>
   </NavLinks>,
   <NavLinks key={2}>
-    <BlueLink href="/admin">Login</BlueLink>
+    <Login>Login</Login>
   </NavLinks>,
 ];
 
