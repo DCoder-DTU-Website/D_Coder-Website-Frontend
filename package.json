@@ -17,6 +17,7 @@
     "form-urlencoded": "^6.0.0",
     "formik": "^2.2.6",
     "framer-motion": "^3.10.6",
+    "material-ui-search-bar": "^1.0.0",
     "package-lock-only": "0.0.4",
     "particles-bg": "^2.5.5",
     "react": "^17.0.2",

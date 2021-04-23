@@ -12,6 +12,8 @@ import Projects from "pages/projects/App";
 import Alumni from "pages/alumni/App";
 import Admin from "pages/admin/App";
 import Testimonial from "pages/testimonial/App";
+import Table from "pages/admin/TableList";
+import UserProfile from "pages/admin/UserProfile";
 
 function App() {
   return (
@@ -36,8 +38,14 @@ function App() {
           <Route path="/alumni">
             <Alumni />
           </Route>
-          <Route path="/admin">
+          <Route exact path="/admin/dashboard">
             <Admin />
+          </Route>
+          <Route exact path="/admin/table">
+            <Table />
+          </Route>
+          <Route exact path="/admin/user">
+            <UserProfile />
           </Route>
           <Route path="/testimonial">
             <Testimonial />
