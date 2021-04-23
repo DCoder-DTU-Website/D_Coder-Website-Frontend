@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -37,7 +37,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 `;
 
 //Cards For Heads
-export default ({
+const Alumni = ({
   heading = "",
   subHeading = "",
   tabs = {
@@ -148,3 +148,5 @@ export default ({
     </Container>
   );
 };
+
+export default Alumni;

@@ -36,7 +36,7 @@ const validationSchema = Yup.object().shape({
     ),
 });
 
-export default function () {
+export default function ProjectForm() {
   const classes = useStyles();
   const [images, setImages] = useState();
 
@@ -181,7 +181,7 @@ const useStyles = makeStyles({
     margin: "0 auto",
     width: "100%",
     height: "100%",
-    ["@media (max-width: 900px)"]: {
+    "@media (max-width: 900px)": {
       flexDirection: "column",
     },
   },
@@ -191,14 +191,14 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    ["@media (max-width: 900px)"]: {
+    "@media (max-width: 900px)": {
       width: "100%",
     },
   },
   textField: {
     margin: "2rem",
     width: "75%",
-    ["@media (max-width: 900px)"]: {
+    "@media (max-width: 900px)": {
       width: "100%",
     },
   },

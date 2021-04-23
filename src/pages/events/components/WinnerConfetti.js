@@ -2,7 +2,7 @@ import React from "react";
 import useWindowSize from "../hooks/useWindowSize";
 import Confetti from "react-confetti";
 
-export default () => {
+const WinnerConfetti = () => {
   const { width, height } = useWindowSize();
   return (
     <Confetti
@@ -13,3 +13,5 @@ export default () => {
     />
   );
 };
+
+export default WinnerConfetti;

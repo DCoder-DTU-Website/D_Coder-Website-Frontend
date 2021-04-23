@@ -10,7 +10,6 @@ import Paper from "@material-ui/core/Paper";
 import SearchBar from "material-ui-search-bar";
 import Modal from "./modal";
 import UserModal from "./userModal";
-import Hidden from "@material-ui/core/Hidden";
 import AdminNavbarLinks from "./Navbar";
 import "./page.css";
 const useStyles = makeStyles({

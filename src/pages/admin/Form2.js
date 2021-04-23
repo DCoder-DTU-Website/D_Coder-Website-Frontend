@@ -24,19 +24,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ({
+const Form2 = ({
   submitButtonText = "Upload",
   formAction = "#",
   formMethod = "get",
   textOnLeft = true,
 }) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState("Controlled");
-  const [value1, setValue1] = React.useState(new Date());
+  // const [value, setValue] = React.useState("Controlled");
+  // const [value1, setValue1] = React.useState(new Date());
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setValue(event.target.value);
+  // };
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TwoColumn>
@@ -104,3 +104,5 @@ export default ({
     </form>
   );
 };
+
+export default Form2;

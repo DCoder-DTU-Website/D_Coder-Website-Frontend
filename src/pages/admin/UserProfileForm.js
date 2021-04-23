@@ -107,6 +107,7 @@ const UserProfileForm = (props) => {
             }}
           >
             <img
+              alt="profile"
               width="150px"
               style={{
                 backgroundColor: "rgb(26, 32, 44)",

@@ -9,16 +9,8 @@ import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-5.svg";
 
 import "slick-carousel/slick/slick.css";
-import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import "../../pages/admin/styles.css";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
-}));
 
 const Container = tw.div` relative -mt-16 ml-4 -mb-16`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -64,12 +56,11 @@ const DecoratorBlob2 = tw(
   SvgDecoratorBlob2
 )`absolute w-32 bottom-0 right-0 -z-10 text-pink-500 opacity-15 transform translate-x-2/3 translate-y-8`;
 
-export default ({ heading = "", testimonials = null, textOnLeft = false }) => {
-  /*
-   * You can modify the testimonials shown by modifying the array below or passing in the testimonials prop above
-   * You can add or remove objects from the array as you need.
-   */
-  const classes = useStyles();
+const AdminProjects = ({
+  heading = "",
+  testimonials = null,
+  textOnLeft = false,
+}) => {
   const defaultTestimonials = [
     {
       imageSrc: "https://media.giphy.com/media/11JTxkrmq4bGE0/source.gif",
@@ -193,3 +184,5 @@ const HeadingInfo = ({ heading, ...props }) => (
     <HeadingTitle>{heading}</HeadingTitle>
   </div>
 );
+
+export default AdminProjects;

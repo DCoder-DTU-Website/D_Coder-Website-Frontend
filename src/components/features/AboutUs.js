@@ -2,8 +2,10 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase,
+} from "components/misc/Headings.js";
 import TeamIllustrationSrc from "images/team-illustration-2.svg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefcase.svg";
@@ -13,15 +15,17 @@ const Container = tw.div`relative bg-gray-900 -m-8`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 relative`;
-const TextColumn = styled(Column)(props => [
+const TextColumn = styled(Column)((props) => [
   tw`md:w-6/12 mt-16 md:mt-0`,
-  props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
+  props.textOnLeft
+    ? tw`md:mr-12 lg:mr-16 md:order-first`
+    : tw`md:ml-12 lg:ml-16 md:order-last`,
 ]);
 
-const Image = styled.img(props => [
+const Image = styled.img((props) => [
   props.imageRounded && tw`rounded`,
   props.imageBorder && tw`border`,
-  props.imageShadow && tw`shadow`
+  props.imageShadow && tw`shadow`,
 ]);
 
 const DecoratorBlob = tw(
@@ -42,9 +46,9 @@ const Feature = tw.div`mt-10 lg:mt-8 flex items-center md:items-start flex-col m
 const FeatureHeadingContainer = tw.div`flex items-center`;
 const FeatureIconContainer = styled.div`
   ${tw`mx-auto inline-block border border-blue-500 text-blue-500 text-center rounded p-2 flex-shrink-0`}
-  ${props => [
+  ${(props) => [
     props.iconRoundedFull && tw`rounded-full`,
-    props.iconFilled && tw`border-0 bg-blue-500 text-gray-100`
+    props.iconFilled && tw`border-0 bg-blue-500 text-gray-100`,
   ]}
   svg {
     ${tw`w-5 h-5`}
@@ -54,13 +58,9 @@ const FeatureHeading = tw.div`text-white ml-3 font-bold text-xl`;
 
 const FeatureDescription = tw.div`mt-4 text-center md:text-left text-gray-600 leading-relaxed`;
 
-export default ({
+const AboutUs = ({
   subheading = "Our Expertise",
-  heading = (
-    <>
-      About Us
-    </>
-  ),
+  heading = <>About Us</>,
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   imageSrc = TeamIllustrationSrc,
   imageRounded = true,
@@ -71,7 +71,7 @@ export default ({
   features = null,
   iconRoundedFull = true,
   iconFilled = true,
-  iconContainerCss = null
+  iconContainerCss = null,
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
 
@@ -83,15 +83,17 @@ export default ({
     {
       Icon: BriefcaseIcon,
       title: "Professionalism",
-      description: "We have the best professional marketing people across the globe just to work with you.",
-      iconContainerCss: tw`bg-teal-300 text-teal-800`
+      description:
+        "We have the best professional marketing people across the globe just to work with you.",
+      iconContainerCss: tw`bg-teal-300 text-teal-800`,
     },
     {
       Icon: MoneyIcon,
       title: "Affordable",
-      description: "We promise to offer you the best rate we can - at par with the industry standard.",
-      iconContainerCss: tw`bg-red-300 text-red-800`
-    }
+      description:
+        "We promise to offer you the best rate we can - at par with the industry standard.",
+      iconContainerCss: tw`bg-red-300 text-red-800`,
+    },
   ];
 
   if (!features) features = defaultFeatures;
@@ -100,7 +102,12 @@ export default ({
     <Container>
       <TwoColumn>
         <ImageColumn>
-          <Image src={imageSrc} imageBorder={imageBorder} imageShadow={imageShadow} imageRounded={imageRounded} />
+          <Image
+            src={imageSrc}
+            imageBorder={imageBorder}
+            imageShadow={imageShadow}
+            imageRounded={imageRounded}
+          />
           {showDecoratorBlob && <DecoratorBlob />}
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
@@ -131,3 +138,5 @@ export default ({
     </Container>
   );
 };
+
+export default AboutUs;

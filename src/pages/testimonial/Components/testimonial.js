@@ -29,7 +29,8 @@ const DataPost = tw.div`text-white text-sm text-center`;
 const DataContent = tw.div`text-center text-white text-base pt-6 font-normal`;
 const DataIcons = tw.div`w-full flex justify-center pt-5 pb-5`;
 const Icons = tw.a`mx-10`;
-export default ({
+
+const testimonials = ({
   heading = "BUILDING TEAM",
   subHeading = "The Talented People Behind the Scenes of the Organization",
   tabs = {
@@ -84,11 +85,6 @@ export default ({
     ],
   },
 }) => {
-  /*
-   * To customize the tabs, pass in data using the `tabs` prop. It should be an object which contains the name of the tab
-   * as the key and value of the key will be its content (as an array of objects).
-   * To see what attributes are configurable of each object inside this array see the example above for "Starters".
-   */
   AOS.init({ duration: 2000 });
   const tabsKeys = Object.keys(tabs);
   return (
@@ -216,3 +212,5 @@ export default ({
     </Container>
   );
 };
+
+export default testimonials;

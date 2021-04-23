@@ -1,7 +1,6 @@
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import Header, {
   NavLink,
   NavLinks,
@@ -10,7 +9,6 @@ import Header, {
   NavToggle,
   DesktopNavLinks,
 } from "../components/headers/light.js";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 pb-2 max-w-none w-full`}

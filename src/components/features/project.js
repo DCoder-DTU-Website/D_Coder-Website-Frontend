@@ -29,45 +29,7 @@ const linkstyle = {
   gap: "20px",
 };
 
-const cards = [
-  {
-    imageSrc:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-    subtitle: "Javascript , Html , css",
-    title: "Games of Codes",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    url: "https://timerse.com",
-    linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
-    ownerName: "Aditya Teltia",
-  },
-
-  {
-    imageSrc:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-    subtitle: "Javascript , Html , css",
-    title: "Games of Codes",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    url: "https://timerse.com",
-    linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
-    ownerName: "Aditya Teltia",
-  },
-
-  {
-    imageSrc:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-    subtitle: "Javascript , Html , css",
-    title: "Games of Codes",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    url: "https://timerse.com",
-    linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
-    ownerName: "Aditya Teltia",
-  },
-];
-
-export default () => {
+const ProjectsComp = () => {
   const [projects, setProjects] = useState([]);
 
   const getProjects = async () => {
@@ -112,3 +74,5 @@ export default () => {
     </Container>
   );
 };
+
+export default ProjectsComp;

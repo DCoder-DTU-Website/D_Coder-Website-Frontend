@@ -2,7 +2,7 @@ import React from "react";
 import ImageUploading from "react-images-uploading";
 import "./style.css";
 
-export default () => {
+const Upload = () => {
   const [images, setImages] = React.useState([]);
   const maxNumber = 1;
 
@@ -53,3 +53,5 @@ export default () => {
     </div>
   );
 };
+
+export default Upload;

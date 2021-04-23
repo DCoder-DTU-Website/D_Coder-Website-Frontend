@@ -16,12 +16,7 @@ import "./Sidenav.scss";
 
 import { Link } from "react-router-dom";
 
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from "react-device-detect";
+import { BrowserView, isMobile } from "react-device-detect";
 
 function Sidenav({ navOpen }) {
   const [isOpen, setIsOpen] = useState(false);

@@ -58,7 +58,7 @@ function VideoContainer({ history, location, match }) {
       ) : (
         <HeadingInfoContainer>
           <ImageContainer>
-            <img src={comingSoon} />
+            <img src={comingSoon} alt="coming soon" />
           </ImageContainer>
         </HeadingInfoContainer>
       )}

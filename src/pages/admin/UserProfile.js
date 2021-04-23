@@ -225,11 +225,11 @@ const ProfilesForm = (props) => {
 
 const MiscForm = (props) => {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
+  // const [age, setAge] = React.useState("");
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setAge(event.target.value);
+  // };
 
   return (
     <React.Fragment>

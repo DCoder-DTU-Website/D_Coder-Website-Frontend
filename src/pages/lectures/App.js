@@ -10,12 +10,7 @@ import SideNav from "./components/SideNav/Sidenav";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from "react-device-detect";
+import { BrowserView, MobileView, isMobile } from "react-device-detect";
 
 const BigContainer = tw.div`bg-gray-900`;
 const Container = tw.div`relative bg-gray-900`; //bg-gray-900

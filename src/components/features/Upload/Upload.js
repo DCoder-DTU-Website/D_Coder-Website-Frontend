@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import ImageUploading from "react-images-uploading";
 import "./style.css";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
-export default ({ images, setImages }) => {
+const Upload = ({ images, setImages }) => {
   const classes = useStyles();
   const maxNumber = 1;
 
@@ -75,3 +75,5 @@ const useStyles = makeStyles({
     },
   },
 });
+
+export default Upload;
