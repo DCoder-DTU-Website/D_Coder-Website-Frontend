@@ -100,7 +100,7 @@ const AboutUs = ({
 
   return (
     <Container>
-      <TwoColumn>
+      <TwoColumn style={{ marginTop: "32px" }}>
         <ImageColumn>
           <Image
             src={imageSrc}

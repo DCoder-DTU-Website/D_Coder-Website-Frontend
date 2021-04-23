@@ -12,10 +12,12 @@ import { ReactComponent as ArrowRightIcon } from "images/arrow-right-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
+import { Link } from "react-router-dom";
+
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20 text-center sm:text-justify`;
 const PrimaryLink = styled(PrimaryLinkBase)`
-  ${tw`inline-flex justify-center xl:justify-start items-center mt-8 text-lg sm:mx-10`}
+  ${tw`inline-flex justify-center xl:justify-start items-center text-lg sm:mx-10`}
   svg {
     ${tw`ml-2 w-5 h-5`}
   }
@@ -149,7 +151,12 @@ const GalPreview = () => {
           </Controls>
         </HeadingWithControl>
         <PrimaryLink>
-          Check out our Gallery <ArrowRightIcon />
+          <Link
+            to="/gallery"
+            style={{ display: "inline-flex", alignItems: "center" }}
+          >
+            Check out our Gallery <ArrowRightIcon />
+          </Link>
         </PrimaryLink>
         <CardSlider ref={setSliderRef} {...sliderSettings}>
           {cards.map((card, index) => (

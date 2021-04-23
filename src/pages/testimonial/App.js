@@ -4,7 +4,7 @@ import "tailwindcss/dist/base.css";
 import Navbar from "components/hero/MinNavbar";
 import Footer from "../../components/footers/Footer";
 import Testimonial from "./Components/testimonial";
-export default function App() {
+export default function Testimonials() {
   return (
     <div>
       <Navbar />

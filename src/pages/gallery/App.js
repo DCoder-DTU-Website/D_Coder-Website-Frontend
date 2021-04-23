@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
 import Footer from "components/footers/Footer";
