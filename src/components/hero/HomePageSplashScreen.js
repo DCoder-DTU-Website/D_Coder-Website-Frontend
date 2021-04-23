@@ -37,7 +37,10 @@ const splash = (props) => {
             Cornito Pepito
           </Heading>
           <Link to="ContactUs" smooth={true}>
-            <PrimaryAction onClick={(e) => props.onClick()}>
+            <PrimaryAction
+              style={{ paddingTop: "8px" }}
+              onClick={(e) => props.onClick()}
+            >
               Get in Touch
             </PrimaryAction>
           </Link>
