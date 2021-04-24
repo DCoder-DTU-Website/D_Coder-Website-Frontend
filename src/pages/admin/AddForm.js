@@ -22,23 +22,16 @@ const SubmitButton = tw(
   PrimaryButtonBase
 )`inline-block text-center bg-blue-600 hocus:bg-blue-800`;
 
-const AddForm = ({
-  submitButtonText = "Add Member",
-  formAction = "#",
-  formMethod = "get",
-  textOnLeft = true,
-}) => {
-  // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-
+const AddForm = () => {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const register = async () => {
     try {
-      const val = await api.post("/register", {
-        username: registerUsername,
+      await api.post("/register", {
+        email: registerUsername,
         password: registerPassword,
       });
-      alert("UserCreated");
+      alert("User Created Successfully! :D");
     } catch (err) {
       console.log("Could not register user!", err);
     }
@@ -48,7 +41,7 @@ const AddForm = ({
       <div>
         <TextColumn>
           <TextContent>
-            <Form action={formAction} method={formMethod}>
+            <Form>
               <div
                 style={{
                   display: "flex",
@@ -71,9 +64,7 @@ const AddForm = ({
                 />
                 <br />
               </div>
-              <SubmitButton type="submit" onClick={register}>
-                {submitButtonText}
-              </SubmitButton>
+              <SubmitButton onClick={register}>Add Member</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>
