@@ -32,9 +32,9 @@ const splash = (props) => {
         <NavBar />
         <Content>
           <Heading>
-            Lorem Ipsum Dorito
+            D_CODER
             <br />
-            Cornito Pepito
+            Tech Society of DTU
           </Heading>
           <Link to="ContactUs" smooth={true}>
             <PrimaryAction

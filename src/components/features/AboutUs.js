@@ -8,8 +8,8 @@ import {
 } from "components/misc/Headings.js";
 import TeamIllustrationSrc from "images/team-illustration-2.svg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
-import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefcase.svg";
-import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sign.svg";
+import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/users.svg";
+import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/message-square.svg";
 
 const Container = tw.div`relative bg-gray-900 -m-8`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center`;
@@ -59,9 +59,9 @@ const FeatureHeading = tw.div`text-white ml-3 font-bold text-xl`;
 const FeatureDescription = tw.div`mt-4 text-center md:text-left text-gray-600 leading-relaxed`;
 
 const AboutUs = ({
-  subheading = "Our Expertise",
+  subheading = "Technical Society of DTU",
   heading = <>About Us</>,
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  description = "D_CODER is a Technical Society of DTU, dedicated to the advancement of software innovation and excellence for the benefit of the students.",
   imageSrc = TeamIllustrationSrc,
   imageRounded = true,
   imageBorder = false,
@@ -82,16 +82,16 @@ const AboutUs = ({
   const defaultFeatures = [
     {
       Icon: BriefcaseIcon,
-      title: "Professionalism",
+      title: "Community",
       description:
-        "We have the best professional marketing people across the globe just to work with you.",
+        "We aim to build a community of skilled people in the university coming together for the benefit of all.",
       iconContainerCss: tw`bg-teal-300 text-teal-800`,
     },
     {
       Icon: MoneyIcon,
-      title: "Affordable",
+      title: "Platform",
       description:
-        "We promise to offer you the best rate we can - at par with the industry standard.",
+        "We provide our members a platform to learn new skills and brush up on their existing ones.",
       iconContainerCss: tw`bg-red-300 text-red-800`,
     },
   ];

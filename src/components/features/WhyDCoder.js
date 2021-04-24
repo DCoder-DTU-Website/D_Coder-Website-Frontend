@@ -47,14 +47,14 @@ const DecoratorBlob = styled(SvgDotPattern)((props) => [
 ]);
 
 const WhyD = ({
-  subheading = "Why Dcoder ?",
-  heading = (
-    <>
-      We have been doing this <wbr /> since{" "}
-      <span tw="text-blue-300">1999.</span>
-    </>
-  ),
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  subheading = "Why D_CODER?",
+  // heading = (
+  //   // <>
+  //   //   We have been doing this <wbr /> since{" "}
+  //   //   <span tw="text-blue-300">1999.</span>
+  //   // </>
+  // ),
+  description = "D_CODER is the most active tech society of DTU. We prepare our members for internships and placements. Our senior counsel has badged internships in coveted companies like Goldman Sachs, Microsoft, DE Shaw, and many others. We will clear all your doubts and will aim to increase your accuracy and proficiency.",
   imageSrc = StatsIllustrationSrc,
   imageCss = null,
   imageContainerCss = null,
@@ -68,17 +68,17 @@ const WhyD = ({
   //Change the statistics variable as you like, add or delete objects
   const defaultStatistics = [
     {
-      key: "Clients",
-      value: "2282+",
+      key: "Active Members",
+      value: "100+",
     },
-    {
-      key: "Projects",
-      value: "3891+",
-    },
-    {
-      key: "Awards",
-      value: "1000+",
-    },
+    // {
+    //   key: "",
+    //   value: "3891+",
+    // },
+    // {
+    //   key: "Awards",
+    //   value: "1000+",
+    // },
   ];
 
   if (!statistics) statistics = defaultStatistics;
@@ -97,7 +97,7 @@ const WhyD = ({
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
             {subheading && <Subheading>{subheading}</Subheading>}
-            <Heading>{heading}</Heading>
+            {/* <Heading>{heading}</Heading> */}
             <Description>{description}</Description>
             <Statistics>
               {statistics.map((statistic, index) => (
