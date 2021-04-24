@@ -7,7 +7,7 @@ import { Link } from "react-scroll";
 
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
-  background-image: url("https://images.unsplash.com/photo-1536300007881-7e482242baa5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80");
+  background-image: url("https://cdn.discordapp.com/attachments/820907278454620183/820908645591678996/ezgif.com-gif-maker_10.gif");
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-black bg-cover opacity-75`;

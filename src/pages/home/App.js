@@ -12,7 +12,7 @@ import ContactUs from "components/forms/HomePageContact";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Hero onClick={() => console.log()} />
       <AboutUs />
       <WhyDCoder />
       <GalPrev />
