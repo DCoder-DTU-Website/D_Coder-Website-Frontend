@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
@@ -20,15 +20,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MultilineTextFields() {
   const classes = useStyles();
-  const [images, setImages] = React.useState([]);
-  const [title, setTitle] = React.useState("");
-
-  // const [value, setValue] = React.useState("Controlled");
-  // const [value1, setValue1] = React.useState(new Date());
-
-  // const handleChange = (event) => {
-  //   setValue(event.target.value);
-  // };
+  const [images, setImages] = useState([]);
+  const [title, setTitle] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const uploadImage = async () => {
     try {
@@ -49,6 +43,7 @@ export default function MultilineTextFields() {
 
   const clickSubmit = async () => {
     try {
+      setLoading(true);
       console.log(title);
       const imageUrl = await uploadImage();
       await api.post("/gallery/add", { title: title, image: imageUrl });
@@ -59,6 +54,7 @@ export default function MultilineTextFields() {
         closeOnClickOutside: true,
         closeOnEsc: true,
       });
+      setLoading(false);
     } catch (err) {
       console.log(err, "Upload Failed");
     }
@@ -81,10 +77,7 @@ export default function MultilineTextFields() {
       </div>
       <div>
         <Upload images={images} setImages={setImages} />
-        <SubmitButton
-          onClick={clickSubmit}
-          disabled={title === ""}
-        >
+        <SubmitButton onClick={clickSubmit} disabled={loading}>
           Upload
         </SubmitButton>
       </div>
