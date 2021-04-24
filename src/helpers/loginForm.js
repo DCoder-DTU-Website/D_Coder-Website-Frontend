@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import api from "../api/apiClient";
 
-
 const Container = tw.div`relative px-10`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const TextColumn = styled(Column)((props) => [
@@ -26,10 +25,8 @@ const SubmitButton = tw(
 const AddForm = ({
   submitButtonText = "Login",
   formAction = "#",
-  formMethod = "get",
+  formMethod = "post",
 }) => {
-  // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const login = async () => {
@@ -38,6 +35,7 @@ const AddForm = ({
         username: loginUsername,
         password: loginPassword,
       });
+      console.log(val);
     } catch (err) {
       console.log("Could not retrieve user!", err);
     }
