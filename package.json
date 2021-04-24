@@ -45,6 +45,7 @@
     "sass": "^1.32.8",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.3",
+    "sweetalert": "^2.1.2",
     "tailwindcss": "^1.9.6",
     "twin.macro": "^1.12.1",
     "use-in-view": "^1.0.15",

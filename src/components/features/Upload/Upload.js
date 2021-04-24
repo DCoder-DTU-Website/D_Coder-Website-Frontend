@@ -42,7 +42,7 @@ const Upload = ({ images, setImages }) => {
             &nbsp;
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
-                <img src={image["data_url"]} alt="" width="100" />
+                <img src={image["data_url"]} alt="upload" width="200" />
                 <div className="image-item__btn-wrapper">
                   <Button
                     className={classes.button}
@@ -73,6 +73,7 @@ const useStyles = makeStyles({
     "&:hover": {
       backgroundColor: "#2c5282",
     },
+    marginBottom: "10px",
   },
 });
 
