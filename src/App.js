@@ -14,28 +14,29 @@ import Admin from "pages/admin/App";
 import Testimonial from "pages/testimonial/App";
 import Table from "pages/admin/TableList";
 import UserProfile from "pages/admin/UserProfile";
+import Error404 from "./pages/miscellaneous/Error404/index";
 
 function App() {
   return (
     <AnimationRevealPage disabled className="wrapper">
       <BrowserRouter>
         <Switch>
-          <Route path="/events">
+          <Route exact path="/events">
             <Events />
           </Route>
-          <Route path="/council">
+          <Route exact path="/council">
             <Council />
           </Route>
-          <Route path="/gallery">
+          <Route exact path="/gallery">
             <Gallery />
           </Route>
-          <Route path="/projects">
+          <Route exact path="/projects">
             <Projects />
           </Route>
-          <Route path="/lectures/dsa/arrays">
+          <Route exact path="/lectures/dsa/arrays">
             <Lectures />
           </Route>
-          <Route path="/alumni">
+          <Route exact path="/alumni">
             <Alumni />
           </Route>
           <Route exact path="/admin/dashboard">
@@ -47,12 +48,13 @@ function App() {
           <Route exact path="/admin/user">
             <UserProfile />
           </Route>
-          <Route path="/testimonial">
+          <Route exact path="/testimonial">
             <Testimonial />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
+          <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>
