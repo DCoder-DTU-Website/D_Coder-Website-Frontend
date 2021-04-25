@@ -23,7 +23,7 @@ const SubmitButton = tw(
   PrimaryButtonBase
 )`inline-block text-center bg-blue-600 hocus:bg-blue-800`;
 
-const AddForm = ({ handleClose }) => {
+const AddForm = ({ handleClose, setIsLoggedIn }) => {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const login = async () => {
@@ -34,6 +34,7 @@ const AddForm = ({ handleClose }) => {
         password: loginPassword,
       });
       localStorage.setItem("token", data);
+      api.get("/user").then((res) => setIsLoggedIn({ login: res.data }));
       swal("Successfully logged in");
     } catch (err) {
       console.log("Could not retrieve user!", err);

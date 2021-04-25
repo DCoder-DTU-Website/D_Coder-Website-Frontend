@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TransitionsModal() {
+export default function TransitionsModal({ setIsLoggedIn }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -69,7 +69,7 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Form handleClose={handleClose} />
+            <Form handleClose={handleClose} setIsLoggedIn={setIsLoggedIn} />
           </div>
         </Fade>
       </Modal>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import Header, {
@@ -25,7 +25,13 @@ const StyledHeader = styled(Header)`
 
 function NavBar() {
   const { user, logout } = useUser();
-  console.log(user);
+
+  const [isLoggedIn, setIsLoggedIn] = useState({ login: user });
+
+  useEffect(() => {
+    setIsLoggedIn({ login: user });
+  }, [user]);
+
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/events">Events</NavLink>
@@ -36,21 +42,28 @@ function NavBar() {
       <NavLink href="/alumni">Alumni</NavLink>
     </NavLinks>,
     <NavLinks key={2}>
-      {user ? (
+      {isLoggedIn.login ? (
         <>
           <Button variant="contained" color="primary">
-            {user.isAdmin ? (
+            {isLoggedIn.login.isAdmin ? (
               <Link to="/admin/dashboard">Admin Dashboard</Link>
             ) : (
               <Link to="/admin/user">Dashboard</Link>
             )}
           </Button>
-          <Button variant="contained" color="primary" onClick={logout}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              logout();
+              setIsLoggedIn({ login: false });
+            }}
+          >
             Logout
           </Button>
         </>
       ) : (
-        <Login>Login</Login>
+        <Login setIsLoggedIn={setIsLoggedIn}>Login</Login>
       )}
     </NavLinks>,
   ];
