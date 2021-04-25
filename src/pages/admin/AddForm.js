@@ -29,6 +29,7 @@ const AddForm = () => {
     try {
       await api.post("/register", {
         email: registerUsername,
+        username: registerUsername,
         password: registerPassword,
       });
       alert("User Created Successfully! :D");

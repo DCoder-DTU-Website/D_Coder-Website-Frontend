@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import AnimationRevealPage from "helpers/AnimationRevealPage";

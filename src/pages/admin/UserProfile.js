@@ -24,6 +24,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { IconButton } from "@material-ui/core";
 import CardFooter from "components/cards/CardFooter";
 
+import useUser from "../../useUser";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -61,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PersonalForm = (props) => {
+  const { user, logout } = useUser();
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -76,7 +79,7 @@ const PersonalForm = (props) => {
             disabled={props.editable ? false : true}
             fullWidth
             onChange={(e) => props.onChange(e)}
-            value={props.data.firstName}
+            value={user.username}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -89,7 +92,7 @@ const PersonalForm = (props) => {
             fullWidth
             autoComplete="family-name"
             onChange={(e) => props.onChange(e)}
-            value={props.data.lastName}
+            value={user.email}
           />
         </Grid>
         <Grid item xs={12}>

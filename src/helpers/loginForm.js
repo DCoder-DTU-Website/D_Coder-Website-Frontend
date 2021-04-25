@@ -3,6 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import api from "../api/apiClient";
+import swal from "sweetalert";
 
 const Container = tw.div`relative px-10`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
@@ -22,20 +23,18 @@ const SubmitButton = tw(
   PrimaryButtonBase
 )`inline-block text-center bg-blue-600 hocus:bg-blue-800`;
 
-const AddForm = ({
-  submitButtonText = "Login",
-  formAction = "#",
-  formMethod = "post",
-}) => {
+const AddForm = ({ handleClose }) => {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const login = async () => {
     try {
-      const val = await api.post("/login", {
+      const { data } = await api.post("/login", {
+        email: loginUsername,
         username: loginUsername,
         password: loginPassword,
       });
-      console.log(val);
+      localStorage.setItem("token", data);
+      swal("Successfully logged in");
     } catch (err) {
       console.log("Could not retrieve user!", err);
     }
@@ -46,7 +45,7 @@ const AddForm = ({
       <div>
         <TextColumn>
           <TextContent>
-            <Form action={formAction} method={formMethod}>
+            <Form>
               <div
                 style={{
                   display: "flex",
@@ -69,8 +68,14 @@ const AddForm = ({
                 />
                 <br />
               </div>
-              <SubmitButton type="submit" onClick={login}>
-                {submitButtonText}
+              <SubmitButton
+                onClick={(e) => {
+                  e.preventDefault();
+                  login();
+                  handleClose();
+                }}
+              >
+                Login
               </SubmitButton>
             </Form>
           </TextContent>
