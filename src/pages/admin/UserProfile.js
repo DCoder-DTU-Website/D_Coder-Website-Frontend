@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import GridItem from "components/Grid/GridItem.js";
@@ -14,12 +14,14 @@ import avatar from "./marc.jpg";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+// import Checkbox from "@material-ui/core/Checkbox";
+// import {ChipSet,Chip} from "@material/react-chips"
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
+import Chip from "@material-ui/core/Chip";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { IconButton } from "@material-ui/core";
 import CardFooter from "components/cards/CardFooter";
@@ -58,7 +60,22 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  FormControlLabel:{
+    marginTop:"30px"
+  },
 }));
+
+const BlueCheckbox = withStyles({
+  root: {
+    backgroundColor: " #001eff",
+    color: "white",
+    checked: {
+      backgroundColor: "#001eff",
+    },
+  },
+  checked: {
+  },
+})((props) => <Chip color=" #001eff" {...props} />);
 
 const PersonalForm = (props) => {
   return (
@@ -231,6 +248,17 @@ const MiscForm = (props) => {
   //   setAge(event.target.value);
   // };
 
+  
+  // const [state, setState] = React.useState({
+  //   checkedA: false,
+  //   checkedB: false,
+  //   checkedC: false,
+  // });
+
+  // const handleChange = (event) => {
+  //   setState({ ...state, [event.target.name]: event.target.checked });
+  // };
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -277,81 +305,139 @@ const MiscForm = (props) => {
           <FormGroup row fullWidth>
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="web"
+                  label="Web Dev"
                   checked={props.data.abils.web}
                   onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  name="checkedB1"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
+                // <Checkbox
+                //   id="web"
+                //   checked={props.data.abils.web}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                //   color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Web Dev"
+              // label="Web Dev"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="android"
+                  label="Android Dev"
                   checked={props.data.abils.android}
                   onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  name="checkedB2"
+                  clickable
                   disabled={props.editable ? false : true}
-                />
+                  />
+                // <Checkbox
+                //   id="android"
+                //   checked={props.data.abils.android}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                //   color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Android Dev"
+              // label="Android Dev"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="ml"
+                  label="Machine Learning"
                   checked={props.data.abils.ml}
                   onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  name="checkedB2"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
+                // <Checkbox
+                //   id="ml"
+                //   checked={props.data.abils.ml}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                //   color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Machine Learning"
+              // label="Machine Learning"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="ai"
+                  label="Artificial Intelligence"
                   checked={props.data.abils.ai}
                   onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
-                  disabled={props.editable ? false : true}
-                />
+                  name="checkedB2"
+                  clickable
+                  disabled={props.editable ? false : true}/>
+                // <Checkbox
+                //   id="ai"
+                //   checked={props.data.abils.ai}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                //   color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Artificial Intelligence"
+              // label="Artificial Intelligence"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="ds"
+                  label="Data Structures"
                   checked={props.data.abils.ds}
                   onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
-                  disabled={props.editable ? false : true}
-                />
+                  name="checkedB2"
+                  clickable
+                  disabled={props.editable ? false : true}/>
+                // <Checkbox
+                //   id="ds"
+                //   checked={props.data.abils.ds}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                //   color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Data Structures"
+              // label="Data Structures"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="algo"
+                  label="Algorithms"
                   checked={props.data.abils.algo}
                   onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  name="checked1B"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
+                // <Checkbox
+                //   id="algo"
+                //   checked={props.data.abils.algo}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                //   color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Algorithms"
+              // label="Algorithms"
+              style={{ marginTop: "20px" }}
             />
           </FormGroup>
         </Grid>
@@ -360,45 +446,96 @@ const MiscForm = (props) => {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
           <FormLabel component="legend">Teams</FormLabel>
-          <FormGroup row fullWidth>
+          <FormGroup row fullWidth aria-label="position">
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="teamA"
+                  label="Team A"
                   checked={props.data.teams.teamA}
                   onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  // checked={state.checkedA}
+                  // onClick={handleChange}
+                  name="checkedA"
+                  // color="primary"
+                  // style={{
+                  //   backgroundColor: "rgb(0, 30, 255 )",
+                  //   color: "white",
+                  // }}
+                  clickable
                   disabled={props.editable ? false : true}
                 />
+                // <Checkbox
+                //   id="teamA"
+                //   checked={props.data.teams.teamA}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                //   color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Team A"
+              // label="Team A"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="teamB"
+                  label="Team B"
                   checked={props.data.teams.teamB}
                   onChange={(e) => props.onChange(e)}
+                  // checked={state.checkedB}
+                  // onClick={handleChange}
                   name="checkedB"
-                  color="primary"
+                  // color="primary"
+                  // style={{
+                  //   backgroundColor: "rgb(0, 30, 255 )",
+                  //   color: "white",
+                  // }}
+                  clickable
                   disabled={props.editable ? false : true}
                 />
+                // <Checkbox
+                //   id="teamB"
+                //   checked={props.data.teams.teamB}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                // color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Team B"
+              // label="Team B"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="teamC"
+                  label="Team C"
                   checked={props.data.teams.teamC}
                   onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  // checked={state.checkedC}
+                  // onClick={handleChange}
+                  name="checkedC"
+                  // color="primary"
+                  // style={{
+                  //   backgroundColor: "rgb(0, 30, 255 )",
+                  //   color: "white",
+                  // }}
+                  clickable
                   disabled={props.editable ? false : true}
                 />
+                // <Checkbox
+                //   id="teamC"
+                //   checked={props.data.teams.teamC}
+                //   onChange={(e) => props.onChange(e)}
+                //   name="checkedB"
+                //   color="primary"
+                //   disabled={props.editable ? false : true}
+                // />
               }
-              label="Team C"
+              // label="Team C"
+              style={{ marginTop: "20px" }}
             />
           </FormGroup>
         </Grid>
@@ -462,7 +599,7 @@ export default function UserProfile() {
       <GridContainer style={{ backgroundColor: "#16253b" }}>
         <GridItem xs={12}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="info">
               <Grid container justify="space-between">
                 <h4 className={classes.cardTitleWhite}>Your Profile</h4>
                 <IconButton onClick={toggleEdit} style={{ color: "white" }}>
