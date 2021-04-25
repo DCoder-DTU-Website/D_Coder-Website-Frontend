@@ -33,11 +33,17 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
         username: loginUsername,
         password: loginPassword,
       });
+      console.log(data);
       localStorage.setItem("token", data);
-      api.get("/user").then((res) => setIsLoggedIn({ login: res.data }));
-      swal("Successfully logged in");
+      const res = await api.get("/user");
+      setIsLoggedIn({ login: res.data });
+      if (res.data.isAdmin) {
+        swal({ title: "Welcome Admin!", icon: "success" });
+      } else {
+        swal({ title: "Successfully Logged In!", icon: "success" });
+      }
     } catch (err) {
-      console.log("Could not retrieve user!", err);
+      swal({ title: "Incorrect Username or Password!", icon: "warning" });
     }
   };
 
