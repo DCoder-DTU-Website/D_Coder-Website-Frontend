@@ -44,9 +44,9 @@ export default function MultilineTextFields() {
   const clickSubmit = async () => {
     try {
       setLoading(true);
-      console.log(title);
       const imageUrl = await uploadImage();
       await api.post("/gallery/add", { title: title, image: imageUrl });
+      setTitle("");
       swal({
         title: "Image Uploaded Successfully!",
         icon: "success",
