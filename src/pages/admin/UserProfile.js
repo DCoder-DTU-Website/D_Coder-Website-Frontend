@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -30,6 +30,7 @@ import { RadioGroup } from "@material-ui/core";
 import useUser from "../../useUser";
 import api from "../../api/apiClient";
 import swal from "sweetalert";
+import Upload from "components/features/Upload/Upload";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -435,6 +436,8 @@ export default function UserProfile() {
     workingWith: [],
   });
 
+  const [images, setImages] = useState([]);
+
   const getProfile = async () => {
     const res = await api.post("/userprofile", { user });
     const userProfile = res.data;
@@ -481,11 +484,6 @@ export default function UserProfile() {
     }
   };
 
-  const updateProfile = async () => {
-    const res = await api.put("/userprofile", { user, data });
-    swal({ title: res.data, icon: "success" });
-  };
-
   // const uploadImage = async () => {
   //   try {
   //     const formData = new FormData();
@@ -505,6 +503,11 @@ export default function UserProfile() {
   // const updateImage = async () => {
 
   // }
+
+  const updateProfile = async () => {
+    const res = await api.put("/userprofile", { user, data });
+    swal({ title: res.data, icon: "success" });
+  };
 
   const [edit, setEdit] = React.useState(false);
   const toggleEdit = () => {
@@ -544,7 +547,8 @@ export default function UserProfile() {
                       onClick={() => console.log()}
                     />
                   </Grid>
-                  <Button
+                  <Upload images={images} setImages={setImages} />
+                  {/* <Button
                     variant="contained"
                     color="secondary"
                     disabled={edit ? false : true}
@@ -553,7 +557,7 @@ export default function UserProfile() {
                     // onClick={updateImage}
                   >
                     Upload
-                  </Button>
+                  </Button> */}
                 </Grid>
                 <Grid
                   container

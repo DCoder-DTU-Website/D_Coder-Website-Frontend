@@ -37,12 +37,14 @@ const Upload = ({ images, setImages }) => {
               onClick={onImageUpload}
               {...dragProps}
             >
-              Click or Drop Image
+              Upload Image
             </Button>
             &nbsp;
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
-                <img src={image["data_url"]} alt="upload" width="200" />
+                <div>
+                  <img src={image["data_url"]} alt="upload" width="200" />
+                </div>
                 <div className="image-item__btn-wrapper">
                   <Button
                     className={classes.button}
