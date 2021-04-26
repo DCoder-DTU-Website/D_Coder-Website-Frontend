@@ -29,6 +29,7 @@ import { RadioGroup } from "@material-ui/core";
 
 import useUser from "../../useUser";
 import api from "../../api/apiClient";
+import swal from "sweetalert";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,11 +77,11 @@ const BlueCheckbox = withStyles({
   },
 })((props) => (
   <Chip
-    color=" #001eff"
+    color="#001eff"
     style={
       props.isChosen
         ? { backgroundColor: "red" }
-        : { backgroundColor: "001eff" }
+        : { backgroundColor: "#2e2e2e" }
     }
     {...props}
   />
@@ -430,23 +431,6 @@ export default function UserProfile() {
     branch: "",
     year: "",
     image: "",
-    // abils: [
-    //   {
-    //     web: 0,
-    //     android: 0,
-    //     ml: 0,
-    //     ai: 0,
-    //     ds: 0,
-    //     algo: 0,
-    //   },
-    // ],
-    // teams: [
-    //   {
-    //     teamA: 0,
-    //     teamB: 0,
-    //     teamC: 0,
-    //   },
-    // ],
     techStack: [],
     workingWith: [],
   });
@@ -481,23 +465,46 @@ export default function UserProfile() {
         techStack: [...prevData.techStack, value],
       }));
     }
-    console.log(data);
   };
   const handleTeamChange = (e) => {
     const value = e.target.textContent;
     if (data.workingWith.includes(value)) {
       setData({
         ...data,
-        techStack: data.techStack.filter((elem) => elem !== value),
+        workingWith: data.workingWith.filter((elem) => elem !== value),
       });
     } else {
       setData((prevData) => ({
         ...prevData,
-        techStack: [...prevData.techStack, value],
+        workingWith: [...prevData.workingWith, value],
       }));
     }
-    console.log(data);
   };
+
+  const updateProfile = async () => {
+    const res = await api.put("/userprofile", { user, data });
+    swal({ title: res.data, icon: "success" });
+  };
+
+  // const uploadImage = async () => {
+  //   try {
+  //     const formData = new FormData();
+  //     formData.append("file", images[0].file);
+  //     formData.append("upload_preset", "gekvwtzt");
+  //     const res = await axios.post(
+  //       "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
+  //       formData
+  //     );
+  //     setImages([]);
+  //     return res.data.url;
+  //   } catch (err) {
+  //     console.error(err, "Image Upload Failed!");
+  //   }
+  // };
+
+  // const updateImage = async () => {
+
+  // }
 
   const [edit, setEdit] = React.useState(false);
   const toggleEdit = () => {
@@ -534,7 +541,7 @@ export default function UserProfile() {
                         height: "190px",
                         borderRadius: "50%",
                       }}
-                      onClick={() => console.log(1)}
+                      onClick={() => console.log()}
                     />
                   </Grid>
                   <Button
@@ -543,6 +550,7 @@ export default function UserProfile() {
                     disabled={edit ? false : true}
                     className={classes.button}
                     startIcon={<CameraIcon />}
+                    // onClick={updateImage}
                   >
                     Upload
                   </Button>
@@ -578,10 +586,19 @@ export default function UserProfile() {
                       editable={edit}
                     />
                   </Grid>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    disabled={!edit}
+                    onClick={updateProfile}
+                  >
+                    Update Details
+                  </Button>
                 </Grid>
               </Grid>
             </CardBody>
-            <CardFooter></CardFooter>
+            {/* <CardFooter></CardFooter> */}
           </Card>
         </GridItem>
       </GridContainer>
