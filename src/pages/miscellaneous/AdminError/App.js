@@ -1,23 +1,26 @@
-import "./App.css";
+import React from "react";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
+import "./NotAnAdmin.css";
 function App() {
   return (
     <Container className="councilStyle" style={{ textAlign: "center" }}>
       <ContentWithPaddingXl>
         <div>
-          <div class="noise"></div>
-          <div class="overlay"></div>
-          <div class="terminal">
+          <div className="noise"></div>
+          <div className="overlay"></div>
+          <div className="terminal">
             <h1>
-              Admin <span class="errorcode"> Error!</span>
+              Admin <span className="errorcode"> Error!</span>
             </h1>
-            <p class="output">I stole your site but you have Busted Me!!!</p>
-            <p class="output">
+            <p className="output">
+              I stole your site but you have Busted Me!!!
+            </p>
+            <p className="output">
               Please try to <a href="#1">go back</a> or{" "}
               <a href="#2">return to the homepage</a>.
             </p>
-            <p class="output1">But You Shall Not Pass...</p>
-            <p class="output">GoodLuck.....</p>
+            <p className="output1">But You Shall Not Pass...</p>
+            <p className="output">GoodLuck.....</p>
           </div>
         </div>
       </ContentWithPaddingXl>

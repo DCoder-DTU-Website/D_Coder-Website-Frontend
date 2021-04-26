@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -25,8 +25,10 @@ import Chip from "@material-ui/core/Chip";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { IconButton } from "@material-ui/core";
 import CardFooter from "components/cards/CardFooter";
+import { RadioGroup } from "@material-ui/core";
 
 import useUser from "../../useUser";
+import api from "../../api/apiClient";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,8 +64,8 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-  FormControlLabel:{
-    marginTop:"30px"
+  FormControlLabel: {
+    marginTop: "30px",
   },
 }));
 
@@ -71,16 +73,20 @@ const BlueCheckbox = withStyles({
   root: {
     backgroundColor: " #001eff",
     color: "white",
-    checked: {
-      backgroundColor: "#001eff",
-    },
   },
-  checked: {
-  },
-})((props) => <Chip color=" #001eff" {...props} />);
+})((props) => (
+  <Chip
+    color=" #001eff"
+    style={
+      props.isChosen
+        ? { backgroundColor: "red" }
+        : { backgroundColor: "001eff" }
+    }
+    {...props}
+  />
+));
 
 const PersonalForm = (props) => {
-  const { user, logout } = useUser();
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -96,7 +102,7 @@ const PersonalForm = (props) => {
             disabled={props.editable ? false : true}
             fullWidth
             onChange={(e) => props.onChange(e)}
-            value={user.username}
+            value={props.data.firstName}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -109,7 +115,7 @@ const PersonalForm = (props) => {
             fullWidth
             autoComplete="family-name"
             onChange={(e) => props.onChange(e)}
-            value={user.email}
+            value={props.data.lastName}
           />
         </Grid>
         <Grid item xs={12}>
@@ -170,72 +176,46 @@ const ProfilesForm = (props) => {
         <Grid item xs={12} sm={6}>
           <TextField
             id="linkedin"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  linkedin.com/in/
-                </InputAdornment>
-              ),
-            }}
+            label="Linked In"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.linkedin}
+            value={props.data.linkedin}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             id="github"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">github.com/</InputAdornment>
-              ),
-            }}
+            label="Github"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.github}
+            value={props.data.github}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             id="codeforces"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  codeforces.com/profile/
-                </InputAdornment>
-              ),
-            }}
+            label="Code Forces"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.codeforces}
+            value={props.data.codeforces}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             id="codechef"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  codechef.com/users/
-                </InputAdornment>
-              ),
-            }}
+            label="Code Chef"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.codechef}
+            value={props.data.codechef}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             id="leetcode"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">leetcode.com/</InputAdornment>
-              ),
-            }}
+            label="Leet Code"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.leetcode}
+            value={props.data.leetcode}
           />
         </Grid>
       </Grid>
@@ -245,22 +225,6 @@ const ProfilesForm = (props) => {
 
 const MiscForm = (props) => {
   const classes = useStyles();
-  // const [age, setAge] = React.useState("");
-
-  // const handleChange = (event) => {
-  //   setAge(event.target.value);
-  // };
-
-  
-  // const [state, setState] = React.useState({
-  //   checkedA: false,
-  //   checkedB: false,
-  //   checkedC: false,
-  // });
-
-  // const handleChange = (event) => {
-  //   setState({ ...state, [event.target.name]: event.target.checked });
-  // };
 
   return (
     <React.Fragment>
@@ -311,22 +275,13 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="web"
                   label="Web Dev"
-                  checked={props.data.abils.web}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB1"
+                  isChosen={props.data.techStack.includes("Web Dev")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Web Dev"
                   clickable
                   disabled={props.editable ? false : true}
                 />
-                // <Checkbox
-                //   id="web"
-                //   checked={props.data.abils.web}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                //   color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
               }
-              // label="Web Dev"
               style={{ marginTop: "20px" }}
             />
             <FormControlLabel
@@ -334,22 +289,13 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="android"
                   label="Android Dev"
-                  checked={props.data.abils.android}
-                  onChange={(e) => props.onChange(e)}
+                  isChosen={props.data.techStack.includes("Android Dev")}
+                  onClick={(e) => props.onTechChange(e)}
                   name="checkedB2"
                   clickable
                   disabled={props.editable ? false : true}
-                  />
-                // <Checkbox
-                //   id="android"
-                //   checked={props.data.abils.android}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                //   color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
+                />
               }
-              // label="Android Dev"
               style={{ marginTop: "20px" }}
             />
             <FormControlLabel
@@ -357,22 +303,13 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="ml"
                   label="Machine Learning"
-                  checked={props.data.abils.ml}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB2"
+                  isChosen={props.data.techStack.includes("Machine Learning")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Machine Learning"
                   clickable
                   disabled={props.editable ? false : true}
                 />
-                // <Checkbox
-                //   id="ml"
-                //   checked={props.data.abils.ml}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                //   color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
               }
-              // label="Machine Learning"
               style={{ marginTop: "20px" }}
             />
             <FormControlLabel
@@ -380,21 +317,15 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="ai"
                   label="Artificial Intelligence"
-                  checked={props.data.abils.ai}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB2"
+                  isChosen={props.data.techStack.includes(
+                    "Artificial Intelligence"
+                  )}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Artificial Intelligence"
                   clickable
-                  disabled={props.editable ? false : true}/>
-                // <Checkbox
-                //   id="ai"
-                //   checked={props.data.abils.ai}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                //   color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
+                  disabled={props.editable ? false : true}
+                />
               }
-              // label="Artificial Intelligence"
               style={{ marginTop: "20px" }}
             />
             <FormControlLabel
@@ -402,21 +333,13 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="ds"
                   label="Data Structures"
-                  checked={props.data.abils.ds}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB2"
+                  isChosen={props.data.techStack.includes("Data Structures")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Data Structures"
                   clickable
-                  disabled={props.editable ? false : true}/>
-                // <Checkbox
-                //   id="ds"
-                //   checked={props.data.abils.ds}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                //   color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
+                  disabled={props.editable ? false : true}
+                />
               }
-              // label="Data Structures"
               style={{ marginTop: "20px" }}
             />
             <FormControlLabel
@@ -424,22 +347,13 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="algo"
                   label="Algorithms"
-                  checked={props.data.abils.algo}
-                  onChange={(e) => props.onChange(e)}
-                  name="checked1B"
+                  isChosen={props.data.techStack.includes("Algorithms")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Algorithms"
                   clickable
                   disabled={props.editable ? false : true}
                 />
-                // <Checkbox
-                //   id="algo"
-                //   checked={props.data.abils.algo}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                //   color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
               }
-              // label="Algorithms"
               style={{ marginTop: "20px" }}
             />
           </FormGroup>
@@ -455,29 +369,13 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="teamA"
                   label="Team A"
-                  checked={props.data.teams.teamA}
-                  onChange={(e) => props.onChange(e)}
-                  // checked={state.checkedA}
-                  // onClick={handleChange}
-                  name="checkedA"
-                  // color="primary"
-                  // style={{
-                  //   backgroundColor: "rgb(0, 30, 255 )",
-                  //   color: "white",
-                  // }}
+                  isChosen={props.data.workingWith.includes("Team A")}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Team A"
                   clickable
                   disabled={props.editable ? false : true}
                 />
-                // <Checkbox
-                //   id="teamA"
-                //   checked={props.data.teams.teamA}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                //   color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
               }
-              // label="Team A"
               style={{ marginTop: "20px" }}
             />
             <FormControlLabel
@@ -485,29 +383,13 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="teamB"
                   label="Team B"
-                  checked={props.data.teams.teamB}
-                  onChange={(e) => props.onChange(e)}
-                  // checked={state.checkedB}
-                  // onClick={handleChange}
-                  name="checkedB"
-                  // color="primary"
-                  // style={{
-                  //   backgroundColor: "rgb(0, 30, 255 )",
-                  //   color: "white",
-                  // }}
+                  isChosen={props.data.workingWith.includes("Team B")}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Team B"
                   clickable
                   disabled={props.editable ? false : true}
                 />
-                // <Checkbox
-                //   id="teamB"
-                //   checked={props.data.teams.teamB}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                // color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
               }
-              // label="Team B"
               style={{ marginTop: "20px" }}
             />
             <FormControlLabel
@@ -515,29 +397,13 @@ const MiscForm = (props) => {
                 <BlueCheckbox
                   id="teamC"
                   label="Team C"
-                  checked={props.data.teams.teamC}
-                  onChange={(e) => props.onChange(e)}
-                  // checked={state.checkedC}
-                  // onClick={handleChange}
-                  name="checkedC"
-                  // color="primary"
-                  // style={{
-                  //   backgroundColor: "rgb(0, 30, 255 )",
-                  //   color: "white",
-                  // }}
+                  isChosen={props.data.workingWith.includes("Team C")}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Team C"
                   clickable
                   disabled={props.editable ? false : true}
                 />
-                // <Checkbox
-                //   id="teamC"
-                //   checked={props.data.teams.teamC}
-                //   onChange={(e) => props.onChange(e)}
-                //   name="checkedB"
-                //   color="primary"
-                //   disabled={props.editable ? false : true}
-                // />
               }
-              // label="Team C"
               style={{ marginTop: "20px" }}
             />
           </FormGroup>
@@ -549,52 +415,92 @@ const MiscForm = (props) => {
 
 export default function UserProfile() {
   const classes = useStyles();
+  const { user, logout } = useUser();
   const [data, setData] = React.useState({
-    firstName: "yeah",
+    firstName: "",
     lastName: "",
     email: "",
     contact: "",
     desc: "",
-    profiles: [
-      {
-        linkedin: "",
-        github: "",
-        codeforces: "",
-        codechef: "",
-        leetcode: "",
-      },
-    ],
-    branch: "COE",
-    year: 1,
-    abils: [
-      {
-        web: 0,
-        android: 0,
-        ml: 0,
-        ai: 0,
-        ds: 0,
-        algo: 0,
-      },
-    ],
-    teams: [
-      {
-        teamA: 0,
-        teamB: 0,
-        teamC: 0,
-      },
-    ],
+    linkedin: "",
+    github: "",
+    codeforces: "",
+    codechef: "",
+    leetcode: "",
+    branch: "",
+    year: "",
+    image: "",
+    // abils: [
+    //   {
+    //     web: 0,
+    //     android: 0,
+    //     ml: 0,
+    //     ai: 0,
+    //     ds: 0,
+    //     algo: 0,
+    //   },
+    // ],
+    // teams: [
+    //   {
+    //     teamA: 0,
+    //     teamB: 0,
+    //     teamC: 0,
+    //   },
+    // ],
+    techStack: [],
+    workingWith: [],
   });
+
+  const getProfile = async () => {
+    const res = await api.post("/userprofile", { user });
+    const userProfile = res.data;
+    setData((prevData) => ({ ...prevData, ...userProfile }));
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, [user]);
+
   const handleChange = (e) => {
     setData({
       ...data,
       [e.target.id ? e.target.id : e.target.name]: e.target.value,
     });
   };
+
+  const handleTechChange = (e) => {
+    const value = e.target.textContent;
+    if (data.techStack.includes(value)) {
+      setData({
+        ...data,
+        techStack: data.techStack.filter((elem) => elem !== value),
+      });
+    } else {
+      setData((prevData) => ({
+        ...prevData,
+        techStack: [...prevData.techStack, value],
+      }));
+    }
+    console.log(data);
+  };
+  const handleTeamChange = (e) => {
+    const value = e.target.textContent;
+    if (data.workingWith.includes(value)) {
+      setData({
+        ...data,
+        techStack: data.techStack.filter((elem) => elem !== value),
+      });
+    } else {
+      setData((prevData) => ({
+        ...prevData,
+        techStack: [...prevData.techStack, value],
+      }));
+    }
+    console.log(data);
+  };
+
   const [edit, setEdit] = React.useState(false);
   const toggleEdit = () => {
-    if (edit) {
-      //Save data here
-    }
     setEdit(!edit);
   };
   return (
@@ -622,9 +528,12 @@ export default function UserProfile() {
                 >
                   <Grid item>
                     <img
-                      src={avatar}
+                      src={data.image}
                       alt="..."
-                      style={{ maxHeight: "200px", borderRadius: "50%" }}
+                      style={{
+                        height: "190px",
+                        borderRadius: "50%",
+                      }}
                       onClick={() => console.log(1)}
                     />
                   </Grid>
@@ -663,6 +572,8 @@ export default function UserProfile() {
                   <Grid>
                     <MiscForm
                       onChange={handleChange}
+                      onTechChange={handleTechChange}
+                      onTeamChange={handleTeamChange}
                       data={data}
                       editable={edit}
                     />

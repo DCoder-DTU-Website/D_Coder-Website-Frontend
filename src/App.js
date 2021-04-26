@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import AnimationRevealPage from "helpers/AnimationRevealPage";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Home from "pages/home/App";
 import Events from "pages/events/App";
 import Council from "pages/council/App";
@@ -15,8 +15,20 @@ import Testimonial from "pages/testimonial/App";
 import Table from "pages/admin/TableList";
 import UserProfile from "pages/admin/UserProfile";
 import Error404 from "./pages/miscellaneous/Error404/index";
+import NotAnAdmin from "./pages/miscellaneous/Error404/index";
+import useUser from "./useUser";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { user } = useUser();
+
+  useEffect(() => {
+    setIsLoggedIn(true);
+  }, [user]);
+
+  const isAdmin = isLoggedIn && user && user.isAdmin;
+  const isUser = isLoggedIn && user;
+
   return (
     <AnimationRevealPage disabled className="wrapper">
       <BrowserRouter>
@@ -39,15 +51,40 @@ function App() {
           <Route exact path="/alumni">
             <Alumni />
           </Route>
-          <Route exact path="/admin/dashboard">
-            <Admin />
+          {/* <Route exact path="/admin/dashboard">
+            {isLoggedIn && user && user.isAdmin ? <Admin /> : <NotAnAdmin />}
           </Route>
           <Route exact path="/admin/table">
-            <Table />
-          </Route>
-          <Route exact path="/admin/user">
-            <UserProfile />
-          </Route>
+            {user && user.isAdmin ? <Table /> : <NotAnAdmin />}
+          </Route> */}
+          {/* {isLoggedIn && user && user.isAdmin && (
+            <>
+              <Route exact path="/admin/dashboard">
+                <Admin />
+              </Route>
+              <Route exact path="/admin/table">
+                <Table />
+              </Route>
+            </>
+          )} */}
+          <Route
+            exact
+            path="/admin/dashboard"
+            render={() => (isAdmin ? <Admin /> : <Redirect to="/" />)}
+          />
+          <Route
+            exact
+            path="/admin/table"
+            render={() => (isAdmin ? <Table /> : <Redirect to="/" />)}
+          />
+          <Route
+            exact
+            path="/admin/user"
+            render={() => (isUser ? <UserProfile /> : <Redirect to="/" />)}
+          />
+          {/* <Route exact path="/admin/user">
+            {user && !user.isAdmin ? <UserProfile /> : <NotAnAdmin />}
+          </Route> */}
           <Route exact path="/testimonial">
             <Testimonial />
           </Route>
