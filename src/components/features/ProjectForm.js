@@ -65,7 +65,7 @@ export default function ProjectForm() {
       let project = formik.values;
       formik.resetForm();
       const imageUrl = await uploadImage();
-      project = { ...project, confirmed: true, image: imageUrl };
+      project = { ...project, confirmed: false, image: imageUrl };
       await api.post("/project/add", formurlencoded(project));
       swal({
         title: "Project Uploaded Successfully!",

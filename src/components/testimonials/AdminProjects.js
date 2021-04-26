@@ -85,16 +85,27 @@ const AdminProjects = ({
     },
   ];
 
-    
   const [projects, setProjects] = useState([]);
 
   const getProjects = async () => {
     try {
       const { data } = await api.get("/project/all");
       const { data: projectsData } = data;
-      setProjects(projectsData);
+      let val = projectsData.filter((e) => !e.confirmed);
+      console.log(val);
+      setProjects(val);
     } catch (err) {
       console.log("Could not retrieve Projects!", err);
+    }
+  };
+
+  const permit = async (e) => {
+    try {
+      console.log(e.target.id);
+      const projectID = e.target.id;
+      const data = api.post(`/project/${projectID}/confirm`)
+    } catch (err) {
+      console.log("Could not permit !", err);
     }
   };
 
@@ -102,9 +113,7 @@ const AdminProjects = ({
     getProjects();
   }, []);
 
-  
-  if (!testimonials || testimonials.length === 0)
-    testimonials = projects;
+  if (!testimonials || testimonials.length === 0) testimonials = projects;
 
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [imageSliderRef, setImageSliderRef] = useState(null);
@@ -123,7 +132,7 @@ const AdminProjects = ({
                 fade={true}
               >
                 {testimonials.map((testimonial, index) => (
-                  <ImageAndControlContainer key={index}>
+                  <ImageAndControlContainer key={testimonial._id}>
                     <Image imageSrc={testimonial.image} />
                     <ControlContainer>
                       <ControlButton onClick={imageSliderRef?.slickPrev}>
@@ -148,7 +157,7 @@ const AdminProjects = ({
                   fade={true}
                 >
                   {testimonials.map((testimonial, index) => (
-                    <TestimonialText key={index}>
+                    <TestimonialText key={testimonial._id}>
                       <QuoteContainer>
                         <Quote>{testimonial.title}</Quote>
                         <Quote>
@@ -167,8 +176,10 @@ const AdminProjects = ({
                           textAlign: "center !important",
                         }}
                       >
-                        <Button 
+                        <Button
                           variant="contained"
+                          id={testimonial._id}
+                          onClick={(e) => permit(e)}
                           style={{
                             backgroundColor: "green",
                             color: "white",
