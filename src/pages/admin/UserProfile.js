@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -31,6 +31,7 @@ import useUser from "../../useUser";
 import api from "../../api/apiClient";
 import swal from "sweetalert";
 import Upload from "components/features/Upload/Upload";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -448,6 +449,15 @@ export default function UserProfile() {
     getProfile();
   }, [user]);
 
+  const firstUpdate = useRef(true);
+  useLayoutEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+    updateBackend();
+  }, [data.image]);
+
   const handleChange = (e) => {
     setData({
       ...data,
@@ -484,27 +494,32 @@ export default function UserProfile() {
     }
   };
 
-  // const uploadImage = async () => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append("file", images[0].file);
-  //     formData.append("upload_preset", "gekvwtzt");
-  //     const res = await axios.post(
-  //       "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
-  //       formData
-  //     );
-  //     setImages([]);
-  //     return res.data.url;
-  //   } catch (err) {
-  //     console.error(err, "Image Upload Failed!");
-  //   }
-  // };
+  const uploadImage = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", images[0].file);
+      formData.append("upload_preset", "gekvwtzt");
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
+        formData
+      );
+      setImages([]);
+      return res.data.url;
+    } catch (err) {
+      console.error(err, "Image Upload Failed!");
+    }
+  };
 
-  // const updateImage = async () => {
-
-  // }
+  const updateImage = async () => {
+    const url = await uploadImage();
+    setData((prevData) => ({ ...prevData, image: url }));
+  };
 
   const updateProfile = async () => {
+    await updateImage();
+  };
+
+  const updateBackend = async () => {
     const res = await api.put("/userprofile", { user, data });
     swal({ title: res.data, icon: "success" });
   };
@@ -547,7 +562,11 @@ export default function UserProfile() {
                       onClick={() => console.log()}
                     />
                   </Grid>
-                  <Upload images={images} setImages={setImages} />
+                  <Upload
+                    images={images}
+                    setImages={setImages}
+                    disabled={!edit}
+                  />
                   {/* <Button
                     variant="contained"
                     color="secondary"
