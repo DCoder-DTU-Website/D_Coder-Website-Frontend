@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick.css";
 import Button from "@material-ui/core/Button";
 import "../../pages/admin/styles.css";
 import api from "../../api/apiClient";
+import swal from "sweetalert";
 
 const Container = tw.div` relative -mt-16 ml-4 -mb-16`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -101,9 +102,34 @@ const AdminProjects = ({
 
   const permit = async (e) => {
     try {
-      console.log(e.target.id);
       const projectID = e.target.id;
-      const data = api.post(`/project/${projectID}/confirm`)
+      const data = await api.post(`/project/${projectID}/confirm`);
+      getProjects();
+      swal({
+        title: "Project Uploaded Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (err) {
+      console.log("Could not permit !", err);
+    }
+  };
+
+  const deny = async (e) => {
+    try {
+      const projectID = e.target.id;
+      console.log(projectID)
+      const data = await api.delete(`/project/${projectID}/delete`);
+      getProjects();
+      swal({
+        title: "Project deleted Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
     } catch (err) {
       console.log("Could not permit !", err);
     }
@@ -176,24 +202,32 @@ const AdminProjects = ({
                           textAlign: "center !important",
                         }}
                       >
-                        <Button
-                          variant="contained"
+                        <button
                           id={testimonial._id}
                           onClick={(e) => permit(e)}
                           style={{
                             backgroundColor: "green",
                             color: "white",
                             marginRight: "5%",
+                            fontWeight: "100",
+                            outline: 0,
                           }}
                         >
                           Permit
-                        </Button>
-                        <Button
+                        </button>
+                        <button
+                          id={testimonial._id}
                           variant="contained"
-                          style={{ backgroundColor: "red", color: "white" }}
+                          onClick={(e) => deny(e)}
+                          style={{
+                            backgroundColor: "red",
+                            color: "white",
+                            fontWeight: "100",
+                            outline: 0,
+                          }}
                         >
                           Deny
-                        </Button>
+                        </button>
                       </div>
                     </TestimonialText>
                   ))}
