@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -11,6 +11,7 @@ import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-
 import "slick-carousel/slick/slick.css";
 import Button from "@material-ui/core/Button";
 import "../../pages/admin/styles.css";
+import api from "../../api/apiClient";
 
 const Container = tw.div` relative -mt-16 ml-4 -mb-16`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -84,8 +85,26 @@ const AdminProjects = ({
     },
   ];
 
+    
+  const [projects, setProjects] = useState([]);
+
+  const getProjects = async () => {
+    try {
+      const { data } = await api.get("/project/all");
+      const { data: projectsData } = data;
+      setProjects(projectsData);
+    } catch (err) {
+      console.log("Could not retrieve Projects!", err);
+    }
+  };
+
+  useEffect(() => {
+    getProjects();
+  }, []);
+
+  
   if (!testimonials || testimonials.length === 0)
-    testimonials = defaultTestimonials;
+    testimonials = projects;
 
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [imageSliderRef, setImageSliderRef] = useState(null);
@@ -105,7 +124,7 @@ const AdminProjects = ({
               >
                 {testimonials.map((testimonial, index) => (
                   <ImageAndControlContainer key={index}>
-                    <Image imageSrc={testimonial.imageSrc} />
+                    <Image imageSrc={testimonial.image} />
                     <ControlContainer>
                       <ControlButton onClick={imageSliderRef?.slickPrev}>
                         <ChevronLeftIcon
@@ -131,16 +150,16 @@ const AdminProjects = ({
                   {testimonials.map((testimonial, index) => (
                     <TestimonialText key={index}>
                       <QuoteContainer>
-                        <Quote>{testimonial.projectName}</Quote>
+                        <Quote>{testimonial.title}</Quote>
                         <Quote>
                           <Link href={testimonial.linkedin}>
-                            {testimonial.ownerName}
+                            {testimonial.dev}
                           </Link>
 
                           <Link href={testimonial.github}>Github</Link>
                         </Quote>
-                        <Quote>{testimonial.teckStack}</Quote>
-                        <Quote>{testimonial.description}</Quote>
+                        <Quote>{testimonial.techStack}</Quote>
+                        <Quote>{testimonial.desc}</Quote>
                       </QuoteContainer>
                       <div
                         style={{
@@ -148,7 +167,7 @@ const AdminProjects = ({
                           textAlign: "center !important",
                         }}
                       >
-                        <Button
+                        <Button 
                           variant="contained"
                           style={{
                             backgroundColor: "green",
