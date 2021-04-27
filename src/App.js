@@ -91,7 +91,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="*" component={NotAnAdmin} />
+          <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>
