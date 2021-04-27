@@ -9,8 +9,8 @@ import Card from "components/cards/CardHeader";
 import CardHeader from "components/cards/CardHeader.js";
 import CardBody from "components/cards/CardBody.js";
 import CreateIcon from "@material-ui/icons/Create";
-import CameraIcon from "@material-ui/icons/Camera";
-import avatar from "./marc.jpg";
+// import CameraIcon from "@material-ui/icons/Camera";
+// import avatar from "./marc.jpg";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -22,10 +22,10 @@ import Select from "@material-ui/core/Select";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import Chip from "@material-ui/core/Chip";
-import InputAdornment from "@material-ui/core/InputAdornment";
+// import InputAdornment from "@material-ui/core/InputAdornment";
 import { IconButton } from "@material-ui/core";
-import CardFooter from "components/cards/CardFooter";
-import { RadioGroup } from "@material-ui/core";
+// import CardFooter from "components/cards/CardFooter";
+// import { RadioGroup } from "@material-ui/core";
 
 import useUser from "../../useUser";
 import api from "../../api/apiClient";
@@ -123,7 +123,6 @@ const PersonalForm = (props) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            required
             id="desc"
             name="address1"
             label="Description"
@@ -154,6 +153,7 @@ const PersonalForm = (props) => {
             id="contact"
             name="state"
             label="Contact No."
+            type = "number"
             fullWidth
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
@@ -561,7 +561,6 @@ export default function UserProfile() {
                       src={data.image}
                       alt="..."
                       style={{
-                        height: "190px",
                         borderRadius: "50%",
                       }}
                       onClick={() => console.log()}
