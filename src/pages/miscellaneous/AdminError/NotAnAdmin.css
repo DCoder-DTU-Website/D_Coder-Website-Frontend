@@ -1,134 +1,172 @@
-@import 'https://fonts.googleapis.com/css?family=Inconsolata';
-
-html {
-  min-height: 120%;
+.html {
+  background: #000;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 100vh;
+  margin-top: -11rem;
+  margin-bottom: -3rem;
+  margin-left: -2rem;
+  margin-right: -2rem;
 }
 
-body {
-  box-sizing: border-box;
-  height: 100%;
-  background-color: #000000;
-  background-image: radial-gradient(#000000, #041607), url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: 'Inconsolata', Helvetica, sans-serif;
-  font-size: 1.5rem;
-  color: cyan;
-  text-shadow:
-      0 0 1ex cyan,
-      0 0 2px rgba(255, 255, 255, 0.8);
-}
-
-.noise {
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-  opacity: .02;
-}
-
-.overlay {
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background:
-      repeating-linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0,
-      rgba(0, 0, 0, 0.3) 50%,
-      rgba(0, 0, 0, 0) 100%);
-  background-size: auto 4px;
-  z-index: 1;
-}
-
-.overlay::before {
-  content: "";
-  pointer-events: none;
-  position: absolute;
+.head {
   display: block;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-      0deg,
-      transparent 0%,
-      cyan 2%,
-      cyan 3%,
-      cyan 3%,
-      transparent 100%);
-  background-repeat: no-repeat;
-  animation: scan 7.5s linear 0s infinite;
+  position: relative;
+  width: 200px;
+  margin: 10% auto 0;
+  -webkit-animation: shvr 0.2s infinite;
+  animation: shvr 0.2s infinite;
 }
-
-@keyframes scan {
-  0%        { background-position: 0 -100vh; }
-  35%, 100% { background-position: 0 100vh; }
-}
-
-.terminal {
-  box-sizing: inherit;
+.head::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #000;
   position: absolute;
-  height: 100%;
-  width: 1000px;
-  max-width: 100%;
-  padding: 4rem;
-  text-transform: uppercase;
+  top: 30px;
+  left: 25px;
+  border-radius: 50%;
+  box-shadow: 125px 0 0 #000;
+  -webkit-animation: eye 2.5s infinite;
+  animation: eye 2.5s infinite;
 }
 
-.output {
-  color: cyan;
-  text-shadow:
-      0 0 1px cyan,
-      0 0 2px rgba(255, 255, 255, 0.8);
+.meta {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  width: 75px;
+  height: 80px;
+  border-radius: 50% 50% 50% 50%/45px 45px 45% 45%;
+  transform: rotate(45deg);
 }
-.output::before {
-  content: "> ";
+.meta::after {
+  content: "";
+  position: absolute;
+  border-bottom: 2px solid #fff;
+  width: 70px;
+  height: 50px;
+  left: 0px;
+  bottom: -10px;
+  border-radius: 50%;
+}
+.meta::before {
+  bottom: auto;
+  top: -100px;
+  transform: rotate(45deg);
+  left: 0;
+}
+.meta:nth-of-type(2) {
+  float: right;
+  transform: rotate(-45deg);
+}
+.meta:nth-of-type(2)::after {
+  left: 5px;
+}
+.meta:nth-of-type(3) {
+  display: none;
 }
 
-.output1 {
+.mainbody{
+  margin-top: 100px;
+  text-align: center;
+  color: #fff;
+}
+.mainbody::before {
+  content: "Admin Error";
+  font-size: 60px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 10px;
+}
+.mainbody::after {
+  content: "Got lost? How.....?  why.....?";
+  color: #1ea7ab;
+  width: 120px;
+  font-size: 30px;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  -webkit-animation: text-show 2s infinite steps(3);
+  animation: text-show 2s infinite steps(3);
+}
+.goback{
+  margin-left: 47vw;
+  margin-top: 10vh;
+  background-color: black;
+}
+.return{
   color: red;
-  text-shadow:
-      0 0 1px cyan,
-      0 0 2px rgba(255, 255, 255, 0.8);
 }
-
-.output1::before {
-  content: "> ";
+.return:hover{
+color: aqua;
 }
-/*
-.input {
-  color: rgba(192, 255, 192, 0.8);
-  text-shadow:
-      0 0 1px rgba(51, 255, 51, 0.4),
-      0 0 2px rgba(255, 255, 255, 0.8);
+@-webkit-keyframes eye {
+  0%,
+  30%,
+  55%,
+  90%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10%,
+  25% {
+    transform: translate(0, 20px);
+  }
+  65% {
+    transform: translate(-20px, 0);
+  }
+  80% {
+    transform: translate(20px, 0);
+  }
 }
-
-.input::before {
-  content: "$ ";
+@keyframes eye {
+  0%,
+  30%,
+  55%,
+  90%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10%,
+  25% {
+    transform: translate(0, 20px);
+  }
+  65% {
+    transform: translate(-20px, 0);
+  }
+  80% {
+    transform: translate(20px, 0);
+  }
 }
-*/
-
-a {
-  color: red;
-  text-decoration: none;
+@-webkit-keyframes shvr {
+  0% {
+    transform: translate(1px, 1em);
+  }
+  50% {
+    transform: translate(0, 1em);
+  }
+  100% {
+    transform: translate(-1px, 1em);
+  }
 }
-
-a::before {
-  content: "[";
+@keyframes shvr {
+  0% {
+    transform: translate(1px, 1em);
+  }
+  50% {
+    transform: translate(0, 1em);
+  }
+  100% {
+    transform: translate(-1px, 1em);
+  }
 }
-
-a::after {
-  content: "]";
+@-webkit-keyframes text-show {
+  to {
+    text-indent: -373px;
+  }
 }
-
-.errorcode {
-  color: red;
+@keyframes text-show {
+  to {
+    text-indent: -373px;
+  }
 }
