@@ -1,6 +1,6 @@
 import React from "react";
-import "./Error404.css";
-const Error404 = () => {
+import "./NotAnAdmin.css";
+const AdminError = () => {
   return (
     <div className="html">
       <div className="head">
@@ -8,9 +8,10 @@ const Error404 = () => {
         <div className="meta" />
         <div className="meta" />
       </div>
-      <div className="body" />
+      <div className="mainbody" />
+      <button className="goback"><a className="return" href="/">GO BACK</a></button>
     </div>
   );
 };
 
-export default Error404;
+export default AdminError;
