@@ -9,7 +9,34 @@ import { SectionHeading } from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 import mahekjain from "../../images/council/mahekjain.jpg";
-import siddharthsingh from "../../images/council/siddharthsingh.jpg";
+import siddharthsingh from "../../images/council/siddharthsingh.jpg"
+import rahulmahar from "../../images/council/rahulmahar.jpg"
+import anima from "../../images/council/anima.PNG"
+import vsriram from "../../images/council/vsriram.PNG"
+import adityajain from "../../images/council/adityajain.jpg"
+import achint from "../../images/council/achint.JPG"
+import visheshaggrawal from "../../images/council/visheshaggrawal.jpg"
+import varunbajlotra from "../../images/council/varunbajlotra.jpeg"
+import vikas from "../../images/council/vikas.jpg"
+import Vagish from "../../images/council/Vagish.jpg"
+import vaibhavvarshney from "../../images/council/vaibhavvarshney.jpg"
+import visheshjain from "../../images/council/visheshjain.jpg"
+import aanchalbatra from "../../images/council/aanchalbatra.png";
+import shivanggupta from "../../images/council/shivanggupta.jpeg";
+import yashgandhi from "../../images/council/yashgandhi.jpeg";
+import aaryangupta from "../../images/council/aaryangupta.jpeg";
+import abhishekmidha from "../../images/council/abhishekmidha.jpeg";
+import rachitsaksena from "../../images/council/rachitsaksena.jpeg";
+import ramanshgrover from "../../images/council/ramanshgrover.jpeg";
+import aadityanarayansubedy from "../../images/council/aadityanarayansubedy.jpeg";
+import kushagrawadhwa from "../../images/council/kushagrawadhwa.jpeg";
+import garvitgulati from "../../images/council/garvitgulati.jpg";
+import riyadevvarshney from "../../images/council/riyadevvarshney.jpg";
+import amoghjalan from "../../images/council/amoghjalan.jpg";
+import sameerahmed from "../../images/council/sameerahmed.jpg";
+// import  from "../../images/council/";
+// import  from "../../images/council/";
+// import  from "../../images/council/";
 import "./council.css";
 
 //Header (Team + Carousel) Styling Starts
@@ -50,7 +77,7 @@ const CardImageContainer = styled.div`
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`h-56 xl:h-64 bg-center bg-cover relative rounded-t`}
+  ${tw`h-56 xl:h-64 bg-center bg-cover relative rounded-tl-full rounded-tr-full rounded-br-full rounded-bl-full`}
 `;
 
 const CardText = tw.div`p-4 text-gray-900`;
@@ -84,39 +111,117 @@ const Councils = ({
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327??ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+          rahulmahar,
         title: "Rahul",
         content: "Vice - President",
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-        title: "Jalapeno Poppers",
-        content: "Crispy Soyabeans",
+          anima,
+        title: "Anima Jain",
+        content: "General Secretary",
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-        title: "Cajun Chicken",
-        content: "Roasted Chicken & Egg",
+          vsriram,
+        title: "V Sriram",
+        content: "General Secretary",
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-        title: "Chillie Cake",
-        content: "Deepfried Chicken",
+          adityajain,
+        title: "Aditya Jain",
+        content: "General Secretary",
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-        title: "Guacamole Mex",
-        content: "Mexican Chilli",
+          achint,
+        title: "Anchit",
+        content: "Technical Lead",
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1565310022184-f23a884f29da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-        title: "Carnet Nachos",
-        content: "Chilli Crispy Nachos",
+          visheshaggrawal,
+        title: "Vishesh Aggrawal",
+        content: "Technical Lead",
+      },
+      {
+        imageSrc:
+          varunbajlotra,
+        title: "Varun Bajlotra",
+        content: "Technical Lead",
+      },
+      {
+        imageSrc:
+          vikas,
+        title: "Vikas",
+        content: "Technical Lead",
+      },
+      {
+        imageSrc:
+          vaibhavvarshney,
+        title: "Vaibhav Varshney",
+        content: "Technical Lead",
+      },
+      {
+        imageSrc:
+          visheshjain,
+        title: "Vishesh Jain",
+        content: "Technical Lead",
+      },
+      {
+        imageSrc:
+          Vagish,
+        title: "Vagish",
+        content: "Technical Lead",
+      },
+      {
+        imageSrc:
+          aanchalbatra,
+        title: "Aanchal Batra",
+        content: "Frontend Director",
+      },
+      {
+        imageSrc:
+          shivanggupta,
+        title: "Shivang Gupta",
+        content: "General Coordinator and Treasury",
+      },
+      {
+        imageSrc:
+          "https://images.unsplash.com/photo-1582254465498-6bc70419b607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+        title: "Shivam",
+        content: "General Coordinator and Treasury",
+      },
+      {
+        imageSrc:
+          abhishekmidha,
+        title: "Abhishek Midha",
+        content: "General Coordinator and Treasury",
+      },
+      {
+        imageSrc:
+          yashgandhi,
+        title: "Yash",
+        content: "General Coordinator and Treasury",
+      },
+      {
+        imageSrc:
+          aaryangupta,
+        title: "Aaryan Gupta",
+        content: "Research Lead",
+      },
+      {
+        imageSrc:
+          rachitsaksena,
+        title: "Rachit Saksena",
+        content: "Research Lead",
+      },
+      {
+        imageSrc:
+          ramanshgrover,
+        title: "Ramansh Grover",
+        content: "Research Lead",
       },
     ],
 
@@ -240,75 +345,39 @@ const getCoHeads = () => {
   const cards = [
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Vibhor Jain",
-      content: "Developer",
-
-      // rating: "5.0",
-      reviews: "87",
+        aadityanarayansubedy,
+      title: "Aaditya Narayan Subedy",
+      content: "Co-Head",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1582254465498-6bc70419b607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Samsa Beef",
-      content: "Fried Mexican Beef",
-
-      // rating: "4.5",
-      reviews: "34",
+        kushagrawadhwa,
+      title: "Kushagra Wadhwa",
+      content: "Co-Head",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1565310022184-f23a884f29da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Carnet Nachos",
-      content: "Chilli Crispy Nachos",
-
-      // rating: "3.9",
-      reviews: "26",
+        garvitgulati,
+      title: "Garvit Gulati",
+      content: "Co-Head",
+    },
+    // {
+    //   imageSrc:
+    //     riyadevvarshney,
+    //   title: "Riya Dev Varshney",
+    //   content: "Co-Head",
+    // },
+    {
+      imageSrc:
+        amoghjalan,
+      title: "Amogh Jalan",
+      content: "Co-Head",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Guacamole Mex",
-      content: "Mexican Chilli",
-
-      // rating: "4.2",
-      reviews: "95",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Chillie Cake",
-      content: "Deepfried Chicken",
-
-      // rating: "5.0",
-      reviews: "61",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327??ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Nelli",
-      content: "Hamburger & Fries",
-
-      // rating: "4.9",
-      reviews: "89",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Jalapeno Poppers",
-      content: "Crispy Soyabeans",
-
-      // rating: "4.6",
-      reviews: "12",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Cajun Chicken",
-      content: "Roasted Chicken & Egg",
-
-      // rating: "4.2",
-      reviews: "19",
+        sameerahmed,
+      title: "Sameer Ahmed",
+      content: "Co-Head",
     },
   ];
   return cards;
