@@ -437,11 +437,14 @@ export default function UserProfile() {
     workingWith: [],
   });
 
+  const [ogProfile, setOgProfile] = useState();
+
   const [images, setImages] = useState([]);
 
   const getProfile = async () => {
     const res = await api.post("/userprofile", { user });
     const userProfile = res.data;
+    setOgProfile(userProfile);
     setData((prevData) => ({ ...prevData, ...userProfile }));
   };
 
@@ -455,7 +458,9 @@ export default function UserProfile() {
       firstUpdate.current = false;
       return;
     }
-    updateBackend();
+    if (ogProfile.image !== data.image) {
+      updateBackend();
+    }
   }, [data.image]);
 
   const handleChange = (e) => {
