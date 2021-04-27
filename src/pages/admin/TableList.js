@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -12,6 +12,8 @@ import Modal from "./modal";
 import UserModal from "./userModal";
 import AdminNavbarLinks from "./Navbar";
 import "./page.css";
+import api from "../../api/apiClient";
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -125,6 +127,7 @@ const originalRows = [
 ];
 
 export default function BasicTable() {
+  const [originalRows,setOriginalRows] = useState([]);
   const [rows, setRows] = useState(originalRows);
   const [searched, setSearched] = useState("");
   const classes = useStyles();
@@ -136,6 +139,16 @@ export default function BasicTable() {
     });
     setRows(filteredRows);
   };
+
+  const getAllUsers = async () => {
+    const data = await api.get("/userprofile/all");
+    setRows(data.data);
+    setOriginalRows(data.data);
+  };
+
+  useEffect(() => {
+    getAllUsers();
+  }, rows);
 
   const cancelSearch = () => {
     setSearched("");
@@ -164,7 +177,7 @@ export default function BasicTable() {
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <TableRow key={row.firstName}>
+                <TableRow key={row.email}>
                   <TableCell>
                     <UserModal
                       firstName={row.firstName}

@@ -27,7 +27,7 @@ function App() {
   }, [user]);
 
   const isAdmin = isLoggedIn && user && user.isAdmin;
-  const isUser = isLoggedIn && user;
+  const isUser = isLoggedIn && user && !user.isAdmin;
 
   return (
     <AnimationRevealPage disabled className="wrapper">
@@ -52,10 +52,10 @@ function App() {
             <Alumni />
           </Route>
           <Route exact path="/admin/dashboard">
-            {isLoggedIn && user && user.isAdmin ? <Admin /> : <NotAnAdmin />}
+            {isAdmin ? <Admin /> : <NotAnAdmin />}
           </Route>
           <Route exact path="/admin/table">
-            {user && user.isAdmin ? <Table /> : <NotAnAdmin />}
+            {isAdmin ? <Table /> : <NotAnAdmin />}
           </Route>
           {/* {isLoggedIn && user && user.isAdmin && (
             <>
@@ -82,7 +82,7 @@ function App() {
             path="/admin/user"
             render={() => (isUser ? <UserProfile /> : <Redirect to="/" />)} */}
           <Route exact path="/admin/user">
-            {user && !user.isAdmin ? <UserProfile /> : <NotAnAdmin />}
+            {isUser ? <UserProfile /> : <NotAnAdmin />}
           </Route>
           <Route exact path="/testimonial">
             <Testimonial />

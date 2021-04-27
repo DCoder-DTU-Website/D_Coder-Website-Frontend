@@ -9,7 +9,7 @@ import tw from "twin.macro";
 import api from "../../api/apiClient";
 import swal from "sweetalert";
 
-const SubmitButton = tw.button`w-full sm:w-32 mt-6 ml-96 py-3 bg-white text-gray-600 rounded-lg font-bold tracking-wide  uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-gray-300 hover:text-gray-700 hocus:-translate-y-px hocus:shadow-xl`;
+const SubmitButton = tw.button`w-full sm:w-32 mt-6 py-3 bg-blue-600 text-white rounded-lg tracking-wide uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-blue-800 hover:text-white hocus:-translate-y-px hocus:shadow-xl`;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +25,6 @@ export default function BasicTextFields() {
   const [url, setUrl] = React.useState("");
   const [topic, setTopic] = React.useState("");
   const [subTopic, setSubTopic] = React.useState("");
-
 
   const clickSubmit = async () => {
     const videoData = {
@@ -51,7 +50,6 @@ export default function BasicTextFields() {
     }
   };
 
-  
   return (
     <form className={classes.root} onSubmit={(e) => e.preventDefault()}>
       <FormControl variant="outlined">
@@ -95,7 +93,10 @@ export default function BasicTextFields() {
         variant="outlined"
         onChange={(e) => setUrl(e.target.value)}
       />
-      <SubmitButton onClick={clickSubmit} style={{ marginLeft: "10px" }}>
+      <SubmitButton
+        onClick={clickSubmit}
+        style={{ backgroundColor: "rgba(49,130,206)", color: "white", marginLeft: "10px"  }}
+      >
         Upload
       </SubmitButton>
     </form>

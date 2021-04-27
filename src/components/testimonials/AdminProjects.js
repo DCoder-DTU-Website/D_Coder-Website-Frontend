@@ -63,29 +63,6 @@ const AdminProjects = ({
   testimonials = null,
   textOnLeft = false,
 }) => {
-  const defaultTestimonials = [
-    {
-      imageSrc: "https://media.giphy.com/media/11JTxkrmq4bGE0/source.gif",
-      ownerName: "Vaibhav Gupta",
-      projectName: "Bhukkad Nukkad",
-      teckStack: "Flutter",
-      linkedin: "https://linkedin.com",
-      github: "https://www.github.com/Vaibhav21112002",
-      description:
-        "One upon a time there was a crow who was very thirsty and was in the need of the food or water. Then suddenly it saw a tank which has a little water.",
-    },
-    {
-      imageSrc: "https://media.giphy.com/media/kKefeMw8rbMVq/source.gif",
-      ownerName: "Shashank Tripathi",
-      projectName: "Get The Coin",
-      teckStack: "React Native",
-      linkedin: "https://linkedin.com",
-      github: "https://www.github.com/Shashanktri32",
-      description:
-        "One upon a time there was a crow who was very thirsty and was in the need of the food or water. Then suddenly it saw a tank which has a little water.",
-    },
-  ];
-
   const [projects, setProjects] = useState([]);
 
   const getProjects = async () => {
@@ -106,7 +83,7 @@ const AdminProjects = ({
       const data = await api.post(`/project/${projectID}/confirm`);
       getProjects();
       swal({
-        title: "Project Uploaded Successfully!",
+        title: "Project Confirmed Successfully!",
         icon: "success",
         buttons: true,
         closeOnClickOutside: true,
@@ -120,8 +97,8 @@ const AdminProjects = ({
   const deny = async (e) => {
     try {
       const projectID = e.target.id;
-      console.log(projectID)
-      const data = await api.delete(`/project/${projectID}/delete`);
+      console.log(projectID);
+      await api.delete(`/project/${projectID}/delete`);
       getProjects();
       swal({
         title: "Project deleted Successfully!",
@@ -131,7 +108,7 @@ const AdminProjects = ({
         closeOnEsc: true,
       });
     } catch (err) {
-      console.log("Could not permit !", err);
+      console.log("Could not permit!", err);
     }
   };
 

@@ -7,7 +7,6 @@ import { Link } from "react-scroll";
 
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
-  background-image: url("https://cdn.discordapp.com/attachments/820907278454620183/820908645591678996/ezgif.com-gif-maker_10.gif");
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-black bg-cover opacity-75`;
@@ -26,15 +25,18 @@ const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-bas
 
 const splash = (props) => {
   return (
-    <Container>
+    <Container
+      bgImage={props.bgImage}
+      style={{ backgroundImage: `url(${props.bgImage})` }}
+    >
       <OpacityOverlay />
       <HeroContainer>
         <NavBar />
         <Content>
           <Heading>
-            D_CODER
+            {props.heading}
             <br />
-            Tech Society of DTU
+            {props.subheading}
           </Heading>
           <Link to="ContactUs" smooth={true}>
             <PrimaryAction
