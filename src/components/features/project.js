@@ -3,6 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import Modal from "./modal";
 import api from "../../api/apiClient";
+import useUser from "../../useUser";
 
 const Container = tw.div`relative bg-gray-900 -m-8`;
 
@@ -31,6 +32,8 @@ const linkstyle = {
 
 const ProjectsComp = () => {
   const [projects, setProjects] = useState([]);
+  const { user } = useUser();
+  const isUser = user && !user.isAdmin;
 
   const getProjects = async () => {
     try {
@@ -50,7 +53,7 @@ const ProjectsComp = () => {
   return (
     <Container>
       <SingleColumn>
-        <Modal />
+        {isUser && <Modal />}
         <Content>
           {projects.map((card, i) => (
             <Card key={i} reversed={i % 2 === 1}>
