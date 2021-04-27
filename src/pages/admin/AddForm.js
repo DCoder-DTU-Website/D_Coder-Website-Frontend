@@ -36,7 +36,7 @@ const AddForm = () => {
       setRegisterUsername("");
       setRegisterPassword("");
       swal({
-        title: "Project Uploaded Successfully!",
+        title: "Member added Successfully!",
         icon: "success",
         buttons: true,
         closeOnClickOutside: true,

@@ -70,7 +70,6 @@ const AdminProjects = ({
       const { data } = await api.get("/project/all");
       const { data: projectsData } = data;
       let val = projectsData.filter((e) => !e.confirmed);
-      console.log(val);
       setProjects(val);
     } catch (err) {
       console.log("Could not retrieve Projects!", err);
@@ -79,8 +78,8 @@ const AdminProjects = ({
 
   const permit = async (e) => {
     try {
-      const projectID = e.target.id;
-      const data = await api.post(`/project/${projectID}/confirm`);
+      const projectID = e;
+      await api.post(`/project/${projectID}/confirm`);
       getProjects();
       swal({
         title: "Project Confirmed Successfully!",
@@ -94,13 +93,12 @@ const AdminProjects = ({
     }
   };
 
-  const deny = async (e) => {
+  const denyEvent = async (e) => {
     try {
-      const projectID = e.target.id;
-      console.log(projectID);
+      const projectID = e;
       await api.delete(`/project/${projectID}/delete`);
-      getProjects();
-      swal({
+      await getProjects();
+      await swal({
         title: "Project deleted Successfully!",
         icon: "success",
         buttons: true,
@@ -108,7 +106,29 @@ const AdminProjects = ({
         closeOnEsc: true,
       });
     } catch (err) {
-      console.log("Could not permit!", err);
+      console.log("Could not delete project!", err);
+    }
+  };
+
+  const deny = async (e) => {
+    const res = await swal({
+      title: "Are you sure you want to delete this project?",
+      icon: "warning",
+      buttons: {
+        Yes: {
+          text: "Yes",
+          value: "Yes",
+        },
+        No: {
+          text: "No",
+          value: "No",
+        },
+      },
+    });
+    if (res === "Yes") {
+      await denyEvent(e);
+    } else {
+      return;
     }
   };
 
@@ -179,9 +199,8 @@ const AdminProjects = ({
                           textAlign: "center !important",
                         }}
                       >
-                        <button
-                          id={testimonial._id}
-                          onClick={(e) => permit(e)}
+                        <Button
+                          onClick={() => permit(testimonial._id)}
                           style={{
                             backgroundColor: "green",
                             color: "white",
@@ -189,13 +208,13 @@ const AdminProjects = ({
                             fontWeight: "100",
                             outline: 0,
                           }}
+                          variant="contained"
                         >
                           Permit
-                        </button>
-                        <button
-                          id={testimonial._id}
+                        </Button>
+                        <Button
                           variant="contained"
-                          onClick={(e) => deny(e)}
+                          onClick={() => deny(testimonial._id)}
                           style={{
                             backgroundColor: "red",
                             color: "white",
@@ -204,7 +223,7 @@ const AdminProjects = ({
                           }}
                         >
                           Deny
-                        </button>
+                        </Button>
                       </div>
                     </TestimonialText>
                   ))}
