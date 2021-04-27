@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="body1">
       <div id="container">
-        <svg version="1.1" x="0px" y="0px" viewBox="0 0 200 82.7">
+        <svg className="svgdiv" version="1.1" x="0px" y="0px" viewBox="0 0 200 82.7">
           <g id="Calque_1">
             <text
               id="XMLID_3_"
