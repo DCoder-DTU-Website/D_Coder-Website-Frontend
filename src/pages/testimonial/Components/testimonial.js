@@ -139,7 +139,7 @@ const testimonials = ({
                         <DataIcons>
                           <Icons>
                             <a href="https://www.google.com/">
-                              <svg
+                              <svg  className="svgtestimonial"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={24}
                                 height={24}
@@ -157,7 +157,7 @@ const testimonials = ({
                           </Icons>
                           <Icons>
                             <a href="https://www.google.com/">
-                              <svg
+                              <svg  className="svgtestimonial"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={24}
                                 height={24}
@@ -175,7 +175,7 @@ const testimonials = ({
                           </Icons>
                           <Icons>
                             <a href="https://www.google.com/">
-                              <svg
+                              <svg className="svgtestimonial"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={24}
                                 height={24}

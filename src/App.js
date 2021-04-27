@@ -14,8 +14,8 @@ import Admin from "pages/admin/App";
 import Testimonial from "pages/testimonial/App";
 import Table from "pages/admin/TableList";
 import UserProfile from "pages/admin/UserProfile";
-// import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
-// import Error404 from "./pages/miscellaneous/Error404/App";
+import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
+import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
 
 function App() {
@@ -51,13 +51,13 @@ function App() {
           <Route exact path="/alumni">
             <Alumni />
           </Route>
-          {/* <Route exact path="/admin/dashboard">
+          <Route exact path="/admin/dashboard">
             {isLoggedIn && user && user.isAdmin ? <Admin /> : <NotAnAdmin />}
           </Route>
           <Route exact path="/admin/table">
             {user && user.isAdmin ? <Table /> : <NotAnAdmin />}
           </Route>
-          {isLoggedIn && user && user.isAdmin && (
+          {/* {isLoggedIn && user && user.isAdmin && (
             <>
               <Route exact path="/admin/dashboard">
                 <Admin />
@@ -67,7 +67,7 @@ function App() {
               </Route>
             </>
           )} */}
-          <Route
+          {/* <Route
             exact
             path="/admin/dashboard"
             render={() => (isAdmin ? <Admin /> : <Redirect to="/" />)}
@@ -80,11 +80,10 @@ function App() {
           <Route
             exact
             path="/admin/user"
-            render={() => (isUser ? <UserProfile /> : <Redirect to="/" />)}
-          />
-          {/* <Route exact path="/admin/user">
+            render={() => (isUser ? <UserProfile /> : <Redirect to="/" />)} */}
+          <Route exact path="/admin/user">
             {user && !user.isAdmin ? <UserProfile /> : <NotAnAdmin />}
-          </Route> */}
+          </Route>
           <Route exact path="/testimonial">
             <Testimonial />
           </Route>
