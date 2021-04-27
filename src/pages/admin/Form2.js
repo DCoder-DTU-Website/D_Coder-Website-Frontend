@@ -63,12 +63,18 @@ const Form2 = ({
       console.error(err, "Image Upload Failed!");
     }
   };
-    
+
   const clickSubmit = async () => {
     try {
       setLoading(true);
       const imageUrl = await uploadImage();
-      await api.post("/event/add", { title: title, desc: desc, startDate: startDate, endDate: endDate, image: imageUrl });
+      await api.post("/event/add", {
+        title: title,
+        desc: desc,
+        startDate: startDate,
+        endDate: endDate,
+        image: imageUrl,
+      });
       setTitle("");
       setStartDate("");
       setEndDate("");
@@ -100,8 +106,7 @@ const Form2 = ({
             name="name"
             variant="outlined"
             onChange={(e) => setTitle(e.target.value)}
-            value = {title}
-
+            value={title}
           />
           <div className="eventstyle">
             <TextField
@@ -114,7 +119,7 @@ const Form2 = ({
                 shrink: true,
               }}
               onChange={(e) => setStartDate(e.target.value)}
-              value = {startDate}
+              value={startDate}
             />
             <TextField
               id="date"
@@ -126,8 +131,7 @@ const Form2 = ({
                 shrink: true,
               }}
               onChange={(e) => setEndDate(e.target.value)}
-              value = {endDate}
-
+              value={endDate}
             />
           </div>
           <FormControl variant="outlined" className={classes.formControl}>
@@ -141,8 +145,7 @@ const Form2 = ({
               col={10}
               variant="outlined"
               onChange={(e) => setDesc(e.target.value)}
-              value = {desc}
-
+              value={desc}
             />
           </FormControl>
         </TextColumn>
@@ -154,7 +157,11 @@ const Form2 = ({
           backgroundColor: "rgb(49,130,206)",
         }}
       >
-        <SubmitButton onClick={clickSubmit} disabled={loading}>
+        <SubmitButton
+          onClick={clickSubmit}
+          disabled={loading}
+          style={{ backgroundColor: "rgba(49,130,206)", color: "white" }}
+        >
           Upload
         </SubmitButton>
       </div>

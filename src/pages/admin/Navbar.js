@@ -30,11 +30,11 @@ export default function AdminNavbarLinks() {
     <div
       style={{
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
         alignItems: "center",
       }}
     >
-      <a href="/" style={{ width: 50 }}>
+      <a href="/" style={{ width: 40 }}>
         <img src={logo} alt="logo" />
       </a>
       <div style={{ display: "flex", gap: "10px" }}>
@@ -44,7 +44,7 @@ export default function AdminNavbarLinks() {
               onClick={() => {
                 history.push("/admin/dashboard");
               }}
-              style={{ backgroundColor: "rgba(49,130,206)" }}
+              style={{ backgroundColor: "rgba(49,130,206)", color: "white" }}
             >
               Dashboard
             </Button>
@@ -56,7 +56,7 @@ export default function AdminNavbarLinks() {
               onClick={() => {
                 history.push("/admin/table");
               }}
-              style={{ backgroundColor: "rgba(49,130,206)" }}
+              style={{ backgroundColor: "rgba(49,130,206)", color: "white" }}
             >
               Members
             </Button>
