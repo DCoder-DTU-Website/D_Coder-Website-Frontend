@@ -8,7 +8,10 @@ import Footer from "../../components/footers/Footer";
 export default function Council() {
   return (
     <div>
-      <Hero title="The Council" />
+      <Hero
+        title="The Council"
+        bgImage="https://www.therahnuma.com/wp-content/uploads/2018/08/unsc_somalia.jpg"
+      />
       <Councils />
       <Footer />
     </div>

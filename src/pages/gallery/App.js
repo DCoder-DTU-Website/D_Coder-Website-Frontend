@@ -1,4 +1,4 @@
-import React ,{useEffect} from "react";
+import React, { useEffect } from "react";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
 import Footer from "components/footers/Footer";
@@ -17,7 +17,10 @@ export default function Gallery() {
     <Router>
       <div className="back">
         <div style={{ zIndex: "0" }}>
-          <Hero title="A Glance At The Past" />
+          <Hero
+            title="A Glance At The Past"
+            bgImage="https://images.unsplash.com/photo-1565799515768-2dcfd834625c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1092&q=80"
+          />
         </div>
         <div
           style={{
