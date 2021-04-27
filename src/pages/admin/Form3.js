@@ -72,13 +72,18 @@ export default function MultilineTextFields() {
             variant="outlined"
             required
             onChange={(e) => setTitle(e.target.value)}
-            value = {title}
+            value={title}
           />
         </FormControl>
       </div>
       <div>
         <Upload images={images} setImages={setImages} />
-        <SubmitButton onClick={clickSubmit} disabled={loading}>
+        <SubmitButton
+          onClick={clickSubmit}
+          disabled={loading}
+          style={{ backgroundColor: "rgba(49,130,206)", color: "white" }}
+
+        >
           Upload
         </SubmitButton>
       </div>

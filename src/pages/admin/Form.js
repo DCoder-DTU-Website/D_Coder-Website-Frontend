@@ -26,7 +26,6 @@ export default function BasicTextFields() {
   const [topic, setTopic] = React.useState("");
   const [subTopic, setSubTopic] = React.useState("");
 
-
   const clickSubmit = async () => {
     const videoData = {
       title: "video",
@@ -51,7 +50,6 @@ export default function BasicTextFields() {
     }
   };
 
-  
   return (
     <form className={classes.root} onSubmit={(e) => e.preventDefault()}>
       <FormControl variant="outlined">
@@ -95,7 +93,10 @@ export default function BasicTextFields() {
         variant="outlined"
         onChange={(e) => setUrl(e.target.value)}
       />
-      <SubmitButton onClick={clickSubmit} style={{ marginLeft: "10px" }}>
+      <SubmitButton
+        onClick={clickSubmit}
+        style={{ backgroundColor: "rgba(49,130,206)", color: "white", marginLeft: "10px"  }}
+      >
         Upload
       </SubmitButton>
     </form>
