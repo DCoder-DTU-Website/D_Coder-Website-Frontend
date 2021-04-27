@@ -3,6 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import api from "../../api/apiClient";
+import swal from "sweetalert";
 
 const Container = tw.div`relative px-10`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
@@ -32,7 +33,15 @@ const AddForm = () => {
         username: registerUsername,
         password: registerPassword,
       });
-      alert("User Created Successfully! :D");
+      setRegisterUsername("");
+      setRegisterPassword("");
+      swal({
+        title: "Project Uploaded Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
     } catch (err) {
       console.log("Could not register user!", err);
     }
@@ -42,7 +51,7 @@ const AddForm = () => {
       <div>
         <TextColumn>
           <TextContent>
-            <Form>
+            <Form onSubmit={(e) => e.preventDefault()}>
               <div
                 style={{
                   display: "flex",
@@ -56,12 +65,14 @@ const AddForm = () => {
                   placeholder="Username"
                   required
                   onChange={(e) => setRegisterUsername(e.target.value)}
+                  value = {registerUsername}
                 />
                 <Input
                   type="password"
                   placeholder="Password"
                   required
                   onChange={(e) => setRegisterPassword(e.target.value)}
+                  value = {registerPassword}
                 />
                 <br />
               </div>
