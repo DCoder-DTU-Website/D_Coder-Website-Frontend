@@ -14,6 +14,9 @@ import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chev
 import { ReactComponent as ChevronRightIcon } from "feather-icons/dist/icons/chevron-right.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-4.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-5.svg";
+import { BlueLink as PrimaryLinkBase } from "components/misc/Links.js";
+import { ReactComponent as ArrowRightIcon } from "images/arrow-right-icon.svg";
+import { Link } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 
@@ -26,6 +29,12 @@ const Testimonial = tw.div`max-w-md lg:max-w-none mx-auto lg:mx-0 flex flex-col 
 const TestimonialImageSlider = tw(Slider)`w-full lg:w-5/12 flex-shrink-0 `;
 const TestimonialTextSlider = tw(Slider)``;
 const TestimonialText = tw.div`outline-none`;
+const PrimaryLink = styled(PrimaryLinkBase)`
+  ${tw`inline-flex justify-center xl:justify-start items-center text-lg sm:mx-10`}
+  svg {
+    ${tw`ml-2 w-5 h-5`}
+  }
+`;
 
 const ImageAndControlContainer = tw.div`relative outline-none`;
 const Image = styled.div((props) => [
@@ -152,6 +161,14 @@ const HomePageReviews = ({
                   heading={heading}
                   description={description}
                 />
+                <PrimaryLink style={{ margin: 0, marginTop: "2px" }}>
+                  <Link
+                    to="/testimonial"
+                    style={{ display: "inline-flex", alignItems: "center" }}
+                  >
+                    Check out our Testimonials <ArrowRightIcon />
+                  </Link>
+                </PrimaryLink>
                 <TestimonialTextSlider
                   arrows={false}
                   ref={setTextSliderRef}

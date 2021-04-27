@@ -4,8 +4,7 @@ import styled from "styled-components";
 import NavBar from "helpers/library.js";
 
 const Container = styled.div`
-  ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
-  background-image: url("https://images.unsplash.com/photo-1536300007881-7e482242baa5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80");
+  ${tw`relative -mx-8 -mt-8 mb-8 bg-center bg-cover h-screen min-h-144`}
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-black opacity-75`;
@@ -22,7 +21,12 @@ const Heading = styled.h1`
 
 const splashScreen = (props) => {
   return (
-    <Container>
+    <Container
+      style={{
+        backgroundImage: `url(${props.bgImage})`,
+        marginBottom: "2.25rem",
+      }}
+    >
       <OpacityOverlay />
       <HeroContainer>
         <NavBar />

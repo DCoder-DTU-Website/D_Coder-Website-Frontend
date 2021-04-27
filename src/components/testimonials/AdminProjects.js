@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick.css";
 import Button from "@material-ui/core/Button";
 import "../../pages/admin/styles.css";
 import api from "../../api/apiClient";
+import swal from "sweetalert";
 
 const Container = tw.div` relative -mt-16 ml-4 -mb-16`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -62,29 +63,6 @@ const AdminProjects = ({
   testimonials = null,
   textOnLeft = false,
 }) => {
-  const defaultTestimonials = [
-    {
-      imageSrc: "https://media.giphy.com/media/11JTxkrmq4bGE0/source.gif",
-      ownerName: "Vaibhav Gupta",
-      projectName: "Bhukkad Nukkad",
-      teckStack: "Flutter",
-      linkedin: "https://linkedin.com",
-      github: "https://www.github.com/Vaibhav21112002",
-      description:
-        "One upon a time there was a crow who was very thirsty and was in the need of the food or water. Then suddenly it saw a tank which has a little water.",
-    },
-    {
-      imageSrc: "https://media.giphy.com/media/kKefeMw8rbMVq/source.gif",
-      ownerName: "Shashank Tripathi",
-      projectName: "Get The Coin",
-      teckStack: "React Native",
-      linkedin: "https://linkedin.com",
-      github: "https://www.github.com/Shashanktri32",
-      description:
-        "One upon a time there was a crow who was very thirsty and was in the need of the food or water. Then suddenly it saw a tank which has a little water.",
-    },
-  ];
-
   const [projects, setProjects] = useState([]);
 
   const getProjects = async () => {
@@ -92,7 +70,6 @@ const AdminProjects = ({
       const { data } = await api.get("/project/all");
       const { data: projectsData } = data;
       let val = projectsData.filter((e) => !e.confirmed);
-      console.log(val);
       setProjects(val);
     } catch (err) {
       console.log("Could not retrieve Projects!", err);
@@ -101,11 +78,57 @@ const AdminProjects = ({
 
   const permit = async (e) => {
     try {
-      console.log(e.target.id);
-      const projectID = e.target.id;
-      const data = api.post(`/project/${projectID}/confirm`)
+      const projectID = e;
+      await api.post(`/project/${projectID}/confirm`);
+      getProjects();
+      swal({
+        title: "Project Confirmed Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
     } catch (err) {
       console.log("Could not permit !", err);
+    }
+  };
+
+  const denyEvent = async (e) => {
+    try {
+      const projectID = e;
+      await api.delete(`/project/${projectID}/delete`);
+      await getProjects();
+      await swal({
+        title: "Project deleted Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (err) {
+      console.log("Could not delete project!", err);
+    }
+  };
+
+  const deny = async (e) => {
+    const res = await swal({
+      title: "Are you sure you want to delete this project?",
+      icon: "warning",
+      buttons: {
+        Yes: {
+          text: "Yes",
+          value: "Yes",
+        },
+        No: {
+          text: "No",
+          value: "No",
+        },
+      },
+    });
+    if (res === "Yes") {
+      await denyEvent(e);
+    } else {
+      return;
     }
   };
 
@@ -177,20 +200,27 @@ const AdminProjects = ({
                         }}
                       >
                         <Button
-                          variant="contained"
-                          id={testimonial._id}
-                          onClick={(e) => permit(e)}
+                          onClick={() => permit(testimonial._id)}
                           style={{
                             backgroundColor: "green",
                             color: "white",
                             marginRight: "5%",
+                            fontWeight: "100",
+                            outline: 0,
                           }}
+                          variant="contained"
                         >
                           Permit
                         </Button>
                         <Button
                           variant="contained"
-                          style={{ backgroundColor: "red", color: "white" }}
+                          onClick={() => deny(testimonial._id)}
+                          style={{
+                            backgroundColor: "red",
+                            color: "white",
+                            fontWeight: "100",
+                            outline: 0,
+                          }}
                         >
                           Deny
                         </Button>

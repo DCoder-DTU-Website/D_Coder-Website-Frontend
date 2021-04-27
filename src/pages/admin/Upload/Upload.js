@@ -30,7 +30,11 @@ const Upload = ({ images, setImages }) => {
         }) => (
           <div className="upload__image-wrapper">
             <button
-              style={isDragging ? { backgroundColor: "#1A202C" } : undefined}
+              style={
+                isDragging
+                  ? { backgroundColor: "#1A202C" }
+                  : { backgroundColor: "rgba(49,130,206)", color: "white" }
+              }
               onClick={onImageUpload}
               {...dragProps}
             >

@@ -27,7 +27,7 @@ function App() {
   }, [user]);
 
   const isAdmin = isLoggedIn && user && user.isAdmin;
-  const isUser = isLoggedIn && user;
+  const isUser = isLoggedIn && user && !user.isAdmin;
 
   return (
     <AnimationRevealPage disabled className="wrapper">
@@ -51,13 +51,13 @@ function App() {
           <Route exact path="/alumni">
             <Alumni />
           </Route>
-          {/* <Route exact path="/admin/dashboard">
-            {isLoggedIn && user && user.isAdmin ? <Admin /> : <NotAnAdmin />}
+          <Route exact path="/admin/dashboard">
+            {isAdmin ? <Admin /> : <NotAnAdmin />}
           </Route>
           <Route exact path="/admin/table">
-            {user && user.isAdmin ? <Table /> : <NotAnAdmin />}
+            {isAdmin ? <Table /> : <NotAnAdmin />}
           </Route>
-          {isLoggedIn && user && user.isAdmin && (
+          {/* {isLoggedIn && user && user.isAdmin && (
             <>
               <Route exact path="/admin/dashboard">
                 <Admin />
@@ -67,7 +67,7 @@ function App() {
               </Route>
             </>
           )} */}
-          <Route
+          {/* <Route
             exact
             path="/admin/dashboard"
             render={() => (isAdmin ? <Admin /> : <Redirect to="/" />)}
@@ -80,18 +80,17 @@ function App() {
           <Route
             exact
             path="/admin/user"
-            render={() => (isUser ? <UserProfile /> : <Redirect to="/" />)}
-          />
-          {/* <Route exact path="/admin/user">
-            {user && !user.isAdmin ? <UserProfile /> : <NotAnAdmin />}
-          </Route> */}
+            render={() => (isUser ? <UserProfile /> : <Redirect to="/" />)} */}
+          <Route exact path="/admin/user">
+            {isUser ? <UserProfile /> : <NotAnAdmin />}
+          </Route>
           <Route exact path="/testimonial">
             <Testimonial />
           </Route>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="*" component={Error404} />
+          <Route path="*" component={Home} />
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>

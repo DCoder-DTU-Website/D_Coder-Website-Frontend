@@ -12,6 +12,8 @@ import Login from "./loginModal";
 import { Button } from "@material-ui/core";
 import useUser from "../useUser";
 import { Link } from "react-router-dom";
+import Avatar from "./Avatar";
+import swal from "sweetalert";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 pb-2 max-w-none w-full`}
@@ -32,6 +34,20 @@ function NavBar() {
     setIsLoggedIn({ login: user });
   }, [user]);
 
+  const logoutFromClient = () => {
+    logout();
+    setIsLoggedIn({ login: false });
+    swal({
+      title: "Successfully logged out!",
+      icon: "success",
+      closeOnEsc: true,
+      closeOnClickOutside: true,
+      button: {
+        ok: "Ok",
+      },
+    });
+  };
+
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/events">Events</NavLink>
@@ -44,19 +60,48 @@ function NavBar() {
     <NavLinks key={2}>
       {isLoggedIn.login ? (
         <>
-          <Button variant="contained" color="primary">
-            {isLoggedIn.login.isAdmin ? (
+          {isLoggedIn.login.isAdmin ? (
+            <Button
+              color="primary"
+              variant="contained"
+              style={{ marginRight: "10px" }}
+            >
               <Link to="/admin/dashboard">Admin Dashboard</Link>
-            ) : (
-              <Link to="/admin/user">Dashboard</Link>
-            )}
-          </Button>
+            </Button>
+          ) : (
+            <Button style={{ marginRight: "10px" }}>
+              <Link to="/admin/user">
+                <Avatar />
+              </Link>
+            </Button>
+          )}
           <Button
             variant="contained"
             color="primary"
             onClick={() => {
-              logout();
-              setIsLoggedIn({ login: false });
+              swal({
+                title: "Are you sure you want to logout?",
+                icon: "warning",
+                buttons: {
+                  yes: {
+                    text: "Yes",
+                    value: "Yes",
+                  },
+                  no: {
+                    text: "No",
+                    value: "No",
+                  },
+                },
+                closeOnClickOutside: true,
+                closeOnEsc: true,
+              }).then((value) => {
+                switch (value) {
+                  case "Yes":
+                    logoutFromClient();
+                  case "No":
+                    return;
+                }
+              });
             }}
           >
             Logout

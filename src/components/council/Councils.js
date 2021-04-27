@@ -8,6 +8,8 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
+import mahekjain from "../../images/council/mahekjain.jpg";
+import siddharthsingh from "../../images/council/siddharthsingh.jpg";
 import "./council.css";
 
 //Header (Team + Carousel) Styling Starts
@@ -70,13 +72,13 @@ const Councils = ({
     Heads: [
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+          mahekjain,
         title: "Mahek Jain",
         content: "President",
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+        siddharthsingh,
         title: "Siddhart Singh",
         content: "Vice - President",
       },
@@ -218,7 +220,7 @@ const Councils = ({
                     imageSrc={card.imageSrc}
                   ></CardImageContainer>
                   <CardText style={{ textAlign: "center" }}>
-                    <CardTitle>{card.title}</CardTitle>
+                    <CardTitle style={{cursor: "pointer"}}>{card.title}</CardTitle>
                     <CardContent>{card.content}</CardContent>
                   </CardText>
                 </Card>

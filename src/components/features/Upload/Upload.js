@@ -4,7 +4,7 @@ import "./style.css";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
-const Upload = ({ images, setImages }) => {
+const Upload = ({ images, setImages, disabled }) => {
   const classes = useStyles();
   const maxNumber = 1;
 
@@ -36,13 +36,16 @@ const Upload = ({ images, setImages }) => {
               style={isDragging ? { backgroundColor: "#3182ce" } : undefined}
               onClick={onImageUpload}
               {...dragProps}
+              disabled={disabled}
             >
-              Click or Drop Image
+              Upload Image
             </Button>
             &nbsp;
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
-                <img src={image["data_url"]} alt="upload" width="200" />
+                <div>
+                  <img src={image["data_url"]} alt="upload" width="200" />
+                </div>
                 <div className="image-item__btn-wrapper">
                   <Button
                     className={classes.button}

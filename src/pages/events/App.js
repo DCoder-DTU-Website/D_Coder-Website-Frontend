@@ -216,7 +216,10 @@ function EventPage() {
 
   return (
     <>
-      <Hero title="Events" />
+      <Hero
+        title="Events"
+        bgImage="https://media.giphy.com/media/JUXtbHuixcZKeGJEro/giphy.gif"
+      />
       <Container className="EventPage-root">
         <SingleColumn>
           <section>

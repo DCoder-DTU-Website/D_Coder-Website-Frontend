@@ -91,6 +91,7 @@ const GalPreview = () => {
 
   const [cards, setCards] = useState([]);
 
+  
   function SliderPlaying(x) {
     if (x) sliderRef?.slickPlay();
     else sliderRef?.slickPause();
