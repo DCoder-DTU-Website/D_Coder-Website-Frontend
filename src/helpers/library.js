@@ -12,6 +12,7 @@ import Login from "./loginModal";
 import { Button } from "@material-ui/core";
 import useUser from "../useUser";
 import { Link } from "react-router-dom";
+import Avatar from "./Avatar";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 pb-2 max-w-none w-full`}
@@ -44,13 +45,17 @@ function NavBar() {
     <NavLinks key={2}>
       {isLoggedIn.login ? (
         <>
-          <Button variant="contained" color="primary">
-            {isLoggedIn.login.isAdmin ? (
+          {isLoggedIn.login.isAdmin ? (
+            <Button color="primary" variant = "contained" style={{ marginRight: "10px" }}>
               <Link to="/admin/dashboard">Admin Dashboard</Link>
-            ) : (
-              <Link to="/admin/user">Dashboard</Link>
-            )}
-          </Button>
+            </Button>
+          ) : (
+            <Button style={{ marginRight: "10px" }}>
+              <Link to="/admin/user">
+                <Avatar />
+              </Link>
+            </Button>
+          )}
           <Button
             variant="contained"
             color="primary"

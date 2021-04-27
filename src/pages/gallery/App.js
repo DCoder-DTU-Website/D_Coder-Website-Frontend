@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
 import Footer from "components/footers/Footer";
@@ -8,6 +8,11 @@ import PhotoIndex from "components/PhotoGallery/photoindex";
 import { BrowserRouter as Router } from "react-router-dom";
 
 export default function Gallery() {
+  useEffect(() => {
+    console.log("came");
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Router>
       <div className="back">

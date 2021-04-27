@@ -100,6 +100,8 @@ const Form2 = ({
             name="name"
             variant="outlined"
             onChange={(e) => setTitle(e.target.value)}
+            value = {title}
+
           />
           <div className="eventstyle">
             <TextField
@@ -112,6 +114,7 @@ const Form2 = ({
                 shrink: true,
               }}
               onChange={(e) => setStartDate(e.target.value)}
+              value = {startDate}
             />
             <TextField
               id="date"
@@ -123,6 +126,8 @@ const Form2 = ({
                 shrink: true,
               }}
               onChange={(e) => setEndDate(e.target.value)}
+              value = {endDate}
+
             />
           </div>
           <FormControl variant="outlined" className={classes.formControl}>
@@ -136,6 +141,8 @@ const Form2 = ({
               col={10}
               variant="outlined"
               onChange={(e) => setDesc(e.target.value)}
+              value = {desc}
+
             />
           </FormControl>
         </TextColumn>

@@ -72,6 +72,7 @@ export default function MultilineTextFields() {
             variant="outlined"
             required
             onChange={(e) => setTitle(e.target.value)}
+            value = {title}
           />
         </FormControl>
       </div>

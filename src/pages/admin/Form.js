@@ -22,14 +22,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BasicTextFields() {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
   const [url, setUrl] = React.useState("");
   const [topic, setTopic] = React.useState("");
   const [subTopic, setSubTopic] = React.useState("");
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
 
   const clickSubmit = async () => {
     const videoData = {
@@ -77,8 +73,6 @@ export default function BasicTextFields() {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={age}
-          onChange={handleChange}
           label="Sub-Title"
           onChange={(e) => setSubTopic(e.target.value)}
         >
