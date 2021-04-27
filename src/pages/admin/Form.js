@@ -6,6 +6,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import tw from "twin.macro";
+import api from "../../api/apiClient";
+import swal from "sweetalert";
+
 const SubmitButton = tw.button`w-full sm:w-32 mt-6 ml-96 py-3 bg-white text-gray-600 rounded-lg font-bold tracking-wide  uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-gray-300 hover:text-gray-700 hocus:-translate-y-px hocus:shadow-xl`;
 
 const useStyles = makeStyles((theme) => ({
@@ -19,23 +22,48 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BasicTextFields() {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
+  const [url, setUrl] = React.useState("");
+  const [topic, setTopic] = React.useState("");
+  const [subTopic, setSubTopic] = React.useState("");
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+
+  const clickSubmit = async () => {
+    const videoData = {
+      title: "video",
+      link: url,
+      topic: topic,
+      subtopic: subTopic,
+    };
+    try {
+      await api.post("/lecture/add", videoData);
+      setTopic("");
+      setUrl("");
+      setSubTopic("");
+      swal({
+        title: "Lecture Uploaded Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (err) {
+      console.log(err, "Upload Failed");
+    }
   };
+
+  
   return (
-    <form className={classes.root} method="GET">
-      <FormControl variant="outlined" className={classes.formControl}>
+    <form className={classes.root} onSubmit={(e) => e.preventDefault()}>
+      <FormControl variant="outlined">
         <InputLabel id="demo-simple-select-outlined-label">Title</InputLabel>
-        <Select label="Title" name="Title">
+        <Select label="Title" onChange={(e) => setTopic(e.target.value)}>
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Data Structures and Algorithms</MenuItem>
-          <MenuItem value={20}>Web Development</MenuItem>
-          <MenuItem value={30}>Andriod Development</MenuItem>
-          <MenuItem value={40}>Machine Learning</MenuItem>
+          <MenuItem value={"dsa"}>Data Structures and Algorithms</MenuItem>
+          <MenuItem value={"webd"}>Web Development</MenuItem>
+          <MenuItem value={"appd"}>Andriod Development</MenuItem>
+          <MenuItem value={"ml"}>Machine Learning</MenuItem>
         </Select>
       </FormControl>
       <FormControl variant="outlined" className={classes.formControl}>
@@ -45,20 +73,18 @@ export default function BasicTextFields() {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          name="SubTitle"
-          value={age}
-          onChange={handleChange}
           label="Sub-Title"
+          onChange={(e) => setSubTopic(e.target.value)}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={1}>Array</MenuItem>
-          <MenuItem value={2}>Linked-List</MenuItem>
-          <MenuItem value={3}>Binary Trees</MenuItem>
-          <MenuItem value={4}>Binary Search Trees</MenuItem>
-          <MenuItem value={5}>Heaps</MenuItem>
-          <MenuItem value={6}>Graphs</MenuItem>
+          <MenuItem value={"array"}>Array</MenuItem>
+          <MenuItem value={"linkedlist"}>Linked-List</MenuItem>
+          <MenuItem value={"binarytrees"}>Binary Trees</MenuItem>
+          <MenuItem value={"bst"}>Binary Search Trees</MenuItem>
+          <MenuItem value={"heaps"}>Heaps</MenuItem>
+          <MenuItem value={"graphs"}>Graphs</MenuItem>
         </Select>
       </FormControl>
       <TextField
@@ -66,10 +92,10 @@ export default function BasicTextFields() {
         label="Image Url"
         placeholder="E.g. https://www.youtube.com"
         multiline
-        name="url"
         variant="outlined"
+        onChange={(e) => setUrl(e.target.value)}
       />
-      <SubmitButton style={{ marginLeft: "10px" }} type="submit" value="Submit">
+      <SubmitButton onClick={clickSubmit} style={{ marginLeft: "10px" }}>
         Upload
       </SubmitButton>
     </form>

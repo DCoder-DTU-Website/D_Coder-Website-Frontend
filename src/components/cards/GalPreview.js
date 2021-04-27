@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -12,10 +12,12 @@ import { ReactComponent as ArrowRightIcon } from "images/arrow-right-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
+import { Link } from "react-router-dom";
+import api from "../../api/apiClient";
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20 text-center sm:text-justify`;
 const PrimaryLink = styled(PrimaryLinkBase)`
-  ${tw`inline-flex justify-center xl:justify-start items-center mt-8 text-lg sm:mx-10`}
+  ${tw`inline-flex justify-center xl:justify-start items-center text-lg sm:mx-10`}
   svg {
     ${tw`ml-2 w-5 h-5`}
   }
@@ -87,52 +89,33 @@ const GalPreview = () => {
     ],
   });
 
+  const [cards, setCards] = useState([]);
+
+  
   function SliderPlaying(x) {
     if (x) sliderRef?.slickPlay();
     else sliderRef?.slickPause();
   }
-  const cards = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
-      title: "Wyatt Residency saigno",
-      description:
-        "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Rome, Italy",
-      dateText: "8 April 2021",
-      rating: "4.8",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
-      title: "Soho Paradise",
-      description:
-        "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Ibiza, Spain",
-      dateText: "4 April 2021",
-      rating: 4.9,
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
-      title: "Hotel Baja",
-      description:
-        "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Palo Alto, CA",
-      dateText: "3 April 2021",
-      rating: "5.0",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1571770095004-6b61b1cf308a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
-      title: "Hudak Homes",
-      description:
-        "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Arizona, RAK",
-      dateText: "1 April 2021",
-      rating: 4.5,
-    },
-  ];
+
+  const getPhotos = async () => {
+    try {
+      const images = await api.get("/gallery/all");
+      const { data: gallery } = images.data;
+      const galleryImgs = gallery.map((image) => ({
+        imageSrc: image.image,
+        width: 5,
+        height: 5,
+        title: image.title,
+      }));
+      setCards(galleryImgs);
+    } catch (err) {
+      console.error(err, "Couldn't retrieve photos.");
+    }
+  };
+
+  useEffect(() => {
+    getPhotos();
+  }, []);
 
   return (
     <Container>
@@ -149,7 +132,12 @@ const GalPreview = () => {
           </Controls>
         </HeadingWithControl>
         <PrimaryLink>
-          Check out our Gallery <ArrowRightIcon />
+          <Link
+            to="/gallery"
+            style={{ display: "inline-flex", alignItems: "center" }}
+          >
+            Check out our Gallery <ArrowRightIcon />
+          </Link>
         </PrimaryLink>
         <CardSlider ref={setSliderRef} {...sliderSettings}>
           {cards.map((card, index) => (

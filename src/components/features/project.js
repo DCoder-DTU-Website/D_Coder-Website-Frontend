@@ -36,7 +36,8 @@ const ProjectsComp = () => {
     try {
       const { data } = await api.get("/project/all");
       const { data: projectsData } = data;
-      setProjects(projectsData);
+      let val = projectsData.filter((e) => e.confirmed);
+      setProjects(val);
     } catch (err) {
       console.log("Could not retrieve Projects!", err);
     }

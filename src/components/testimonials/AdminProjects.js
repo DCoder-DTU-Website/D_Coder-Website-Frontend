@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -11,6 +11,8 @@ import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-
 import "slick-carousel/slick/slick.css";
 import Button from "@material-ui/core/Button";
 import "../../pages/admin/styles.css";
+import api from "../../api/apiClient";
+import swal from "sweetalert";
 
 const Container = tw.div` relative -mt-16 ml-4 -mb-16`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -84,8 +86,60 @@ const AdminProjects = ({
     },
   ];
 
-  if (!testimonials || testimonials.length === 0)
-    testimonials = defaultTestimonials;
+  const [projects, setProjects] = useState([]);
+
+  const getProjects = async () => {
+    try {
+      const { data } = await api.get("/project/all");
+      const { data: projectsData } = data;
+      let val = projectsData.filter((e) => !e.confirmed);
+      console.log(val);
+      setProjects(val);
+    } catch (err) {
+      console.log("Could not retrieve Projects!", err);
+    }
+  };
+
+  const permit = async (e) => {
+    try {
+      const projectID = e.target.id;
+      const data = await api.post(`/project/${projectID}/confirm`);
+      getProjects();
+      swal({
+        title: "Project Uploaded Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (err) {
+      console.log("Could not permit !", err);
+    }
+  };
+
+  const deny = async (e) => {
+    try {
+      const projectID = e.target.id;
+      console.log(projectID)
+      const data = await api.delete(`/project/${projectID}/delete`);
+      getProjects();
+      swal({
+        title: "Project deleted Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (err) {
+      console.log("Could not permit !", err);
+    }
+  };
+
+  useEffect(() => {
+    getProjects();
+  }, []);
+
+  if (!testimonials || testimonials.length === 0) testimonials = projects;
 
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [imageSliderRef, setImageSliderRef] = useState(null);
@@ -104,8 +158,8 @@ const AdminProjects = ({
                 fade={true}
               >
                 {testimonials.map((testimonial, index) => (
-                  <ImageAndControlContainer key={index}>
-                    <Image imageSrc={testimonial.imageSrc} />
+                  <ImageAndControlContainer key={testimonial._id}>
+                    <Image imageSrc={testimonial.image} />
                     <ControlContainer>
                       <ControlButton onClick={imageSliderRef?.slickPrev}>
                         <ChevronLeftIcon
@@ -129,18 +183,18 @@ const AdminProjects = ({
                   fade={true}
                 >
                   {testimonials.map((testimonial, index) => (
-                    <TestimonialText key={index}>
+                    <TestimonialText key={testimonial._id}>
                       <QuoteContainer>
-                        <Quote>{testimonial.projectName}</Quote>
+                        <Quote>{testimonial.title}</Quote>
                         <Quote>
                           <Link href={testimonial.linkedin}>
-                            {testimonial.ownerName}
+                            {testimonial.dev}
                           </Link>
 
                           <Link href={testimonial.github}>Github</Link>
                         </Quote>
-                        <Quote>{testimonial.teckStack}</Quote>
-                        <Quote>{testimonial.description}</Quote>
+                        <Quote>{testimonial.techStack}</Quote>
+                        <Quote>{testimonial.desc}</Quote>
                       </QuoteContainer>
                       <div
                         style={{
@@ -148,22 +202,32 @@ const AdminProjects = ({
                           textAlign: "center !important",
                         }}
                       >
-                        <Button
-                          variant="contained"
+                        <button
+                          id={testimonial._id}
+                          onClick={(e) => permit(e)}
                           style={{
                             backgroundColor: "green",
                             color: "white",
                             marginRight: "5%",
+                            fontWeight: "100",
+                            outline: 0,
                           }}
                         >
                           Permit
-                        </Button>
-                        <Button
+                        </button>
+                        <button
+                          id={testimonial._id}
                           variant="contained"
-                          style={{ backgroundColor: "red", color: "white" }}
+                          onClick={(e) => deny(e)}
+                          style={{
+                            backgroundColor: "red",
+                            color: "white",
+                            fontWeight: "100",
+                            outline: 0,
+                          }}
                         >
                           Deny
-                        </Button>
+                        </button>
                       </div>
                     </TestimonialText>
                   ))}

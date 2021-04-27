@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Upload from "./Upload/Upload";
 import tw from "twin.macro";
 import styled from "styled-components";
 import FormControl from "@material-ui/core/FormControl";
+import api from "../../api/apiClient";
+import axios from "axios";
+import swal from "sweetalert";
 const SubmitButton = tw.button`w-full sm:w-32 mt-6 py-3 bg-white text-gray-600 rounded-lg font-bold tracking-wide  uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-gray-300 hover:text-gray-700 hocus:-translate-y-px hocus:shadow-xl`;
 const TwoColumn = tw.div`flex flex-col-reverse md:flex-row justify-between max-w-screen-xl mx-auto items-center`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
@@ -37,13 +40,56 @@ const Form2 = ({
   // const handleChange = (event) => {
   //   setValue(event.target.value);
   // };
+  const [images, setImages] = useState([]);
+  const [title, setTitle] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [desc, setDesc] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const uploadImage = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", images[0].file);
+      formData.append("upload_preset", "gekvwtzt");
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
+        formData
+      );
+      setImages([]);
+      console.log(res.data.url);
+      return res.data.url;
+    } catch (err) {
+      console.error(err, "Image Upload Failed!");
+    }
+  };
+    
+  const clickSubmit = async () => {
+    try {
+      setLoading(true);
+      const imageUrl = await uploadImage();
+      await api.post("/event/add", { title: title, desc: desc, startDate: startDate, endDate: endDate, image: imageUrl });
+      setTitle("");
+      setStartDate("");
+      setEndDate("");
+      setDesc("");
+      swal({
+        title: "Event Uploaded Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+      setLoading(false);
+    } catch (err) {
+      console.log(err, "Upload Failed");
+    }
+  };
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form action="#" method="get" className={classes.root}>
       <TwoColumn>
         <TextColumn>
-          <Upload
-            style={{ backgroundColor: "white !important", color: "gray" }}
-          />
+          <Upload images={images} setImages={setImages} />
         </TextColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextField
@@ -53,6 +99,9 @@ const Form2 = ({
             multiline
             name="name"
             variant="outlined"
+            onChange={(e) => setTitle(e.target.value)}
+            value = {title}
+
           />
           <div className="eventstyle">
             <TextField
@@ -64,6 +113,8 @@ const Form2 = ({
               InputLabelProps={{
                 shrink: true,
               }}
+              onChange={(e) => setStartDate(e.target.value)}
+              value = {startDate}
             />
             <TextField
               id="date"
@@ -74,6 +125,9 @@ const Form2 = ({
               InputLabelProps={{
                 shrink: true,
               }}
+              onChange={(e) => setEndDate(e.target.value)}
+              value = {endDate}
+
             />
           </div>
           <FormControl variant="outlined" className={classes.formControl}>
@@ -86,6 +140,9 @@ const Form2 = ({
               rows={4}
               col={10}
               variant="outlined"
+              onChange={(e) => setDesc(e.target.value)}
+              value = {desc}
+
             />
           </FormControl>
         </TextColumn>
@@ -97,7 +154,7 @@ const Form2 = ({
           backgroundColor: "rgb(49,130,206)",
         }}
       >
-        <SubmitButton type="submit" value="Submit">
+        <SubmitButton onClick={clickSubmit} disabled={loading}>
           Upload
         </SubmitButton>
       </div>

@@ -1,5 +1,5 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import GridItem from "components/Grid/GridItem.js";
@@ -14,15 +14,24 @@ import avatar from "./marc.jpg";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+// import Checkbox from "@material-ui/core/Checkbox";
+// import {ChipSet,Chip} from "@material/react-chips"
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
+import Chip from "@material-ui/core/Chip";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { IconButton } from "@material-ui/core";
 import CardFooter from "components/cards/CardFooter";
+import { RadioGroup } from "@material-ui/core";
+
+import useUser from "../../useUser";
+import api from "../../api/apiClient";
+import swal from "sweetalert";
+import Upload from "components/features/Upload/Upload";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,7 +67,27 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  FormControlLabel: {
+    marginTop: "30px",
+  },
 }));
+
+const BlueCheckbox = withStyles({
+  root: {
+    backgroundColor: " #001eff",
+    color: "white",
+  },
+})((props) => (
+  <Chip
+    color="#001eff"
+    style={
+      props.isChosen
+        ? { backgroundColor: "red" }
+        : { backgroundColor: "#2e2e2e" }
+    }
+    {...props}
+  />
+));
 
 const PersonalForm = (props) => {
   return (
@@ -150,72 +179,46 @@ const ProfilesForm = (props) => {
         <Grid item xs={12} sm={6}>
           <TextField
             id="linkedin"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  linkedin.com/in/
-                </InputAdornment>
-              ),
-            }}
+            label="Linked In"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.linkedin}
+            value={props.data.linkedin}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             id="github"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">github.com/</InputAdornment>
-              ),
-            }}
+            label="Github"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.github}
+            value={props.data.github}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             id="codeforces"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  codeforces.com/profile/
-                </InputAdornment>
-              ),
-            }}
+            label="Code Forces"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.codeforces}
+            value={props.data.codeforces}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             id="codechef"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  codechef.com/users/
-                </InputAdornment>
-              ),
-            }}
+            label="Code Chef"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.codechef}
+            value={props.data.codechef}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             id="leetcode"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">leetcode.com/</InputAdornment>
-              ),
-            }}
+            label="Leet Code"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
-            value={props.data.profiles.leetcode}
+            value={props.data.leetcode}
           />
         </Grid>
       </Grid>
@@ -225,11 +228,6 @@ const ProfilesForm = (props) => {
 
 const MiscForm = (props) => {
   const classes = useStyles();
-  // const [age, setAge] = React.useState("");
-
-  // const handleChange = (event) => {
-  //   setAge(event.target.value);
-  // };
 
   return (
     <React.Fragment>
@@ -277,81 +275,89 @@ const MiscForm = (props) => {
           <FormGroup row fullWidth>
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="web"
-                  checked={props.data.abils.web}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Web Dev"
+                  isChosen={props.data.techStack.includes("Web Dev")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Web Dev"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Web Dev"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="android"
-                  checked={props.data.abils.android}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Android Dev"
+                  isChosen={props.data.techStack.includes("Android Dev")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="checkedB2"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Android Dev"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="ml"
-                  checked={props.data.abils.ml}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Machine Learning"
+                  isChosen={props.data.techStack.includes("Machine Learning")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Machine Learning"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Machine Learning"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="ai"
-                  checked={props.data.abils.ai}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Artificial Intelligence"
+                  isChosen={props.data.techStack.includes(
+                    "Artificial Intelligence"
+                  )}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Artificial Intelligence"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Artificial Intelligence"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="ds"
-                  checked={props.data.abils.ds}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Data Structures"
+                  isChosen={props.data.techStack.includes("Data Structures")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Data Structures"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Data Structures"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="algo"
-                  checked={props.data.abils.algo}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Algorithms"
+                  isChosen={props.data.techStack.includes("Algorithms")}
+                  onClick={(e) => props.onTechChange(e)}
+                  name="Algorithms"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Algorithms"
+              style={{ marginTop: "20px" }}
             />
           </FormGroup>
         </Grid>
@@ -360,45 +366,48 @@ const MiscForm = (props) => {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
           <FormLabel component="legend">Teams</FormLabel>
-          <FormGroup row fullWidth>
+          <FormGroup row fullWidth aria-label="position">
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="teamA"
-                  checked={props.data.teams.teamA}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Team A"
+                  isChosen={props.data.workingWith.includes("Team A")}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Team A"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Team A"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="teamB"
-                  checked={props.data.teams.teamB}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Team B"
+                  isChosen={props.data.workingWith.includes("Team B")}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Team B"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Team B"
+              style={{ marginTop: "20px" }}
             />
             <FormControlLabel
               control={
-                <Checkbox
+                <BlueCheckbox
                   id="teamC"
-                  checked={props.data.teams.teamC}
-                  onChange={(e) => props.onChange(e)}
-                  name="checkedB"
-                  color="primary"
+                  label="Team C"
+                  isChosen={props.data.workingWith.includes("Team C")}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Team C"
+                  clickable
                   disabled={props.editable ? false : true}
                 />
               }
-              label="Team C"
+              style={{ marginTop: "20px" }}
             />
           </FormGroup>
         </Grid>
@@ -409,52 +418,119 @@ const MiscForm = (props) => {
 
 export default function UserProfile() {
   const classes = useStyles();
+  const { user, logout } = useUser();
   const [data, setData] = React.useState({
-    firstName: "yeah",
+    firstName: "",
     lastName: "",
     email: "",
     contact: "",
     desc: "",
-    profiles: [
-      {
-        linkedin: "",
-        github: "",
-        codeforces: "",
-        codechef: "",
-        leetcode: "",
-      },
-    ],
-    branch: "COE",
-    year: 1,
-    abils: [
-      {
-        web: 0,
-        android: 0,
-        ml: 0,
-        ai: 0,
-        ds: 0,
-        algo: 0,
-      },
-    ],
-    teams: [
-      {
-        teamA: 0,
-        teamB: 0,
-        teamC: 0,
-      },
-    ],
+    linkedin: "",
+    github: "",
+    codeforces: "",
+    codechef: "",
+    leetcode: "",
+    branch: "",
+    year: "",
+    image: "",
+    techStack: [],
+    workingWith: [],
   });
+
+  const [ogProfile, setOgProfile] = useState();
+
+  const [images, setImages] = useState([]);
+
+  const getProfile = async () => {
+    const res = await api.post("/userprofile", { user });
+    const userProfile = res.data;
+    setOgProfile(userProfile);
+    setData((prevData) => ({ ...prevData, ...userProfile }));
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, [user]);
+
+  const firstUpdate = useRef(true);
+  useLayoutEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+    if (ogProfile.image !== data.image) {
+      updateBackend();
+    }
+  }, [data.image]);
+
   const handleChange = (e) => {
     setData({
       ...data,
       [e.target.id ? e.target.id : e.target.name]: e.target.value,
     });
   };
+
+  const handleTechChange = (e) => {
+    const value = e.target.textContent;
+    if (data.techStack.includes(value)) {
+      setData({
+        ...data,
+        techStack: data.techStack.filter((elem) => elem !== value),
+      });
+    } else {
+      setData((prevData) => ({
+        ...prevData,
+        techStack: [...prevData.techStack, value],
+      }));
+    }
+  };
+  const handleTeamChange = (e) => {
+    const value = e.target.textContent;
+    if (data.workingWith.includes(value)) {
+      setData({
+        ...data,
+        workingWith: data.workingWith.filter((elem) => elem !== value),
+      });
+    } else {
+      setData((prevData) => ({
+        ...prevData,
+        workingWith: [...prevData.workingWith, value],
+      }));
+    }
+  };
+
+  const uploadImage = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", images[0].file);
+      formData.append("upload_preset", "gekvwtzt");
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
+        formData
+      );
+      setImages([]);
+      return res.data.url;
+    } catch (err) {
+      console.error(err, "Image Upload Failed!");
+    }
+  };
+
+  const updateImage = async () => {
+    const url = await uploadImage();
+    setData((prevData) => ({ ...prevData, image: url }));
+  };
+
+  const updateProfile = async () => {
+    await updateImage();
+  };
+
+  const updateBackend = async () => {
+    const res = await api.put("/userprofile", { user, data });
+    swal({ title: res.data, icon: "success" });
+  };
+
   const [edit, setEdit] = React.useState(false);
   const toggleEdit = () => {
-    if (edit) {
-      //Save data here
-    }
     setEdit(!edit);
   };
   return (
@@ -462,7 +538,7 @@ export default function UserProfile() {
       <GridContainer style={{ backgroundColor: "#16253b" }}>
         <GridItem xs={12}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="info">
               <Grid container justify="space-between">
                 <h4 className={classes.cardTitleWhite}>Your Profile</h4>
                 <IconButton onClick={toggleEdit} style={{ color: "white" }}>
@@ -482,21 +558,30 @@ export default function UserProfile() {
                 >
                   <Grid item>
                     <img
-                      src={avatar}
+                      src={data.image}
                       alt="..."
-                      style={{ maxHeight: "200px", borderRadius: "50%" }}
-                      onClick={() => console.log(1)}
+                      style={{
+                        height: "190px",
+                        borderRadius: "50%",
+                      }}
+                      onClick={() => console.log()}
                     />
                   </Grid>
-                  <Button
+                  <Upload
+                    images={images}
+                    setImages={setImages}
+                    disabled={!edit}
+                  />
+                  {/* <Button
                     variant="contained"
                     color="secondary"
                     disabled={edit ? false : true}
                     className={classes.button}
                     startIcon={<CameraIcon />}
+                    // onClick={updateImage}
                   >
                     Upload
-                  </Button>
+                  </Button> */}
                 </Grid>
                 <Grid
                   container
@@ -523,14 +608,25 @@ export default function UserProfile() {
                   <Grid>
                     <MiscForm
                       onChange={handleChange}
+                      onTechChange={handleTechChange}
+                      onTeamChange={handleTeamChange}
                       data={data}
                       editable={edit}
                     />
                   </Grid>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    disabled={!edit}
+                    onClick={updateProfile}
+                  >
+                    Update Details
+                  </Button>
                 </Grid>
               </Grid>
             </CardBody>
-            <CardFooter></CardFooter>
+            {/* <CardFooter></CardFooter> */}
           </Card>
         </GridItem>
       </GridContainer>

@@ -11,6 +11,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Upload from "./Upload/Upload";
 
+import swal from "sweetalert";
+
 const validationSchema = Yup.object().shape({
   title: Yup.string()
     .required()
@@ -39,6 +41,7 @@ const validationSchema = Yup.object().shape({
 export default function ProjectForm() {
   const classes = useStyles();
   const [images, setImages] = useState();
+  const [uploading, setUploading] = useState(false);
 
   const uploadImage = async () => {
     try {
@@ -49,6 +52,7 @@ export default function ProjectForm() {
         "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
         formData
       );
+      setImages([]);
       return res.data.url;
     } catch (err) {
       console.error(err, "Image Upload Failed!");
@@ -57,11 +61,20 @@ export default function ProjectForm() {
 
   const clickSubmit = async () => {
     try {
+      setUploading(true);
       let project = formik.values;
+      formik.resetForm();
       const imageUrl = await uploadImage();
-      project = { ...project, confirmed: true, image: imageUrl };
+      project = { ...project, confirmed: false, image: imageUrl };
       await api.post("/project/add", formurlencoded(project));
-      alert("Succesfully Uploaded Project! :D");
+      swal({
+        title: "Project Uploaded Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+      setUploading(false);
     } catch (err) {
       console.log(err, "Upload Failed");
     }
@@ -157,8 +170,9 @@ export default function ProjectForm() {
             className={classes.textField && classes.button}
             variant="contained"
             type="submit"
+            disabled={uploading}
           >
-            Upload
+            {uploading ? "Uploading..." : "Upload"}
           </Button>
         </div>
       </form>
