@@ -82,8 +82,8 @@ const BlueCheckbox = withStyles({
     color="#001eff"
     style={
       props.isChosen
-        ? { backgroundColor: "red" }
-        : { backgroundColor: "#2e2e2e" }
+        ? { backgroundColor: "#3d5afe" }
+        : { backgroundColor: "#808080" }
     }
     {...props}
   />
@@ -153,7 +153,7 @@ const PersonalForm = (props) => {
             id="contact"
             name="state"
             label="Contact No."
-            type = "number"
+            type="number"
             fullWidth
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
