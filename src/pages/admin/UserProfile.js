@@ -416,9 +416,13 @@ const MiscForm = (props) => {
   );
 };
 
-export default function UserProfile() {
+export default function UserProfile(props) {
   const classes = useStyles();
   const { user, logout } = useUser();
+  let userFromAdmin = null;
+  if (user.isAdmin) {
+    userFromAdmin = props.location.state;
+  }
   const [data, setData] = React.useState({
     firstName: "",
     lastName: "",
@@ -441,8 +445,15 @@ export default function UserProfile() {
 
   const [images, setImages] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const getProfile = async () => {
-    const res = await api.post("/userprofile", { user });
+    let res;
+    if (user.isAdmin) {
+      res = await api.post("/userprofile", { userFromAdmin });
+    } else {
+      res = await api.post("/userprofile", { user });
+    }
     const userProfile = res.data;
     setOgProfile(userProfile);
     setData((prevData) => ({ ...prevData, ...userProfile }));
@@ -521,12 +532,19 @@ export default function UserProfile() {
   };
 
   const updateProfile = async () => {
+    setLoading(true);
     await updateImage();
   };
 
   const updateBackend = async () => {
-    const res = await api.put("/userprofile", { user, data });
+    let res;
+    if (user.isAdmin) {
+      res = await api.put("/userprofile", { userFromAdmin, data });
+    } else {
+      res = await api.put("/userprofile", { user, data });
+    }
     swal({ title: res.data, icon: "success" });
+    setLoading(false);
   };
 
   const [edit, setEdit] = React.useState(false);
@@ -571,16 +589,6 @@ export default function UserProfile() {
                     setImages={setImages}
                     disabled={!edit}
                   />
-                  {/* <Button
-                    variant="contained"
-                    color="secondary"
-                    disabled={edit ? false : true}
-                    className={classes.button}
-                    startIcon={<CameraIcon />}
-                    // onClick={updateImage}
-                  >
-                    Upload
-                  </Button> */}
                 </Grid>
                 <Grid
                   container
@@ -617,7 +625,7 @@ export default function UserProfile() {
                     variant="contained"
                     color="primary"
                     fullWidth
-                    disabled={!edit}
+                    disabled={!edit || loading}
                     onClick={updateProfile}
                   >
                     Update Details

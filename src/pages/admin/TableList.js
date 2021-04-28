@@ -7,12 +7,17 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import SearchBar from "material-ui-search-bar";
 import Modal from "./modal";
 import UserModal from "./userModal";
+import UserProfile from "./UserProfile";
 import AdminNavbarLinks from "./Navbar";
 import "./page.css";
 import api from "../../api/apiClient";
+import swal from "sweetalert";
+import { Link, Route } from "react-router-dom";
 
 const useStyles = makeStyles({
   table: {
@@ -127,7 +132,7 @@ const originalRows = [
 ];
 
 export default function BasicTable() {
-  const [originalRows,setOriginalRows] = useState([]);
+  const [originalRows, setOriginalRows] = useState([]);
   const [rows, setRows] = useState(originalRows);
   const [searched, setSearched] = useState("");
   const classes = useStyles();
@@ -148,11 +153,52 @@ export default function BasicTable() {
 
   useEffect(() => {
     getAllUsers();
-  }, rows);
+  }, []);
 
   const cancelSearch = () => {
     setSearched("");
     requestSearch(searched);
+  };
+
+  const removeUser = async (e, email) => {
+    try {
+      const userID = e;
+      console.log(email);
+      await api.delete(`/user/${email}/remove`);
+      await api.delete(`/userprofile/${userID}/remove`);
+      await getAllUsers();
+      await swal({
+        title: "User Removed Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (err) {
+      console.log("Could not remove user", err);
+    }
+  };
+
+  const remove = async (e, email) => {
+    const res = await swal({
+      title: "Are you sure you want to remove this user?",
+      icon: "warning",
+      buttons: {
+        Yes: {
+          text: "Yes",
+          value: "Yes",
+        },
+        No: {
+          text: "No",
+          value: "No",
+        },
+      },
+    });
+    if (res === "Yes") {
+      await removeUser(e, email);
+    } else {
+      return;
+    }
   };
 
   return (
@@ -173,11 +219,13 @@ export default function BasicTable() {
                 <TableCell align="center">Email</TableCell>
                 <TableCell align="center">Contact</TableCell>
                 <TableCell align="center">Year</TableCell>
+                <TableCell align="center">Remove User</TableCell>
+                <TableCell align="center">Edit User</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <TableRow key={row.email}>
+                <TableRow key={row._id}>
                   <TableCell>
                     <UserModal
                       firstName={row.firstName}
@@ -200,6 +248,24 @@ export default function BasicTable() {
                   <TableCell align="center">{row.email}</TableCell>
                   <TableCell align="center">{row.contact}</TableCell>
                   <TableCell align="center">{row.year}</TableCell>
+                  {console.log(row.email)}
+                  <TableCell
+                    align="center"
+                    onClick={() => remove(row._id, row.email)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <DeleteIcon />
+                  </TableCell>
+                  <TableCell align="center" style={{ cursor: "pointer" }}>
+                    <Link
+                      to={{
+                        pathname: "/admin/user",
+                        state: { email: row.email },
+                      }}
+                    >
+                      <EditIcon />
+                    </Link>
+                  </TableCell>
                   <TableCell scope="row" style={{ display: "none" }}>
                     <div>
                       {row.firstName}&nbsp;{row.lastName}
