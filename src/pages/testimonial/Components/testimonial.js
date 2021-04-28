@@ -6,7 +6,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import "./testimonial.css";
-
+import testimonaldata from "./testimonialdata"
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`; // Team Heading +carousel
 const Header = tw(SectionHeading)``; // Team Heading
 const MainContainer = tw.div`w-full px-4 pt-4`;
@@ -30,63 +30,9 @@ const DataContent = tw.div`text-center text-white text-base pt-6 font-normal`;
 const DataIcons = tw.div`w-full flex justify-center pt-5 pb-5`;
 const Icons = tw.a`mx-10`;
 
-const testimonials = ({
-  heading = "BUILDING TEAM",
-  subHeading = "The Talented People Behind the Scenes of the Organization",
-  tabs = {
-    Heads: [
-      {
-        imageSrc:
-          "https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif",
-        Name: "Andres Berlin",
-        Post: "Chief Executive Officer",
-        content:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-      },
-      {
-        imageSrc:
-          "https://cdn.tuk.dev/assets/photo-1530577197743-7adf14294584.jfif",
-        Name: "Silene Tokyo",
-        Post: "Product Design Head",
-        content:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-      },
-      {
-        imageSrc:
-          "https://cdn.tuk.dev/assets/photo-1566753323558-f4e0952af115.jfif",
-        Name: "Johnson Stone",
-        Post: "Manager Development",
-        content:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-      },
-      {
-        imageSrc: "https://cdn.tuk.dev/assets/boy-smiling_23-2148155640.jpg",
-        Name: "Rachel Adams",
-        Post: "Product Design Head",
-        content:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-      },
-      {
-        imageSrc:
-          "https://cdn.tuk.dev/assets/blond-man-happy-expression_1194-2873.jpg",
-        Name: "Dean Jones",
-        Post: "Principal Software Engineer",
-        content:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-      },
-      {
-        imageSrc:
-          "https://cdn.tuk.dev/assets/blond-man-happy-expression_1194-2873.jpg",
-        Name: "Charles Keith",
-        Post: "UX Designer",
-        content:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-      },
-    ],
-  },
-}) => {
+const testimonials = () => {
   AOS.init({ duration: 2000 });
-  const tabsKeys = Object.keys(tabs);
+  const tabsKeys = Object.keys(testimonaldata.tabs);
   return (
     <Container
       className="councilStyle"
@@ -101,7 +47,7 @@ const testimonials = ({
               fontWeight: "lighter",
             }}
           >
-            {heading}
+            {testimonaldata.heading}
           </Header>
         </HeaderRow>
         <Header
@@ -113,13 +59,13 @@ const testimonials = ({
             fontWeight: "lighter",
           }}
         >
-          {subHeading}
+          {testimonaldata.subHeading}
         </Header>
         <MainContainer>
           <SubContainer>
             {tabsKeys.map((tabKey) => (
               <SubSubContainer>
-                {tabs[tabKey].map((card, index) => (
+                {testimonaldata.tabs[tabKey].map((card, index) => (
                   <CardContainer data-aos="fade-up" key={index}>
                     <Card
                       className="group"
@@ -139,7 +85,8 @@ const testimonials = ({
                         <DataIcons>
                           <Icons>
                             <a href="https://www.google.com/">
-                              <svg  className="svgtestimonial"
+                              <svg
+                                className="svgtestimonial"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={24}
                                 height={24}
@@ -157,7 +104,8 @@ const testimonials = ({
                           </Icons>
                           <Icons>
                             <a href="https://www.google.com/">
-                              <svg  className="svgtestimonial"
+                              <svg
+                                className="svgtestimonial"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={24}
                                 height={24}
@@ -175,7 +123,8 @@ const testimonials = ({
                           </Icons>
                           <Icons>
                             <a href="https://www.google.com/">
-                              <svg className="svgtestimonial"
+                              <svg
+                                className="svgtestimonial"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={24}
                                 height={24}

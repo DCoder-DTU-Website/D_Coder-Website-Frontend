@@ -67,8 +67,12 @@ const ProjectsComp = () => {
                 <Subtitle>{card.techStack}</Subtitle>
                 <Description>{card.desc}</Description>
                 <div className="links" style={linkstyle}>
-                  <Link href={card.github}>Github</Link>
-                  <Link href={card.linkedin}>{card.dev}</Link>
+                  <Link target="_blank" href={card.github}>
+                    Github
+                  </Link>
+                  <Link target="_blank" href={card.linkedin}>
+                    {card.dev}
+                  </Link>
                 </div>
               </Details>
             </Card>
