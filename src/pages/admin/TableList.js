@@ -157,11 +157,12 @@ export default function BasicTable() {
     requestSearch(searched);
   };
 
-  const removeUser = async (e) => {
+  const removeUser = async (e, email) => {
     try {
       const userID = e;
+      console.log(email);
+      await api.delete(`/user/${email}/remove`);
       await api.delete(`/userprofile/${userID}/remove`);
-      // await api.delete(`/user/${userID}/remove`);
       await getAllUsers();
       await swal({
         title: "User Removed Successfully!",
@@ -175,7 +176,7 @@ export default function BasicTable() {
     }
   };
 
-  const remove = async (e) => {
+  const remove = async (e,email) => {
     const res = await swal({
       title: "Are you sure you want to remove this user?",
       icon: "warning",
@@ -191,7 +192,7 @@ export default function BasicTable() {
       },
     });
     if (res === "Yes") {
-      await removeUser(e);
+      await removeUser(e,email);
     } else {
       return;
     }
@@ -243,9 +244,10 @@ export default function BasicTable() {
                   <TableCell align="center">{row.email}</TableCell>
                   <TableCell align="center">{row.contact}</TableCell>
                   <TableCell align="center">{row.year}</TableCell>
+                  {console.log(row.email)}
                   <TableCell
                     align="center"
-                    onClick={() => remove(row._id)}
+                    onClick={() => remove(row._id, row.email)}
                     style={{ cursor: "pointer" }}
                   >
                     <DeleteIcon />
