@@ -33,7 +33,11 @@ const Upload = ({ images, setImages, disabled }) => {
           <div className="upload__image-wrapper">
             <Button
               className={classes.button}
-              style={isDragging ? { backgroundColor: "#3182ce" } : undefined}
+              style={
+                disabled
+                  ? { color: "gray", backgroundColor: "#ddd" }
+                  : { color: "white" }
+              }
               onClick={onImageUpload}
               {...dragProps}
               disabled={disabled}

@@ -81,9 +81,11 @@ function App() {
             exact
             path="/admin/user"
             render={() => (isUser ? <UserProfile /> : <Redirect to="/" />)} */}
-          <Route exact path="/admin/user">
-            {isUser ? <UserProfile /> : <NotAnAdmin />}
-          </Route>
+          <Route
+            exact
+            path="/admin/user"
+            component={isUser || isAdmin ? UserProfile : NotAnAdmin}
+          />
           <Route exact path="/testimonial">
             <Testimonial />
           </Route>
