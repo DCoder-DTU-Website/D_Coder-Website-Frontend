@@ -90,7 +90,7 @@ const LightFunc = ({
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
-      D_Coder
+      D_CODER
     </LogoLink>
   );
 
