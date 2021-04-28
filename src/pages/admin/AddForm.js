@@ -76,7 +76,7 @@ const AddForm = () => {
                 />
                 <br />
               </div>
-              <SubmitButton onClick={register}>Add Member</SubmitButton>
+              <SubmitButton onClick={register}>Add</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>
