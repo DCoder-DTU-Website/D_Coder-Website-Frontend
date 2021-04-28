@@ -187,12 +187,12 @@ const Councils = ({
         title: "Shivang Gupta",
         content: "General Coordinator and Treasury",
       },
-      {
-        imageSrc:
-          "https://images.unsplash.com/photo-1582254465498-6bc70419b607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-        title: "Shivam",
-        content: "General Coordinator and Treasury",
-      },
+      // {
+      //   imageSrc:
+      //     "https://images.unsplash.com/photo-1582254465498-6bc70419b607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+      //   title: "Shivam",
+      //   content: "General Coordinator and Treasury",
+      // },
       {
         imageSrc:
           abhishekmidha,

@@ -69,7 +69,7 @@ const WhyD = ({
   const defaultStatistics = [
     {
       key: "Active Members",
-      value: "100+",
+      value: "500+",
     },
     // {
     //   key: "",
