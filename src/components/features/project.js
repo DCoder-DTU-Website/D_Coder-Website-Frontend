@@ -5,6 +5,8 @@ import Modal from "./modal";
 import api from "../../api/apiClient";
 import useUser from "../../useUser";
 
+import { AiFillGithub } from "react-icons/ai";
+
 const Container = tw.div`relative bg-gray-900 -m-8`;
 
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -68,7 +70,7 @@ const ProjectsComp = () => {
                 <Description>{card.desc}</Description>
                 <div className="links" style={linkstyle}>
                   <Link target="_blank" href={card.github}>
-                    Github
+                    <AiFillGithub size={25} />
                   </Link>
                   <Link target="_blank" href={card.linkedin}>
                     {card.dev}

@@ -163,7 +163,6 @@ export default function BasicTable() {
   const removeUser = async (e, email) => {
     try {
       const userID = e;
-      console.log(email);
       await api.delete(`/user/${email}/remove`);
       await api.delete(`/userprofile/${userID}/remove`);
       await getAllUsers();
@@ -233,7 +232,7 @@ export default function BasicTable() {
                       email={row.email}
                       contact={row.contact}
                       year={row.year}
-                      description={row.description}
+                      description={row.desc}
                       branch={row.branch}
                       leetcode={row.leetcode}
                       codeforces={row.codeforces}
@@ -241,14 +240,14 @@ export default function BasicTable() {
                       techStack={row.techStack}
                       linkedin={row.linkedin}
                       github={row.github}
-                      username={row.username}
+                      username={row.email}
                       workingWith={row.workingWith}
+                      image={row.image}
                     />
                   </TableCell>
                   <TableCell align="center">{row.email}</TableCell>
                   <TableCell align="center">{row.contact}</TableCell>
                   <TableCell align="center">{row.year}</TableCell>
-                  {console.log(row.email)}
                   <TableCell
                     align="center"
                     onClick={() => remove(row._id, row.email)}

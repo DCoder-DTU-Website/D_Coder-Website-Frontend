@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import Form from "./UserProfileForm";
-import api from "../../api/apiClient"
+import api from "../../api/apiClient";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -49,7 +49,7 @@ export default function FullScreenDialog(props) {
           cursor: "pointer",
         }}
       >
-        {props.firstName}&nbsp;{props.lastName}
+        {props.firstName} {props.lastName}
       </div>
       <Dialog
         fullScreen
@@ -88,6 +88,7 @@ export default function FullScreenDialog(props) {
           username={props.username}
           github={props.github}
           workingWith={props.workingWith}
+          image={props.image}
         />
       </Dialog>
     </div>

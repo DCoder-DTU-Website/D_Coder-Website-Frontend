@@ -45,7 +45,7 @@ const UserProfileForm = (props) => {
               }}
             >
               <h4>
-                Name : {props.firstName}&nbsp;{props.lastName}
+                Name : {props.firstName} {props.lastName}
               </h4>
               <h4>Contact : {props.contact}</h4>
               <div className="desc">
@@ -76,7 +76,7 @@ const UserProfileForm = (props) => {
               className="educational"
             >
               <h4>
-                Branch : {props.branch}&nbsp;{props.year}&nbsp;year
+                Branch : {props.branch} {props.year} year
               </h4>
               {props.leetcode !== "" && <h4>Leetcode : {props.leetcode}</h4>}
               {props.codeforces !== "" && (
@@ -113,7 +113,7 @@ const UserProfileForm = (props) => {
                 backgroundColor: "rgb(26, 32, 44)",
                 borderRadius: "50%",
               }}
-              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+              src={props.image}
             />
             <span>@{props.username}</span>
             <span>{props.email}</span>
