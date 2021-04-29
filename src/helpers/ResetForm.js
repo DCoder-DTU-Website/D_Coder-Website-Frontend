@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import api from "../api/apiClient";
-import ResetModal from "./ResetModal"
+import ResetModal from "./ResetModal";
 import swal from "sweetalert";
 
 const Container = tw.div`relative px-10`;
@@ -24,33 +24,29 @@ const SubmitButton = tw(
   PrimaryButtonBase
 )`inline-block text-center bg-blue-600 hocus:bg-blue-800`;
 
-const AddForm = ({ handleClose, setIsLoggedIn }) => {
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+const AddForm = ({ handleClose }) => {
+  const [email, setEmail] = useState("");
+  const data = { email: email };
   const login = async () => {
-    try {
-      const { data } = await api.post("/login", {
-        email: loginUsername,
-        username: loginUsername,
-        password: loginPassword,
+    const msg = await api.post("reset-pass", data);
+    console.log(msg);
+    if (msg.data.message === "No such user exist !") {
+      swal({
+        title: msg.data.message,
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
       });
-      console.log(data);
-      localStorage.setItem("token", data);
-      const res = await api.get("/user");
-      setIsLoggedIn({ login: res.data });
-      if (res.data.isAdmin) {
-        swal({ title: "Welcome Admin!", icon: "success" });
-      } else {
-        swal({ title: "Successfully Logged In!", icon: "success" });
-      }
-    } catch (err) {
-      swal({ title: "Incorrect Username or Password!", icon: "warning" });
+    } else {
+      swal({
+        title: msg.data.message,
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
     }
-  };
-
-  const reset = async () => {
-    
-
   };
 
   return (
@@ -68,16 +64,10 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
                 }}
               >
                 <Input
-                  type="text"
-                  placeholder="Username"
+                  type="email"
+                  placeholder="Enter Email"
                   required
-                  onChange={(e) => setLoginUsername(e.target.value)}
-                />
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  required
-                  onChange={(e) => setLoginPassword(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <br />
               </div>
@@ -85,12 +75,10 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   login();
-                  handleClose();
                 }}
               >
-                Login
+                Send Mail
               </SubmitButton>
-              <ResetModal/>
             </Form>
           </TextContent>
         </TextColumn>

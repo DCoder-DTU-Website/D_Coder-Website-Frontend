@@ -17,6 +17,7 @@ import UserProfile from "pages/admin/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
+import ResetPass from "./pages/admin/ResetPassForm"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -91,6 +92,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path = "/reset/:token">
+            <ResetPass/>
           </Route>
           <Route path="*" component={Error404} />
         </Switch>
