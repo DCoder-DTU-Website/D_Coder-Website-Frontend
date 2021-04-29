@@ -76,7 +76,13 @@ export default function ProjectForm() {
       });
       setUploading(false);
     } catch (err) {
-      console.log(err, "Upload Failed");
+      swal({
+        title: "Not Authorized!",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
     }
   };
 
