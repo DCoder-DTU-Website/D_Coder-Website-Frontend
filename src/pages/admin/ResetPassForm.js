@@ -80,6 +80,7 @@ const ResetPassForm = () => {
           required
           type="password"
         />
+        
         <label>New Password</label>
         <TextField
           value={newPass}
