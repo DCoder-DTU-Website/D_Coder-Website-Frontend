@@ -33,7 +33,7 @@ const Footer = () => {
         <Row>
           <LogoContainer>
             <LogoImg src={logo} />
-            <LogoText>D_Coder</LogoText>
+            <LogoText>D_CODER</LogoText>
           </LogoContainer>
           <SocialLinksContainer>
             <SocialLink

@@ -46,6 +46,7 @@ const AddForm = () => {
       console.log("Could not register user!", err);
     }
   };
+  
   return (
     <Container>
       <div>
@@ -73,7 +74,9 @@ const AddForm = () => {
                   required
                   onChange={(e) => setRegisterPassword(e.target.value)}
                   value = {registerPassword}
+                  minlength="8"
                 />
+                
                 <br />
               </div>
               <SubmitButton onClick={register}>Add</SubmitButton>
