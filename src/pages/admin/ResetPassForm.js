@@ -29,7 +29,19 @@ const ResetPassForm = () => {
       };
       const msg = await api.post("/reset", data);
       const message = msg.data.message;
-      if (message === "Invalid Password") {
+      console.log(message);
+      if (message === "Token is expired") {
+        const res = await swal({
+          title: message,
+          icon: "error",
+          buttons: true,
+          closeOnClickOutside: true,
+          closeOnEsc: true,
+        });
+        if(res){
+          window.location.href = "http://localhost:3000/";
+        }
+      } else if (message === "Invalid Password") {
         swal({
           title: message,
           icon: "error",
