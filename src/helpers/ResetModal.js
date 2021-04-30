@@ -10,13 +10,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "1100px",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    border: "0px",
+    borderRadius: "10px",
   },
 }));
 
@@ -34,7 +35,11 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
+      <button
+        type="button"
+        onClick={handleOpen}
+        style={{ outline: 0, height: "60px" }}
+      >
         Reset Password
       </button>
       <Modal

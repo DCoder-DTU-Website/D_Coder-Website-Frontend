@@ -35,6 +35,7 @@ import axios from "axios";
 
 import { Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
+import ResetModal from "../../helpers/ResetModal"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -600,6 +601,7 @@ export default function UserProfile(props) {
                     setImages={setImages}
                     disabled={!edit}
                   />
+                  <ResetModal/>
                 </Grid>
                 <Grid
                   container
