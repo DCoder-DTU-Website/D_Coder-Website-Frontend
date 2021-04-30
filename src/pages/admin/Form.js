@@ -34,10 +34,10 @@ export default function BasicTextFields() {
       subtopic: subTopic,
     };
     try {
-      await api.post("/lecture/add", videoData);
       setTopic("");
       setUrl("");
       setSubTopic("");
+      await api.post("/lecture/add", videoData);
       swal({
         title: "Lecture Uploaded Successfully!",
         icon: "success",
@@ -55,7 +55,7 @@ export default function BasicTextFields() {
       <FormControl variant="outlined">
         <InputLabel id="demo-simple-select-outlined-label">Title</InputLabel>
         <Select label="Title" onChange={(e) => setTopic(e.target.value)}>
-          <MenuItem value="">
+          <MenuItem value="" selected={topic.length == 0}>
             <em>None</em>
           </MenuItem>
           <MenuItem value={"dsa"}>Data Structures and Algorithms</MenuItem>
@@ -74,7 +74,7 @@ export default function BasicTextFields() {
           label="Sub-Title"
           onChange={(e) => setSubTopic(e.target.value)}
         >
-          <MenuItem value="">
+          <MenuItem value="" selected={subTopic.length == 0}>
             <em>None</em>
           </MenuItem>
           <MenuItem value={"array"}>Array</MenuItem>
@@ -92,10 +92,15 @@ export default function BasicTextFields() {
         multiline
         variant="outlined"
         onChange={(e) => setUrl(e.target.value)}
+        value={url}
       />
       <SubmitButton
         onClick={clickSubmit}
-        style={{ backgroundColor: "rgba(49,130,206)", color: "white", marginLeft: "10px"  }}
+        style={{
+          backgroundColor: "rgba(49,130,206)",
+          color: "white",
+          marginLeft: "10px",
+        }}
       >
         Upload
       </SubmitButton>

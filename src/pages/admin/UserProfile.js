@@ -33,6 +33,9 @@ import swal from "sweetalert";
 import Upload from "components/features/Upload/Upload";
 import axios from "axios";
 
+import { Link } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -59,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     marginBottom: "3px",
     textDecoration: "none",
+    fontSize: "1.3rem",
   },
   formControl: {
     marginBottom: theme.spacing(1),
@@ -557,11 +561,18 @@ export default function UserProfile(props) {
         <GridItem xs={12}>
           <Card>
             <CardHeader color="info">
-              <Grid container justify="space-between">
+              <Grid container justify="space-between" alignItems="center">
                 <h4 className={classes.cardTitleWhite}>Your Profile</h4>
-                <IconButton onClick={toggleEdit} style={{ color: "white" }}>
-                  <CreateIcon />
-                </IconButton>
+                <Grid justify="flex-end">
+                  <IconButton onClick={toggleEdit} style={{ color: "white" }}>
+                    <CreateIcon />
+                  </IconButton>
+                  <IconButton style={{ color: "white" }}>
+                    <Link to="/">
+                      <AiFillHome />
+                    </Link>
+                  </IconButton>
+                </Grid>
               </Grid>
             </CardHeader>
             <CardBody style={{ backgroundColor: "#fff", margin: "0 20px" }}>

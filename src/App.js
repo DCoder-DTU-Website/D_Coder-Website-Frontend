@@ -17,7 +17,7 @@ import UserProfile from "pages/admin/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
-import ResetPass from "./pages/admin/ResetPassForm"
+import ResetPass from "./pages/admin/ResetPassForm";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -58,30 +58,6 @@ function App() {
           <Route exact path="/admin/table">
             {isAdmin ? <Table /> : <NotAnAdmin />}
           </Route>
-          {/* {isLoggedIn && user && user.isAdmin && (
-            <>
-              <Route exact path="/admin/dashboard">
-                <Admin />
-              </Route>
-              <Route exact path="/admin/table">
-                <Table />
-              </Route>
-            </>
-          )} */}
-          {/* <Route
-            exact
-            path="/admin/dashboard"
-            render={() => (isAdmin ? <Admin /> : <Redirect to="/" />)}
-          />
-          <Route
-            exact
-            path="/admin/table"
-            render={() => (isAdmin ? <Table /> : <Redirect to="/" />)}
-          />
-          <Route
-            exact
-            path="/admin/user"
-            render={() => (isUser ? <UserProfile /> : <Redirect to="/" />)} */}
           <Route
             exact
             path="/admin/user"
@@ -93,8 +69,8 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path = "/reset/:token">
-            <ResetPass/>
+          <Route path="/reset/:token">
+            <ResetPass />
           </Route>
           <Route path="*" component={Error404} />
         </Switch>

@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import api from "../../api/apiClient";
 import { useParams } from "react-router-dom";
 import swal from "sweetalert";
+import { Button } from "@material-ui/core";
 
 const ResetPassForm = () => {
   const [old, setOld] = useState("");
@@ -27,7 +28,6 @@ const ResetPassForm = () => {
         cnfrmPass: cnfrm,
       };
       const msg = await api.post("/reset", data);
-      console.log(msg);
       const message = msg.data.message;
       if (message === "Invalid Password") {
         swal({
@@ -46,11 +46,9 @@ const ResetPassForm = () => {
           closeOnEsc: true,
         });
         if (res) {
-          window.location.href ="http://localhost:3000/";
+          window.location.href = "http://localhost:3000/";
         }
       }
-      // const message = await msg.json();
-      // console.log(message);
     }
   };
   const myStyle = {
@@ -80,7 +78,7 @@ const ResetPassForm = () => {
           required
           type="password"
         />
-        
+
         <label>New Password</label>
         <TextField
           value={newPass}
@@ -88,6 +86,12 @@ const ResetPassForm = () => {
           style={{ marginBottom: "10px" }}
           type="password"
           required
+          error={newPass.length < 8 && newPass.length != 0}
+          helperText={
+            newPass.length < 8 &&
+            newPass.length != 0 &&
+            "Password must be greater than 8 characters."
+          }
         />
         <label>Confirm New Password</label>
         <TextField
@@ -96,10 +100,22 @@ const ResetPassForm = () => {
           style={{ marginBottom: "10px" }}
           required
           type="password"
+          error={cnfrm.length < 8 && cnfrm.length != 0}
+          helperText={
+            cnfrm.length < 8 &&
+            cnfrm.length != 0 &&
+            "Password must be greater than 8 characters."
+          }
         />
-        <button type="submit" onClick={changePass}>
+        <Button
+          type="submit"
+          onClick={changePass}
+          disabled={newPass.length < 8 || cnfrm.length < 8}
+          variant="contained"
+          color="primary"
+        >
           Submit
-        </button>
+        </Button>
       </form>
     </div>
   );

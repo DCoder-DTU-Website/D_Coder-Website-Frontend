@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import api from "../api/apiClient";
-import ResetModal from "./ResetModal"
+import ResetModal from "./ResetModal";
 import swal from "sweetalert";
 
 const Container = tw.div`relative px-10`;
@@ -22,7 +22,7 @@ const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-m
 
 const SubmitButton = tw(
   PrimaryButtonBase
-)`inline-block text-center bg-blue-600 hocus:bg-blue-800`;
+)`inline-block text-center bg-blue-600 hocus:bg-blue-800 pt-2`;
 
 const AddForm = ({ handleClose, setIsLoggedIn }) => {
   const [loginUsername, setLoginUsername] = useState("");
@@ -46,11 +46,6 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
     } catch (err) {
       swal({ title: "Incorrect Username or Password!", icon: "warning" });
     }
-  };
-
-  const reset = async () => {
-    
-
   };
 
   return (
@@ -90,7 +85,7 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
               >
                 Login
               </SubmitButton>
-              <ResetModal/>
+              <ResetModal />
             </Form>
           </TextContent>
         </TextColumn>
