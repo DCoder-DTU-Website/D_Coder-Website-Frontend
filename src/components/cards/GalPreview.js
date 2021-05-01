@@ -64,7 +64,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 const GalPreview = () => {
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [sliderRef, setSliderRef] = useState(null);
-  const [sliderSettings, setSliderSettings] = useState({
+  const [sliderSettings] = useState({
     arrows: false,
     infinite: true,
     slidesToShow: 3,
@@ -91,7 +91,6 @@ const GalPreview = () => {
 
   const [cards, setCards] = useState([]);
 
-  
   function SliderPlaying(x) {
     if (x) sliderRef?.slickPlay();
     else sliderRef?.slickPause();

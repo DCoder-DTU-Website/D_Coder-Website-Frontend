@@ -12,124 +12,17 @@ import EditIcon from "@material-ui/icons/Edit";
 import SearchBar from "material-ui-search-bar";
 import Modal from "./modal";
 import UserModal from "./userModal";
-import UserProfile from "./UserProfile";
 import AdminNavbarLinks from "./Navbar";
 import "./page.css";
 import api from "../../api/apiClient";
 import swal from "sweetalert";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
-
-const originalRows = [
-  {
-    firstName: "Aditya",
-    lastName: "Teltia",
-    email: "teltia.aditya22@gmail.com",
-    contact: "9255790854",
-    year: 4.0,
-    description:
-      "Experienced Campus Ambassador with a demonstrated history of working in the education management industry. Skilled in C++, Front-end Development",
-    username: "adityateltia22",
-    branch: "COE",
-    leetcode: "",
-    codeforces: "adityateltia22",
-    codechef: "adityateltia22",
-    techStack: "WebD",
-    linkedin: "AdityaTeltia",
-    github: "TeltiaAditya",
-    workingWith: "Tech team",
-  },
-  {
-    firstName: "Vibhor",
-    lastName: "Jain",
-    email: "teltia.aditya22@gmail.com",
-    contact: "9255790854",
-    year: 4.0,
-    description: "",
-    username: "adityateltia22",
-    branch: "COE",
-    leetcode: "adityateltia22",
-    codeforces: "adityateltia22",
-    codechef: "adityateltia22",
-    techStack: "WebD",
-    linkedin: "AdityaTeltia",
-    github: "TeltiaAditya",
-    workingWith: "Tech team",
-  },
-  {
-    firstName: "Satyam",
-    lastName: "Gaur",
-    email: "teltia.aditya22@gmail.com",
-    contact: "9255790854",
-    year: 4.0,
-    description: "",
-    username: "adityateltia22",
-    branch: "COE",
-    leetcode: "adityateltia22",
-    codeforces: "adityateltia22",
-    codechef: "adityateltia22",
-    techStack: "WebD",
-    linkedin: "AdityaTeltia",
-    github: "TeltiaAditya",
-    workingWith: "Tech team",
-  },
-  {
-    firstName: "Vaibhav",
-    lastName: "Surname",
-    email: "teltia.aditya22@gmail.com",
-    contact: "9255790854",
-    year: 4.0,
-    description: "",
-    username: "adityateltia22",
-    branch: "COE",
-    leetcode: "adityateltia22",
-    codeforces: "adityateltia22",
-    codechef: "adityateltia22",
-    techStack: "WebD",
-    linkedin: "AdityaTeltia",
-    github: "TeltiaAditya",
-    workingWith: "Tech team",
-  },
-  {
-    firstName: "Naman",
-    lastName: "Surname",
-    email: "teltia.aditya22@gmail.com",
-    contact: "9255790854",
-    year: 4.0,
-    description: "",
-    username: "adityateltia22",
-    branch: "COE",
-    leetcode: "adityateltia22",
-    codeforces: "adityateltia22",
-    codechef: "adityateltia22",
-    techStack: "WebD",
-    linkedin: "AdityaTeltia",
-    github: "TeltiaAditya",
-    workingWith: "Tech team",
-  },
-  {
-    firstName: "Sachin",
-    lastName: "Surname",
-    email: "teltia.aditya22@gmail.com",
-    contact: "9255790854",
-    year: 4.0,
-    description: "",
-    username: "adityateltia22",
-    branch: "COE",
-    leetcode: "adityateltia22",
-    codeforces: "adityateltia22",
-    codechef: "adityateltia22",
-    techStack: "WebD",
-    linkedin: "AdityaTeltia",
-    github: "TeltiaAditya",
-    workingWith: "Tech team",
-  },
-];
 
 export default function BasicTable() {
   const [originalRows, setOriginalRows] = useState([]);
