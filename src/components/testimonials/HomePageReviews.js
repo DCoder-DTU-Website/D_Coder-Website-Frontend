@@ -165,7 +165,8 @@ const HomePageReviews = ({
                           alt={testimonial.Name}
                         />
                         <CustomerTextInfo>
-                          <CustomerName>{testimonial.Name}</CustomerName>
+                          <a href = {testimonial.linkedin}>
+                          <CustomerName>{testimonial.Name}</CustomerName></a>
                           <CustomerTitle>{testimonial.Post}</CustomerTitle>
                         </CustomerTextInfo>
                       </CustomerInfo>

@@ -33,6 +33,7 @@ export default function PhotoIndex() {
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
+    alert("Press Esc To Exit");
   }, []);
 
   const closeLightbox = () => {

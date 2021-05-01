@@ -25,7 +25,7 @@ const CardImageContainer = styled.div`
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`flex-shrink-0 rounded-full w-96 h-96 object-cover object-center mb-4`}
+  ${tw`flex-shrink-0 border-4 border-blue-600 rounded-full mr-8 w-80 h-80 object-cover object-center mb-4`}
 `;
 
 const CardText = tw.div`p-4 text-justify text-gray-900`;
