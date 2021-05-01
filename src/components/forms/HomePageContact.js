@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container as ContainerBase } from "components/misc/Layouts.js";
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
+import api from "../../api/apiClient";
+import swal from "sweetalert";
+
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -39,13 +42,32 @@ const SvgDotPattern1 = tw(
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-blue-500 fill-current w-24`;
 
 const HomePageContact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const sendMail = async () => {
+    const data = { name: name, email: email, message: message };
+    await api.post("/send",data);
+    setName("")
+    setEmail("")
+    setMessage("")
+    swal({
+      title: "Email Sent",
+      icon: "success",
+      buttons: true,
+      closeOnClickOutside: true,
+      closeOnEsc: true,
+    });
+  };
+
   return (
     <Container>
       <Content>
         <FormContainer>
           <div tw="mx-auto max-w-4xl">
             <h2>Contact Us</h2>
-            <form action="#">
+            <form action="#" onSubmit={(e) => e.preventDefault()}>
               <TwoColumn>
                 <Column>
                   <InputContainer>
@@ -53,8 +75,9 @@ const HomePageContact = () => {
                     <Input
                       id="name-input"
                       type="text"
-                      name="name"
                       placeholder="E.g. John Doe"
+                      value = {name}
+                      onChange = {e => setName(e.target.value)}
                     />
                   </InputContainer>
                   <InputContainer>
@@ -62,8 +85,10 @@ const HomePageContact = () => {
                     <Input
                       id="email-input"
                       type="email"
-                      name="email"
                       placeholder="E.g. john@mail.com"
+                      value = {email}
+                      onChange = {e => setEmail(e.target.value)}
+
                     />
                   </InputContainer>
                 </Column>
@@ -72,16 +97,16 @@ const HomePageContact = () => {
                     <Label htmlFor="name-input">Your Message</Label>
                     <TextArea
                       id="message-input"
-                      name="message"
                       placeholder="Anything you want to say goes here"
+                      value = {message}
+                      onChange = {e => setMessage(e.target.value)}
+
                     />
                   </InputContainer>
                 </Column>
               </TwoColumn>
 
-              <SubmitButton type="submit" value="Submit">
-                Submit
-              </SubmitButton>
+              <SubmitButton onClick={sendMail}>Submit</SubmitButton>
             </form>
           </div>
           <SvgDotPattern1 />
