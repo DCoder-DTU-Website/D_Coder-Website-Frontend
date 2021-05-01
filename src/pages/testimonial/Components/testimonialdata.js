@@ -5,43 +5,11 @@
      Heads: [
        {
          imageSrc:
-           "https://drive.google.com/uc?id=1ORixU6nr0j5SCzh3pjNzR7G6K4KD5U2E",
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_146/v1619842247/Mahek_jain_kiycez.jpg",
          Name: "Mahek Jain",
          Post: "Intern at Fractal",
          content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-       },
-       {
-         imageSrc:
-           "https://drive.google.com/uc?id=1G63hZ6N2W5BCKcJDQNG0UV6ryT_PGUAZ",
-         Name: "Vikas Yadav",
-         Post: "Intern at Airtel Labs",
-         content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-       },
-       {
-         imageSrc:
-           "https://drive.google.com/uc?id=12PF6PddQJEOAPG7OqnxKVVwVxLI8rKkN",
-         Name: "Rachit Saksena",
-         Post: "Intern at Samsung",
-         content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-       },
-       {
-         imageSrc:
-           "https://drive.google.com/uc?id=1RswASjKfpS3ZDielLDaI3oWm32B_Jr4n",
-         Name: "Siddharth Singh",
-         Post: "Intern at Wells Fargo",
-         content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-       },
-       {
-         imageSrc:
-           "https://drive.google.com/uc?id=1MdRD8P8wUPr3W5ynf6O5x5yiLovVsGPB",
-         Name: "Varun Bajlotra",
-         Post: "Intern at Wells Fargo",
-         content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
+           "My journey at D_CODER has been a steep learning curve. Leadership here has given me wonderful exposure and an opportunity to develop myself as an individual.",
        },
        {
          imageSrc:
@@ -49,63 +17,95 @@
          Name: "Harshit Muhal",
          Post: "Intern at Microsoft",
          content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
+           "D_CODER gave me exposure that not only helped me in improving my technical skills but also helped me in improving my overall personality.",
        },
        {
          imageSrc:
-           "https://drive.google.com/uc?id=1a2cZ_UABtmApYd5nW4hJU1XS2Vs74auL",
-         Name: "Achint",
-         Post: "Intern at Microsoft",
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_165/v1619842932/rachit_saksena_kg0swn.jpg",
+         Name: "Rachit Saksena",
+         Post: "Intern at Samsung",
          content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
+           " D_CODER not only provided me with a platform to hone both my technical and interpersonal skills but also provided a lot of exposure. Moreover, the seniors were an inspiration for me.",
        },
        {
          imageSrc:
-           "https://drive.google.com/uc?id=1d9x2yK8HzMkAv0kyczftujuXLN3fk6wT",
-         Name: "Vaibhav Varshney",
-         Post: "Intern at Microsoft",
-         content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-       },
-       {
-         imageSrc:
-           "https://drive.google.com/uc?id=1BMIjTXgrvM4EdSzOylQW_6mvxcWggqQV",
-         Name: "V Sriram",
-         Post: "Intern at Sprinklr",
-         content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-       },
-       {
-         imageSrc:
-           "https://drive.google.com/uc?id=1_6AIAkTcMIUXTdg_c41wFRkrO2SUt4yu",
-         Name: "Vishesh Jain",
-         Post: "Intern at Cure.fit",
-         content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-       },
-       {
-         imageSrc:
-           "https://drive.google.com/uc?id=1jMJbkQjXHDm8MJXailB9hxi9BHu45Q-p",
-         Name: "Vagish Yagnik",
-         Post: "Intern at Cure.fit",
-         content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
-       },
-       {
-         imageSrc:
-           "https://drive.google.com/uc?id=1enWnSCeBmoRvF29VdshEtbYp6_NbFcKN",
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_256/v1619793320/Anima_dsdyim.png",
          Name: "Anima Jain",
          Post: "Intern at Goldman Sachs",
          content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
+           "Who i am today and whatever i have achieved is because of the continuous support from the seniors and my friends from D_CODER. They helped me get best out of me. All i have in my resume is because of D_CODER.",
        },
        {
          imageSrc:
-           "https://drive.google.com/uc?id=1ZUCnS_YsJ1KQ6PuRGTb8K4RKMoJmqi3d",
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_160/v1619843963/Varun_Bajlotra_wg2b3g.jpg",
+         Name: "Varun Bajlotra",
+         Post: "Intern at Wells Fargo",
+         content:
+           "Most students are able to ace these but what they lack is the ability to communicate and explain well.But Spending so much time in D_Coders and haven taken so many sessions guiding the juniors has actually helped me develop my oratory skills.",
+       },
+       {
+         imageSrc:
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_290/v1619844496/Vikas_gg7o0n.jpg",
+         Name: "Vikas Yadav",
+         Post: "Intern at Airtel Labs",
+         content:
+           "D_CODER has helped me in choosing the right path and gave me an exposure to various hackathons where you can brush up your skills and learn some new skills like team coordination, real-life implementation of ideas, problem-solving and handling big projects.",
+       },
+       {
+         imageSrc:
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_207/v1619793323/Achint_xpj6r7.jpg",
+         Name: "Achint",
+         Post: "Intern at Microsoft",
+         content:
+           " DCoder helped me to excel in both.The regular Disco Contests helped me improve myself and improve my problem solving ability.DCoder also helped me in exploring various technologies and decide my area of interest",
+       },
+       {
+         imageSrc:
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_175/v1619848208/Vaibhav_Varshney_ar5xss.jpg",
+         Name: "Vaibhav Varshney",
+         Post: "Intern at Microsoft",
+         content:
+           "D_Coder gave me an exposure to various hackathons and coding competitions which enhanced my analytical thinking abilities as well as helped me to develop and strengthen my skillset.",
+       },
+       {
+         imageSrc:
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_fill,h_170,r_4,w_180/v1619848483/V_sriram_zba938.png",
+         Name: "V Sriram",
+         Post: "Intern at Sprinklr",
+         content:
+           "D_CODER gave me the much-needed exposure that helped me develop both my communication and technical skills. From providing guidance on how to excel at hackathons, to how to craft the perfect CV and answer questions in an interview, the team is always there for us.",
+       },
+       {
+         imageSrc:
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_176/v1619793305/Vishesh_jain_wsyrzd.jpg",
+         Name: "Vishesh Jain",
+         Post: "Intern at Cure.fit",
+         content:
+           "D_coder helped me in exploring various technologies and finally to find my area of interest.For me D_Coder was not just 'yet another Tech society'. Here, I met likeminded people that resulted in developing my overall personality and communication skills and that gave me an edge over other competitor.",
+       },
+       {
+         imageSrc:
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_fill,h_180,w_160/v1619849781/Vishesh_Aggarwal_itjc7l.jpg",
          Name: "Vishesh Aggarwal",
          Post: "Intern at DeShaw&Co",
          content:
-           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempore culpa odit saepe quo expedita voluptates Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nisi sequi possimus exercitationem tempo",
+           "D_CODER has helped me in choosing the right direction and gave me exposure of hackathons wherein I worked on my various skills such as teamwork, problem solving which resulted in developing my overall personality and ultimately gave me a great project which gave an edge in my interview. It helped me in Resume building which I think played an important role too",
+       },
+       {
+         imageSrc:
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_166/v1619843583/siddharthsingh_vnxl5b.jpg",
+         Name: "Siddharth Singh",
+         Post: "Intern at Wells Fargo",
+         content:
+           "D_CODER is not just a society for me its more like a family and I owe this achievement to D_CODER that helped me to groom myself in every aspect whether it be technical or non technical skills. It  gave me the exposure of hackathons wherein we learned various skills like problem solving and being a team player which also resulted in giving me some good projects.",
+       },
+       {
+         imageSrc:
+           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_207/v1619793292/Vagish_kdgegs.jpg",
+         Name: "Vagish Yagnik",
+         Post: "Intern at Cure.fit",
+         content:
+           "D_Coder gave me the right path and exposure to various hackathons where you can brush up your skills and acquire some new skill stack like teamwork, problem solving and handling big projects. They gave me an exposure to world of competitive programming via their regular disco contests and all of that combined resulted in developing my overall personality and communication skills which was reflected by my resume and hence gave an edge in my interviews.",
        },
      ],
    },

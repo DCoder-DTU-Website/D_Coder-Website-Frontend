@@ -12,7 +12,7 @@ const Header = tw(SectionHeading)``; // Team Heading
 const MainContainer = tw.div`w-full px-4 pt-4`;
 const SubContainer = tw.div`container mx-auto`;
 const SubSubContainer = tw.div`lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around`;
-const CardContainer = tw.div`xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5  bg-gray-900`;
+const CardContainer = tw.div`xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5 items-center bg-gray-900`;
 const Card = tw.div`rounded shadow-md bg-gray-900 border-blue-400 border-4`;
 const ImageContainer = tw.div`absolute -mt-20 w-full flex justify-center `;
 const ImageData = tw.div`h-40 w-40`;
@@ -20,6 +20,7 @@ const Image = styled.div`
   ${(props) =>
     css`
       background-image: url("${props.imageSrc}");
+      text-align: "centre";
     `}
   ${tw`rounded-full object-cover h-full w-full shadow-md border-blue-400 border-4`}
 `;
