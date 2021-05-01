@@ -35,7 +35,7 @@ import axios from "axios";
 
 import { Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
-import ResetModal from "../../helpers/ResetModal"
+import ResetModal from "../../helpers/ResetModal";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -423,7 +423,7 @@ const MiscForm = (props) => {
 
 export default function UserProfile(props) {
   const classes = useStyles();
-  const { user, logout } = useUser();
+  const { user } = useUser();
   let userFromAdmin = null;
   if (user.isAdmin) {
     userFromAdmin = props.location.state;
@@ -601,7 +601,7 @@ export default function UserProfile(props) {
                     setImages={setImages}
                     disabled={!edit}
                   />
-                  <ResetModal/>
+                  <ResetModal />
                 </Grid>
                 <Grid
                   container

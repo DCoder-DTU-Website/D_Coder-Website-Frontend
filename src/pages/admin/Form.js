@@ -55,7 +55,7 @@ export default function BasicTextFields() {
       <FormControl variant="outlined">
         <InputLabel id="demo-simple-select-outlined-label">Title</InputLabel>
         <Select label="Title" onChange={(e) => setTopic(e.target.value)}>
-          <MenuItem value="" selected={topic.length == 0}>
+          <MenuItem value="" selected={topic.length === 0}>
             <em>None</em>
           </MenuItem>
           <MenuItem value={"dsa"}>Data Structures and Algorithms</MenuItem>
@@ -74,7 +74,7 @@ export default function BasicTextFields() {
           label="Sub-Title"
           onChange={(e) => setSubTopic(e.target.value)}
         >
-          <MenuItem value="" selected={subTopic.length == 0}>
+          <MenuItem value="" selected={subTopic.length === 0}>
             <em>None</em>
           </MenuItem>
           <MenuItem value={"array"}>Array</MenuItem>

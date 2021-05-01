@@ -3,7 +3,6 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import api from "../api/apiClient";
-import ResetModal from "./ResetModal";
 import swal from "sweetalert";
 
 const Container = tw.div`relative px-10`;

@@ -38,7 +38,7 @@ const ResetPassForm = () => {
           closeOnClickOutside: true,
           closeOnEsc: true,
         });
-        if(res){
+        if (res) {
           window.location.href = "http://localhost:3000/";
         }
       } else if (message === "Invalid Password") {
@@ -98,10 +98,10 @@ const ResetPassForm = () => {
           style={{ marginBottom: "10px" }}
           type="password"
           required
-          error={newPass.length < 8 && newPass.length != 0}
+          error={newPass.length < 8 && newPass.length !== 0}
           helperText={
             newPass.length < 8 &&
-            newPass.length != 0 &&
+            newPass.length !== 0 &&
             "Password must be greater than 8 characters."
           }
         />
@@ -112,10 +112,10 @@ const ResetPassForm = () => {
           style={{ marginBottom: "10px" }}
           required
           type="password"
-          error={cnfrm.length < 8 && cnfrm.length != 0}
+          error={cnfrm.length < 8 && cnfrm.length !== 0}
           helperText={
             cnfrm.length < 8 &&
-            cnfrm.length != 0 &&
+            cnfrm.length !== 0 &&
             "Password must be greater than 8 characters."
           }
         />

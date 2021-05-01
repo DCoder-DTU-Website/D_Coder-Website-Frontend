@@ -9,7 +9,7 @@ import { SectionHeading } from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 import "./council.css";
-import {coheads} from "./Coheads"
+import { coheads } from "./Coheads";
 import { developers } from "./Developers";
 import { heads } from "./Heads";
 
@@ -165,8 +165,10 @@ const Councils = ({
                     imageSrc={card.imageSrc}
                   ></CardImageContainer>
                   <CardText style={{ textAlign: "center" }}>
-                    <a href = {card.linkedin} target = "_blank">
-                    <CardTitle style={{cursor: "pointer"}}>{card.title}</CardTitle>
+                    <a href={card.linkedin} target="_blank" rel="noreferrer">
+                      <CardTitle style={{ cursor: "pointer" }}>
+                        {card.title}
+                      </CardTitle>
                     </a>
                     <CardContent>{card.content}</CardContent>
                   </CardText>
@@ -189,7 +191,6 @@ const getCoHeads = () => {
 
 // Cars for Developers
 const getDevelopers = () => {
-  
   return developers;
 };
 

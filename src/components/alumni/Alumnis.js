@@ -7,10 +7,7 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 import "./alumni.css";
-import AOS from "aos";
 import "aos/dist/aos.css";
-
-//Header (Team + Carousel) Styling Ends
 
 const TabContent = tw(
   motion.div
@@ -53,7 +50,7 @@ const Alumni = ({
           "https://res.cloudinary.com/dcoderdtu/image/upload/v1619643541/daizy_o6gmwo.jpg",
         Name: "Daizy Mehta",
         Year: "2021",
-        linkedin :"https://www.linkedin.com/in/daizy-mehta-473763149/",
+        linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",
         content:
           "Former president and founder of D_CODER DTU, Daizy Mehta is an extremely talented individual filled with zeal for perfection. Smart India Hackathon winner,Vistara Hackathon winner, DCB bank innovative carnival winner are a few gems of her accolades crown. She also served as a placement coordinator of the college for her batch. Currently, she is working as a software developer at Paytm.",
       },
@@ -68,7 +65,10 @@ const Alumni = ({
         {tabsKeys.map((tabKey, index) => (
           <TabContent>
             {tabs[tabKey].map((card, index) => (
-              <CardContainer key={index} style = {{marginLeft:"7%",marginRight:"7%"}}>
+              <CardContainer
+                key={index}
+                style={{ marginLeft: "7%", marginRight: "7%" }}
+              >
                 <Card
                   className="group"
                   initial="rest"
@@ -79,12 +79,14 @@ const Alumni = ({
                   <CardImageContainer
                     imageSrc={card.imageSrc}
                   ></CardImageContainer>
-                  <a href = {card.linkedin} target = "_blank">
-                  <CardText style={{ textAlign: "center" }}>
-                    <CardTitle>{card.Name} ( {card.Year} )</CardTitle>
-                    {/* <CardTitle></CardTitle> */}
-                    <CardContent>{card.content}</CardContent>
-                  </CardText></a>
+                  <a href={card.linkedin} target="_blank" rel="noreferrer">
+                    <CardText style={{ textAlign: "center" }}>
+                      <CardTitle>
+                        {card.Name} ( {card.Year} )
+                      </CardTitle>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </a>
                 </Card>
               </CardContainer>
             ))}

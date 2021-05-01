@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import AnimationRevealPage from "helpers/AnimationRevealPage";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "pages/home/App";
 import Events from "pages/events/App";
 import Council from "pages/council/App";

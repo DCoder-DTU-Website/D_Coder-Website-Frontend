@@ -98,7 +98,10 @@ function NavBar() {
                 switch (value) {
                   case "Yes":
                     logoutFromClient();
+                    break;
                   case "No":
+                    return;
+                  default:
                     return;
                 }
               });

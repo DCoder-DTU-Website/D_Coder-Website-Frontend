@@ -3,7 +3,7 @@ import api from "./api/apiClient";
 
 function useUser() {
   const storedJwt = localStorage.getItem("token");
-  const [jwt, setJwt] = useState(storedJwt || null);
+  const [jwt] = useState(storedJwt || null);
   const [user, setUser] = useState(false);
 
   const getUser = async () => {
@@ -25,10 +25,8 @@ function useUser() {
   };
 
   useEffect(() => {
-    if (jwt) {
-      getUser();
-    }
-  }, []);
+    getUser();
+  }, [jwt]);
 
   return { user, logout };
 }

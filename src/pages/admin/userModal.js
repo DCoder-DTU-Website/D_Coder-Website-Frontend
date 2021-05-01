@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import Form from "./UserProfileForm";
-import api from "../../api/apiClient";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
