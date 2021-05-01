@@ -19,6 +19,7 @@ import { ReactComponent as ArrowRightIcon } from "images/arrow-right-icon.svg";
 import { Link } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
+import testimonialData from "../../pages/testimonial/Components/testimonialdata";
 
 const Container = tw.div`bg-gray-900 relative -m-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -59,7 +60,7 @@ const Subheading = tw(SubheadingBase)`mb-4`;
 const HeadingTitle = tw(SectionHeading)`text-white lg:text-left leading-tight`;
 const Description = tw.p`max-w-md text-center mx-auto lg:mx-0 lg:text-left lg:max-w-none leading-relaxed text-sm sm:text-base lg:text-lg font-medium mt-4 text-secondary-100`;
 
-const QuoteContainer = tw.div`relative mt-10 lg:mt-20`;
+const QuoteContainer = tw.div`relative mt-8`;
 const Quote = tw.blockquote`text-white text-center lg:text-left text-sm sm:text-lg lg:text-xl xl:text-2xl`;
 const CustomerInfo = tw.div`mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start`;
 const CustomerProfilePicture = tw.img`rounded-full w-20 h-20`;
@@ -84,41 +85,10 @@ const DecoratorBlob2 = tw(
 const HomePageReviews = ({
   subheading = "",
   heading = "Testimonials",
-  description = "Here are what some of our amazing customers are saying about our hotels & tours. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  description = "",
   testimonials = null,
   textOnLeft = false,
 }) => {
-  /*
-   * You can modify the testimonials shown by modifying the array below or passing in the testimonials prop above
-   * You can add or remove objects from the array as you need.
-   */
-  const defaultTestimonials = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1512100356356-de1b84283e18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
-      profileImageSrc:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
-      quote:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
-      customerName: "Charlotte Hale",
-      customerTitle: "CEO, Delos Inc.",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1523952578875-e6bb18b26645?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-      profileImageSrc:
-        "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=512&h=512&q=80",
-      quote:
-        "Sinor Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
-      customerName: "Adam Cuppy",
-      customerTitle: "Founder, EventsNYC",
-    },
-  ];
-
-  if (!testimonials || testimonials.length === 0)
-    testimonials = defaultTestimonials;
-
-  // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [imageSliderRef, setImageSliderRef] = useState(null);
   const [textSliderRef, setTextSliderRef] = useState(null);
 
@@ -140,7 +110,7 @@ const HomePageReviews = ({
                 asNavFor={textSliderRef}
                 fade={true}
               >
-                {testimonials.map((testimonial, index) => (
+                {testimonialData.tabs.Heads.map((testimonial, index) => (
                   <ImageAndControlContainer key={index}>
                     <Image imageSrc={testimonial.imageSrc} />
                     <ControlContainer>
@@ -161,7 +131,12 @@ const HomePageReviews = ({
                   heading={heading}
                   description={description}
                 />
-                <PrimaryLink style={{ margin: 0, marginTop: "2px" }}>
+                <PrimaryLink
+                  style={{
+                    margin: 0,
+                    marginTop: "2px",
+                  }}
+                >
                   <Link
                     to="/testimonial"
                     style={{ display: "inline-flex", alignItems: "center" }}
@@ -175,27 +150,23 @@ const HomePageReviews = ({
                   asNavFor={imageSliderRef}
                   fade={true}
                 >
-                  {testimonials.map((testimonial, index) => (
+                  {testimonialData.tabs.Heads.map((testimonial, index) => (
                     <TestimonialText key={index}>
                       <QuoteContainer>
                         <Quote>
                           <QuotesLeft />
-                          {testimonial.quote}
+                          {testimonial.content}
                           <QuotesRight />
                         </Quote>
                       </QuoteContainer>
                       <CustomerInfo>
                         <CustomerProfilePicture
-                          src={testimonial.profileImageSrc}
-                          alt={testimonial.customerName}
+                          src={testimonial.imageSrc}
+                          alt={testimonial.Name}
                         />
                         <CustomerTextInfo>
-                          <CustomerName>
-                            {testimonial.customerName}
-                          </CustomerName>
-                          <CustomerTitle>
-                            {testimonial.customerTitle}
-                          </CustomerTitle>
+                          <CustomerName>{testimonial.Name}</CustomerName>
+                          <CustomerTitle>{testimonial.Post}</CustomerTitle>
                         </CustomerTextInfo>
                       </CustomerInfo>
                     </TestimonialText>
