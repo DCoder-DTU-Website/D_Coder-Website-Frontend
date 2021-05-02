@@ -10,6 +10,8 @@ import CardBody from "components/cards/CardBody.js";
 import Forms from "./Form";
 import Forms2 from "./Form2";
 import Forms3 from "./Form3";
+import NoticesForm from "./NoticesForm";
+
 import Testimonial from "components/testimonials/AdminProjects";
 import "./styles.css";
 import styles from "./styles";
@@ -50,11 +52,11 @@ export default function Admin() {
             <GridItem xs={12} sm={12} md={6}>
               <Card>
                 <CardHeader style={{ backgroundColor: "rgb(49,130,206)" }}>
-                  <h4 className={classes.cardTitleWhite}>Lectures</h4>
-                  <p className={classes.cardCategoryWhite}>Upload Lectures</p>
+                  <h4 className={classes.cardTitleWhite}>Notices</h4>
+                  <p className={classes.cardCategoryWhite}>Update Notices</p>
                 </CardHeader>
                 <CardBody className="sameheight">
-                  <Forms />
+                  <NoticesForm/>
                 </CardBody>
               </Card>
             </GridItem>
@@ -67,6 +69,19 @@ export default function Admin() {
                 </CardHeader>
                 <CardBody className="sameheight">
                   <Forms3 />
+                </CardBody>
+              </Card>
+            </GridItem>
+          </div>
+          <div className="adminboxes">
+            <GridItem xs={12} sm={12} md={6}>
+              <Card>
+                <CardHeader style={{ backgroundColor: "rgb(49,130,206)" }}>
+                  <h4 className={classes.cardTitleWhite}>Lectures</h4>
+                  <p className={classes.cardCategoryWhite}>Upload Lectures</p>
+                </CardHeader>
+                <CardBody className="sameheight">
+                  <Forms />
                 </CardBody>
               </Card>
             </GridItem>

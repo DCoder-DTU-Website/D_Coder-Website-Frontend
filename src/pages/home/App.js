@@ -11,7 +11,7 @@ import ContactUs from "components/forms/HomePageContact";
 
 export default function Home() {
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <Hero
         onClick={() => console.log()}
         heading={"D_CODER"}
@@ -28,6 +28,6 @@ export default function Home() {
         <ContactUs />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
