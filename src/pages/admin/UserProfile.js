@@ -424,10 +424,6 @@ const MiscForm = (props) => {
 export default function UserProfile(props) {
   const classes = useStyles();
   const { user } = useUser();
-  let userFromAdmin = null;
-  if (user.isAdmin) {
-    userFromAdmin = props.location.state;
-  }
   const [data, setData] = React.useState({
     firstName: "",
     lastName: "",
@@ -453,12 +449,7 @@ export default function UserProfile(props) {
   const [loading, setLoading] = useState(false);
 
   const getProfile = async () => {
-    let res;
-    if (user.isAdmin) {
-      res = await api.post("/userprofile", { userFromAdmin });
-    } else {
-      res = await api.post("/userprofile", { user });
-    }
+    const res = await api.post("/userprofile", { user });
     const userProfile = res.data;
     setOgProfile(userProfile);
     setData((prevData) => ({ ...prevData, ...userProfile }));
@@ -542,12 +533,7 @@ export default function UserProfile(props) {
   };
 
   const updateBackend = async () => {
-    let res;
-    if (user.isAdmin) {
-      res = await api.put("/userprofile", { userFromAdmin, data });
-    } else {
-      res = await api.put("/userprofile", { user, data });
-    }
+    const res = await api.put("/userprofile", { data });
     swal({ title: res.data, icon: "success" });
     setLoading(false);
   };

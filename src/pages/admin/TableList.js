@@ -8,7 +8,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
 import SearchBar from "material-ui-search-bar";
 import Modal from "./modal";
 import UserModal from "./userModal";
@@ -16,7 +15,6 @@ import AdminNavbarLinks from "./Navbar";
 import "./page.css";
 import api from "../../api/apiClient";
 import swal from "sweetalert";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   table: {
@@ -112,7 +110,6 @@ export default function BasicTable() {
                 <TableCell align="center">Contact</TableCell>
                 <TableCell align="center">Year</TableCell>
                 <TableCell align="center">Remove User</TableCell>
-                <TableCell align="center">Edit User</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -148,16 +145,10 @@ export default function BasicTable() {
                   >
                     <DeleteIcon />
                   </TableCell>
-                  <TableCell align="center" style={{ cursor: "pointer" }}>
-                    <Link
-                      to={{
-                        pathname: "/admin/user",
-                        state: { email: row.email },
-                      }}
-                    >
-                      <EditIcon />
-                    </Link>
-                  </TableCell>
+                  <TableCell
+                    align="center"
+                    style={{ cursor: "pointer" }}
+                  ></TableCell>
                   <TableCell scope="row" style={{ display: "none" }}>
                     <div>
                       {row.firstName}&nbsp;{row.lastName}

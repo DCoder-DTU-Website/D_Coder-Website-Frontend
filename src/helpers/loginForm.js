@@ -33,7 +33,6 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
         username: loginUsername,
         password: loginPassword,
       });
-      console.log(data);
       localStorage.setItem("token", data);
       const res = await api.get("/user");
       setIsLoggedIn({ login: res.data });
