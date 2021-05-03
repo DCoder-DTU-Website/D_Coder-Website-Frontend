@@ -10,6 +10,7 @@ import {
   Grid,
   Button,
 } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
 import { makeStyles, withStyles } from "@material-ui/styles";
 import Edit from "@material-ui/icons/Edit";
 import api from "../../api/apiClient";
@@ -19,14 +20,14 @@ const Container = tw.div`text-gray-600 bg-gray-900`;
 const InnerContainer = tw.div`container px-5 py-24 mx-auto`;
 const ContainerWrap = tw.div`flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 items-center`;
 
-const LeftSideDetails = tw.div`p-4 md:w-1/4 sm:mb-0 mb-6`;
-const Image = tw.img`object-cover object-center h-full w-full`;
-const ImageContainer = tw.div`h-64 md:px-4 overflow-hidden`;
+const LeftSideDetails = tw.div`p-4 mr-6 md:w-1/4 sm:mb-0 mb-6`;
 const UserName = tw.div`text-center md:my-8`;
-const SocialMedia = tw.div`md:my-8 text-center`;
+const SocialMedia = tw.div`flex md:my-8 text-center`;
 const NameLinks = tw.div`grid md:grid-cols-3`;
-const TextCard = tw.div`md:mx-8 md:w-2/3 w-full -mt-8`;
+const TextCard = tw.div`md:mx-8 -mt-8`;
 const InnerTextCard = tw.div`h-auto bg-gray-100 p-8 rounded md:mb-8`;
+
+const theme = createMuiTheme();
 
 const BlueCheckbox = withStyles({
   root: {
@@ -62,17 +63,31 @@ const EditCheckbox = withStyles({
   />
 ));
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((props) => ({
   root: {
-    height: "100vh",
+    height: "200vh",
   },
   image: {
+    borderRadius: "50%",
+    padding: 0,
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  img: {
     borderRadius: "50%",
     padding: 0,
     height: "auto",
   },
   username: {
     fontSize: "1.2em",
+    marginBottom: "-10px !important",
+    marginTop: "20px !important",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "10px !important",
+      marginTop: "10px !important",
+    },
   },
   icon: {
     "&:hover": {
@@ -91,6 +106,9 @@ const useStyles = makeStyles({
     //     "linear-gradient(90deg, rgba(222,128,34,1) 0%, rgba(221,108,10,1) 26%, rgba(250,197,3,1) 100%)",
     boxShadow: "10px 10px 5px 0px rgba(10,87,163,0.75)",
     WebkitBoxShadow: "10px 10px 5px 0px rgba(10,87,163,0.75)",
+    [theme.breakpoints.down("md")]: {
+      margin: "2rem 0",
+    },
   },
   desc: {
     marginBottom: "15px",
@@ -136,10 +154,32 @@ const useStyles = makeStyles({
       backgroundColor: "#2c5282",
     },
   },
-});
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  imageContainer: {
+    [theme.breakpoints.down("md")]: {
+      marginTop: "-60px",
+    },
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  secondContainer: {
+    [theme.breakpoints.down("lg")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "66%",
+    },
+  },
+}));
 
 const UserProfile = (props) => {
-  const classes = useStyles();
+  const classes = useStyles({ theme });
 
   const [edit, setEdit] = useState(false);
   const [user, setUser] = useState(props);
@@ -205,11 +245,11 @@ const UserProfile = (props) => {
     <>
       <Container className={classes.root}>
         <InnerContainer>
-          <ContainerWrap>
-            <LeftSideDetails>
-              <ImageContainer className={classes.image}>
-                <Image alt="content" src={props.image} />
-              </ImageContainer>
+          <ContainerWrap className={classes.container}>
+            <LeftSideDetails className={classes.imageContainer}>
+              <div className={classes.image}>
+                <img alt="content" src={props.image} className={classes.img} />
+              </div>
               <UserName className={classes.username}>{props.username}</UserName>
               <SocialMedia>
                 <a
@@ -225,7 +265,7 @@ const UserProfile = (props) => {
                 </a>
               </SocialMedia>
             </LeftSideDetails>
-            <TextCard>
+            <TextCard className={classes.secondContainer}>
               <InnerTextCard className={classes.nameCard}>
                 <div className={classes.name}>
                   {props.firstName} {props.lastName}
