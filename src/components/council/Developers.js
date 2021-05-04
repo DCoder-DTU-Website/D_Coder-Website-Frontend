@@ -1,74 +1,49 @@
 export const developers= [
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "A developer",
-      content: "Developer developes development",
-
-      // rating: "5.0",
-      reviews: "87",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130571/photo_-_Aditya_Teltia_wjsph9.jpg",
+      title: "Aditya Teltia",
+      content: "",
+      linkedin: "https://www.linkedin.com/in/aditya-teltia-a9a7731b4/",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1582254465498-6bc70419b607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Samsa Beef",
-      content: "Fried Mexican Beef",
-
-      // rating: "4.5",
-      reviews: "34",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
+      title: "Naman Malhotra",
+      content: "",
+      linkedin: "https://www.linkedin.com/in/naman-malhotra-25a370203/",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1565310022184-f23a884f29da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Carnet Nachos",
-      content: "Chilli Crispy Nachos",
-
-      // rating: "3.9",
-      reviews: "26",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620131085/satyam_2_-_Satyam_Gaur_xtdm5h.jpg",
+      title: "Satyam Gaur",
+      content: "",
+      linkedin: "https://www.linkedin.com/in/sxtyam/",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Guacamole Mex",
-      content: "Mexican Chilli",
-
-      // rating: "4.2",
-      reviews: "95",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130571/Image_-_shivansh_dhondiyal_r64ra0.jpg",
+      title: "Shivansh Dhondiyal",
+      content: "",
+      linkedin: "https://www.linkedin.com/in/shivansh-dhondiyal-427aaa204/",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Chillie Cake",
-      content: "Deepfried Chicken",
-
-      // rating: "5.0",
-      reviews: "61",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/circle-mr_-_surya_kumar_sahani_sqdkzh.png",
+      title: "Surya Kumar Sahani",
+      content: "",
+      linkedin: "https://www.linkedin.com/in/surya-kumar-sahani-25911b1a3",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327??ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Nelli",
-      content: "Hamburger & Fries",
-
-      // rating: "4.9",
-      reviews: "89",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130571/image_-_Vaibhav_Gupta_eblpym.jpg",
+      title: "Vaibhav Gupta",
+      linkedin: "https://www.linkedin.com/in/vaibhav-gupta-908539172/",
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Jalapeno Poppers",
-      content: "Crispy Soyabeans",
-
-      // rating: "4.6",
-      reviews: "12",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Cajun Chicken",
-      content: "Roasted Chicken & Egg",
-
-      // rating: "4.2",
-      reviews: "19",
-    },
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/websiteImage_-_VIBHOR_JAIN_oycylo.jpg",
+      title: "Vibhor Jain",
+      linkedin: "https://www.linkedin.com/in/vibhor-jain-18a372194/",
+    }
   ];
