@@ -27,7 +27,7 @@ const TestimonialsContainer = tw.div`mt-16 lg:mt-0`;
 const Testimonials = styled.div``;
 const Testimonial = tw.div`max-w-md lg:max-w-none mx-auto lg:mx-0 flex flex-col items-center lg:items-stretch lg:flex-row`;
 
-const TestimonialImageSlider = tw(Slider)`w-full lg:w-5/12 flex-shrink-0 `;
+const TestimonialImageSlider = tw(Slider)`w-full lg:w-5/12 flex-shrink-0 py-1`;
 const TestimonialTextSlider = tw(Slider)``;
 const TestimonialText = tw.div`outline-none`;
 const PrimaryLink = styled(PrimaryLinkBase)`
@@ -37,19 +37,19 @@ const PrimaryLink = styled(PrimaryLinkBase)`
   }
 `;
 
-const ImageAndControlContainer = tw.div`relative outline-none`;
+const ImageAndControlContainer = tw.div`relative outline-none h-144`;
 const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded bg-cover bg-center h-80 sm:h-96 lg:h-144`,
+  tw`rounded-full bg-cover bg-center h-48 sm:h-96 lg:h-128`,
 ]);
 
-const ControlContainer = tw.div`absolute bottom-0 right-0 bg-gray-100 px-6 py-4 rounded-tl-3xl border`;
+const ControlContainer = tw.div`absolute bottom-0 right-1/2 bg-transparent px-6 py-12 rounded-tl-3xl -mx-4 -my-12`;
 const ControlButton = styled(BlueButton)`
-  ${tw`mx-3 rounded-full text-gray-100 p-2`}
+  ${tw`mx-3 rounded-full text-gray-100 p-2 left-1/2 `}
   svg {
-    ${tw`w-5 h-5`}
+    ${tw`w-6 h-5`}
   }
-`;
+  `;
 
 const TextContainer = styled.div((props) => [
   tw`flex flex-col w-full lg:w-7/12`,
@@ -160,10 +160,10 @@ const HomePageReviews = ({
                         </Quote>
                       </QuoteContainer>
                       <CustomerInfo>
-                        <CustomerProfilePicture
+                        {/* <CustomerProfilePicture
                           src={testimonial.imageSrc}
                           alt={testimonial.Name}
-                        />
+                        /> */}
                         <CustomerTextInfo>
                           <a href = {testimonial.linkedin}>
                           <CustomerName>{testimonial.Name}</CustomerName></a>
