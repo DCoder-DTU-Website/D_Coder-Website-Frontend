@@ -11,9 +11,10 @@ import Header, {
 import Login from "./loginModal";
 import { Button } from "@material-ui/core";
 import useUser from "../useUser";
-import { Link } from "react-router-dom";
-import Avatar from "./Avatar";
+import { BrowserRouter, Link } from "react-router-dom";
+import { Avatar } from "@material-ui/core";
 import swal from "sweetalert";
+import api from "../api/apiClient";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 pb-2 max-w-none w-full`}
@@ -29,6 +30,7 @@ function NavBar() {
   const { user, logout } = useUser();
 
   const [isLoggedIn, setIsLoggedIn] = useState({ login: user });
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     setIsLoggedIn({ login: user });
@@ -48,6 +50,20 @@ function NavBar() {
     });
   };
 
+  const getProfile = async () => {
+    const res = await api.post("/userprofile", { user });
+    const userProfile = res.data;
+    setProfile(userProfile);
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, [user]);
+
+  useEffect(() => {
+    console.log(profile);
+  }, [profile]);
+
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/events">Events</NavLink>
@@ -66,13 +82,17 @@ function NavBar() {
               variant="contained"
               style={{ marginRight: "10px" }}
             >
-              <Link to="/admin/dashboard">Admin Dashboard</Link>
+              <BrowserRouter forceRefresh={true}>
+                <Link to="/admin/dashboard">Admin Dashboard</Link>
+              </BrowserRouter>
             </Button>
           ) : (
             <Button style={{ marginRight: "10px" }}>
-              <Link to="/admin/user">
-                <Avatar />
-              </Link>
+              <BrowserRouter forceRefresh={true}>
+                <Link to="/admin/user">
+                  <Avatar src={profile !== null && profile.image}></Avatar>
+                </Link>
+              </BrowserRouter>
             </Button>
           )}
           <Button

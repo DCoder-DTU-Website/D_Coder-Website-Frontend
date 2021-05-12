@@ -61,7 +61,7 @@ function App() {
           <Route
             exact
             path="/admin/user"
-            component={isUser || isAdmin ? UserProfile : NotAnAdmin}
+            component={isUser ? UserProfile : NotAnAdmin}
           />
           <Route exact path="/testimonial">
             <Testimonial />

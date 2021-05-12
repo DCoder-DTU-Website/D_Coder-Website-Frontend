@@ -62,7 +62,7 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
               >
                 <Input
                   type="text"
-                  placeholder="Username"
+                  placeholder="Email"
                   required
                   onChange={(e) => setLoginUsername(e.target.value)}
                 />
