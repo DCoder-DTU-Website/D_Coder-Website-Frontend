@@ -86,7 +86,9 @@ const WhyD = ({
             <Statistics>
               {statistics.map((statistic, index) => (
                 <Statistic key={index}>
-                  <Value>{statistic.value}</Value>
+                  <Value style={{ textAlign: "center" }}>
+                    {statistic.value}
+                  </Value>
                   <Key>{statistic.key}</Key>
                 </Statistic>
               ))}

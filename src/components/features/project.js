@@ -61,14 +61,24 @@ const ProjectsComp = () => {
             <Card key={i} reversed={i % 2 === 1}>
               <Image imageSrc={card.image} />
               <Details>
-                <Title>{card.title}</Title>
+                <Title>
+                  {card.title}
+                </Title>
                 <br />
                 <br />
                 <br />
                 <br />
                 <Subtitle>{card.techStack}</Subtitle>
                 <Description>{card.desc}</Description>
-                <div className="links" style={linkstyle}>
+                <div
+                  className="links"
+                  style={linkstyle}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "30px",
+                  }}
+                >
                   <Link target="_blank" href={card.github}>
                     <AiFillGithub size={25} />
                   </Link>
