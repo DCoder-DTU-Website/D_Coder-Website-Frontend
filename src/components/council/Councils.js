@@ -51,7 +51,7 @@ const CardImageContainer = styled.div`
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`h-56 xl:h-64 bg-center border-blue-600 border-4 p-32 bg-cover relative rounded-full`}
+  ${tw`h-56 xl:h-32 bg-center border-blue-600 border-4 p-32 bg-cover relative rounded-full`}
 `;
 
 const CardText = tw.div`p-4 text-white`;
@@ -161,7 +161,7 @@ const Councils = ({
                   whileHover="hover"
                   animate="rest"
                 >
-                  <CardImageContainer
+                  <CardImageContainer className="image" style = {{height:"60px", width:"60px", borderRadius:"50%",marginLeft:"5%"}}
                     imageSrc={card.imageSrc}
                   ></CardImageContainer>
                   <CardText style={{ textAlign: "center" }}>
