@@ -25,25 +25,25 @@ const Container = tw.div`bg-gray-900 relative -m-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const TestimonialsContainer = tw.div`mt-16 lg:mt-0`;
 const Testimonials = styled.div``;
-const Testimonial = tw.div`max-w-md lg:max-w-none mx-auto lg:mx-0 flex flex-col items-center lg:items-stretch lg:flex-row`;
+const Testimonial = tw.div`max-w-md lg:max-w-none mx-auto lg:mx-2 xl:-mx-32 flex flex-col items-center lg:items-stretch lg:flex-row`;
 
-const TestimonialImageSlider = tw(Slider)`w-full lg:w-5/12 flex-shrink-0 py-1`;
+const TestimonialImageSlider = tw(Slider)`w-full lg:w-144 flex-shrink-0 py-1`;
 const TestimonialTextSlider = tw(Slider)``;
 const TestimonialText = tw.div`outline-none`;
 const PrimaryLink = styled(PrimaryLinkBase)`
-  ${tw`inline-flex justify-center xl:justify-start items-center text-lg sm:mx-10`}
+  ${tw`inline-flex justify-center xl:justify-start items-center text-lg sm:mx-10 lg:justify-start`}
   svg {
     ${tw`ml-2 w-5 h-5`}
   }
 `;
 
-const ImageAndControlContainer = tw.div`relative outline-none h-144`;
+const ImageAndControlContainer = tw.div`relative px-20 sm:px-16 bg-cover bg-center outline-none h-144`;
 const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded-full bg-cover bg-center h-48 sm:h-96 lg:h-128`,
+  tw`rounded-full bg-cover absolute -mx-32 right-1/2  bg-center h-64 w-64 sm:-mx-12 sm:h-96 sm:w-96 lg:h-96 lg:w-96 xl:h-128 xl:w-128 xl:-mx-64 lg:-mx-32 sm:-mx-48`,
 ]);
 
-const ControlContainer = tw.div`absolute bottom-0 right-1/2 bg-transparent px-6 py-12 rounded-tl-3xl -mx-4 -my-12`;
+const ControlContainer = tw.div`absolute bottom-0 right-1/2 bg-transparent  py-12 rounded-tl-3xl lg:px-12 -mx-2 my-40 lg:my-20 lg:mx-8 xl:-mx-12 xl:-my-12 sm:my-20 sm:mx-2`;
 const ControlButton = styled(BlueButton)`
   ${tw`mx-3 rounded-full text-gray-100 p-2 left-1/2 `}
   svg {
@@ -52,7 +52,7 @@ const ControlButton = styled(BlueButton)`
   `;
 
 const TextContainer = styled.div((props) => [
-  tw`flex flex-col w-full lg:w-7/12`,
+  tw`flex flex-col w-full lg:w-7/12 lg:-mx-32 xl:mx-4 my-12 sm:-my-32 -my-48 py-10 px-6 lg:my-12 xl:my-16`,
   props.textOnLeft ? tw`lg:pr-12 lg:order-first` : tw`lg:pl-12 lg:order-last`,
 ]);
 
