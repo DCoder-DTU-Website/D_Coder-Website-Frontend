@@ -42,7 +42,7 @@ const Footer = () => {
             >
               <InstagramIcon />
             </SocialLink>
-            <SocialLink target="_blank" href="https://youtube.com">
+            <SocialLink target="_blank" href="https://www.youtube.com/channel/UCz0Bs3AXaa5ccEJBsLxyXzg">
               <YoutubeIcon />
             </SocialLink>
           </SocialLinksContainer>

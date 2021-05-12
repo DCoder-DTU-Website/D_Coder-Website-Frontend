@@ -106,6 +106,11 @@ const LightFunc = ({
 
       <MobileNavLinksContainer
         css={collapseBreakpointCss.mobileNavLinksContainer}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-around",
+        }}
       >
         {logoLink}
         <MobileNavLinks
@@ -118,6 +123,7 @@ const LightFunc = ({
         <NavToggle
           onClick={toggleNavbar}
           className={showNavLinks ? "open" : "closed"}
+          style={{ margin: 0 ,padding:0}}
         >
           {showNavLinks ? (
             <CloseIcon tw="w-6 h-6" />
