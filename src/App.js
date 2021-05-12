@@ -18,6 +18,7 @@ import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/ResetPassForm";
+import GoogleForm from "./pages/GoogleForms/Form1"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -68,6 +69,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/form/sample">
+            <GoogleForm />
           </Route>
           <Route path="/reset/:token">
             <ResetPass />

@@ -6,6 +6,7 @@
     min-width: 40vw;
     width: 70%;
     margin-left: 6vw !important;
+    margin-right: 6vw !important;
   }
 }
 
@@ -18,6 +19,7 @@
     align-items: center;
     justify-content: center;
     margin-left: 13vw !important;
+    margin-right: 13vw !important;
   }
 }
 
