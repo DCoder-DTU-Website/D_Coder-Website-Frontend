@@ -3,13 +3,21 @@ import Gallery from "react-photo-gallery";
 // import { photos } from "./photos";
 import { Modal, ModalGateway } from "react-images";
 import CoverFlow from "../Gallery/coverFlow";
-import api from "../../api/apiClient";
+import api from "../../api/apiClient";  
+import { useMediaQuery } from 'react-responsive'
 
 export default function PhotoIndex() {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const [photos, setPhotos] = useState([]);
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 850px)'
+  })
+  const isMobile = useMediaQuery({
+    query: '(max-device-width: 850px)'
+  })
 
+  
   const getPhotos = async () => {
     try {
       const images = await api.get("/gallery/all");
@@ -40,6 +48,7 @@ export default function PhotoIndex() {
     setCurrentImage(0);
     setViewerIsOpen(false);
   };
+   
   return (
     <div
       style={{
@@ -50,7 +59,12 @@ export default function PhotoIndex() {
         marginBottom: "-35px",
       }}
     >
-      <Gallery photos={photos} onClick={openLightbox} />
+      {/* {isDesktopOrLaptop && <Gallery 
+        photos={photos}
+        onClick={openLightbox}
+         />}
+      {isMobile && <Gallery photos={photos} />} */}
+      <Gallery photos={photos}  onClick={openLightbox} />
       <ModalGateway >
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>

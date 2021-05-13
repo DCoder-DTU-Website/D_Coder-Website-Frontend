@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useMediaQuery } from 'react-responsive'
 import tw from "twin.macro";
 import styled from "styled-components";
 import Header, {
@@ -63,7 +64,9 @@ function NavBar() {
   useEffect(() => {
     console.log(profile);
   }, [profile]);
-
+  const isMobile = useMediaQuery({
+    query: '(max-device-width: 1154px)'
+  })
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/events">Events</NavLink>
@@ -80,7 +83,7 @@ function NavBar() {
             <Button
               color="primary"
               variant="contained"
-              style={{ marginRight: "10px" }}
+              style={{ marginRight: "10px" ,marginBottom:isMobile?"5px":"0px"}}
             >
               <BrowserRouter forceRefresh={true}>
                 <Link to="/admin/dashboard">Admin Dashboard</Link>

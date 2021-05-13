@@ -1,5 +1,8 @@
 import "./styles.css";
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useMediaQuery } from 'react-responsive'
+
+
 
 const slidesReducer = (state, event) => {
   if (event.type === "NEXT") {
@@ -19,7 +22,12 @@ const slidesReducer = (state, event) => {
 
 function Slide({ slide, offset }) {
   const active = offset === 0 ? true : null;
-
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 700px)'
+  })
+  const isMobile = useMediaQuery({
+    query: '(max-device-width: 700px)'
+  })
   return React.createElement(
     "div",
     {
@@ -39,11 +47,11 @@ function Slide({ slide, offset }) {
           backgroundImage: `url('${slide.src}')`,
         },
       },
-
+      
       React.createElement(
         "div",
         { className: "slideContentInner" },
-        React.createElement("h2", { className: "slideTitle" }, slide.title),
+        (isDesktopOrLaptop==true?React.createElement("h2", { className: "slideTitle" }, slide.title):""),
 
         React.createElement(
           "p",
@@ -60,9 +68,14 @@ const CoverFlowFunc = ({ slideIndex, slides }) => {
     slideIndex: slideIndex,
     slides: slides,
   };
-
+  function SliderPlaying(x) {
+    if (x) sliderRef?.slickPlay();
+    else sliderRef?.slickPause();
+  }
   const [state, dispatch] = React.useReducer(slidesReducer, initialState);
+  const [sliderRef, setSliderRef] = useState(null);
 
+  
   return React.createElement(
     "div",
     { className: "slides" },

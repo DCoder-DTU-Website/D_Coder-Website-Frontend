@@ -102,7 +102,7 @@ const HomePageReviews = ({
           description={description}
         />
         <TestimonialsContainer>
-          <Testimonials>
+          <Testimonials style = {{marginLeft:"3%",marginRight:"3%"}}>
             <Testimonial>
               <TestimonialImageSlider
                 arrows={false}
@@ -111,7 +111,7 @@ const HomePageReviews = ({
                 fade={true}
               >
                 {testimonialData.tabs.Heads.map((testimonial, index) => (
-                  <ImageAndControlContainer key={index}>
+                  <ImageAndControlContainer key={index} style = {{marginLeft:"30%"}}>
                     <Image imageSrc={testimonial.imageSrc} />
                     <ControlContainer>
                       <ControlButton onClick={imageSliderRef?.slickPrev}>
