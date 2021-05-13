@@ -5,6 +5,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import Grid from "@material-ui/core/Grid";
 import tw from "twin.macro";
 import api from "../../api/apiClient";
 import swal from "sweetalert";
@@ -51,10 +52,14 @@ export default function BasicTextFields() {
   };
 
   return (
-    <form className={classes.root} onSubmit={(e) => e.preventDefault()}>
-      <FormControl variant="outlined">
+    <Grid container spacing={2}>
+      <Grid item xs={12}>
         <InputLabel id="demo-simple-select-outlined-label">Title</InputLabel>
-        <Select label="Title" onChange={(e) => setTopic(e.target.value)}>
+        <Select
+          label="Title"
+          onChange={(e) => setTopic(e.target.value)}
+          fullWidth
+        >
           <MenuItem value="" selected={topic.length === 0}>
             <em>None</em>
           </MenuItem>
@@ -63,8 +68,8 @@ export default function BasicTextFields() {
           <MenuItem value={"appd"}>Andriod Development</MenuItem>
           <MenuItem value={"ml"}>Machine Learning</MenuItem>
         </Select>
-      </FormControl>
-      <FormControl variant="outlined" className={classes.formControl}>
+      </Grid>
+      <Grid item xs={12}>
         <InputLabel id="demo-simple-select-outlined-label">
           Sub-Title
         </InputLabel>
@@ -72,6 +77,7 @@ export default function BasicTextFields() {
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
           label="Sub-Title"
+          fullWidth
           onChange={(e) => setSubTopic(e.target.value)}
         >
           <MenuItem value="" selected={subTopic.length === 0}>
@@ -84,26 +90,31 @@ export default function BasicTextFields() {
           <MenuItem value={"heaps"}>Heaps</MenuItem>
           <MenuItem value={"graphs"}>Graphs</MenuItem>
         </Select>
-      </FormControl>
-      <TextField
-        id="outlined-textarea"
-        label="Image Url"
-        placeholder="E.g. https://www.youtube.com"
-        multiline
-        variant="outlined"
-        onChange={(e) => setUrl(e.target.value)}
-        value={url}
-      />
-      <SubmitButton
-        onClick={clickSubmit}
-        style={{
-          backgroundColor: "rgba(49,130,206)",
-          color: "white",
-          marginLeft: "10px",
-        }}
-      >
-        Upload
-      </SubmitButton>
-    </form>
+      </Grid>
+      <Grid item>
+        <TextField
+          id="outlined-textarea"
+          label="Image Url"
+          placeholder="E.g. https://www.youtube.com"
+          multiline
+          variant="outlined"
+          onChange={(e) => setUrl(e.target.value)}
+          value={url}
+          fullWidth
+        />
+      </Grid>
+      <Grid item>
+        <SubmitButton
+          onClick={clickSubmit}
+          style={{
+            backgroundColor: "rgba(49,130,206)",
+            color: "white",
+            marginLeft: "10px",
+          }}
+        >
+          Upload
+        </SubmitButton>
+      </Grid>
+    </Grid>
   );
 }

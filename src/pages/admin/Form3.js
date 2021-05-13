@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
 import tw from "twin.macro";
@@ -60,34 +61,29 @@ export default function MultilineTextFields() {
     }
   };
   return (
-    <form className={classes.root}>
-      <div style={{ display: "flex" }}>
-        <div style={{ display: "flex flex-col", marginRight: "60px" }}>
-          <div>
-            <FormControl variant="outlined" className={classes.formControl}>
-              <TextField
-                type="input"
-                id="outlined-textarea"
-                label="Title"
-                placeholder="E.g. Senior Se Mulaqat"
-                multiline
-                variant="outlined"
-                required
-                onChange={(e) => setTitle(e.target.value)}
-                value={title}
-              />
-            </FormControl>
-          </div>
-          <div>
-            <SubmitButton onClick={clickSubmit} disabled={loading}>
-              Upload
-            </SubmitButton>
-          </div>
-        </div>
-        <div>
-          <Upload images={images} setImages={setImages} />
-        </div>
-      </div>
-    </form>
+    <Grid container spacing={2}>
+      <Grid item xs={12} lg={6}>
+        <TextField
+          type="input"
+          id="outlined-textarea"
+          label="Title"
+          placeholder="E.g. Senior Se Mulaqat"
+          multiline
+          variant="outlined"
+          required
+          fullWidth
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+        />
+      </Grid>
+      <Grid item xs={12} lg={6}>
+        <Upload images={images} setImages={setImages} />
+      </Grid>
+      <Grid item>
+        <SubmitButton onClick={clickSubmit} disabled={loading}>
+          Upload
+        </SubmitButton>
+      </Grid>
+    </Grid>
   );
 }

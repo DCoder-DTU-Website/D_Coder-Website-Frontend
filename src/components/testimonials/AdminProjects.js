@@ -33,7 +33,7 @@ const Image = styled.div((props) => [
 
 const ControlContainer = tw.div`absolute bottom-0 right-0 bg-gray-100  rounded-tl-3xl border`;
 const ControlButton = styled(BlueButton)`
-  ${tw`mx-3 rounded-full text-gray-100 p-2`}
+  ${tw`mx-3 my-2 rounded-full text-gray-100 p-2`}
   svg {
     ${tw`w-5 h-5`}
   }
@@ -49,7 +49,7 @@ const HeadingTitle = tw.div`text-blue-400 font-bold text-2xl lg:text-left leadin
 // const Description = tw.p`max-w-md text-center mx-auto lg:mx-0 lg:text-left lg:max-w-none leading-relaxed text-sm sm:text-base lg:text-lg font-medium mt-4 text-secondary-100`;
 
 const QuoteContainer = tw.div`relative`;
-const Quote = tw.div`mt-4 md:mt-0 md:max-w-md mx-4 text-black text-sm font-medium sm:mx-8 md:mx-4 lg:mx-8`;
+const Quote = tw.div`mt-4 ml-0 md:mt-0 md:max-w-md mr-4 text-black text-sm font-medium sm:mr-8 md:mr-4 lg:mr-8`;
 
 const DecoratorBlob1 = tw(
   SvgDecoratorBlob1
