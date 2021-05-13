@@ -48,7 +48,7 @@ export const LogoLink = styled(NavLink)`
 
 export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
 export const NavToggle = tw.button`
-  lg:hidden z-20 focus:outline-none hocus:text-primary-500 transition duration-300
+  lg:hidden z-40 focus:outline-none fixed right-0 hocus:text-primary-500 transition duration-300 top-0
 `;
 export const MobileNavLinks = motion.custom(styled.div`
   ${tw`lg:hidden z-10 fixed top-0 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 bg-white`}
@@ -118,7 +118,7 @@ const LightFunc = ({
         <NavToggle
           onClick={toggleNavbar}
           className={showNavLinks ? "open" : "closed"}
-          style={{ margin: 0 ,padding:0}}
+          style={{ margin: "30px", padding: 0}}
         >
           {showNavLinks ? (
             <CloseIcon tw="w-6 h-6" />
