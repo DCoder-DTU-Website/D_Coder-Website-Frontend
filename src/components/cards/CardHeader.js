@@ -14,9 +14,9 @@ import {
 
 const cardHeaderStyle = {
   cardHeader: {
-    // padding: "0.75rem 1.25rem",
-    padding: "0 -1.25rem",
-    margin: "0 -1rem",
+    padding: "0.75rem 1.25rem",
+    // padding: "0 -1.25rem",
+    // margin: "0 -1rem",
     marginBottom: "0",
     borderBottom: "none",
     background: "transparent",
