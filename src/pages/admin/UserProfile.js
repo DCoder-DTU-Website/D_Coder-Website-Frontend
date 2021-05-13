@@ -251,9 +251,26 @@ const MiscForm = (props) => {
               fullWidth
               disabled={props.editable ? false : true}
             >
+              <MenuItem value={"BT"}>Bio Technology</MenuItem>
+              <MenuItem value={"CE"}>Chemical Engineering</MenuItem>
+              <MenuItem value={"CE"}>Civil Engineering</MenuItem>
               <MenuItem value={"COE"}>Computer Engineering</MenuItem>
               <MenuItem value={"EE"}>Electrical Engineering</MenuItem>
-              <MenuItem value={"ME"}>Mechanical</MenuItem>
+              <MenuItem value={"ECE"}>
+                Electronics and Communication Engineering
+              </MenuItem>
+              <MenuItem value={"EP"}>Engineering Physics</MenuItem>
+              <MenuItem value={"EE"}>Environmental Engineering</MenuItem>
+              <MenuItem value={"IT"}>Information Technology</MenuItem>
+              <MenuItem value={"MCE"}>Mathematics and Computing</MenuItem>
+              <MenuItem value={"ME"}>Mechanical Engineering</MenuItem>
+              <MenuItem value={"MAM"}>
+                Mechanical with specialization in Automotive Engineering
+              </MenuItem>
+              <MenuItem value={"PIE"}>
+                Production and Industrial Engineering
+              </MenuItem>
+              <MenuItem value={"SE"}>Software Engineering</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -562,7 +579,13 @@ export default function UserProfile(props) {
                 </Grid>
               </Grid>
             </CardHeader>
-            <CardBody style={{ backgroundColor: "#fff", margin: "0 20px" }}>
+            <CardBody
+              style={{
+                backgroundColor: "#fff",
+                margin: "0 -5em",
+                padding: "0 4em",
+              }}
+            >
               <Grid container spacing={3} alignItems="stretch">
                 <Grid
                   container
@@ -582,12 +605,25 @@ export default function UserProfile(props) {
                       onClick={() => console.log()}
                     />
                   </Grid>
-                  <Upload
-                    images={images}
-                    setImages={setImages}
-                    disabled={!edit}
-                  />
-                  <ResetModal />
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      margin: "1em 0",
+                    }}
+                  >
+                    <div>
+                      <Upload
+                        images={images}
+                        setImages={setImages}
+                        disabled={!edit}
+                      />
+                    </div>
+                    <div>
+                      <ResetModal />
+                    </div>
+                  </div>
                 </Grid>
                 <Grid
                   container
@@ -626,6 +662,7 @@ export default function UserProfile(props) {
                     fullWidth
                     disabled={!edit || loading}
                     onClick={updateProfile}
+                    style={{ marginTop: "1rem" }}
                   >
                     Update Details
                   </Button>
