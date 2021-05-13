@@ -51,7 +51,7 @@ export default function PhotoIndex() {
       }}
     >
       <Gallery photos={photos} onClick={openLightbox} />
-      <ModalGateway>
+      <ModalGateway >
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <CoverFlow slideIndex={currentImage} slides={photos} />

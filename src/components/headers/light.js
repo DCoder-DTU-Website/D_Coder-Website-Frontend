@@ -106,11 +106,6 @@ const LightFunc = ({
 
       <MobileNavLinksContainer
         css={collapseBreakpointCss.mobileNavLinksContainer}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
       >
         {logoLink}
         <MobileNavLinks
