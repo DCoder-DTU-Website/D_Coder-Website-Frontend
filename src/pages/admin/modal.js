@@ -50,7 +50,7 @@ export default function TransitionsModal() {
           color: "white",
           backgroundColor: "rgba(49,130,206,var(--text-opacity))",
           outline: "0",
-          marginBottom: "20px",
+          margin: "20px 0",
         }}
       >
         Add Member

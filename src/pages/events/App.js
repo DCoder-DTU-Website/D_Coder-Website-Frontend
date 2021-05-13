@@ -15,7 +15,6 @@ import Winners from "./components/Winners";
 
 import dummyImage from "./dummyImage.jpg";
 
-import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
 import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 

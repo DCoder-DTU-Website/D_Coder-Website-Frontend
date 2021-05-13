@@ -15,6 +15,7 @@ import AdminNavbarLinks from "./Navbar";
 import "./page.css";
 import api from "../../api/apiClient";
 import swal from "sweetalert";
+import "./tablelist.css";
 
 const useStyles = makeStyles({
   table: {
@@ -101,7 +102,7 @@ export default function BasicTable() {
           onChange={(searchVal) => requestSearch(searchVal)}
           onCancelSearch={() => cancelSearch()}
         />
-        <TableContainer>
+        <TableContainer className="desktop_list">
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -144,6 +145,78 @@ export default function BasicTable() {
                     style={{ cursor: "pointer" }}
                   >
                     <DeleteIcon />
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    style={{ cursor: "pointer" }}
+                  ></TableCell>
+                  <TableCell scope="row" style={{ display: "none" }}>
+                    <div>
+                      {row.firstName}&nbsp;{row.lastName}
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TableContainer className="mobile_list" style={{ overflow: "hidden" }}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead >
+              <TableRow >
+                <TableCell>Name</TableCell>
+                <TableCell align="center" style={{ paddingLeft: "90px" }}>
+                  Remove User
+                </TableCell>
+                <TableCell align="center" className="mobile_view">
+                  Email
+                </TableCell>
+                <TableCell align="center" className="mobile_view">
+                  Contact
+                </TableCell>
+                <TableCell align="center" className="mobile_view">
+                  Year
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row._id}>
+                  <TableCell>
+                    <UserModal
+                      firstName={row.firstName}
+                      lastName={row.lastName}
+                      email={row.email}
+                      contact={row.contact}
+                      year={row.year}
+                      description={row.desc}
+                      branch={row.branch}
+                      leetcode={row.leetcode}
+                      codeforces={row.codeforces}
+                      codechef={row.codechef}
+                      techStack={row.techStack}
+                      linkedin={row.linkedin}
+                      github={row.github}
+                      username={row.email}
+                      workingWith={row.workingWith}
+                      image={row.image}
+                    />
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    onClick={() => remove(row._id, row.email)}
+                    style={{ cursor: "pointer", paddingLeft: "90px" }}
+                  >
+                    <DeleteIcon />
+                  </TableCell>
+                  <TableCell align="center" className="mobile_view">
+                    {row.email}
+                  </TableCell>
+                  <TableCell align="center" className="mobile_view">
+                    {row.contact}
+                  </TableCell>
+                  <TableCell align="center" className="mobile_view">
+                    {row.year}
                   </TableCell>
                   <TableCell
                     align="center"
