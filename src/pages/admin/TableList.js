@@ -160,6 +160,9 @@ export default function BasicTable() {
             </TableBody>
           </Table>
         </TableContainer>
+
+        {/* MOBILE TABLE LIST*/}
+        
         <TableContainer className="mobile_list" style={{ overflow: "hidden" }}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead >
