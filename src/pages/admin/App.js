@@ -18,14 +18,16 @@ import "./styles.css";
 import styles from "./styles";
 import AdminNavbarLinks from "./Navbar";
 
+import "./App.css";
+
 const useStyles = makeStyles(styles);
 
 export default function Admin() {
   const classes = useStyles();
   return (
-    <>
+    <div className="pageRoot">
       <AdminNavbarLinks />
-      <Grid container spacing={3} style={{ padding: 20 }}>
+      <Grid container spacing={3}>
         <Grid item lg={6} xs={12} style={{ display: "flex" }}>
           <Card
             style={{
@@ -111,6 +113,6 @@ export default function Admin() {
           </Card>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 }
