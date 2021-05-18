@@ -83,9 +83,11 @@ const testimonials = () => {
                         </ImageData>
                       </ImageContainer>
                       <DataContainer>
-                        <DataName>{card.Name}</DataName>
-                        <DataPost>{card.Post}</DataPost>
-                        <DataContent>{card.content}</DataContent>
+                        <DataName>Name</DataName>
+                        <DataContent style={{ textAlign: "center" }}>
+                          Company Logo
+                        </DataContent>
+                        <DataPost>Intern at XYZ</DataPost>
                         <DataIcons>
                           <Icons>
                             <a

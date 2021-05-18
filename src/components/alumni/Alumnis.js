@@ -47,7 +47,7 @@ const Alumni = ({
     Heads: [
       {
         imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/v1619643541/daizy_o6gmwo.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
         Name: "Daizy Mehta",
         Year: "2021",
         linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",
