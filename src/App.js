@@ -12,13 +12,15 @@ import Projects from "pages/projects/App";
 import Alumni from "pages/alumni/App";
 import Admin from "pages/admin/App";
 import Testimonial from "pages/testimonial/App";
+import Research from "pages/research/App";
+import Interns from "pages/interns/App";
 import Table from "pages/admin/TableList";
 import UserProfile from "pages/admin/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/ResetPassForm";
-import GoogleForm from "./pages/GoogleForms/Form1"
+import GoogleForm from "./pages/GoogleForms/Form1";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -46,6 +48,12 @@ function App() {
           </Route>
           <Route exact path="/projects">
             <Projects />
+          </Route>
+          <Route exact path="/interns">
+            <Interns />
+          </Route>
+          <Route exact path="/research">
+            <Research />
           </Route>
           <Route exact path="/lectures/dsa/arrays">
             <Lectures />
