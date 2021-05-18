@@ -42,7 +42,7 @@ const TabControls = styled.div`
 const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
-const CardContainer = tw.div`mt-10 p-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:pr-10 md:pr-6 lg:pr-12`;
+const CardContainer = tw.div`flex justify-center mt-10 p-5 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:pr-10 md:pr-6 lg:pr-12`;
 const Card = tw(
   motion.a
 )` rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
@@ -161,7 +161,13 @@ const Councils = ({
                   whileHover="hover"
                   animate="rest"
                 >
-                  <CardImageContainer className="image" style = {{height:"60px", width:"60px", borderRadius:"50%",marginLeft:"5%"}}
+                  <CardImageContainer
+                    className="image"
+                    style={{
+                      height: "60px",
+                      width: "60px",
+                      borderRadius: "50%",
+                    }}
                     imageSrc={card.imageSrc}
                   ></CardImageContainer>
                   <CardText style={{ textAlign: "center" }}>

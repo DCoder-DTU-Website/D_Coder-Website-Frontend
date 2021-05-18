@@ -43,7 +43,7 @@ const Image = styled.div((props) => [
   tw`rounded-full bg-cover absolute -mx-32 right-1/2  bg-center h-64 w-64 sm:-mx-12 sm:h-96 sm:w-96 lg:h-96 lg:w-96 xl:h-128 xl:w-128 xl:-mx-64 lg:-mx-32 sm:-mx-48`,
 ]);
 
-const ControlContainer = tw.div`absolute bottom-0 right-1/2 bg-transparent  py-12 rounded-tl-3xl lg:px-12 -mx-2 my-40 lg:my-20 lg:mx-8 xl:-mx-12 xl:-my-12 sm:my-20 sm:mx-2`;
+const ControlContainer = tw.div`absolute bottom-0 right-1/2 bg-transparent  py-12 rounded-tl-3xl lg:px-12 -mx-2 my-48 lg:my-20 lg:mx-8 xl:-mx-12 xl:-my-12 sm:my-20 sm:mx-2`;
 const ControlButton = styled(BlueButton)`
   ${tw`mx-3 rounded-full text-gray-100 p-2 left-1/2 `}
   svg {
@@ -52,7 +52,7 @@ const ControlButton = styled(BlueButton)`
   `;
 
 const TextContainer = styled.div((props) => [
-  tw`flex flex-col w-full lg:w-7/12 lg:-mx-32 xl:mx-4 my-12 sm:-my-32 -my-48 py-10 px-6 lg:my-12 xl:my-16`,
+  tw`flex flex-col w-full lg:w-7/12 lg:-mx-32 xl:mx-4 my-12 sm:-my-32 -my-56 py-10 px-6 lg:my-12 xl:my-16`,
   props.textOnLeft ? tw`lg:pr-12 lg:order-first` : tw`lg:pl-12 lg:order-last`,
 ]);
 

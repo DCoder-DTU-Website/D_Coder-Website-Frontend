@@ -12,7 +12,7 @@ import "aos/dist/aos.css";
 const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
-const CardContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-full lg:w-full sm:pr-10 md:pr-6 lg:pr-12 text-gray-400 bg-gray-900`;
+const CardContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-full  lg:w-full sm:pr-10 md:pr-6 lg:pr-12 text-gray-400 bg-gray-900`;
 // const Card = tw(
 //   motion.a
 // )`block max-w-xs mx-auto sm:max-w-none sm:mx-0 h-full flex flex-row items-center text-center`;
@@ -25,11 +25,11 @@ const CardImageContainer = styled.div`
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`flex-shrink-0 border-4 border-blue-600 rounded-full mr-8 w-80 h-80 object-cover object-center mb-4`}
+  ${tw`flex-shrink-0 justify-center items-center w-72 h-72 border-4 border-blue-600 rounded-full mr-6 xl:w-80 xl:h-80 object-cover object-center mb-4`}
 `;
 
-const CardText = tw.div`p-4 text-justify text-gray-900`;
-const CardTitle = tw.h5`text-lg text-justify font-semibold  text-4xl text-white group-hover:text-blue-500`;
+const CardText = tw.div`p-12 text-justify text-gray-900`;
+const CardTitle = tw.h5` text-sm md:w-48 xl:w-48 text-justify font-semibold md:text-3xl text-xl md:text-3xl lg:text-3xl xl:w-96 xl:text-4xl text-white group-hover:text-blue-500`;
 const CardContent = tw.p`mt-1 text-justify text-sm font-medium text-xl text-gray-600 `;
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
@@ -47,7 +47,7 @@ const Alumni = ({
     Heads: [
       {
         imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/v1619643541/daizy_o6gmwo.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
         Name: "Daizy Mehta",
         Year: "2021",
         linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",

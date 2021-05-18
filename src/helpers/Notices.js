@@ -9,6 +9,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import api from "../api/apiClient";
+import Form from "pages/GoogleForms/FormContainer";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {
@@ -100,13 +102,16 @@ export default function SwipeableTemporaryDrawer() {
               </h1>
               <ListItemText primary={notice.description} />
               {notice.link && (
-                <a
-                  href={notice.link}
-                  target="_blank"
-                  style={{ color: "#3182ce" }}
-                >
-                  Check it out here !
-                </a>
+                // <a
+                //   href={notice.link}
+                //   target="_blank"
+                //   style={{ color: "#3182ce" }}
+                // >
+                //   Check it out here !
+                // </a>
+                <Link to={`/form/${notice.title}`}>
+                  <Form src={notice.link} />
+                </Link>
               )}
               <small style={{ color: "grey" }}>
                 {formatDate(notice.createdAt.substring(0, 10))}

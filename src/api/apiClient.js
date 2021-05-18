@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://dcoderbackend.herokuapp.com/api/",
+  baseURL: "http://localhost:8080/api/",
 });
 
 api.interceptors.request.use(

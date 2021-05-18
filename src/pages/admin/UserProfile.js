@@ -5,7 +5,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import { Button } from "@material-ui/core";
-import Card from "components/cards/CardHeader";
+import Card from "components/cards/Card";
 import CardHeader from "components/cards/CardHeader.js";
 import CardBody from "components/cards/CardBody.js";
 import CreateIcon from "@material-ui/icons/Create";
@@ -260,7 +260,7 @@ const MiscForm = (props) => {
                 Electronics and Communication Engineering
               </MenuItem>
               <MenuItem value={"EP"}>Engineering Physics</MenuItem>
-              <MenuItem value={"EE"}>Environmental Engineering</MenuItem>
+              <MenuItem value={"ENE"}>Environmental Engineering</MenuItem>
               <MenuItem value={"IT"}>Information Technology</MenuItem>
               <MenuItem value={"MCE"}>Mathematics and Computing</MenuItem>
               <MenuItem value={"ME"}>Mechanical Engineering</MenuItem>
@@ -560,10 +560,10 @@ export default function UserProfile(props) {
     setEdit(!edit);
   };
   return (
-    <div>
-      <GridContainer style={{ backgroundColor: "#16253b" }}>
-        <GridItem xs={12}>
-          <Card>
+    <div className="userprofile" style={{ margin: "-2rem" }}>
+      <Grid style={{ backgroundColor: "#16253b" }}>
+        <Grid xs={12}>
+          <Card style={{ marginTop: "2em", marginBottom: "0px" }}>
             <CardHeader color="info">
               <Grid container justify="space-between" alignItems="center">
                 <h4 className={classes.cardTitleWhite}>Your Profile</h4>
@@ -582,8 +582,8 @@ export default function UserProfile(props) {
             <CardBody
               style={{
                 backgroundColor: "#fff",
-                margin: "0 -5em",
-                padding: "0 4em",
+                // margin: "0 -5em",
+                // padding: "0 4em",
               }}
             >
               <Grid container spacing={3} alignItems="stretch">
@@ -593,7 +593,8 @@ export default function UserProfile(props) {
                   md={2}
                   alignItems="center"
                   justify="center"
-                  style={{ borderRight: "1px #ccc solid", padding: "30px" }}
+                  // style={{ borderRight: "1px #ccc solid", padding: "30px" }}
+                  style={{ padding: "30px" }}
                 >
                   <Grid item>
                     <img
@@ -629,7 +630,8 @@ export default function UserProfile(props) {
                   container
                   xs={12}
                   md={5}
-                  style={{ borderRight: "1px #ccc solid", padding: "30px" }}
+                  // style={{ borderRight: "1px #ccc solid", padding: "30px" }}
+                  style={{ padding: "30px" }}
                 >
                   <Grid>
                     <PersonalForm
@@ -671,8 +673,8 @@ export default function UserProfile(props) {
             </CardBody>
             {/* <CardFooter></CardFooter> */}
           </Card>
-        </GridItem>
-      </GridContainer>
+        </Grid>
+      </Grid>
     </div>
   );
 }

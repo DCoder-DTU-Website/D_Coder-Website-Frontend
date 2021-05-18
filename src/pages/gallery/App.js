@@ -26,6 +26,7 @@ export default function Gallery() {
           style={{
             backgroundColor: "rgb(26,32,44)",
             margin: "-35px",
+            zIndex:"0"
           }}
         >
           <PhotoIndex></PhotoIndex>

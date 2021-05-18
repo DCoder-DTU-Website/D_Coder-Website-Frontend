@@ -26,7 +26,7 @@ const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 const Subheading = tw(
   SectionHeading
 )`md:text-left mt-4 text-white font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
+const Description = tw.p`mt-4 mx-4 sm:mx-0 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
 
 const Statistics = tw.div`flex flex-col items-center sm:block text-center md:text-left mt-4`;
 const Statistic = tw.div` text-left sm:inline-block sm:mr-12 last:mr-0 mt-4`;
