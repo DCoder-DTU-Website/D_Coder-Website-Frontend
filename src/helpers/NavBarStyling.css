@@ -1,0 +1,16 @@
+.no-focus-outline,
+.no-focus-outline a:focus,
+.no-focus-outline button:focus {
+  outline: none !important;
+}
+
+@media (min-width: 1024px) {
+  .Navlist {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .NavBarIcon {
+    color: white;
+  }
+}

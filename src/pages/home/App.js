@@ -8,17 +8,16 @@ import WhyDCoder from "components/features/WhyDCoder";
 import Footer from "components/footers/Footer";
 import Testimonials from "components/testimonials/HomePageReviews";
 import ContactUs from "components/forms/HomePageContact";
+import dcoderGif from "../../images/dcoder_promo.gif";
 
 export default function Home() {
   return (
     <div style={{ position: "relative" }}>
       <Hero
         onClick={() => console.log()}
-        heading={"D_CODER"}
-        subheading={"Tech Society of DTU"}
-        bgImage={
-          "https://cdn.discordapp.com/attachments/820907278454620183/820908645591678996/ezgif.com-gif-maker_10.gif"
-        }
+        bigHead={"D_CODER"}
+        subheading={""}
+        bgImage={dcoderGif}
       />
       <AboutUs />
       <WhyDCoder />
