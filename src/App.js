@@ -25,6 +25,8 @@ import ResetPass from "./pages/admin/ResetPassForm";
 import GoogleForm from "./pages/GoogleForms/Form1";
 import CodeToSchool from "pages/code2school/App";
 import Faculty from "pages/faculty/App";
+import Achievements from "pages/achievements/App";
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -64,6 +66,9 @@ function App() {
           </Route>
           <Route exact path="/mission_qabil">
             <Mission />
+          </Route>
+          <Route exact path="/achievements">
+            <Achievements />
           </Route>
           <Route exact path="/lectures">
             <Redirect to="/lectures/dsa/arrays" />
