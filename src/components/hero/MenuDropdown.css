@@ -1,0 +1,11 @@
+@media (max-device-width: 1366px) {
+  .menudrop {
+    margin: 0 0.5em;
+  }
+}
+
+@media (min-device-width: 1366px) {
+  .menudrop {
+    margin: 0 1em;
+  }
+}
