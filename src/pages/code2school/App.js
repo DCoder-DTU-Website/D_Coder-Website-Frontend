@@ -16,7 +16,7 @@ function CodeToSchool() {
     <>
       <Hero
         title="Code To School"
-        bgImage="https://media.giphy.com/media/JUXtbHuixcZKeGJEro/giphy.gif"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621352426/zqoaxq1ufuodivfxkvlc.jpg"
       />
       <Container style={{ margin: "-35px" }}>
         <div>
