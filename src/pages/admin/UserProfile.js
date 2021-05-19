@@ -252,7 +252,7 @@ const MiscForm = (props) => {
               disabled={props.editable ? false : true}
             >
               <MenuItem value={"BT"}>Bio Technology</MenuItem>
-              <MenuItem value={"CE"}>Chemical Engineering</MenuItem>
+              <MenuItem value={"CHE"}>Chemical Engineering</MenuItem>
               <MenuItem value={"CE"}>Civil Engineering</MenuItem>
               <MenuItem value={"COE"}>Computer Engineering</MenuItem>
               <MenuItem value={"EE"}>Electrical Engineering</MenuItem>
@@ -498,7 +498,8 @@ export default function UserProfile(props) {
     leetcode: "",
     branch: "",
     year: "",
-    image: "",
+    image:
+      "https://res.cloudinary.com/dcoderdtu/image/upload/v1621400604/WhatsApp_Image_2021-05-19_at_10.21.20_ekkng5.jpg",
     techStack: [],
     workingWith: [],
   });
