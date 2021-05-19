@@ -31,7 +31,7 @@ const splashScreen = (props) => {
       <HeroContainer>
         <NavBar />
         <Content>
-          <Heading>{props.title}</Heading>
+          <Heading className="dcoderTitle">{props.title}</Heading>
         </Content>
       </HeroContainer>
     </Container>
