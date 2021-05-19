@@ -73,14 +73,6 @@ function NavBar() {
   });
 
   const navLinks = [
-    <NavLinks key={1}>
-      <NavLink href="/events">Events</NavLink>
-      <NavLink href="/council">Council</NavLink>
-      <NavLink href="/gallery">Gallery</NavLink>
-      <NavLink href="/lectures/interview/leetcode">Lectures</NavLink>
-      <NavLink href="/projects">Projects</NavLink>
-      <NavLink href="/alumni">Alumni</NavLink>
-    </NavLinks>,
     <div className="Navlist">
       <MenuDropdown
         title="Administration"
