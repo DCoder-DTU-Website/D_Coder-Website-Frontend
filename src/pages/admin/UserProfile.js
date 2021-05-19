@@ -393,10 +393,10 @@ const MiscForm = (props) => {
               control={
                 <BlueCheckbox
                   id="teamA"
-                  label="Team A"
-                  isChosen={props.data.workingWith.includes("Team A")}
+                  label="Development"
+                  isChosen={props.data.workingWith.includes("Development")}
                   onClick={(e) => props.onTeamChange(e)}
-                  name="Team A"
+                  name="Development"
                   clickable
                   disabled={props.editable ? false : true}
                 />
@@ -407,10 +407,10 @@ const MiscForm = (props) => {
               control={
                 <BlueCheckbox
                   id="teamB"
-                  label="Team B"
-                  isChosen={props.data.workingWith.includes("Team B")}
+                  label="Youtube"
+                  isChosen={props.data.workingWith.includes("Youtube")}
                   onClick={(e) => props.onTeamChange(e)}
-                  name="Team B"
+                  name="Youtube"
                   clickable
                   disabled={props.editable ? false : true}
                 />
@@ -421,10 +421,54 @@ const MiscForm = (props) => {
               control={
                 <BlueCheckbox
                   id="teamC"
-                  label="Team C"
-                  isChosen={props.data.workingWith.includes("Team C")}
+                  label="Social Media"
+                  isChosen={props.data.workingWith.includes("Social Media")}
                   onClick={(e) => props.onTeamChange(e)}
-                  name="Team C"
+                  name="Social Media"
+                  clickable
+                  disabled={props.editable ? false : true}
+                />
+              }
+              style={{ marginTop: "20px" }}
+            />
+            <FormControlLabel
+              control={
+                <BlueCheckbox
+                  id="teamD"
+                  label="Content Writing"
+                  isChosen={props.data.workingWith.includes("Content Writing")}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Content Writing"
+                  clickable
+                  disabled={props.editable ? false : true}
+                />
+              }
+              style={{ marginTop: "20px" }}
+            />
+            <FormControlLabel
+              control={
+                <BlueCheckbox
+                  id="teamE"
+                  label="Video Editing"
+                  isChosen={props.data.workingWith.includes("Video Editing")}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Video Editing"
+                  clickable
+                  disabled={props.editable ? false : true}
+                />
+              }
+              style={{ marginTop: "20px" }}
+            />
+            <FormControlLabel
+              control={
+                <BlueCheckbox
+                  id="teamC"
+                  label="Graphic Designing"
+                  isChosen={props.data.workingWith.includes(
+                    "Graphic Designing"
+                  )}
+                  onClick={(e) => props.onTeamChange(e)}
+                  name="Graphic Designing"
                   clickable
                   disabled={props.editable ? false : true}
                 />
