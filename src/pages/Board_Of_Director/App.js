@@ -10,7 +10,7 @@ const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
 const Content = tw.div`my-16`;
 
-function Faculty() {
+function BoardOfDirectors() {
   const data =
     "Sh. Anil Baijal joined the Indian Administrative  Services (IAS) in 1969. In a long  career spanning over 37 years, Mr. Baijal held several eminent positions. He served as  Union Home  Secretary, Secretary, Urban Development, GOI, Vice-Chairman of Delhi  Development Authority, Chief Secretary of Andaman & Nicobar Islands,  Additional Secretary in the Ministry of Information and Broadcasting and Joint  Secretary in the Ministry of Civil Aviation, Chairman and MD of Indian  Airlines, CEO of Prasar Bharati, Development Commissioner of Goa, Commissioner  (Sales Tax and Excise) of Delhi, Counsellor In-charge of the Indian Aid Programme in Nepal, Embassy of India, Kathmandu among other positions. He was responsible for the introduction of DD Bharti. He also served as a Member of the Advisory Group for Integrated Development of Power, Coal, and Renewable Energy chaired by Sh. S.P Prabhu, currently Minister of Railways. He was Chairman of  a High Level Committee on implementation of Corporate Social Responsibility in  2016. He holds Master's  Degree in Arts from the University of Allahabad and the University of East  Anglia. Shri Anil Baijal took over as the 21st Lt. Governor, Government of N.C.T. of Delhi on 31st December,  2016.";
   return (
@@ -64,4 +64,4 @@ function Faculty() {
   );
 }
 
-export default Faculty;
+export default BoardOfDirectors;

@@ -58,7 +58,7 @@ const ProjectsComp = () => {
         <Content>
           {projects.map((card, i) => (
             <Card key={i} reversed={i % 2 === 1}>
-              <Image imageSrc={card.image} />
+              <Image style={{ width: "450px" }} imageSrc={card.image} />
               <Details>
                 <Title>{card.title}</Title>
                 <br />
