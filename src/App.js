@@ -26,7 +26,6 @@ import GoogleForm from "./pages/GoogleForms/Form1";
 import CodeToSchool from "pages/code2school/App";
 import Faculty from "pages/faculty/App";
 
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { user } = useUser();
@@ -63,7 +62,7 @@ function App() {
           <Route exact path="/lectures/dsa/arrays">
             <Lectures />
           </Route>
-          <Route exact path="/mission">
+          <Route exact path="/mission_qabil">
             <Mission />
           </Route>
           <Route exact path="/lectures">
