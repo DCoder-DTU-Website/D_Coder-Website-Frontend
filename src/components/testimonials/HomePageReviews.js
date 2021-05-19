@@ -27,11 +27,11 @@ const TestimonialsContainer = tw.div`mt-16 lg:mt-0`;
 const Testimonials = styled.div``;
 const Testimonial = tw.div`max-w-md lg:max-w-none mx-auto lg:mx-2 xl:-mx-32 flex flex-col items-center lg:items-stretch lg:flex-row`;
 
-const TestimonialImageSlider = tw(Slider)`w-full lg:w-144 flex-shrink-0 py-1`;
+const TestimonialImageSlider = tw(Slider)`w-2 lg:w-144 flex-shrink-0 py-1`;
 const TestimonialTextSlider = tw(Slider)``;
 const TestimonialText = tw.div`outline-none`;
 const PrimaryLink = styled(PrimaryLinkBase)`
-  ${tw`inline-flex justify-center xl:justify-start items-center text-lg sm:mx-10 lg:justify-start`}
+  ${tw`inline-flex justify-center xl:justify-start items-center text-lg sm:mx-10 lg:justify-start border-b-0`}
   svg {
     ${tw`ml-2 w-5 h-5`}
   }
@@ -49,7 +49,7 @@ const ControlButton = styled(BlueButton)`
   svg {
     ${tw`w-6 h-5`}
   }
-  `;
+`;
 
 const TextContainer = styled.div((props) => [
   tw`flex flex-col w-full lg:w-7/12 lg:-mx-32 xl:mx-4 my-12 sm:-my-32 -my-56 py-10 px-6 lg:my-12 xl:my-16`,
@@ -102,7 +102,7 @@ const HomePageReviews = ({
           description={description}
         />
         <TestimonialsContainer>
-          <Testimonials style = {{marginLeft:"3%",marginRight:"3%"}}>
+          <Testimonials style={{ marginLeft: "3%", marginRight: "3%" }}>
             <Testimonial>
               <TestimonialImageSlider
                 arrows={false}
@@ -111,7 +111,10 @@ const HomePageReviews = ({
                 fade={true}
               >
                 {testimonialData.tabs.Heads.map((testimonial, index) => (
-                  <ImageAndControlContainer key={index} style = {{marginLeft:"30%"}}>
+                  <ImageAndControlContainer
+                    key={index}
+                    style={{ marginLeft: "30%" }}
+                  >
                     <Image imageSrc={testimonial.imageSrc} />
                     <ControlContainer>
                       <ControlButton onClick={imageSliderRef?.slickPrev}>
@@ -139,7 +142,11 @@ const HomePageReviews = ({
                 >
                   <Link
                     to="/testimonial"
-                    style={{ display: "inline-flex", alignItems: "center" }}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                    }}
                   >
                     Check out our Testimonials <ArrowRightIcon />
                   </Link>
@@ -165,8 +172,9 @@ const HomePageReviews = ({
                           alt={testimonial.Name}
                         /> */}
                         <CustomerTextInfo>
-                          <a href = {testimonial.linkedin}>
-                          <CustomerName>{testimonial.Name}</CustomerName></a>
+                          <a href={testimonial.linkedin}>
+                            <CustomerName>{testimonial.Name}</CustomerName>
+                          </a>
                           <CustomerTitle>{testimonial.Post}</CustomerTitle>
                         </CustomerTextInfo>
                       </CustomerInfo>

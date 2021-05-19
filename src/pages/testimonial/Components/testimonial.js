@@ -43,9 +43,10 @@ const testimonials = () => {
         <HeaderRow>
           <Header
             style={{
-              fontSize: "30px",
+              fontSize: "40px",
               marginBottom: "35px",
               fontWeight: "lighter",
+              color: "#63b3ed",
             }}
           >
             {testimonaldata.heading}
@@ -53,9 +54,8 @@ const testimonials = () => {
         </HeaderRow>
         <Header
           style={{
-            fontSize: "8vh",
+            fontSize: "16px",
             marginBottom: "35px",
-            color: "#63b3ed",
             padding: "0px 100px",
             fontWeight: "lighter",
             textAlign: "center",

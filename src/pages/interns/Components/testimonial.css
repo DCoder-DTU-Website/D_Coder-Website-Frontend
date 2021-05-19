@@ -6,3 +6,9 @@
 .svgtestimonial:hover{
     fill:rgb(2, 114, 241);
 }
+.logo{
+    height: 70px!important;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -10,7 +10,7 @@ const Content = tw.div`my-16`;
 
 const Promotions = () => {
   const data =
-    "Sh. Anil Baijal joined the Indian Administrative  Services (IAS) in 1969. In a long  career spanning over 37 years";
+    "Our Faculty Advisor, Dr. Rahul Katarya with his sheer will, hard work and dedication is promoted as Professor, Department of Computer Science and Engineering. He has achieved this amazing feat at an early age making him the youngest Professor in the department. We, D_CODER extend our heartiest congratulations to Prof. Katarya. He has always motivated our team and guided us to reach the highest of the highs. We feel really honoured to be working under his excellence and hope to learn more and more from him in the future! ";
 
   return (
     <div>
@@ -23,8 +23,7 @@ const Promotions = () => {
               img={
                 "http://www.dtu.ac.in/Web/Administrations/Images/Chancellor.jpg"
               }
-              post={"Lt Governer of Delhi"}
-              title="Shri Anil Baijal"
+              title="Rahul Sir's Promotion"
               key={1}
             />
           </Content>
