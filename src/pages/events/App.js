@@ -44,7 +44,6 @@ const winners = [
     image: dummyImage,
     position: 1,
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -62,7 +61,6 @@ const winners = [
     image: dummyImage,
     position: "1st",
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -80,7 +78,6 @@ const winners = [
     image: dummyImage,
     position: "2nd",
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -98,7 +95,6 @@ const winners = [
     image: dummyImage,
     position: "3rd",
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -116,7 +112,6 @@ const winners = [
     image: dummyImage,
     position: "4th",
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
