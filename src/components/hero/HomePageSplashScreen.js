@@ -20,6 +20,12 @@ const Heading = styled.h1`
     ${tw`inline-block mt-2`}
   }
 `;
+const BigHeading = styled.h1`
+  ${tw`text-3xl text-center sm:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-100 leading-snug -mt-24 sm:mt-0`}
+  span {
+    ${tw`inline-block mt-2`}
+  }
+`;
 
 const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-gray-100 font-bold shadow transition duration-300 bg-blue-600 text-gray-100 hocus:bg-blue-700 hocus:text-gray-200 focus:outline-none focus:shadow-outline`;
 
@@ -33,11 +39,17 @@ const splash = (props) => {
       <HeroContainer>
         <NavBar />
         <Content>
-          <Heading>
-            {props.heading}
-            <br />
-            {props.subheading}
-          </Heading>
+          {props.bigHead ? (
+            <BigHeading style={{ fontSize: "6rem" }}>
+              {props.bigHead}
+            </BigHeading>
+          ) : (
+            <Heading>
+              {props.heading}
+              <br />
+              {props.subheading}
+            </Heading>
+          )}
           <Link to="ContactUs" smooth={true}>
             <PrimaryAction
               style={{ paddingTop: "8px" }}

@@ -58,9 +58,9 @@ const testimonials = () => {
             color: "#63b3ed",
             padding: "0px 100px",
             fontWeight: "lighter",
-            textAlign:"center",
-            marginLeft:"auto",
-            marginRight:"auto"
+            textAlign: "center",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           {testimonaldata.subHeading}
@@ -87,9 +87,12 @@ const testimonials = () => {
                         <DataPost>{card.Post}</DataPost>
                         <DataContent>{card.content}</DataContent>
                         <DataIcons>
-                          
                           <Icons>
-                            <a href={card.linkedin} rel="noreferrer" target = "_blank">
+                            <a
+                              href={card.linkedin}
+                              rel="noreferrer"
+                              target="_blank"
+                            >
                               <svg
                                 className="svgtestimonial feather feather-linkedin"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +109,6 @@ const testimonials = () => {
                               </svg>
                             </a>
                           </Icons>
-                          
                         </DataIcons>
                       </DataContainer>
                     </Card>

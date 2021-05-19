@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from "react-responsive";
 import tw from "twin.macro";
 import styled from "styled-components";
 import Header, {
@@ -16,6 +16,8 @@ import { BrowserRouter, Link } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 import swal from "sweetalert";
 import api from "../api/apiClient";
+import MenuDropdown from "components/hero/MenuDropdown.js";
+import "./NavBarStyling.css";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 pb-2 max-w-none w-full`}
@@ -64,9 +66,11 @@ function NavBar() {
   useEffect(() => {
     console.log(profile);
   }, [profile]);
+
   const isMobile = useMediaQuery({
-    query: '(max-device-width: 1154px)'
-  })
+    query: "(max-device-width: 1154px)",
+  });
+
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/events">Events</NavLink>
@@ -76,6 +80,32 @@ function NavBar() {
       <NavLink href="/projects">Projects</NavLink>
       <NavLink href="/alumni">Alumni</NavLink>
     </NavLinks>,
+    <div className="Navlist">
+      <MenuDropdown
+        title="Administration"
+        menuItems={[
+          "Faculty",
+          "Board of Directors",
+          "Chairman",
+          "Council",
+          "Alumni",
+        ]}
+      />
+      <MenuDropdown
+        title="Achievements"
+        menuItems={["Internships", "Placements"]}
+      />
+      <MenuDropdown
+        title="Initiatives"
+        menuItems={["Code To School", "Mission Qabil"]}
+      />
+      <MenuDropdown title="Events" />
+      <MenuDropdown title="Gallery" />
+      <MenuDropdown
+        title="Student Corner"
+        menuItems={["Lectures", "Projects"]}
+      />
+    </div>,
     <NavLinks key={2}>
       {isLoggedIn.login ? (
         <>
