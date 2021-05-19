@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import NavBar from "helpers/library.js";
 import { Link } from "react-scroll";
+import "./title.css";
+import "./HomePageSplash.css"
 
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
@@ -21,7 +23,7 @@ const Heading = styled.h1`
   }
 `;
 const BigHeading = styled.h1`
-  ${tw`text-3xl text-center sm:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-100 leading-snug -mt-24 sm:mt-0`}
+  ${tw`text-6xl font-black text-gray-100 leading-snug -mt-24 sm:mt-0`}
   span {
     ${tw`inline-block mt-2`}
   }
@@ -40,9 +42,7 @@ const splash = (props) => {
         <NavBar />
         <Content>
           {props.bigHead ? (
-            <BigHeading style={{ fontSize: "6rem" }}>
-              {props.bigHead}
-            </BigHeading>
+            <BigHeading className = "Heading">{props.bigHead}</BigHeading>
           ) : (
             <Heading>
               {props.heading}

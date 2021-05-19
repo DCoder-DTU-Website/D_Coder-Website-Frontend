@@ -6,10 +6,13 @@ const About = () => {
     <div className="definition">
       <div className="container">
         <div>
-          <h1 style={{ fontSize: "50px" }}>
+          <a
+            style={{ fontSize: "50px" }}
+            href="https://instagram.com/missionqabil?utm_medium=copy_link"
+          >
             What is Missi<span style={{ color: "#f3a94e" }}>o</span>n{" "}
             <span style={{ color: "#f3a94e" }}>Q</span>abil ?
-          </h1>
+          </a>
           <p id="main-p" className="def-para">
             <br />
             Mission Qabil is an initiative to empower differently-abled college

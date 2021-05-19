@@ -9,7 +9,7 @@ const App = () => {
     <div>
       <Hero
         title="Mission Qabil"
-        bgImage="https://www.therahnuma.com/wp-content/uploads/2018/08/unsc_somalia.jpg"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621434874/Screenshot_505_x4so88.png"
       />
       <About />
       <Bottom />

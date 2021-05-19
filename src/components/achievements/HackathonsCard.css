@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+.EvtCard-root {
+  margin-bottom: 100px;
+}
+
+.EvtCard-img {
+  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.75));
+}
+
+.para {
+  font-family: "Open Sans", sans-serif;
+}

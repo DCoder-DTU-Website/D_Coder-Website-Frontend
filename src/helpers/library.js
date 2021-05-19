@@ -78,15 +78,15 @@ function NavBar() {
         title="Administration"
         menuItems={[
           "Faculty",
-          "Board of Directors",
           "Chairman",
+          "Board of Directors",
           "Council",
           "Alumni",
         ]}
       />
       <MenuDropdown
-        title="Achievements"
-        menuItems={["Internships", "Placements"]}
+        title="Accolades"
+        menuItems={["Internships", "Achievements"]}
       />
       <MenuDropdown
         title="Initiatives"
@@ -94,10 +94,9 @@ function NavBar() {
       />
       <MenuDropdown title="Events" />
       <MenuDropdown title="Gallery" />
-      <MenuDropdown
-        title="Student Corner"
-        menuItems={["Lectures", "Projects"]}
-      />
+      <MenuDropdown title="Lectures"/>
+      <MenuDropdown title="Projects" />
+
     </div>,
     <NavLinks key={2}>
       {isLoggedIn.login ? (

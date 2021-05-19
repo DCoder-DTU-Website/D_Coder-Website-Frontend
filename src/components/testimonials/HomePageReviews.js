@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -21,13 +21,13 @@ import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import testimonialData from "../../pages/testimonial/Components/testimonialdata";
 
-const Container = tw.div`bg-gray-900 relative -m-8`;
-const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
+const Container = tw.div`bg-gray-900 relative -m-8 lg:-mb-64`;
+const Content = tw.div`max-w-screen-xl mx-auto py-20`;
 const TestimonialsContainer = tw.div`mt-16 lg:mt-0`;
 const Testimonials = styled.div``;
 const Testimonial = tw.div`max-w-md lg:max-w-none mx-auto lg:mx-2 xl:-mx-32 flex flex-col items-center lg:items-stretch lg:flex-row`;
 
-const TestimonialImageSlider = tw(Slider)`w-2 lg:w-144 flex-shrink-0 py-1`;
+const TestimonialImageSlider = tw(Slider)`w-full lg:w-144 flex-shrink-0 py-1`;
 const TestimonialTextSlider = tw(Slider)``;
 const TestimonialText = tw.div`outline-none`;
 const PrimaryLink = styled(PrimaryLinkBase)`
@@ -40,10 +40,10 @@ const PrimaryLink = styled(PrimaryLinkBase)`
 const ImageAndControlContainer = tw.div`relative px-20 sm:px-16 bg-cover bg-center outline-none h-144`;
 const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded-full bg-cover absolute -mx-32 right-1/2  bg-center h-64 w-64 sm:-mx-12 sm:h-96 sm:w-96 lg:h-96 lg:w-96 xl:h-128 xl:w-128 xl:-mx-64 lg:-mx-32 sm:-mx-48`,
+  tw`rounded-full bg-center bg-contain bg-no-repeat absolute -mx-32 right-1/2 h-64 w-64 sm:-mx-12 sm:h-96 sm:w-96 lg:h-96 lg:w-96 lg:-mx-32 sm:-mx-48`,
 ]);
 
-const ControlContainer = tw.div`absolute bottom-0 right-1/2 bg-transparent  py-12 rounded-tl-3xl lg:px-12 -mx-2 my-48 lg:my-20 lg:mx-8 xl:-mx-12 xl:-my-12 sm:my-20 sm:mx-2`;
+const ControlContainer = tw.div`absolute bottom-0 right-1/2 bg-transparent  py-12 rounded-tl-3xl lg:px-12 -mx-2 my-48 lg:my-20 lg:mx-8 sm:my-20 sm:mx-2`;
 const ControlButton = styled(BlueButton)`
   ${tw`mx-3 rounded-full text-gray-100 p-2 left-1/2 `}
   svg {
@@ -52,7 +52,7 @@ const ControlButton = styled(BlueButton)`
 `;
 
 const TextContainer = styled.div((props) => [
-  tw`flex flex-col w-full lg:w-7/12 lg:-mx-32 xl:mx-4 my-12 sm:-my-32 -my-56 py-10 px-6 lg:my-12 xl:my-16`,
+  tw`flex flex-col w-full lg:w-7/12 lg:-mx-32 my-12 sm:-my-32 -my-56 pb-20 px-6 lg:my-12`,
   props.textOnLeft ? tw`lg:pr-12 lg:order-first` : tw`lg:pl-12 lg:order-last`,
 ]);
 
@@ -92,9 +92,17 @@ const HomePageReviews = ({
   const [imageSliderRef, setImageSliderRef] = useState(null);
   const [textSliderRef, setTextSliderRef] = useState(null);
 
+  useEffect(() => {
+    setInterval(() => {
+      ref.current.click();
+    }, 10000); //miliseconds
+  });
+
+  const ref = useRef(null);
+
   return (
     <Container>
-      <Content>
+      <Content style={{ margin: "auto", marginRight: "1em" }}>
         <HeadingInfo
           tw="text-center lg:hidden"
           subheading={subheading}
@@ -120,7 +128,10 @@ const HomePageReviews = ({
                       <ControlButton onClick={imageSliderRef?.slickPrev}>
                         <ChevronLeftIcon />
                       </ControlButton>
-                      <ControlButton onClick={imageSliderRef?.slickNext}>
+                      <ControlButton
+                        ref={ref}
+                        onClick={imageSliderRef?.slickNext}
+                      >
                         <ChevronRightIcon />
                       </ControlButton>
                     </ControlContainer>

@@ -25,6 +25,8 @@ import ResetPass from "./pages/admin/ResetPassForm";
 import GoogleForm from "./pages/GoogleForms/Form1";
 import CodeToSchool from "pages/code2school/App";
 import Faculty from "pages/faculty/App";
+import BoardOfDirectors from "pages/Board_Of_Director/App";
+import Chairman from "pages/Chairman/App";
 import Achievements from "pages/achievements/App";
 
 function App() {
@@ -94,6 +96,12 @@ function App() {
           </Route>
           <Route exact path="/faculty">
             <Faculty />
+          </Route>
+          <Route exact path="/chairman">
+            <Chairman />
+          </Route>
+          <Route exact path="/board_of_directors">
+            <BoardOfDirectors />
           </Route>
           <Route exact path="/">
             <Home />
