@@ -12,7 +12,7 @@ import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/users.
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/message-square.svg";
 import "./Typing.scss";
 const Container = tw.div`relative bg-gray-900 -m-8`;
-const TwoColumn = tw.div`flex flex-col md:flex-row justify-between left-0 max-w-screen-xl mx-8 py-20 md:py-24 items-center`;
+const TwoColumn = tw.div`flex flex-col md:flex-row justify-between left-0 max-w-screen-xl mx-8 py-20 md:py-24 items-center px-10 xl:px-0`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 relative`;
 const TextColumn = styled(Column)((props) => [
@@ -38,7 +38,7 @@ const Subheading = tw(SubheadingBase)`text-center md:text-left text-blue-500`;
 const Heading = tw(
   SectionHeading
 )`md:text-left text-white mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`mt-8 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
+const Description = tw.p`text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
 
 const Features = tw.div`mx-auto md:mx-0 flex flex-col lg:flex-row max-w-xs lg:max-w-none`;
 const Feature = tw.div`mt-10 lg:mt-8 flex items-center md:items-start flex-col md:mr-8 last:mr-0`;
@@ -61,7 +61,6 @@ const FeatureDescription = tw.div`mt-4 text-center md:text-left text-gray-600 le
 const AboutC2S = ({
   subheading = "An Initiative by D_CODER",
   heading = <h1 className="typing-h1 typing">Code To School</h1>,
-  description = "D_CODER is a Technical Society of DTU, dedicated to the advancement of software innovation and excellence for the benefit of the students.",
   imageSrc = TeamIllustrationSrc,
   imageRounded = true,
   imageBorder = false,
@@ -73,28 +72,18 @@ const AboutC2S = ({
   iconFilled = true,
   iconContainerCss = null,
 }) => {
-  const defaultFeatures = [
-    {
-      Icon: BriefcaseIcon,
-      title: "Community",
-      description:
-        "We aim to build a community of skilled people in the university coming together for the benefit of all.",
-      iconContainerCss: tw`bg-teal-300 text-teal-800`,
-    },
-    {
-      Icon: MoneyIcon,
-      title: "Platform",
-      description:
-        "We provide our members a platform to learn new skills and brush up on their existing ones.",
-      iconContainerCss: tw`bg-red-300 text-red-800`,
-    },
-  ];
+  const defaultFeatures = [];
 
   if (!features) features = defaultFeatures;
 
   return (
     <Container>
-      <TwoColumn style={{ marginTop: "32px", margin: "auto" }}>
+      <TwoColumn
+        style={{
+          marginTop: "32px",
+          margin: "auto",
+        }}
+      >
         <ImageColumn>
           <Image
             src={imageSrc}
@@ -108,24 +97,29 @@ const AboutC2S = ({
           <TextContent>
             <Subheading>{subheading}</Subheading>
             <Heading>{heading}</Heading>
-            <Description>{description}</Description>
-            <Features>
-              {features.map((feature, index) => (
-                <Feature key={index}>
-                  <FeatureHeadingContainer>
-                    <FeatureIconContainer
-                      iconFilled={iconFilled}
-                      iconRoundedFull={iconRoundedFull}
-                      css={feature.iconContainerCss || iconContainerCss}
-                    >
-                      {<feature.Icon />}
-                    </FeatureIconContainer>
-                    <FeatureHeading>{feature.title}</FeatureHeading>
-                  </FeatureHeadingContainer>
-                  <FeatureDescription>{feature.description}</FeatureDescription>
-                </Feature>
-              ))}
-            </Features>
+            <Description>
+              <ul>
+                <li>
+                  CODE TO SCHOOL is an initiative by D_CODER that helps budding
+                  programmers gain fluency in programming. It aims to assist
+                  school students to design, create and express themselves
+                  through digital technologies.
+                </li>
+                <li>
+                  Our members of D_Coder put in their efforts to teach and
+                  educate school students about the importance of technical
+                  innovation and how the students can think to innovate in the
+                  future.
+                </li>
+                <li>
+                  Since coding is today’s language of creativity, the school
+                  students were taught programming by our team members which
+                  gave the students an opportunity to understand how beautiful
+                  the world of coding is. They got a chance to become creators
+                  instead of consumers of computer science.
+                </li>
+              </ul>
+            </Description>
           </TextContent>
         </TextColumn>
       </TwoColumn>

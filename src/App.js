@@ -27,7 +27,6 @@ import CodeToSchool from "pages/code2school/App";
 import Faculty from "pages/faculty/App";
 import Achievements from "pages/achievements/App";
 
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { user } = useUser();
@@ -61,7 +60,7 @@ function App() {
           <Route exact path="/research">
             <Research />
           </Route>
-          <Route exact path="/lectures/dsa/arrays">
+          <Route exact path="/lectures/:topic/:subtopic">
             <Lectures />
           </Route>
           <Route exact path="/mission_qabil">
