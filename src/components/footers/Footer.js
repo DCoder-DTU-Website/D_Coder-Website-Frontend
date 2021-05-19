@@ -5,6 +5,7 @@ import { Container as ContainerBase } from "components/misc/Layouts.js";
 import logo from "../../images/logo.png";
 import { ReactComponent as InstagramIcon } from "../../images/instagram-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
+import { ReactComponent as LinkedinIcon } from "../../images/linkedin-icon.svg";
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
 const Content = tw.div`max-w-screen-xl mx-auto pb-10 pt-2`;
@@ -42,8 +43,17 @@ const Footer = () => {
             >
               <InstagramIcon />
             </SocialLink>
-            <SocialLink target="_blank" href="https://www.youtube.com/channel/UCz0Bs3AXaa5ccEJBsLxyXzg">
+            <SocialLink
+              target="_blank"
+              href="https://www.youtube.com/channel/UCz0Bs3AXaa5ccEJBsLxyXzg"
+            >
               <YoutubeIcon />
+            </SocialLink>
+            <SocialLink
+              target="_blank"
+              href="https://www.linkedin.com/company/dcoder/mycompany/"
+            >
+              <LinkedinIcon />
             </SocialLink>
           </SocialLinksContainer>
         </Row>

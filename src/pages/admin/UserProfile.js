@@ -252,7 +252,7 @@ const MiscForm = (props) => {
               disabled={props.editable ? false : true}
             >
               <MenuItem value={"BT"}>Bio Technology</MenuItem>
-              <MenuItem value={"CE"}>Chemical Engineering</MenuItem>
+              <MenuItem value={"CHE"}>Chemical Engineering</MenuItem>
               <MenuItem value={"CE"}>Civil Engineering</MenuItem>
               <MenuItem value={"COE"}>Computer Engineering</MenuItem>
               <MenuItem value={"EE"}>Electrical Engineering</MenuItem>
