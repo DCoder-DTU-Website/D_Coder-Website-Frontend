@@ -10,12 +10,12 @@ const Card = styled.div((props) => [
 ]);
 const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-72 w-72 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
+  tw`md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-96 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
 ]);
 const Details = tw.div`mt-4 md:mt-0 md:max-w-xl mx-4 sm:mx-8 md:mx-16 lg:mx-16 text-white`;
 const Subtitle = tw.div`flex font-bold tracking-wide text-secondary-100`;
 const Title = tw.h4`flex text-3xl font-bold text-gray-900 text-blue-600`;
-const Description = tw.p`mt-2 text-lg leading-loose`;
+const Description = tw.p`mt-2 text-justify text-lg leading-loose`;
 
 function FacultyCard({ count, title, desc, img, post }) {
   AOS.init();

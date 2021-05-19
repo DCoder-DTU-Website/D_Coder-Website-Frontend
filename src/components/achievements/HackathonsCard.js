@@ -16,9 +16,9 @@ const Image = styled.div((props) => [
 ]);
 const Details = tw.div`mt-4 md:mt-0 md:max-w-xl mx-4 sm:mx-8 md:mx-4 lg:mx-8 text-white`;
 const Title = tw.h4`w-full text-2xl font-bold text-gray-900 text-blue-600`;
-const Description = tw.p`mt-2 text-sm leading-loose`;
+const Description = tw.p`text-justify mt-2 text-sm leading-loose`;
 
-function EvtCard({title, desc }) {
+function EvtCard({ count,title, desc, img }) {
   AOS.init();
 
   return (
@@ -26,7 +26,9 @@ function EvtCard({title, desc }) {
       className="EvtCard-root"
       data-aos="fade-up"
       data-aos-anchor-placement="center-bottom"
+      reversed={count % 2 === 1}
     >
+      <Image className="EvtCard-img" imageSrc={img} />
       <Details>
         <Title>{title}</Title>
         <Description>{desc}</Description>
