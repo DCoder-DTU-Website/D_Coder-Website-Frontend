@@ -17,7 +17,7 @@ function BoardOfDirectors() {
     <>
       <Hero
         title="Board of Directors"
-        bgImage="https://media.giphy.com/media/JUXtbHuixcZKeGJEro/giphy.gif"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621434968/BoardOfDirectors_iy8zgf.jpg"
       />
       <Container style={{ margin: "-35px" }}>
         <SingleColumn>
