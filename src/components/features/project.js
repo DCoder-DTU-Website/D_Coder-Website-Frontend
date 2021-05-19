@@ -56,7 +56,6 @@ const ProjectsComp = () => {
     <Container>
       <SingleColumn>
         {isUser && <Modal />}
-        <Subheading>Ongoing</Subheading>
         <Content>
           {projects.map((card, i) => (
             <Card key={i} reversed={i % 2 === 1}>
@@ -81,9 +80,9 @@ const ProjectsComp = () => {
                   <Link target="_blank" href={card.github}>
                     <AiFillGithub size={25} />
                   </Link>
-                  <Link target="_blank" href={card.linkedin}>
+                  {/* <Link target="_blank" href={card.linkedin}>
                     {card.dev}
-                  </Link>
+                  </Link> */}
                 </div>
               </Details>
             </Card>
