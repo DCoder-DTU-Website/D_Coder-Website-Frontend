@@ -26,7 +26,7 @@ const Subtitle = tw.div`font-bold tracking-wide text-blue-600 -mt-4`;
 const Title = tw.h4`float-left mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight text-white`;
 const Description = tw.p`mt-2 text-sm leading-loose text-white`;
 const Link = tw.a`inline-block mt-4 text-sm text-blue-600 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-blue-600`;
-
+const Subheading = tw.h3`text-3xl mt-5 font-bold text-blue-600 text-center`;
 const linkstyle = {
   display: "flex",
   gap: "20px",
@@ -47,7 +47,6 @@ const ProjectsComp = () => {
       console.log("Could not retrieve Projects!", err);
     }
   };
-
   useEffect(() => {
     getProjects();
   }, []);
@@ -61,9 +60,7 @@ const ProjectsComp = () => {
             <Card key={i} reversed={i % 2 === 1}>
               <Image imageSrc={card.image} />
               <Details>
-                <Title>
-                  {card.title}
-                </Title>
+                <Title>{card.title}</Title>
                 <br />
                 <br />
                 <br />
@@ -82,9 +79,9 @@ const ProjectsComp = () => {
                   <Link target="_blank" href={card.github}>
                     <AiFillGithub size={25} />
                   </Link>
-                  <Link target="_blank" href={card.linkedin}>
+                  {/* <Link target="_blank" href={card.linkedin}>
                     {card.dev}
-                  </Link>
+                  </Link> */}
                 </div>
               </Details>
             </Card>
