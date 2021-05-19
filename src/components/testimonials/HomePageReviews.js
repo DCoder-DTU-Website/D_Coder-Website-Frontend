@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -92,6 +92,15 @@ const HomePageReviews = ({
   const [imageSliderRef, setImageSliderRef] = useState(null);
   const [textSliderRef, setTextSliderRef] = useState(null);
 
+  useEffect(() => {
+    setInterval(() => {
+      console.log("working")
+      ref.current.click();
+    }, 10000); //miliseconds
+  });
+
+  const ref = useRef(null);
+
   return (
     <Container>
       <Content style={{ margin: "auto", marginRight: "1em" }}>
@@ -120,7 +129,10 @@ const HomePageReviews = ({
                       <ControlButton onClick={imageSliderRef?.slickPrev}>
                         <ChevronLeftIcon />
                       </ControlButton>
-                      <ControlButton onClick={imageSliderRef?.slickNext}>
+                      <ControlButton
+                        ref={ref}
+                        onClick={imageSliderRef?.slickNext}
+                      >
                         <ChevronRightIcon />
                       </ControlButton>
                     </ControlContainer>

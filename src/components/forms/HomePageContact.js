@@ -75,7 +75,7 @@ const HomePageContact = () => {
                     <Input
                       id="name-input"
                       type="text"
-                      placeholder="E.g. John Doe"
+                      placeholder="E.g. ABC"
                       value = {name}
                       onChange = {e => setName(e.target.value)}
                     />
@@ -85,7 +85,7 @@ const HomePageContact = () => {
                     <Input
                       id="email-input"
                       type="email"
-                      placeholder="E.g. john@mail.com"
+                      placeholder="E.g. xyz@mail.com"
                       value = {email}
                       onChange = {e => setEmail(e.target.value)}
 
