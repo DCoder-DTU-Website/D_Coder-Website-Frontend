@@ -17,7 +17,7 @@ function Chairman() {
     <>
       <Hero
         title="Chairman"
-        bgImage="https://media.giphy.com/media/JUXtbHuixcZKeGJEro/giphy.gif"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621440906/Chairperson_qhwx4s.jpg"
       />
       <Container style={{ margin: "-35px" }}>
         <SingleColumn>
