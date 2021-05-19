@@ -498,7 +498,8 @@ export default function UserProfile(props) {
     leetcode: "",
     branch: "",
     year: "",
-    image: "",
+    image:
+      "https://res.cloudinary.com/dcoderdtu/image/upload/v1621400604/WhatsApp_Image_2021-05-19_at_10.21.20_ekkng5.jpg",
     techStack: [],
     workingWith: [],
   });
