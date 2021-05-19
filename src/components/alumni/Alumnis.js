@@ -63,7 +63,7 @@ const Alumni = ({
     <Container className="councilStyle" style={{ textAlign: "center" }}>
       <ContentWithPaddingXl>
         {tabsKeys.map((tabKey, index) => (
-          <TabContent>
+          <TabContent style={{ marginTop: "-100px" }}>
             {tabs[tabKey].map((card, index) => (
               <CardContainer
                 key={index}

@@ -44,7 +44,6 @@ const winners = [
     image: dummyImage,
     position: 1,
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -62,7 +61,6 @@ const winners = [
     image: dummyImage,
     position: "1st",
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -80,7 +78,6 @@ const winners = [
     image: dummyImage,
     position: "2nd",
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -98,7 +95,6 @@ const winners = [
     image: dummyImage,
     position: "3rd",
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -116,7 +112,6 @@ const winners = [
     image: dummyImage,
     position: "4th",
     links: [
-      
       {
         url: "https://linkedin.com",
         icon: LinkedinIcon,
@@ -187,16 +182,16 @@ function EventPage() {
     />
   ));
 
-  const winnerCards = winners.map((winner, i) => (
-    <WinnerCard
-      key={i}
-      name={winner.name}
-      img={winner.image}
-      pos={winner.position}
-      links={winner.links}
-      evt={winner.event}
-    />
-  ));
+  // const winnerCards = winners.map((winner, i) => (
+  //   <WinnerCard
+  //     key={i}
+  //     name={winner.name}
+  //     img={winner.image}
+  //     pos={winner.position}
+  //     links={winner.links}
+  //     evt={winner.event}
+  //   />
+  // ));
 
   return (
     <>
@@ -212,9 +207,7 @@ function EventPage() {
             </HeadingInfoContainer>
             <Content>{upcomingEvents}</Content>
           </section>
-          <section>
-            <Winners winners={winnerCards} />
-          </section>
+          <section>{/* <Winners winners={winnerCards} /> */}</section>
           <section>
             <HeadingInfoContainer>
               <Subheading>Previous Events</Subheading>
