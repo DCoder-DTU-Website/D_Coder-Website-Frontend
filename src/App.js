@@ -59,14 +59,14 @@ function App() {
           <Route exact path="/research">
             <Research />
           </Route>
-          <Route exact path="/lectures/dsa/arrays">
+          <Route exact path="/lectures/interview/leetcode">
             <Lectures />
           </Route>
           <Route exact path="/mission_qabil">
             <Mission />
           </Route>
           <Route exact path="/lectures">
-            <Redirect to="/lectures/dsa/arrays" />
+            <Redirect to="/lectures/interview/leetcode" />
           </Route>
           <Route exact path="/alumni">
             <Alumni />
