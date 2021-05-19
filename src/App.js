@@ -10,6 +10,8 @@ import Gallery from "pages/gallery/App";
 import Lectures from "pages/lectures/App";
 import Projects from "pages/projects/App";
 import Alumni from "pages/alumni/App";
+import Mission from "pages/qabil/App";
+
 import Admin from "pages/admin/App";
 import Testimonial from "pages/testimonial/App";
 import Table from "pages/admin/TableList";
@@ -19,6 +21,7 @@ import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/ResetPassForm";
 import GoogleForm from "./pages/GoogleForms/Form1"
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -49,6 +52,9 @@ function App() {
           </Route>
           <Route exact path="/lectures/dsa/arrays">
             <Lectures />
+          </Route>
+          <Route exact path="/mission">
+            <Mission />
           </Route>
           <Route exact path="/alumni">
             <Alumni />
