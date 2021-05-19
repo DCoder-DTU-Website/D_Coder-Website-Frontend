@@ -20,7 +20,7 @@ const Content = tw.div``;
 export default function Lectures() {
   const [isNavOpen, setIsNavOpen] = useState(true);
   return (
-    <BrowserRouter>
+    <BrowserRouter forceRefresh>
       <MinNavbar className="Navbar" />
       <BigContainer
         className={`Lectures-root && ${isMobile && `Lectures-root-mobile`}`}
