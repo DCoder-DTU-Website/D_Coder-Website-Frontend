@@ -19,7 +19,9 @@ function CodeToSchool() {
         bgImage="https://media.giphy.com/media/JUXtbHuixcZKeGJEro/giphy.gif"
       />
       <Container style={{ margin: "-35px" }}>
-        <AboutC2S />
+        <div>
+          <AboutC2S />
+        </div>
         <Benefits />
         <Gallery />
       </Container>

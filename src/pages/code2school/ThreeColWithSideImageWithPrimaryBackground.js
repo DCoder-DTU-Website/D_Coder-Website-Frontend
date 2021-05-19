@@ -18,23 +18,21 @@ import FastIconImage from "images/fast-icon.svg";
 import ReliableIconImage from "images/reliable-icon.svg";
 import SimpleIconImage from "images/simple-icon.svg";
 
-const Container = tw.div`relative bg-secondary-900 -mx-8 px-8 text-gray-100`;
+const Container = tw.div`relative bg-secondary-900 -mx-8 px-8 text-gray-100 flex justify-center`;
 
 const ThreeColumnContainer = styled.div`
-  ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
+  ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg py-20 md:py-24`}
 `;
-const Subheading = tw(SubheadingBase)`mb-4 text-gray-100`;
 const Heading = tw(SectionHeading)`w-full`;
-const Description = tw(SectionDescription)`w-full text-center text-gray-300`;
 
 const VerticalSpacer = tw.div`mt-10 w-full`;
 
 const Column = styled.div`
-  ${tw`md:w-1/2 lg:w-1/3 max-w-xs`}
+  ${tw`w-1/2`}
 `;
 
 const Card = styled.div`
-  ${tw`flex flex-col items-center sm:items-start text-center sm:text-left h-full mx-4 px-2 py-8`}
+  ${tw`flex flex-col items-center text-center h-full -mx-12 md:mx-10 py-8`}
   .imageContainer {
     ${tw`bg-gray-100 text-center rounded-full p-5 flex-shrink-0`}
     img {
@@ -55,32 +53,32 @@ const Card = styled.div`
   }
 `;
 
-export default ({
-  cards = null,
-  heading = "Amazing Features",
-  subheading = "",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-}) => {
-  /*
-   * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
-   *  1) imageSrc - the image shown at the top of the card
-   *  2) title - the title of the card
-   *  3) description - the description of the card
-   *  If a key for a particular card is not provided, a default value is used
-   */
-
+export default ({ cards }) => {
   const defaultCards = [
     {
       imageSrc: ShieldIconImage,
-      title: "Secure",
+      title: "Reach",
       description:
-        "We strictly only deal with vendors that provide top notch security infrastructure.",
+        "The initiative garnered around 1000 students from different schools and we as a tech society feel proud that we were crazy enough to take forward this initiative on such a large scale and were successful in our objective",
     },
-    { imageSrc: SupportIconImage, title: "24/7 Support" },
-    { imageSrc: CustomizeIconImage, title: "Customizable" },
-    { imageSrc: ReliableIconImage, title: "Reliable" },
-    { imageSrc: FastIconImage, title: "Fast" },
-    { imageSrc: SimpleIconImage, title: "Easy" },
+    {
+      imageSrc: SupportIconImage,
+      title: "Ideathon for Students",
+      description:
+        "The annual event of the initiative brought in students from multiple schools under one roof to compete in the BIGGEST IDEATHON CHALLENGE IN INDIA FOR STUDENTS organized on 8th February 2019. Some of the participating schools were Ryan International School, Rohini, Bal Bharati Public School Dwarka,  Ramjas School Pusa Road, Mira Model School, Government Sarvodaya co-ed Vidyalaya,  SD Public School, Patel Nagar and many more.",
+    },
+    {
+      imageSrc: CustomizeIconImage,
+      title: "Developed Various Skills",
+      description:
+        "The event looked at INNOVATION as a process driven by a gamut of disciplines, including MANAGEMENT, ENGINEERING AND DESIGN. The event was a platform to present projects done in various fields and talk about the untapped potential and discuss processes for need-based innovation. ",
+    },
+    {
+      imageSrc: ReliableIconImage,
+      title: "Success of the Event",
+      description:
+        "The students got to learn amazing ideas and innovation that was not accessible to them by normal schooling methods. The support we got from different schools and the amount of enthusiasm shown by students was enthralling.  We believe that when an initiative is taken with an aim to change something there will always be some difficulty and lots of effort, but after the completion, all is forgotten with how much we achieved and that is important.",
+    },
   ];
 
   if (!cards) cards = defaultCards;
@@ -88,22 +86,14 @@ export default ({
   return (
     <Container>
       <ThreeColumnContainer>
-        {subheading && <Subheading>{subheading}</Subheading>}
-        <Heading>{heading}</Heading>
-        {description && <Description>{description}</Description>}
+        <Heading>Highlights</Heading>
         <VerticalSpacer />
         {cards.map((card, i) => (
           <Column key={i}>
             <Card>
-              <span className="imageContainer">
-                <img src={card.imageSrc || defaultCardImage} alt="" />
-              </span>
               <span className="textContainer">
                 <span className="title">{card.title || "Fully Secure"}</span>
-                <p className="description">
-                  {card.description ||
-                    "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
-                </p>
+                <p className="description">{card.description}</p>
               </span>
             </Card>
           </Column>
