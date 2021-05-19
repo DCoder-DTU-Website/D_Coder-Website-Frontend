@@ -11,8 +11,7 @@ const mission = () => {
     <div className="mission">
       <div data-aos="fade-up">
         <h1 style={{ color: "white", fontSize: "40px", textAlign: "center" }}>
-          <span style={{ color: "#f3a94e" }}>O</span>UR{" "}
-          <span style={{ color: "#f3a94e" }}>M</span>ISSION
+          Highlights
         </h1>
         <div className="card-flex">
           <div className="card card-mission">
