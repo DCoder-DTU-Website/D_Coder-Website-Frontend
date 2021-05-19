@@ -43,9 +43,10 @@ const testimonials = () => {
         <HeaderRow>
           <Header
             style={{
-              fontSize: "30px",
+              fontSize: "40px",
               marginBottom: "35px",
               fontWeight: "lighter",
+              color: "#63b3ed",
             }}
           >
             {testimonaldata.heading}
@@ -53,9 +54,8 @@ const testimonials = () => {
         </HeaderRow>
         <Header
           style={{
-            fontSize: "8vh",
+            fontSize: "16px",
             marginBottom: "35px",
-            color: "#63b3ed",
             padding: "0px 100px",
             fontWeight: "lighter",
             textAlign: "center",
@@ -82,12 +82,12 @@ const testimonials = () => {
                           <Image imageSrc={card.imageSrc}></Image>
                         </ImageData>
                       </ImageContainer>
-                      <DataContainer>
-                        <DataName>Name</DataName>
-                        <DataContent style={{ textAlign: "center" }}>
-                          Company Logo
-                        </DataContent>
-                        <DataPost>Intern at XYZ</DataPost>
+                      <DataContainer style={{ textAlign: "center" }}>
+                        <DataName>{card.Name}</DataName>
+                        <div style={{ textAlign: "center" }}>
+                          <img src={card.logo} className="logo"></img>
+                        </div>
+                        <DataPost>{card.Post}</DataPost>
                         <DataIcons>
                           <Icons>
                             <a
