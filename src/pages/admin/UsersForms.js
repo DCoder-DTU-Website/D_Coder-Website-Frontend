@@ -473,18 +473,22 @@ const UserProfile = (props) => {
                           edit ? (
                             <EditCheckbox
                               id="teama"
-                              label="Team A"
-                              name="Team A"
+                              label="Development"
+                              name="Development"
                               clickable
                               onClick={(e) => onTeamChange(e)}
-                              isChosen={user.workingWith.includes("Team A")}
+                              isChosen={user.workingWith.includes(
+                                "Development"
+                              )}
                             />
                           ) : (
                             <BlueCheckbox
                               id="teama"
-                              label="Team A"
-                              name="Team A"
-                              isChosen={props.workingWith.includes("Team A")}
+                              label="Development"
+                              name="Development"
+                              isChosen={props.workingWith.includes(
+                                "Development"
+                              )}
                             />
                           )
                         }
@@ -495,18 +499,18 @@ const UserProfile = (props) => {
                           edit ? (
                             <EditCheckbox
                               id="teamb"
-                              label="Team B"
-                              name="Team B"
+                              label="Youtube"
+                              name="Youtube"
                               clickable
                               onClick={(e) => onTeamChange(e)}
-                              isChosen={user.workingWith.includes("Team B")}
+                              isChosen={user.workingWith.includes("Youtube")}
                             />
                           ) : (
                             <BlueCheckbox
                               id="teamb"
-                              label="Team B"
-                              name="Team B"
-                              isChosen={props.workingWith.includes("Team B")}
+                              label="Youtube"
+                              name="Youtube"
+                              isChosen={props.workingWith.includes("Youtube")}
                             />
                           )
                         }
@@ -517,18 +521,100 @@ const UserProfile = (props) => {
                           edit ? (
                             <EditCheckbox
                               id="teamc"
-                              label="Team C"
-                              name="Team C"
+                              label="Social Media"
+                              name="Social Media"
                               clickable
                               onClick={(e) => onTeamChange(e)}
-                              isChosen={user.workingWith.includes("Team C")}
+                              isChosen={user.workingWith.includes(
+                                "Social Media"
+                              )}
                             />
                           ) : (
                             <BlueCheckbox
                               id="teamc"
-                              label="Team C"
-                              name="Team C"
-                              isChosen={props.workingWith.includes("Team C")}
+                              label="Social Media"
+                              name="Social Media"
+                              isChosen={props.workingWith.includes(
+                                "Social Media"
+                              )}
+                            />
+                          )
+                        }
+                        style={{ marginTop: "20px" }}
+                      />
+                      <FormControlLabel
+                        control={
+                          edit ? (
+                            <EditCheckbox
+                              id="teamd"
+                              label="Content Writing"
+                              name="Content Writing"
+                              clickable
+                              onClick={(e) => onTeamChange(e)}
+                              isChosen={user.workingWith.includes(
+                                "Content Writing"
+                              )}
+                            />
+                          ) : (
+                            <BlueCheckbox
+                              id="teamd"
+                              label="Content Writing"
+                              name="Content Writing"
+                              isChosen={props.workingWith.includes(
+                                "Content Writing"
+                              )}
+                            />
+                          )
+                        }
+                        style={{ marginTop: "20px" }}
+                      />
+                      <FormControlLabel
+                        control={
+                          edit ? (
+                            <EditCheckbox
+                              id="teame"
+                              label="Video Editing"
+                              name="Video Editing"
+                              clickable
+                              onClick={(e) => onTeamChange(e)}
+                              isChosen={user.workingWith.includes(
+                                "Video Editing"
+                              )}
+                            />
+                          ) : (
+                            <BlueCheckbox
+                              id="teame"
+                              label="Video Editing"
+                              name="Video Editing"
+                              isChosen={props.workingWith.includes(
+                                "Video Editing"
+                              )}
+                            />
+                          )
+                        }
+                        style={{ marginTop: "20px" }}
+                      />
+                      <FormControlLabel
+                        control={
+                          edit ? (
+                            <EditCheckbox
+                              id="teamf"
+                              label="Graphic Designing"
+                              name="Graphic Designing"
+                              clickable
+                              onClick={(e) => onTeamChange(e)}
+                              isChosen={user.workingWith.includes(
+                                "Graphic Designing"
+                              )}
+                            />
+                          ) : (
+                            <BlueCheckbox
+                              id="teamf"
+                              label="Graphic Designing"
+                              name="Graphic Designing"
+                              isChosen={props.workingWith.includes(
+                                "Graphic Designing"
+                              )}
                             />
                           )
                         }

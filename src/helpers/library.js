@@ -10,13 +10,14 @@ import Header, {
   DesktopNavLinks,
 } from "../components/headers/light.js";
 import Login from "./loginModal";
-import { Button } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
 import useUser from "../useUser";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 import swal from "sweetalert";
 import api from "../api/apiClient";
 import MenuDropdown from "components/hero/MenuDropdown.js";
+import { ExitToApp } from "@material-ui/icons";
 import "./NavBarStyling.css";
 
 const StyledHeader = styled(Header)`
@@ -131,9 +132,8 @@ function NavBar() {
               </BrowserRouter>
             </Button>
           )}
-          <Button
+          <IconButton
             variant="contained"
-            color="primary"
             onClick={() => {
               swal({
                 title: "Are you sure you want to logout?",
@@ -163,8 +163,8 @@ function NavBar() {
               });
             }}
           >
-            Logout
-          </Button>
+            <ExitToApp className="NavBarIcon" />
+          </IconButton>
         </>
       ) : (
         <Login setIsLoggedIn={setIsLoggedIn}>Login</Login>

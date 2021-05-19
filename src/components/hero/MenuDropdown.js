@@ -5,6 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 
 import "../../helpers/NavBarStyling.css";
+import "./MenuDropdown.css";
 
 export default function SimpleMenu({ title, menuItems = [] }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -18,7 +19,7 @@ export default function SimpleMenu({ title, menuItems = [] }) {
   };
 
   return (
-    <div style={{ margin: "0 2em" }}>
+    <div className="menudrop">
       <Button
         aria-controls="simple-menu"
         aria-haspopup="true"
