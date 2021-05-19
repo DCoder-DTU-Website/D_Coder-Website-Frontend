@@ -94,7 +94,9 @@ function NavBar() {
       />
       <MenuDropdown title="Events" />
       <MenuDropdown title="Gallery" />
-      <MenuDropdown title="Learn" menuItems={["Lectures", "Projects"]} />
+      <MenuDropdown title="Lectures"/>
+      <MenuDropdown title="Projects" />
+
     </div>,
     <NavLinks key={2}>
       {isLoggedIn.login ? (
