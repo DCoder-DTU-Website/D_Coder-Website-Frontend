@@ -70,7 +70,7 @@ function App() {
             <Achievements />
           </Route>
           <Route exact path="/lectures">
-            <Redirect to="/lectures/dsa/arrays" />
+            <Redirect to="/lectures/interview/leetcode" />
           </Route>
           <Route exact path="/alumni">
             <Alumni />

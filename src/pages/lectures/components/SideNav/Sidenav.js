@@ -82,21 +82,10 @@ function Sidenav({ navOpen }) {
               <Link to="/lectures/webd/django">Django and Python</Link>
             </MenuItem>
           </SubMenu>
-          <SubMenu title="Web Dev" icon={<FaNetworkWired />}>
-            <MenuItem>Component 1</MenuItem>
-            <MenuItem>Component 2</MenuItem>
-          </SubMenu>
-          <SubMenu title="Components" icon={<FaNetworkWired />}>
-            <MenuItem>Component 1</MenuItem>
-            <MenuItem>Component 2</MenuItem>
-          </SubMenu>
-          <SubMenu title="Components" icon={<FaNetworkWired />}>
-            <MenuItem>Component 1</MenuItem>
-            <MenuItem>Component 2</MenuItem>
-            <MenuItem>Component 1</MenuItem>
-            <MenuItem>Component 2</MenuItem>
-            <MenuItem>Component 1</MenuItem>
-            <MenuItem>Component 2</MenuItem>
+          <SubMenu title="Interview" icon={<FaNetworkWired />}>
+            <MenuItem>
+              <Link to="/lectures/interview/leetcode">LeetCode</Link>
+            </MenuItem>
           </SubMenu>
         </Menu>
       </SidebarContent>

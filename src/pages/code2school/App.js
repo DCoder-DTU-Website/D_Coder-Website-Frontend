@@ -4,7 +4,7 @@ import "style.css";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
 import Footer from "components/footers/Footer";
-import Benefits from "./ThreeColWithSideImageWithPrimaryBackground";
+import Bottom from "./Bottom";
 import Gallery from "./GalPreview";
 import "./Typing.scss";
 import AboutC2S from "./AboutC2S";
@@ -22,7 +22,7 @@ function CodeToSchool() {
         <div>
           <AboutC2S />
         </div>
-        <Benefits />
+        <Bottom />
         <Gallery />
       </Container>
       <Footer />
