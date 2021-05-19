@@ -94,7 +94,6 @@ const HomePageReviews = ({
 
   useEffect(() => {
     setInterval(() => {
-      console.log("working")
       ref.current.click();
     }, 10000); //miliseconds
   });
