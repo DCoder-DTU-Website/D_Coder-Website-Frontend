@@ -106,7 +106,7 @@ const AboutC2S = ({
                   through digital technologies.
                 </li>
                 <li>
-                  Our members of D_Coder put in their efforts to teach and
+                  Our members of D_CODER put in their efforts to teach and
                   educate school students about the importance of technical
                   innovation and how the students can think to innovate in the
                   future.
