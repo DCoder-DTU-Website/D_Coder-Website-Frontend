@@ -47,7 +47,6 @@ const ProjectsComp = () => {
       console.log("Could not retrieve Projects!", err);
     }
   };
-
   useEffect(() => {
     getProjects();
   }, []);
