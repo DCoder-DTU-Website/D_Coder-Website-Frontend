@@ -72,7 +72,7 @@ function NavBar() {
       <NavLink href="/events">Events</NavLink>
       <NavLink href="/council">Council</NavLink>
       <NavLink href="/gallery">Gallery</NavLink>
-      <NavLink href="/lectures/dsa/arrays">Lectures</NavLink>
+      <NavLink href="/lectures/interview/leetcode">Lectures</NavLink>
       <NavLink href="/projects">Projects</NavLink>
       <NavLink href="/alumni">Alumni</NavLink>
     </NavLinks>,
@@ -83,7 +83,10 @@ function NavBar() {
             <Button
               color="primary"
               variant="contained"
-              style={{ marginRight: "10px" ,marginBottom:isMobile?"5px":"0px"}}
+              style={{
+                marginRight: "10px",
+                marginBottom: isMobile ? "5px" : "0px",
+              }}
             >
               <BrowserRouter forceRefresh={true}>
                 <Link to="/admin/dashboard">Admin Dashboard</Link>

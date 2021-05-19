@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/projects">
             <Projects />
           </Route>
-          <Route exact path="/lectures/dsa/arrays">
+          <Route exact path="/lectures/interview/leetcode">
             <Lectures />
           </Route>
           <Route exact path="/alumni">
