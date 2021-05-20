@@ -22,7 +22,7 @@ export default function Home() {
       <AboutUs />
       <WhyDCoder />
       <GalPrev />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <div id="ContactUs">
         <ContactUs />
       </div>

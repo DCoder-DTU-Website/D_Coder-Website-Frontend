@@ -3,7 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Typewriter from "typewriter-effect";
+// import Typewriter from "typewriter-effect";
 const Card = styled.div((props) => [
   tw`md:flex justify-center items-center -mx-48`,
   props.reversed ? tw`flex-row-reverse` : "flex-row",
@@ -20,16 +20,12 @@ function FacultyCard({ count, title, desc, img, post }) {
 
   return (
     <Card reversed={count % 2 === 1}>
-      <Details
-        style={
-          { textAlign: "justify" },{width:"400px"}
-        }
-      >
-        <Typewriter
+      <Details style={({ textAlign: "justify" }, { width: "400px" })}>
+        {/* <Typewriter
           onInit={(typewriter) => {
             typewriter.typeString(desc).start();
           }}
-        />
+        /> */}
       </Details>
     </Card>
   );

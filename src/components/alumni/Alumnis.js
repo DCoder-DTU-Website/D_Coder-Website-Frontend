@@ -12,6 +12,7 @@ import akk from "images/akk.jfif";
 // import abt from "images/abt.jfif";
 import abt from "images/abhinav.jpeg";
 import dm from "images/dm.jpeg";
+import ar from "images/Ashutosh Raturi.jpg";
 const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
@@ -76,6 +77,16 @@ const Alumni = ({
         linkedin: "https://www.linkedin.com/in/abhinav-thapper/",
         content:
           "Abhinav Thapper is dedicated, highly enthusiastic, and Ex-Vice President of D_CODER. Co-founder of Code to School, and took the initiative to lead a team of 25+ engineering students from different institutions, intending to expose students of govt. schools of over 10 schools across Delhi to Computer Science fundamentals. He also served as a volunteer at NSS. Former Coding Ninja Intern, Former Software engineer intern at Forethought Integrated Infotech Pvt. Ltd. Currently, He is working as a Software Engineer at Tata Health.",
+      },
+      {
+        imageSrc: ar,
+        // "blob:https://web.whatsapp.com/c65569f6-b603-422e-b89a-b8dc5256302e",
+        // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
+        Name: "Ashutosh Raturi",
+        Year: "2021",
+        linkedin: "https://www.linkedin.com/in/ashutosh-raturi-939745136/",
+        content:
+          "Ashutosh Raturi, a very bright-minded and enthusiastic student, and is also an Associate Director of D_CODER. He was a former Intern at Impact Webcom Technorite Pvt. Ltd. He was also an intern at Evelyn Learning Systems Pvt. Ltd. and He was an SDE Intern at UnitedHealth Group and currently placed as a Software Engineer at the same place.",
       },
     ],
   },
