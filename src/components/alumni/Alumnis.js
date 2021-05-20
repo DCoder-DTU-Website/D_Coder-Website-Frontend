@@ -8,7 +8,10 @@ import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 import "./alumni.css";
 import "aos/dist/aos.css";
-
+import akk from "images/akk.jfif";
+// import abt from "images/abt.jfif";
+import abt from "images/abhinav.jpeg";
+import dm from "images/dm.jpeg";
 const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
@@ -25,7 +28,7 @@ const CardImageContainer = styled.div`
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`flex-shrink-0 justify-center items-center w-72 h-72 border-4 border-blue-600 rounded-full mr-6 xl:w-80 xl:h-80 object-cover object-center mb-4`}
+  ${tw`flex-shrink-0 justify-center items-center bg-no-repeat w-96 h-96 border-4 border-blue-600 rounded-full mr-6 xl:w-80 xl:h-80  mb-4`}
 `;
 
 const CardText = tw.div`p-12 text-justify text-gray-900`;
@@ -46,8 +49,8 @@ const Alumni = ({
   tabs = {
     Heads: [
       {
-        imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
+        imageSrc: dm,
+        // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
         Name: "Daizy Mehta",
         Year: "2021",
         linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",
@@ -55,20 +58,22 @@ const Alumni = ({
           "Former president and founder of D_CODER DTU, Daizy Mehta is an extremely talented individual filled with zeal for perfection. Smart India Hackathon winner,Vistara Hackathon winner, DCB bank innovative carnival winner are a few gems of her accolades crown. She also served as a placement coordinator of the college for her batch. Currently, she is working as a software developer at Paytm.",
       },
       {
-        imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
+        imageSrc: akk,
+        // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
+
         Name: "Aditya Kulraj",
         Year: "2021",
-        linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",
+        linkedin: "https://www.linkedin.com/in/adityakulrajdtu/",
         content:
-          "Aditya Kulraj is one of the gems that the D_CODER family has. He was the Co-founder of D_CODER and He was among the 2 Students who represented India in a 3-week long program at UNESCO. He served as a part-time UNESCO Youth Leader and is a Full-time Climate Change Activist. Code to school was his brainchild, and he successfully chased his dream and changed the lives of many underprivileged children. He was also featured in the Smart India Hackathon 2018 that was conducted by the Government of India. Former Research Intern at the National University of Singapore working on Web Scraping and Machine Learning projects. Former Deloitte India(Offices of The US) Intern. Currently, He is working as a Software Engineer at OPPO.",
+          "Aditya Kulraj is one of the gems that the D_CODER family has. He was the Co-founder of D_CODER and Founder of Code To School. He was Smart India Hackathon 2018 winner. He was among the 2 Students who represented India in a 3-week long program at UNESCO. He served as a part-time UNESCO Youth Leader and is a Full-time Climate Change Activist. Former Research Intern at the National University of Singapore working on Web Scraping and Machine Learning projects.Former Deloitte India(Offices of The US) Intern.Currently, He is working as a Software Engineer at OPPO.",
       },
       {
-        imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
+        imageSrc: abt,
+        // "blob:https://web.whatsapp.com/c65569f6-b603-422e-b89a-b8dc5256302e",
+        // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
         Name: "Abhinav Thapper",
         Year: "2021",
-        linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",
+        linkedin: "https://www.linkedin.com/in/abhinav-thapper/",
         content:
           "Abhinav Thapper is dedicated, highly enthusiastic, and Ex-Vice President of D-Coder. Co-founder of Code to School, and took the initiative to lead a team of 25+ engineering students from different institutions, intending to expose students of govt. schools of over 10 schools across Delhi to Computer Science fundamentals. He also served as a volunteer at NSS. Former Coding Ninja Intern, Former Software engineer intern at Forethought Integrated Infotech Pvt. Ltd. Currently, He is working as a Software Engineer at Tata Health.",
       },

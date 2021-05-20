@@ -1,16 +1,16 @@
 export const coheads = [
   {
     imageSrc:
-      "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612871/aadityanarayansubedy_dx88fq.jpg",
-    title: "Aaditya Narayan Subedy",
-    linkedin: "https://www.linkedin.com/in/asubedy/",
-    content: "Technical",
-  },
-  {
-    imageSrc:
       "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612876/kushagrawadhwa_idphu8.jpg",
     title: "Kushagra Wadhwa",
     linkedin: "https://www.linkedin.com/in/kushagra-wadhwa12/",
+    content: "Corporate",
+  },
+  {
+    imageSrc:
+      "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612875/Anshika_Jain_au8tda.jpg",
+    title: "Anshika Jain",
+    linkedin: "https://www.linkedin.com/in/anshika-jain-110948197/",
     content: "Corporate",
   },
   {
@@ -36,20 +36,6 @@ export const coheads = [
   },
   {
     imageSrc:
-      "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612875/Anshika_Jain_au8tda.jpg",
-    title: "Anshika Jain",
-    linkedin: "https://www.linkedin.com/in/anshika-jain-110948197/",
-    content: "Corporate",
-  },
-  {
-    imageSrc:
-      "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612879/sameerahmed_rkw3u2.jpg",
-    title: "Sameer Ahmed",
-    linkedin: "https://www.linkedin.com/in/sameer-ahmed-2001/",
-    content: "Creative",
-  },
-  {
-    imageSrc:
       "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612876/karanbajaj_dgn2gc.jpg",
     title: "Karan Bajaj",
     linkedin: "https://www.linkedin.com/in/bkaran091/",
@@ -67,6 +53,13 @@ export const coheads = [
       "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612880/siddhantsingh_qgcvag.jpg",
     title: "Siddhant Singh",
     linkedin: "https://www.linkedin.com/in/siddhant-singh-437315197/",
+    content: "Creative",
+  },
+  {
+    imageSrc:
+      "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612879/sameerahmed_rkw3u2.jpg",
+    title: "Sameer Ahmed",
+    linkedin: "https://www.linkedin.com/in/sameer-ahmed-2001/",
     content: "Creative",
   },
   {
@@ -116,6 +109,13 @@ export const coheads = [
       "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612879/shubhangjotirmay_n7u8qe.jpg",
     title: "Shubhang Jotirmay",
     linkedin: "https://www.linkedin.com/in/shubhang-jyotirmay-383997196/",
+    content: "Technical",
+  },
+  {
+    imageSrc:
+      "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612871/aadityanarayansubedy_dx88fq.jpg",
+    title: "Aaditya Narayan Subedy",
+    linkedin: "https://www.linkedin.com/in/asubedy/",
     content: "Technical",
   },
   {
