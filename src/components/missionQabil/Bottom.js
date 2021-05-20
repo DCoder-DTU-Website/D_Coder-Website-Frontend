@@ -35,8 +35,8 @@ const Mission = () => {
     <div style={{ margin: "-30px", marginTop: "10px" }}>
       <div className="mission">
         <div data-aos="fade-up">
-          <h1 style={{ color: "white", fontSize: "40px", textAlign: "center" }}>
-            <span style={{ color: "#f3a94e" }}>M</span>ISSION
+          <h1 style={{ color: "rgba(36, 62, 99)", fontSize: "40px", textAlign: "center" }}>
+            MISSION
           </h1>
           <br />
           <br />

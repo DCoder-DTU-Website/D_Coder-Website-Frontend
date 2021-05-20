@@ -13,7 +13,7 @@ const About = () => {
             What is Missi<span style={{ color: "#f3a94e" }}>o</span>n{" "}
             <span style={{ color: "#f3a94e" }}>Q</span>abil ?
           </a>
-          <p id="main-p" className="def-para">
+          <p id="main-p" className="def-para" style={{textAlign: "center"}}>
             <br />
             Mission Qabil is an initiative to empower differently-abled college
             students. We will provide them with a competitive environment where
