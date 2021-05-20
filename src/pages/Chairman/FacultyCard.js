@@ -4,7 +4,6 @@ import tw from "twin.macro";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Typewriter from "typewriter-effect";
-import "./typing.css"
 const Card = styled.div((props) => [
   tw`md:flex justify-center items-center`,
   props.reversed ? tw`flex-row-reverse` : "flex-row",
@@ -29,7 +28,7 @@ function FacultyCard({ count, title, desc, img, post }) {
       <Image imageSrc={img} />
       <Details style={{ marginTop: "20px" }}>
         <Title>{title}</Title>
-        <Description className={"Typewriter"}>
+        <Description>
           <Typewriter
             onInit={(typewriter) => {
               typewriter.typeString(desc).start();

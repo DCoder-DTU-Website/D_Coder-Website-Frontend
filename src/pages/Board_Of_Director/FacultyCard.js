@@ -5,7 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Typewriter from "typewriter-effect";
 const Card = styled.div((props) => [
-  tw`md:flex justify-center items-center`,
+  tw`md:flex justify-center items-center -mx-48`,
   props.reversed ? tw`flex-row-reverse` : "flex-row",
 ]);
 const Image = styled.div((props) => [
@@ -19,10 +19,10 @@ function FacultyCard({ count, title, desc, img, post }) {
   AOS.init();
 
   return (
-    <Card reversed={count % 2 === 1} style={{width:"600px"}}>
+    <Card reversed={count % 2 === 1}>
       <Details
         style={
-          ({ textAlign: "center" })
+          { textAlign: "justify" },{width:"400px"}
         }
       >
         <Typewriter

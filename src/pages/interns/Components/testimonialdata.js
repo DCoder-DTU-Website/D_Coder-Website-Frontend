@@ -1,7 +1,7 @@
 const testimonaldata = {
   heading: "OUR GENIUSES",
   subHeading:
-    "D_CODER's excellent placement and internship record has always been a matter of pride for the society. In the session 2020-21, third & fourth-year students of our society have secured placements/internship opportunities across organizations like Microsoft, Goldmann Sachs, Wells Fargo, Cult.Fit, HDFC, Fractal, Airtel XLabs .etc. It’s their hard work and perseverance that paves the way for the other members of the D_CODER society to excel and bring laurels for the society.",
+    "D_CODER's excellent placement and internship record has always been a matter of pride for the society. In the session 2020-21, third & fourth-year students of our society have secured placements/internship opportunities across organizations like Microsoft, Goldmann Sachs, Wells Fargo, Cult.Fit, HDFC, Fractal, Airtel XLabs etc. It’s their hard work and perseverance that paves the way for the other members of the D_CODER society to excel and bring laurels for the society.",
   tabs: {
     Heads: [
       {
@@ -67,7 +67,7 @@ const testimonaldata = {
 
       {
         imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/c_fill,h_155,x_15/v1619843963/Varun_Bajlotra_wg2b3g.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/c_fill,w_85,h_85,x_15/v1619843963/Varun_Bajlotra_wg2b3g.jpg",
         Name: "Varun Bajlotra",
         linkedin: "https://www.linkedin.com/in/varun-bajlotra-17715a170/",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Wells_Fargo_Logo_%282020%29.png",

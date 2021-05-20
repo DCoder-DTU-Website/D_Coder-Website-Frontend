@@ -54,7 +54,7 @@ const testimonials = () => {
         </HeaderRow>
         <Header
           style={{
-            fontSize: "16px",
+            fontSize: "20px",
             marginBottom: "35px",
             padding: "0px 100px",
             fontWeight: "lighter",
