@@ -15,6 +15,9 @@ import { heads } from "./Heads";
 import { president } from "./President";
 import { vp } from "./VicePresident";
 import { generalseceratory } from "./GeneralSeceratory";
+import { tl } from "./TechLead";
+import { rl } from "./Research Lead";
+import { trs } from "./Tresuery"; //Done
 import AOS from "aos";
 import "aos/dist/aos.css";
 

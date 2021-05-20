@@ -1,4 +1,4 @@
-export const heads = [
+export const rl = [
   {
     imageSrc:
       "https://res.cloudinary.com/dcoderdtu/image/upload/v1621422767/aaryangupta_pph0ii_sj9ysn.jpg",
