@@ -29,7 +29,9 @@ const Subtitle = tw.div`font-bold tracking-wide text-blue-600 -mt-4`;
 const Title = tw.h4`float-left mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight text-white`;
 const Description = tw.p`mt-2 text-sm leading-loose text-white text-justify`;
 const Link = tw.a`inline-block mt-4 text-sm text-blue-600 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-blue-600`;
-const Subheading = tw.h3`text-3xl mt-5 font-bold text-blue-600 text-center`;
+const Subheading = tw.h3`text-5xl mt-5 font-bold text-blue-600 text-center`;
+const HeadingInfoContainer = tw.div`flex flex-col items-center`;
+// const Subheading = tw.h3`text-5xl mt-5 font-bold text-blue-600`;
 const linkstyle = {
   display: "flex",
   gap: "20px",
@@ -95,7 +97,10 @@ const ProjectsComp = () => {
               </Details>
             </Card>
           ))}
-        </Content>
+        </Content><br/><br/>
+        <HeadingInfoContainer>
+          <Subheading>Major Projects</Subheading>
+        </HeadingInfoContainer>
       </SingleColumn>
     </Container>
   );
