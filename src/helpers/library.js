@@ -20,6 +20,8 @@ import MenuDropdown from "components/hero/MenuDropdown.js";
 import { ExitToApp } from "@material-ui/icons";
 import "./NavBarStyling.css";
 
+import DropNav from "./navBar";
+
 const StyledHeader = styled(Header)`
   ${tw`pt-8 pb-2 max-w-none w-full`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
@@ -73,31 +75,7 @@ function NavBar() {
   });
 
   const navLinks = [
-    <div className="Navlist">
-      <MenuDropdown
-        title="Administration"
-        menuItems={[
-          "Faculty",
-          "Chairman",
-          "Board of Directors",
-          "Council",
-          "Alumni",
-        ]}
-      />
-      <MenuDropdown
-        title="Accolades"
-        menuItems={["Internships", "Achievements"]}
-      />
-      <MenuDropdown
-        title="Initiatives"
-        menuItems={["Code To School", "Mission Qabil"]}
-      />
-      <MenuDropdown title="Events" />
-      <MenuDropdown title="Gallery" />
-      <MenuDropdown title="Lectures"/>
-      <MenuDropdown title="Projects" />
-
-    </div>,
+    <DropNav />,
     <NavLinks key={2}>
       {isLoggedIn.login ? (
         <>
