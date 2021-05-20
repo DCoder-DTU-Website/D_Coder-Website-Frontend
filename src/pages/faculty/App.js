@@ -17,7 +17,7 @@ function Faculty() {
     <>
       <Hero
         title="Faculty"
-        bgImage="https://media.giphy.com/media/JUXtbHuixcZKeGJEro/giphy.gif"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621525804/faculty_sggpms.jpg"
       />
       <Container style={{ margin: "-35px" }}>
         <SingleColumn>

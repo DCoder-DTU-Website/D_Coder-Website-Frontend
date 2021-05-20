@@ -9,7 +9,7 @@ const App = () => {
     <div>
       <Hero
         title="Mission Qabil"
-        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621434874/Screenshot_505_x4so88.png"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621525669/mq_df5eih.jpg"
       />
       <About />
       <Bottom />

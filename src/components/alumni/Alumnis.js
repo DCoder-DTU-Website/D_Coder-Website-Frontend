@@ -13,6 +13,7 @@ import akk from "images/akk.jfif";
 import abt from "images/abhinav.jpeg";
 import dm from "images/dm.jpeg";
 import ar from "images/Ashutosh Raturi.jpg";
+import aditya from "images/aditya.jpeg";
 const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
@@ -59,7 +60,7 @@ const Alumni = ({
           "Former president and founder of D_CODER, Daizy Mehta is an extremely talented individual filled with zeal for perfection. Smart India Hackathon winner, Vistara Hackathon winner, DCB bank innovative carnival winner are a few gems of her accolades crown. She also served as a placement coordinator of the college for her batch. Currently, she is working as a software developer at Paytm.",
       },
       {
-        imageSrc: akk,
+        imageSrc: aditya,
         // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
 
         Name: "Aditya Kulraj",
@@ -115,8 +116,15 @@ const Alumni = ({
                   ></CardImageContainer>
                   <a href={card.linkedin} target="_blank" rel="noreferrer">
                     <CardText style={{ textAlign: "center" }}>
-                      <CardTitle className={"Hover"}>
-                        {card.Name} ( {card.Year} )
+                      <CardTitle
+                        className={"Hover"}
+                        style={{
+                          fontSize: "2.5rem",
+                          width: "45vw",
+                          textAlign: "center",
+                        }}
+                      >
+                        {card.Name}({card.Year})
                       </CardTitle>
                       <CardContent>{card.content}</CardContent>
                     </CardText>
