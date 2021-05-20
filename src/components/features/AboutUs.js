@@ -114,6 +114,7 @@ const AboutUs = ({
             style={{
               boxShadow: "10px 10px 5px -3px #000",
               webkitBoxShadow: "10px 10px 5px -3px #000",
+              borderRadius: "15px",
             }}
           />
           {showDecoratorBlob && <DecoratorBlob />}
