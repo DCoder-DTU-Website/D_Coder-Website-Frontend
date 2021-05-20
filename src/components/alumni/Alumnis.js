@@ -29,7 +29,7 @@ const CardImageContainer = styled.div`
 `;
 
 const CardText = tw.div`p-12 text-justify text-gray-900`;
-const CardTitle = tw.h5` text-sm md:w-48 xl:w-48 text-justify font-semibold md:text-3xl text-xl md:text-3xl lg:text-3xl xl:w-96 xl:text-4xl text-white group-hover:text-blue-500`;
+const CardTitle = tw.h5`-mx-4 text-sm md:w-48 xl:w-48 text-center font-semibold md:text-3xl text-xl md:text-3xl lg:text-3xl xl:w-96 xl:text-4xl text-white`;
 const CardContent = tw.p`mt-1 text-justify text-sm font-medium text-xl text-gray-600 `;
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
@@ -81,7 +81,7 @@ const Alumni = ({
                   ></CardImageContainer>
                   <a href={card.linkedin} target="_blank" rel="noreferrer">
                     <CardText style={{ textAlign: "center" }}>
-                      <CardTitle>
+                      <CardTitle className={"Hover"}>
                         {card.Name} ( {card.Year} )
                       </CardTitle>
                       <CardContent>{card.content}</CardContent>
