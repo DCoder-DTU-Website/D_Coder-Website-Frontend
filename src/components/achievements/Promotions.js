@@ -21,7 +21,7 @@ const Promotions = () => {
               count={1}
               desc={data}
               img={
-                "http://www.dtu.ac.in/Web/Administrations/Images/Chancellor.jpg"
+                "https://res.cloudinary.com/dcoderdtu/image/upload/c_fill,h_135,w_135,y_60/v1621517845/rahul_sir_jqgtyb.jpg"
               }
               title="Rahul Sir's Promotion"
               key={1}

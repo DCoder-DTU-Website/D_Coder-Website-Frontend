@@ -54,6 +54,7 @@
     "sweetalert": "^2.1.2",
     "tailwindcss": "^1.9.6",
     "twin.macro": "^1.12.1",
+    "typewriter-effect": "^2.17.0",
     "use-in-view": "^1.0.15",
     "web-vitals": "^1.1.1",
     "yup": "^0.32.9"
