@@ -16,7 +16,7 @@ function NavBar() {
             >
               Administration
             </Link>
-            <div className="dropdown">
+            <div className="dropdown" style={{ width: "200px" }}>
               <Link to="/faculty">Faculty</Link>
               <Link to="/chairman">Chairman</Link>
               <Link to="/board_of_directors">Board of Directors</Link>
@@ -30,7 +30,7 @@ function NavBar() {
                 evt.preventDefault();
               }}
             >
-              Accolades
+              Wall of Fame
             </Link>
             <div className="dropdown">
               <Link to="/internships">Internships</Link>
@@ -45,7 +45,7 @@ function NavBar() {
             >
               Initiatives
             </Link>
-            <div className="dropdown">
+            <div className="dropdown" style={{ width: "180px" }}>
               <Link to="/code_to_school">Code To School</Link>
               <Link to="/mission_qabil">Mission Qabil</Link>
             </div>

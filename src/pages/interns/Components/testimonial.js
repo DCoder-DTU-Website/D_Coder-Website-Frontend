@@ -22,7 +22,7 @@ const Image = styled.div`
       background-image: url("${props.imageSrc}");
       text-align: "centre";
     `}
-  ${tw`rounded-full object-cover h-full w-full shadow-md border-blue-400 border-4`}
+  ${tw`rounded-full object-cover bg-cover h-full w-full shadow-md border-blue-400 border-4`}
 `;
 const DataContainer = tw.div`px-6 mt-12 `;
 const DataName = tw.div`font-bold text-3xl text-center pb-1 py-4 text-indigo-400 pt-12`;
