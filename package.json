@@ -48,6 +48,7 @@
     "react-simple-hook-modal": "^1.1.0",
     "react-slick": "^0.28.1",
     "sass": "^1.32.8",
+    "semantic-ui-react": "^2.0.3",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.3",
     "sweetalert": "^2.1.2",

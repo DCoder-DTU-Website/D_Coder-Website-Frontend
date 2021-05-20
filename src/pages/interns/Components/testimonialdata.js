@@ -1,11 +1,12 @@
 const testimonaldata = {
   heading: "OUR GENIUSES",
-  subHeading: "Some of our students and their internships",
+  subHeading:
+    "D_CODER's excellent placement and internship record has always been a matter of pride for the society. In the session 2020-21, third & fourth-year students of our society have secured placements/internship opportunities across organizations like Microsoft, Goldmann Sachs, Wells Fargo, Cult.Fit, HDFC, Fractal, Airtel XLabs .etc. It’s their hard work and perseverance that paves the way for the other members of the D_CODER society to excel and bring laurels for the society.",
   tabs: {
     Heads: [
       {
         imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_256/v1619793320/Anima_dsdyim.png",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/v1621507675/new_img_2_f5m5ef.png",
         Name: "Anima Jain",
         linkedin: "https://www.linkedin.com/in/anima-jain-0108/",
         Post: "Summer Analyst at Goldman Sachs",
@@ -35,7 +36,7 @@ const testimonaldata = {
       },
       {
         imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_146/v1619842247/Mahek_jain_kiycez.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/v1621507554/new_img_vkhrzb.jpg",
         Name: "Mahek Jain",
         Post: "Imagineer at Fractal",
         linkedin: "https://www.linkedin.com/in/mahek-jain/",

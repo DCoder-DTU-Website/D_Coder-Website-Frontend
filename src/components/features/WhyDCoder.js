@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
-import StatsIllustrationSrc from "images/stats-illustration.svg";
+import StatsIllustrationSrc from "../../images/about_us_3.jpg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 
 const Container = tw.div`relative -m-8 bg-gray-900`;
@@ -19,7 +19,7 @@ const TextColumn = styled(Column)((props) => [
 
 const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded bg-contain bg-no-repeat bg-center h-full`,
+  tw`rounded-2xl bg-cover bg-no-repeat bg-center h-full`,
 ]);
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 
@@ -73,7 +73,14 @@ const WhyD = ({
       <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
         <ImageColumn css={imageContainerCss}>
           {imageInsideDiv ? (
-            <Image imageSrc={imageSrc} css={imageCss} />
+            <Image
+              imageSrc={imageSrc}
+              css={imageCss}
+              style={{
+                boxShadow: "10px 10px 5px -3px #000",
+                webkitBoxShadow: "10px 10px 5px -3px #000",
+              }}
+            />
           ) : (
             <img src={imageSrc} css={imageCss} alt="" />
           )}

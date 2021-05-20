@@ -9,9 +9,9 @@ const val = {
   upcomingEvents: [
     {
       id: 1,
-      title: "Hacknagpur hackathon",
+      title: "HackNagpur Hackathon",
       description:
-        "Our team went on to win big with the Hacknagpur hackathon conducted on December 30, 2020. The team of Riya Dev Varshney, Ridham Jain and Garvit Gulati secured the FIRST RUNNER UP among 800+ participating students all over the country, for their forward looking web app, BookMyVac that can be used to book vaccine slots and ease the vaccine distribution process.",
+        "Our team went on to win big with the HackNagpur hackathon conducted on December 30, 2020. The team of Riya Dev Varshney, Ridham Jain and Garvit Gulati secured the FIRST RUNNER UP among 800+ participating students all over the country, for their forward looking web app, BookMyVac that can be used to book vaccine slots and ease the vaccine distribution process.",
       img: "https://res.cloudinary.com/delhi-technological-university/image/upload/v1621427455/hacknagpur_azb2i2.jpg",
     },
     {
@@ -26,7 +26,13 @@ const val = {
 
 const Hackathons = () => {
   const wins = val.upcomingEvents.map((evt, i) => (
-    <Card key={i} count={i} title={evt.title} desc={evt.description} img={evt.img} />
+    <Card
+      key={i}
+      count={i}
+      title={evt.title}
+      desc={evt.description}
+      img={evt.img}
+    />
   ));
 
   return (
