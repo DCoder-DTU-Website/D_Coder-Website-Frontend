@@ -6,7 +6,7 @@ import {
   SectionHeading,
   Subheading as SubheadingBase,
 } from "components/misc/Headings.js";
-import TeamIllustrationSrc from "images/team-illustration-2.svg";
+import TeamIllustrationSrc from "../../images/about_us.jpg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/users.svg";
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/message-square.svg";
@@ -100,13 +100,21 @@ const AboutUs = ({
 
   return (
     <Container>
-      <TwoColumn style={{ marginTop: "32px" }}>
+      <TwoColumn
+        style={{
+          margin: "32px auto 0",
+        }}
+      >
         <ImageColumn>
           <Image
             src={imageSrc}
             imageBorder={imageBorder}
             imageShadow={imageShadow}
             imageRounded={imageRounded}
+            style={{
+              boxShadow: "10px 10px 5px -3px #000",
+              webkitBoxShadow: "10px 10px 5px -3px #000",
+            }}
           />
           {showDecoratorBlob && <DecoratorBlob />}
         </ImageColumn>
