@@ -84,7 +84,7 @@ const testimonials = () => {
                       </ImageContainer>
                       <DataContainer style={{ textAlign: "center" }}>
                         <DataName>{card.Name}</DataName>
-                        <div style={{ textAlign: "center" }}>
+                        <div style={{ textAlign: "center" },{marginBottom:"15px"}}>
                           <img src={card.logo} className="logo"></img>
                         </div>
                         <DataPost>{card.Post}</DataPost>

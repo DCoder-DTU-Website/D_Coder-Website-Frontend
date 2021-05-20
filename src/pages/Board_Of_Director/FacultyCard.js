@@ -12,10 +12,8 @@ const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
   tw`md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-96  bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
 ]);
-const Details = tw.div`mt-4 md:mt-0 md:max-w-xl mx-4 sm:mx-8 md:mx-16 lg:mx-16 text-white`;
-const Subtitle = tw.div`flex font-bold tracking-wide text-secondary-100`;
-const Title = tw.h4`flex text-3xl font-bold text-gray-900 text-blue-600`;
-const Description = tw.p`mt-2 text-sm leading-loose`;
+const Details = tw.div`mt-4 md:mt-0 md:max-w-xl mx-3 sm:mx-8 md:mx-16 lg:mx-16 text-white`;
+const Description = tw.p`mt-2 -mx-32 justify-center text-sm text-xl leading-loose items-center`;
 
 function FacultyCard({ count, title, desc, img, post }) {
   AOS.init();
@@ -24,9 +22,13 @@ function FacultyCard({ count, title, desc, img, post }) {
     <Card reversed={count % 2 === 1} style={{}}>
       <Image imageSrc={img} />
       <Details>
-        <Title>{title}</Title>
-        <Subtitle>{post}</Subtitle>
-        <Description>{desc}</Description>
+        <Description
+          style={
+            ({ fontSize: "25rem" }, { width: "800px" }, { textAlign: "center" })
+          }
+        >
+          {desc}
+        </Description>
       </Details>
     </Card>
   );
