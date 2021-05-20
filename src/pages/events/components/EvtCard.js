@@ -17,7 +17,7 @@ const Image = styled.div((props) => [
 const Details = tw.div`mt-4 md:mt-0 md:max-w-xl mx-4 sm:mx-8 md:mx-4 lg:mx-8 text-white`;
 const Subtitle = tw.div`flex font-bold tracking-wide text-secondary-100`;
 const Title = tw.h4`flex text-3xl font-bold text-gray-900 text-blue-600`;
-const Description = tw.p`mt-2 text-sm leading-loose`;
+const Description = tw.p`mt-2 text-sm leading-loose text-justify`;
 
 function EvtCard({ count, title, desc, img, startDate, endDate }) {
   AOS.init();

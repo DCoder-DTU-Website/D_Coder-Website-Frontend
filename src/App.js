@@ -28,6 +28,7 @@ import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Chairman from "pages/Chairman/App";
 import Achievements from "pages/achievements/App";
+import Blog from "pages/Blog/App";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -99,6 +100,9 @@ function App() {
           </Route>
           <Route exact path="/chairman">
             <Chairman />
+          </Route>
+          <Route exact path="/blog">
+            <Blog />
           </Route>
           <Route exact path="/board_of_directors">
             <BoardOfDirectors />

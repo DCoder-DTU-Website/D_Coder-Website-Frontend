@@ -65,8 +65,7 @@ export default function BasicTextFields() {
           </MenuItem>
           <MenuItem value={"dsa"}>Data Structures and Algorithms</MenuItem>
           <MenuItem value={"webd"}>Web Development</MenuItem>
-          <MenuItem value={"appd"}>Andriod Development</MenuItem>
-          <MenuItem value={"ml"}>Machine Learning</MenuItem>
+          <MenuItem value={"interview"}>Interview</MenuItem>
         </Select>
       </Grid>
       <Grid item xs={12}>
@@ -83,12 +82,18 @@ export default function BasicTextFields() {
           <MenuItem value="" selected={subTopic.length === 0}>
             <em>None</em>
           </MenuItem>
-          <MenuItem value={"array"}>Array</MenuItem>
-          <MenuItem value={"linkedlist"}>Linked-List</MenuItem>
-          <MenuItem value={"binarytrees"}>Binary Trees</MenuItem>
-          <MenuItem value={"bst"}>Binary Search Trees</MenuItem>
-          <MenuItem value={"heaps"}>Heaps</MenuItem>
+          <MenuItem value={"arrays"}>Array</MenuItem>
+          <MenuItem value={"linkedlist"}>Linked List</MenuItem>
+          <MenuItem value={"stacks"}>Stacks</MenuItem>
+          <MenuItem value={"ques"}>Queues</MenuItem>
+          <MenuItem value={"dp"}>Dynamic Programming</MenuItem>
           <MenuItem value={"graphs"}>Graphs</MenuItem>
+          <MenuItem value={"nodejs"}>Node JS</MenuItem>
+          <MenuItem value={"reactjs"}>React JS</MenuItem>
+          <MenuItem value={"angularjs"}>Angular JS</MenuItem>
+          <MenuItem value={"vuejs"}>Vue JS</MenuItem>
+          <MenuItem value={"djandpy"}>Django and Python</MenuItem>
+          <MenuItem value={"leetcode"}>LeetCode</MenuItem>
         </Select>
       </Grid>
       <Grid item>
