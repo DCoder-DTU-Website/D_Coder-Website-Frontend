@@ -5,14 +5,13 @@ import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
 import Footer from "components/footers/Footer";
 import FacultyCard from "./FacultyCard";
-
 const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
 const Content = tw.div`my-16`;
 
 function Chairman() {
   const data =
-    "Sh. Anil Baijal joined the Indian Administrative  Services (IAS) in 1969. In a long  career spanning over 37 years, Mr. Baijal held several eminent positions. He served as  Union Home  Secretary, Secretary, Urban Development, GOI, Vice-Chairman of Delhi  Development Authority, Chief Secretary of Andaman & Nicobar Islands,  Additional Secretary in the Ministry of Information and Broadcasting and Joint  Secretary in the Ministry of Civil Aviation, Chairman and MD of Indian  Airlines, CEO of Prasar Bharati, Development Commissioner of Goa, Commissioner  (Sales Tax and Excise) of Delhi, Counsellor In-charge of the Indian Aid Programme in Nepal, Embassy of India, Kathmandu among other positions. He was responsible for the introduction of DD Bharti. He also served as a Member of the Advisory Group for Integrated Development of Power, Coal, and Renewable Energy chaired by Sh. S.P Prabhu, currently Minister of Railways. He was Chairman of  a High Level Committee on implementation of Corporate Social Responsibility in  2016. He holds Master's  Degree in Arts from the University of Allahabad and the University of East  Anglia. Shri Anil Baijal took over as the 21st Lt. Governor, Government of N.C.T. of Delhi on 31st December,  2016.";
+    "I founded D_CODER back in 2017 during the initial days of my second year at Delhi Technological University as a small initiative. I and my friend Aditya Kulraj started D_CODER to create awareness about hackathons and various opportunities available in the domain. We aimed to create a community where passionate learners come together to create magic with their code. And today this small initiative has turned into one of the biggest full-fledged technical societies of the college with 250+ active members. While the society started with some basic awareness and guidance initiatives, today D_CODER is ruling with its presence in all possible domains be it blog writing, youtube content creation, or project making. Many of our team members have got their dream jobs under society’s guidance and whenever I hear about their achievements, my heart becomes full of pride while my eyes become emotional as I witness my dream vision coming to life. All this would never be possible without a solid rock-hard team that is working hard day and night behind the camera to take society to the highest of the high. While I sit to pen this down, I feel nostalgic how far we as a team have come, the journey was difficult but was worth it all, still, there are miles to go and I trust all my juniors that they will continue the legacy that we created together for years to come and will shine brighter and brighter !!!";
   return (
     <>
       <Hero
@@ -25,36 +24,11 @@ function Chairman() {
             <FacultyCard
               count={1}
               desc={data}
-              img={
-                "http://www.dtu.ac.in/Web/Administrations/Images/Chancellor.jpg"
-              }
-              post={"Lt Governer of Delhi"}
-              title="Shri Anil Baijal"
               key={1}
-            />
-          </Content>
-          <Content>
-            <FacultyCard
-              count={2}
-              desc={data}
               img={
-                "http://www.dtu.ac.in/Web/Administrations/Images/Chancellor.jpg"
+                "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg"
               }
-              post={"Lt Governer of Delhi"}
-              title="Shri Anil Baijal"
-              key={2}
-            />
-          </Content>
-          <Content>
-            <FacultyCard
-              count={3}
-              desc={data}
-              img={
-                "http://www.dtu.ac.in/Web/Administrations/Images/Chancellor.jpg"
-              }
-              post={"Lt Governer of Delhi"}
-              title="Shri Anil Baijal"
-              key={3}
+              title="Daizy Mehta"
             />
           </Content>
         </SingleColumn>

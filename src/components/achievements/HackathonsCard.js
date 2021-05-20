@@ -14,9 +14,9 @@ const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
   tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-72 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
 ]);
-const Details = tw.div`mt-4 md:mt-0 md:max-w-xl mx-4 sm:mx-8 md:mx-4 lg:mx-8 text-white`;
-const Title = tw.h4`w-full text-2xl font-bold text-gray-900 text-blue-600`;
-const Description = tw.p`text-justify mt-2 text-sm leading-loose`;
+const Details = tw.div`mt-4 md:mt-0 text-2xl md:max-w-xl mx-4 sm:mx-8 md:mx-4 lg:mx-8 text-white`;
+const Title = tw.h4`w-full text-4xl font-bold text-gray-900 text-blue-600`;
+const Description = tw.p`text-justify text-xl mt-2 leading-loose`;
 
 function EvtCard({ count,title, desc, img }) {
   AOS.init();

@@ -46,6 +46,7 @@ const Mission = () => {
             color: "rgba(36, 62, 99)",
             fontSize: "40px",
             textAlign: "center",
+            fontWeight: "bold",
           }}
         >
           Highlights
