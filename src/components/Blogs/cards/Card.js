@@ -10,7 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Blog from "../routes/Blog/Blog";
 
-function Card({ data }) {
+function Card({ data, index }) {
   AOS.init();
   return (
     <div
@@ -22,6 +22,8 @@ function Card({ data }) {
         filter: "drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.75))",
         borderRadius: "5px",
       }}
+      data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+      data-aos-duration="1000"
     >
       <h1
         style={{
