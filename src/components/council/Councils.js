@@ -12,6 +12,11 @@ import "./council.css";
 import { coheads } from "./Coheads";
 import { developers } from "./Developers";
 import { heads } from "./Heads";
+import { president } from "./President";
+import { vp } from "./VicePresident";
+import { generalseceratory } from "./GeneralSeceratory";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 //Header (Team + Carousel) Styling Starts
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`; // Team Heading +carousel
@@ -71,6 +76,8 @@ const Councils = ({
   subHeading = "",
   tabs = {
     Heads: heads,
+    // President: president,
+    // VicePresident: vp,
     CoHeads: getCoHeads(),
     Developers: getDevelopers(),
   },
@@ -79,6 +86,7 @@ const Councils = ({
   const [activeTab, setActiveTab] = useState(tabsKeys[0]);
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
   const isnotMobile = useMediaQuery({ query: "(min-width: 641px)" });
+  AOS.init();
   return (
     <Container className="councilStyle" style={{ textAlign: "center" }}>
       <ContentWithPaddingXl>
@@ -157,9 +165,11 @@ const Councils = ({
               <CardContainer key={index}>
                 <Card
                   className="group"
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
+                  // initial="rest"
+                  // whileHover="hover"
+                  // animate="rest"
+                  data-aos="fade-left"
+                  data-aos-anchor-placement="center-bottom"
                 >
                   <CardImageContainer
                     className="image"
