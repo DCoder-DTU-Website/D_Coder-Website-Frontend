@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import Card from "./HackathonsCard";
 
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-const Subheading = tw.h3`text-4xl mt-5 font-bold text-blue-600`;
+const Subheading = tw.h3`text-6xl mt-5 font-bold text-blue-600`;
 const Content = tw.div`mt-16`;
 const val = {
   upcomingEvents: [
