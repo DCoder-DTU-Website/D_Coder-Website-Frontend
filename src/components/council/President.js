@@ -1,4 +1,4 @@
-export const president = [
+export default [
   {
     imageSrc:
       "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612877/mahekjain_jz9ogu.jpg",
