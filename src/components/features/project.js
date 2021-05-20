@@ -9,6 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { AiFillGithub } from "react-icons/ai";
+import accio from "../../images/accio.jpeg";
 
 const Container = tw.div`relative bg-gray-900 -m-8`;
 
@@ -97,10 +98,59 @@ const ProjectsComp = () => {
               </Details>
             </Card>
           ))}
-        </Content><br/><br/>
+        </Content>
+        <br />
+        <br />
         <HeadingInfoContainer>
-          <Subheading>Major Projects</Subheading>
+          <Subheading style={{ color: "#73c2fb" }}>Major Projects</Subheading>
         </HeadingInfoContainer>
+        <Content style={{ marginTop: "-100px" }}>
+          <Card
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+            key={0}
+            reversed={true}
+          >
+            <Image
+              className="EvtCard-img"
+              style={{
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+              }}
+              imageSrc={accio}
+            />
+            <Details>
+              <Title>Accio Job</Title>
+              <br />
+              <br />
+              <br />
+              <br />
+              {/* <Subtitle>techstack</Subtitle> */}
+              <Description>
+                Our junior team of developers (Aditya Teltia, Naman Malhotra,
+                Shivansh Dhondiyal, Vaibhav Gupta) got an excellent opportunity
+                to work on project of AccioJobs. They will revamp their complete
+                website.
+              </Description>
+              <div
+                className="links"
+                style={linkstyle}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "30px",
+                }}
+              >
+                {/* <Link target="_blank" href={card.github}>
+                  <AiFillGithub size={25} />
+                </Link> */}
+                {/* <Link target="_blank" href={card.linkedin}>
+                    {card.dev}
+                  </Link> */}
+              </div>
+            </Details>
+          </Card>
+        </Content>
       </SingleColumn>
     </Container>
   );
