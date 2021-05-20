@@ -35,7 +35,7 @@ const Mission = () => {
   return (
     <div className="mission">
       <div data-aos="fade-up">
-        <h1 style={{ color: "white", fontSize: "40px", textAlign: "center" }}>
+        <h1 style={{ color: "white", fontSize: "40px", textAlign: "center",fontWeight:"bold" }}>
           Highlights
         </h1>
         <br />

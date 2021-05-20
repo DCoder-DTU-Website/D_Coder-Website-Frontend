@@ -66,7 +66,7 @@ const testimonaldata = {
 
       {
         imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_160/v1619843963/Varun_Bajlotra_wg2b3g.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/c_fill,h_155,x_15/v1619843963/Varun_Bajlotra_wg2b3g.jpg",
         Name: "Varun Bajlotra",
         linkedin: "https://www.linkedin.com/in/varun-bajlotra-17715a170/",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Wells_Fargo_Logo_%282020%29.png",
@@ -86,7 +86,7 @@ const testimonaldata = {
       },
       {
         imageSrc:
-          "https://cdn.tuk.dev/assets/blond-man-happy-expression_1194-2873.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_172/v1621519085/Harshit_vtxpa3.jpg",
         Name: "Harshit Muhal",
         linkedin: "https://www.linkedin.com/in/harshitmuhal/",
         Post: "Intern at Microsoft",
