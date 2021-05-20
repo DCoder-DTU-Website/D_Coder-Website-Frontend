@@ -73,7 +73,11 @@ function Card({ data }) {
         <div style={{ display: "none" }}>
           <Blog style={{ display: "none !important" }} src={data.src} />
         </div>
-        <Button variant="contained" color="primary" href = "/blog/read_more">
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ margin: "auto 0" }}
+        >
           Read More
         </Button>
       </div>
