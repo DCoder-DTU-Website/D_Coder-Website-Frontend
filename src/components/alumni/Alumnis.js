@@ -55,7 +55,7 @@ const Alumni = ({
         Year: "2021",
         linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",
         content:
-          "Former president and founder of D_CODER DTU, Daizy Mehta is an extremely talented individual filled with zeal for perfection. Smart India Hackathon winner,Vistara Hackathon winner, DCB bank innovative carnival winner are a few gems of her accolades crown. She also served as a placement coordinator of the college for her batch. Currently, she is working as a software developer at Paytm.",
+          "Former president and founder of D_CODER, Daizy Mehta is an extremely talented individual filled with zeal for perfection. Smart India Hackathon winner, Vistara Hackathon winner, DCB bank innovative carnival winner are a few gems of her accolades crown. She also served as a placement coordinator of the college for her batch. Currently, she is working as a software developer at Paytm.",
       },
       {
         imageSrc: akk,

@@ -202,7 +202,7 @@ const Councils = ({
                     // initial="rest"
                     // whileHover="hover"
                     // animate="rest"
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     data-aos-anchor-placement="center-bottom"
                   >
                     <CardImageContainer
@@ -254,7 +254,7 @@ const Councils = ({
                     // initial="rest"
                     // whileHover="hover"
                     // animate="rest"
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     data-aos-anchor-placement="center-bottom"
                   >
                     <CardImageContainer
