@@ -294,7 +294,7 @@ export const heads = {
     },
     {
       imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612878/rachitsaksena_diq6ma.jpg",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,w_1073/v1621528262/rachit_saksena_kg0swn.jpg",
       title: "Rachit Saksena",
       linkedin: "https://www.linkedin.com/in/rachit-saksena/",
       content: "Research Lead",
