@@ -8,6 +8,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -23,6 +24,12 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  myNewCard: {
+    transition: "all 300ms ease-in-out",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
+  },
 });
 const Mission = () => {
   const classes = useStyles();
@@ -32,10 +39,16 @@ const Mission = () => {
   });
 
   return (
-    <div style={{ margin: "-30px", marginTop: "10px" }}>
+    <div style={{ margin: "-30px", marginTop: "10px", textAlign: "center" }}>
       <div className="mission">
         <div data-aos="fade-up">
-          <h1 style={{ color: "rgba(36, 62, 99)", fontSize: "40px", textAlign: "center" }}>
+          <h1
+            style={{
+              color: "rgba(36, 62, 99)",
+              fontSize: "40px",
+              textAlign: "center",
+            }}
+          >
             MISSION
           </h1>
           <br />
@@ -43,9 +56,10 @@ const Mission = () => {
           <Grid container alignItems="stretch" spacing={3}>
             <Grid item lg={2} md={6} xs={12} style={{ display: "flex" }}>
               <Card
+                className={classes.myNewCard}
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   flexDirection: "column",
                   width: "100%",
                   backgroundColor: "rgba(36, 62, 99)",
@@ -55,7 +69,9 @@ const Mission = () => {
                   <Typography
                     variant="p"
                     component="p"
-                    style={{ color: "white" }}
+                    style={{
+                      color: "white",
+                    }}
                   >
                     To build a community of differently-abled students from
                     various colleges.
@@ -65,9 +81,10 @@ const Mission = () => {
             </Grid>
             <Grid item lg={2} md={6} xs={12} style={{ display: "flex" }}>
               <Card
+                className={classes.myNewCard}
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   flexDirection: "column",
                   width: "100%",
                   backgroundColor: "rgba(36, 62, 99)",
@@ -87,9 +104,10 @@ const Mission = () => {
             </Grid>
             <Grid item lg={2} md={6} xs={12} style={{ display: "flex" }}>
               <Card
+                className={classes.myNewCard}
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   flexDirection: "column",
                   width: "100%",
                   backgroundColor: "rgba(36, 62, 99)",
@@ -109,9 +127,10 @@ const Mission = () => {
             </Grid>
             <Grid item lg={2} md={6} xs={12} style={{ display: "flex" }}>
               <Card
+                className={classes.myNewCard}
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   flexDirection: "column",
                   width: "100%",
                   backgroundColor: "rgba(36, 62, 99)",
@@ -131,9 +150,10 @@ const Mission = () => {
             </Grid>
             <Grid item lg={2} md={6} xs={12} style={{ display: "flex" }}>
               <Card
+                className={classes.myNewCard}
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   flexDirection: "column",
                   width: "100%",
                   backgroundColor: "rgba(36, 62, 99)",
@@ -153,9 +173,10 @@ const Mission = () => {
             </Grid>
             <Grid item lg={2} md={6} xs={12} style={{ display: "flex" }}>
               <Card
+                className={classes.myNewCard}
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   flexDirection: "column",
                   width: "100%",
                   backgroundColor: "rgba(36, 62, 99)",

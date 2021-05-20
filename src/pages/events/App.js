@@ -21,7 +21,7 @@ import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-const Subheading = tw.h3`text-3xl mt-5 font-bold text-blue-600`;
+const Subheading = tw.h3`text-5xl mt-5 font-bold text-blue-600`;
 const Content = tw.div`mt-16`;
 
 const SvgDotPattern1 = tw(

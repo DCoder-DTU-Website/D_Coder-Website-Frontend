@@ -23,6 +23,12 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  myNewCard: {
+    transition: "all 300ms ease-in-out",
+    "&:hover": {
+      transform: "scale(1.07)",
+    },
+  },
 });
 
 const Mission = () => {
@@ -35,7 +41,13 @@ const Mission = () => {
   return (
     <div className="mission">
       <div data-aos="fade-up">
-        <h1 style={{ color: "white", fontSize: "40px", textAlign: "center" }}>
+        <h1
+          style={{
+            color: "rgba(36, 62, 99)",
+            fontSize: "40px",
+            textAlign: "center",
+          }}
+        >
           Highlights
         </h1>
         <br />
@@ -43,6 +55,7 @@ const Mission = () => {
         <Grid container alignItems="stretch" spacing={3}>
           <Grid item lg={4} md={6} xs={12} style={{ display: "flex" }}>
             <Card
+              className={classes.myNewCard}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -66,6 +79,7 @@ const Mission = () => {
           </Grid>
           <Grid item lg={4} md={6} xs={12} style={{ display: "flex" }}>
             <Card
+              className={classes.myNewCard}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -89,6 +103,7 @@ const Mission = () => {
           </Grid>
           <Grid item lg={4} md={6} xs={12} style={{ display: "flex" }}>
             <Card
+              className={classes.myNewCard}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -113,6 +128,7 @@ const Mission = () => {
           </Grid>
           <Grid item lg={4} md={6} xs={12} style={{ display: "flex" }}>
             <Card
+              className={classes.myNewCard}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -138,6 +154,7 @@ const Mission = () => {
           </Grid>
           <Grid item lg={4} md={6} xs={12} style={{ display: "flex" }}>
             <Card
+              className={classes.myNewCard}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -162,6 +179,7 @@ const Mission = () => {
           </Grid>
           <Grid item lg={4} md={6} xs={12} style={{ display: "flex" }}>
             <Card
+              className={classes.myNewCard}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
