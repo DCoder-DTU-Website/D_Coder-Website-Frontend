@@ -77,7 +77,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 //Cards For Heads
 const Councils = ({
   heading = "Team",
-  subHeading = "",
+  subHeading = "Lorem Epsum Text",
   tabs = {
     Heads: heads,
     CoHeads: getCoHeads(),
@@ -171,7 +171,7 @@ const Councils = ({
                     // initial="rest"
                     // whileHover="hover"
                     // animate="rest"
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     data-aos-anchor-placement="center-bottom"
                   >
                     <CardImageContainer
