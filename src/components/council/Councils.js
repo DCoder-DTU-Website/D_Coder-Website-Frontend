@@ -12,7 +12,7 @@ import "./council.css";
 import { coheads } from "./Coheads";
 import { developers } from "./Developers";
 import { heads } from "./Heads";
-import { president } from "./President";
+import president from "./President";
 import { vp } from "./VicePresident";
 import { generalseceratory } from "./GeneralSeceratory";
 import { tl } from "./TechLead";
@@ -20,6 +20,7 @@ import { rl } from "./Research Lead";
 import { trs } from "./Tresuery"; //Done
 import AOS from "aos";
 import "aos/dist/aos.css";
+import President from "./President";
 
 //Header (Team + Carousel) Styling Starts
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`; // Team Heading +carousel
@@ -49,7 +50,7 @@ const TabControls = styled.div`
 
 const TabContent = tw(
   motion.div
-)`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
+)`mt-6 flex flex-wrap justify-center items-center sm:-mr-10 md:-mr-6 lg:-mr-12`;
 const CardContainer = tw.div`flex justify-center mt-10 p-5 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:pr-10 md:pr-6 lg:pr-12`;
 const Card = tw(
   motion.a
@@ -79,8 +80,6 @@ const Councils = ({
   subHeading = "",
   tabs = {
     Heads: heads,
-    // President: president,
-    // VicePresident: vp,
     CoHeads: getCoHeads(),
     Developers: getDevelopers(),
   },
@@ -164,36 +163,328 @@ const Councils = ({
             initial={activeTab === tabKey ? "current" : "hidden"}
             animate={activeTab === tabKey ? "current" : "hidden"}
           >
-            {tabs[tabKey].map((card, index) => (
-              <CardContainer key={index}>
-                <Card
-                  className="group"
-                  // initial="rest"
-                  // whileHover="hover"
-                  // animate="rest"
-                  data-aos="fade-left"
-                  data-aos-anchor-placement="center-bottom"
-                >
-                  <CardImageContainer
-                    className="image"
-                    style={{
-                      height: "60px",
-                      width: "60px",
-                      borderRadius: "50%",
-                    }}
-                    imageSrc={card.imageSrc}
-                  ></CardImageContainer>
-                  <CardText style={{ textAlign: "center" }}>
-                    <a href={card.linkedin} target="_blank" rel="noreferrer">
-                      <CardTitle style={{ cursor: "pointer" }}>
-                        {card.title}
-                      </CardTitle>
-                    </a>
-                    <CardContent>{card.content}</CardContent>
-                  </CardText>
-                </Card>
-              </CardContainer>
-            ))}
+            {tabKey !== "Heads" &&
+              tabs[tabKey].map((card, index) => (
+                <CardContainer key={index}>
+                  <Card
+                    className="group"
+                    // initial="rest"
+                    // whileHover="hover"
+                    // animate="rest"
+                    data-aos="fade-left"
+                    data-aos-anchor-placement="center-bottom"
+                  >
+                    <CardImageContainer
+                      className="image"
+                      style={{
+                        height: "60px",
+                        width: "60px",
+                        borderRadius: "50%",
+                      }}
+                      imageSrc={card.imageSrc}
+                    ></CardImageContainer>
+                    <CardText style={{ textAlign: "center" }}>
+                      <a href={card.linkedin} target="_blank" rel="noreferrer">
+                        <CardTitle style={{ cursor: "pointer" }}>
+                          {card.title}
+                        </CardTitle>
+                      </a>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardContainer>
+              ))}
+            {tabKey === "Heads" &&
+              tabs["Heads"].president.map((card, index) => (
+                <CardContainer key={index}>
+                  <Card
+                    className="group"
+                    // initial="rest"
+                    // whileHover="hover"
+                    // animate="rest"
+                    data-aos="fade-left"
+                    data-aos-anchor-placement="center-bottom"
+                  >
+                    <CardImageContainer
+                      className="image"
+                      style={{
+                        height: "60px",
+                        width: "60px",
+                        borderRadius: "50%",
+                      }}
+                      imageSrc={card.imageSrc}
+                    ></CardImageContainer>
+                    <CardText style={{ textAlign: "center" }}>
+                      <a href={card.linkedin} target="_blank" rel="noreferrer">
+                        <CardTitle style={{ cursor: "pointer" }}>
+                          {card.title}
+                        </CardTitle>
+                      </a>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardContainer>
+              ))}
+          </TabContent>
+        ))}
+        {tabsKeys.map((tabKey, index) => (
+          <TabContent
+            key={index}
+            variants={{
+              current: {
+                opacity: 1,
+                scale: 1,
+                display: "flex",
+              },
+              hidden: {
+                opacity: 0,
+                scale: 0.8,
+                display: "none",
+              },
+            }}
+            transition={{ duration: 0.4 }}
+            initial={activeTab === tabKey ? "current" : "hidden"}
+            animate={activeTab === tabKey ? "current" : "hidden"}
+          >
+            {tabKey === "Heads" &&
+              tabs["Heads"].vp.map((card, index) => (
+                <CardContainer key={index}>
+                  <Card
+                    className="group"
+                    // initial="rest"
+                    // whileHover="hover"
+                    // animate="rest"
+                    data-aos="fade-left"
+                    data-aos-anchor-placement="center-bottom"
+                  >
+                    <CardImageContainer
+                      className="image"
+                      style={{
+                        height: "60px",
+                        width: "60px",
+                        borderRadius: "50%",
+                      }}
+                      imageSrc={card.imageSrc}
+                    ></CardImageContainer>
+                    <CardText style={{ textAlign: "center" }}>
+                      <a href={card.linkedin} target="_blank" rel="noreferrer">
+                        <CardTitle style={{ cursor: "pointer" }}>
+                          {card.title}
+                        </CardTitle>
+                      </a>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardContainer>
+              ))}
+          </TabContent>
+        ))}
+        {tabsKeys.map((tabKey, index) => (
+          <TabContent
+            key={index}
+            variants={{
+              current: {
+                opacity: 1,
+                scale: 1,
+                display: "flex",
+              },
+              hidden: {
+                opacity: 0,
+                scale: 0.8,
+                display: "none",
+              },
+            }}
+            transition={{ duration: 0.4 }}
+            initial={activeTab === tabKey ? "current" : "hidden"}
+            animate={activeTab === tabKey ? "current" : "hidden"}
+          >
+            {tabKey === "Heads" &&
+              tabs["Heads"].gs.map((card, index) => (
+                <CardContainer key={index}>
+                  <Card
+                    className="group"
+                    // initial="rest"
+                    // whileHover="hover"
+                    // animate="rest"
+                    data-aos="fade-left"
+                    data-aos-anchor-placement="center-bottom"
+                  >
+                    <CardImageContainer
+                      className="image"
+                      style={{
+                        height: "60px",
+                        width: "60px",
+                        borderRadius: "50%",
+                      }}
+                      imageSrc={card.imageSrc}
+                    ></CardImageContainer>
+                    <CardText style={{ textAlign: "center" }}>
+                      <a href={card.linkedin} target="_blank" rel="noreferrer">
+                        <CardTitle style={{ cursor: "pointer" }}>
+                          {card.title}
+                        </CardTitle>
+                      </a>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardContainer>
+              ))}
+          </TabContent>
+        ))}
+        {tabsKeys.map((tabKey, index) => (
+          <TabContent
+            key={index}
+            variants={{
+              current: {
+                opacity: 1,
+                scale: 1,
+                display: "flex",
+              },
+              hidden: {
+                opacity: 0,
+                scale: 0.8,
+                display: "none",
+              },
+            }}
+            transition={{ duration: 0.4 }}
+            initial={activeTab === tabKey ? "current" : "hidden"}
+            animate={activeTab === tabKey ? "current" : "hidden"}
+          >
+            {tabKey === "Heads" &&
+              tabs["Heads"].tl.map((card, index) => (
+                <CardContainer key={index}>
+                  <Card
+                    className="group"
+                    // initial="rest"
+                    // whileHover="hover"
+                    // animate="rest"
+                    data-aos="fade-left"
+                    data-aos-anchor-placement="center-bottom"
+                  >
+                    <CardImageContainer
+                      className="image"
+                      style={{
+                        height: "60px",
+                        width: "60px",
+                        borderRadius: "50%",
+                      }}
+                      imageSrc={card.imageSrc}
+                    ></CardImageContainer>
+                    <CardText style={{ textAlign: "center" }}>
+                      <a href={card.linkedin} target="_blank" rel="noreferrer">
+                        <CardTitle style={{ cursor: "pointer" }}>
+                          {card.title}
+                        </CardTitle>
+                      </a>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardContainer>
+              ))}
+          </TabContent>
+        ))}
+        {tabsKeys.map((tabKey, index) => (
+          <TabContent
+            key={index}
+            variants={{
+              current: {
+                opacity: 1,
+                scale: 1,
+                display: "flex",
+              },
+              hidden: {
+                opacity: 0,
+                scale: 0.8,
+                display: "none",
+              },
+            }}
+            transition={{ duration: 0.4 }}
+            initial={activeTab === tabKey ? "current" : "hidden"}
+            animate={activeTab === tabKey ? "current" : "hidden"}
+          >
+            {tabKey === "Heads" &&
+              tabs["Heads"].frtgct.map((card, index) => (
+                <CardContainer key={index}>
+                  <Card
+                    className="group"
+                    // initial="rest"
+                    // whileHover="hover"
+                    // animate="rest"
+                    data-aos="fade-left"
+                    data-aos-anchor-placement="center-bottom"
+                  >
+                    <CardImageContainer
+                      className="image"
+                      style={{
+                        height: "60px",
+                        width: "60px",
+                        borderRadius: "50%",
+                      }}
+                      imageSrc={card.imageSrc}
+                    ></CardImageContainer>
+                    <CardText style={{ textAlign: "center" }}>
+                      <a href={card.linkedin} target="_blank" rel="noreferrer">
+                        <CardTitle style={{ cursor: "pointer" }}>
+                          {card.title}
+                        </CardTitle>
+                      </a>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardContainer>
+              ))}
+          </TabContent>
+        ))}
+        {tabsKeys.map((tabKey, index) => (
+          <TabContent
+            key={index}
+            variants={{
+              current: {
+                opacity: 1,
+                scale: 1,
+                display: "flex",
+              },
+              hidden: {
+                opacity: 0,
+                scale: 0.8,
+                display: "none",
+              },
+            }}
+            transition={{ duration: 0.4 }}
+            initial={activeTab === tabKey ? "current" : "hidden"}
+            animate={activeTab === tabKey ? "current" : "hidden"}
+          >
+            {tabKey === "Heads" &&
+              tabs["Heads"].rl.map((card, index) => (
+                <CardContainer key={index}>
+                  <Card
+                    className="group"
+                    // initial="rest"
+                    // whileHover="hover"
+                    // animate="rest"
+                    data-aos="fade-left"
+                    data-aos-anchor-placement="center-bottom"
+                  >
+                    <CardImageContainer
+                      className="image"
+                      style={{
+                        height: "60px",
+                        width: "60px",
+                        borderRadius: "50%",
+                      }}
+                      imageSrc={card.imageSrc}
+                    ></CardImageContainer>
+                    <CardText style={{ textAlign: "center" }}>
+                      <a href={card.linkedin} target="_blank" rel="noreferrer">
+                        <CardTitle style={{ cursor: "pointer" }}>
+                          {card.title}
+                        </CardTitle>
+                      </a>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardContainer>
+              ))}
           </TabContent>
         ))}
       </ContentWithPaddingXl>
