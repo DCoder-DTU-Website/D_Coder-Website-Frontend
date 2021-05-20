@@ -177,7 +177,7 @@ export const heads = {
   gs: [
     {
       imageSrc:
-        "https://res-console.cloudinary.com/dcoderdtu/thumbnails/transform/v1/image/upload//v1621517752/bmV3X2ltZ18yX2Y1bTVlZg==/drilldown",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1621517752/new_img_2_f5m5ef.png",
       title: "Anima Jain",
       linkedin: "https://www.linkedin.com/in/anima-jain-0108/",
       content: "General Secretary",
@@ -251,8 +251,8 @@ export const heads = {
   ],
   frtgct: [
     {
-      imageSrc:anchal,
-        // "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,w_305/v1621520944/AANCHAL_BATRA_xi2eyd.png",
+      imageSrc: anchal,
+      // "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,w_305/v1621520944/AANCHAL_BATRA_xi2eyd.png",
       title: "Aanchal Batra",
       linkedin: "https://www.linkedin.com/in/aanchalbatra/",
       content: "Frontend Director",
