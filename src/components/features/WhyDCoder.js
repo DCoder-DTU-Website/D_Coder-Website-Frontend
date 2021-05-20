@@ -39,7 +39,7 @@ const DecoratorBlob = styled(SvgDotPattern)((props) => [
 
 const WhyD = ({
   subheading = "Why D_CODER?",
-  description = "D_CODER is the most active tech society of DTU. We prepare our members for internships and placements. Our senior counsel has badged internships in coveted companies like Goldman Sachs, Microsoft, DE Shaw, and many others. We will clear all your doubts and will aim to increase your accuracy and proficiency.",
+  description = "D_CODER is the most active tech society of DTU. We prepare our members for internships and placements. Our senior council has badged internships in coveted companies like Goldman Sachs, Microsoft, DE Shaw, and many others. We will clear all your doubts and will aim to increase your accuracy and proficiency.",
   imageSrc = StatsIllustrationSrc,
   imageCss = null,
   imageContainerCss = null,

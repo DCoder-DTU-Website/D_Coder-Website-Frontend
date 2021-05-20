@@ -142,11 +142,15 @@
 //   },
 // ];
 
+import mahek from "images/mahek_jain.jpeg";
+import vagish from "images/vagish.jpg";
+import anchal from "images/anchal.png";
+
 export const heads = {
   president: [
     {
-      imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612877/mahekjain_jz9ogu.jpg",
+      imageSrc: mahek,
+      // "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612877/mahekjain_jz9ogu.jpg",
       title: "Mahek Jain",
       linkedin: "https://www.linkedin.com/in/mahek-jain/",
       content: "President",
@@ -173,7 +177,7 @@ export const heads = {
   gs: [
     {
       imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612873/anima_fcxtk6.png",
+        "https://res-console.cloudinary.com/dcoderdtu/thumbnails/transform/v1/image/upload//v1621517752/bmV3X2ltZ18yX2Y1bTVlZg==/drilldown",
       title: "Anima Jain",
       linkedin: "https://www.linkedin.com/in/anima-jain-0108/",
       content: "General Secretary",
@@ -187,7 +191,7 @@ export const heads = {
     },
     {
       imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612872/adityajain_afq060.jpg",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619793270/Aditya_Jain_tyyjxw.jpg",
       title: "Aditya Jain",
       linkedin: "https://www.linkedin.com/in/adityajain205/",
       content: "General Secretary",
@@ -218,7 +222,7 @@ export const heads = {
     },
     {
       imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612872/vikas_yqowcq.jpg",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,w_575/v1621520871/Vikas_gg7o0n.jpg",
       title: "Vikas",
       linkedin: "https://www.linkedin.com/in/vikas-yadav-b432b5107/",
       content: "Technical Lead",
@@ -238,8 +242,8 @@ export const heads = {
       content: "Technical Lead",
     },
     {
-      imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612879/Vagish_nw6is3.jpg",
+      imageSrc: vagish,
+      // "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612879/Vagish_nw6is3.jpg",
       title: "Vagish Yagnik",
       linkedin: "https://www.linkedin.com/in/vagish-yagnik-9203b0172/",
       content: "Technical Lead",
@@ -247,8 +251,8 @@ export const heads = {
   ],
   frtgct: [
     {
-      imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612871/aanchalbatra_gbe6c4.png",
+      imageSrc:anchal,
+        // "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,w_305/v1621520944/AANCHAL_BATRA_xi2eyd.png",
       title: "Aanchal Batra",
       linkedin: "https://www.linkedin.com/in/aanchalbatra/",
       content: "Frontend Director",

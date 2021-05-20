@@ -55,7 +55,7 @@ const Alumni = ({
         Year: "2021",
         linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",
         content:
-          "Former president and founder of D_CODER DTU, Daizy Mehta is an extremely talented individual filled with zeal for perfection. Smart India Hackathon winner,Vistara Hackathon winner, DCB bank innovative carnival winner are a few gems of her accolades crown. She also served as a placement coordinator of the college for her batch. Currently, she is working as a software developer at Paytm.",
+          "Former president and founder of D_CODER, Daizy Mehta is an extremely talented individual filled with zeal for perfection. Smart India Hackathon winner, Vistara Hackathon winner, DCB bank innovative carnival winner are a few gems of her accolades crown. She also served as a placement coordinator of the college for her batch. Currently, she is working as a software developer at Paytm.",
       },
       {
         imageSrc: akk,
@@ -75,7 +75,7 @@ const Alumni = ({
         Year: "2021",
         linkedin: "https://www.linkedin.com/in/abhinav-thapper/",
         content:
-          "Abhinav Thapper is dedicated, highly enthusiastic, and Ex-Vice President of D-Coder. Co-founder of Code to School, and took the initiative to lead a team of 25+ engineering students from different institutions, intending to expose students of govt. schools of over 10 schools across Delhi to Computer Science fundamentals. He also served as a volunteer at NSS. Former Coding Ninja Intern, Former Software engineer intern at Forethought Integrated Infotech Pvt. Ltd. Currently, He is working as a Software Engineer at Tata Health.",
+          "Abhinav Thapper is dedicated, highly enthusiastic, and Ex-Vice President of D_CODER. Co-founder of Code to School, and took the initiative to lead a team of 25+ engineering students from different institutions, intending to expose students of govt. schools of over 10 schools across Delhi to Computer Science fundamentals. He also served as a volunteer at NSS. Former Coding Ninja Intern, Former Software engineer intern at Forethought Integrated Infotech Pvt. Ltd. Currently, He is working as a Software Engineer at Tata Health.",
       },
     ],
   },
