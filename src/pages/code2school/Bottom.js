@@ -49,7 +49,7 @@ const Mission = () => {
             fontWeight: "bold",
           }}
         >
-          Highlights
+         HIGHLIGHTS
         </h1>
         <br />
         <br />

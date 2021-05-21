@@ -127,10 +127,16 @@ const ProjectsComp = () => {
               <br />
               {/* <Subtitle>techstack</Subtitle> */}
               <Description>
-                Our junior team of developers (Aditya Teltia, Naman Malhotra,
-                Shivansh Dhondiyal, Vaibhav Gupta) got an excellent opportunity
-                to work on project of AccioJobs. They will revamp their complete
-                website.
+                We, at D_CODER recently completed our one of the most ambitious
+                industry project with AccioJob, handled by a team of 15
+                dedicated students, from the society, as software developer from
+                December to February. Our innovative brains designed 100+
+                placement oriented questions on various topics like heaps,
+                sorting arrays, stacks, etc ranging from easy to medium level of
+                difficulty that could enhance the skills of the technical
+                fellows in one of the most important topic for placements, Data
+                Structures and Algorithms and help them in their placement
+                journey.
               </Description>
               <div
                 className="links"
