@@ -7,7 +7,6 @@ import Footer from "components/footers/Footer";
 import FacultyCard from "./FacultyCard";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-
 const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
 const Content = tw.div`my-16`;
@@ -19,7 +18,7 @@ function BoardOfDirectors() {
     <>
       <Hero
         title="Board of Directors"
-        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621608094/BeFunky-collage_vrf2h7.jpg"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621608937/Background_jq65e7.png"
       />
 
       <Container style={{ margin: "-35px" }}>
