@@ -126,6 +126,72 @@ const val = {
       ),
       img: "https://res.cloudinary.com/delhi-technological-university/image/upload/v1621427414/abhigyan_qlxung.jpg",
     },
+    {
+      id: 3,
+      title: "Smart India Hackathon 2018",
+      description: (
+        <div>
+          First major victory by D_CODER at the most prestigious hackathon -
+          Smart India Hackathon, wining a cash prize of one lakh. Credit of this
+          stupenduous achievement goes to{" "}
+          <a
+            href="https://www.linkedin.com/in/adityakulrajdtu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="links"
+          >
+            {" "}
+            Aditya Kulraj
+          </a>
+          ,{" "}
+          <a
+            href="https://www.linkedin.com/in/aarnavjindal/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="links"
+          >
+            Aarnav Jindal
+          </a>
+          ,{" "}
+          <a
+            href="https://www.linkedin.com/in/singhaditya8499/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="links"
+          >
+            Aditya Singh
+          </a>
+          ,{" "}
+          <a
+            href="https://www.linkedin.com/in/akashdeep-9/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="links"
+          >
+            Akashdeep Ramnaney
+          </a>
+          ,{" "}
+          <a
+            href="https://www.linkedin.com/in/deepanshuvarshney/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="links"
+          >
+            Deepanshu Varshney
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://www.linkedin.com/in/daizy-mehta-473763149/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="links"
+          >
+            Daizy Mehta
+          </a>
+        </div>
+      ),
+      img: "https://res.cloudinary.com/dcoderdtu/image/upload/v1621622341/SIH_r6ggvg.jpg",
+    },
   ],
 };
 
