@@ -62,7 +62,6 @@ function Card({ data, index }) {
               gap: "5px",
             }}
           >
-            <Time style={{ marginTop: "3px" }} /> {data.date}
           </div>
         </div>
       </div>
@@ -72,13 +71,12 @@ function Card({ data, index }) {
             <div style={{ display: "flex", gap: "20px" }}>{data.author}</div>
           </div>
         </div>
-        <div style={{ display: "none" }}>
-          <Blog style={{ display: "none !important" }} src={data.src} />
-        </div>
         <Button
           variant="contained"
           color="primary"
           style={{ margin: "auto 0" }}
+          href = {data.src}
+          target = "_blank"
         >
           Read More
         </Button>
