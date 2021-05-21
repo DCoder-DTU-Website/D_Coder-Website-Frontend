@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import "style.css";
 import "tailwindcss/dist/base.css";
-import Hero from "components/hero/SplashScreenWithHeading";
+import Hero from "./Hero";
 import Footer from "components/footers/Footer";
 import Bottom from "./Bottom";
 import Gallery from "./GalPreview";
@@ -17,7 +17,7 @@ function SeniorsSeMulaquaat() {
     <>
       <Hero
         title="Seniors Se Mulaquaat"
-        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621352426/zqoaxq1ufuodivfxkvlc.jpg"
+        bgImage="https://doc-0s-90-docs.googleusercontent.com/docs/securesc/mhbft6p0oe8cd39chofjlo4kgg3g8ulu/93ijv8tllns9tlj9l2frkuuac0of4hqh/1621602525000/05284376294728761865/07086074736746004626/1PwotjuAFtsf7w_eEDhDAKOQ0nCRaEV-F?e=view&authuser=0&nonce=1jd48ppbg1q2u&user=07086074736746004626&hash=mde3bjov4l0oqtnjpkjg3qhhv6ic1pki"
       />
       <Container style={{ margin: "-35px" }}>
         <div>

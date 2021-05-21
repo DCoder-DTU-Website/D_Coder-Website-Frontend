@@ -33,30 +33,7 @@ const DecoratorBlob = tw(
 )`w-20 h-20 absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2 fill-current text-blue-500 -z-10`;
 
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
-
-const Subheading = tw(SubheadingBase)`text-center md:text-left text-blue-500`;
-const Heading = tw(
-  SectionHeading
-)`md:text-left text-white mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
-
-const Features = tw.div`mx-auto md:mx-0 flex flex-col lg:flex-row max-w-xs lg:max-w-none`;
-const Feature = tw.div`mt-10 lg:mt-8 flex items-center md:items-start flex-col md:mr-8 last:mr-0`;
-
-const FeatureHeadingContainer = tw.div`flex items-center`;
-const FeatureIconContainer = styled.div`
-  ${tw`mx-auto inline-block border border-blue-500 text-blue-500 text-center rounded p-2 flex-shrink-0`}
-  ${(props) => [
-    props.iconRoundedFull && tw`rounded-full`,
-    props.iconFilled && tw`border-0 bg-blue-500 text-gray-100`,
-  ]}
-  svg {
-    ${tw`w-5 h-5`}
-  }
-`;
-const FeatureHeading = tw.div`text-white ml-3 font-bold text-xl`;
-
-const FeatureDescription = tw.div`mt-4 text-center md:text-left text-gray-600 leading-relaxed`;
+const Description = tw.p`text-center md:text-justify md:text-base font-medium leading-relaxed text-secondary-100`;
 
 const AboutC2S = ({
   subheading = "An Initiative by D_CODER",
@@ -100,9 +77,9 @@ const AboutC2S = ({
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
-            <Subheading>{subheading}</Subheading>
-            <Heading>{heading}</Heading>
-            <Description>
+            {/* <Subheading>{subheading}</Subheading>
+            <Heading>{heading}</Heading> */}
+            <Description style={{ fontSize: "1.3rem" }}>
               <ul>
                 <br />
                 <li>

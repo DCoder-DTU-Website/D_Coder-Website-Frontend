@@ -77,6 +77,7 @@ const Mission = () => {
                     component="p"
                     style={{
                       color: "white",
+                      fontSize: "1.5rem",
                     }}
                   >
                     Job opportunities from alumni of our college
@@ -99,7 +100,7 @@ const Mission = () => {
                   <Typography
                     variant="p"
                     component="p"
-                    style={{ color: "white" }}
+                    style={{ color: "white", fontSize: "1.5rem" }}
                   >
                     Get insight from industry experts and build your path
                   </Typography>
@@ -121,7 +122,7 @@ const Mission = () => {
                   <Typography
                     variant="p"
                     component="p"
-                    style={{ color: "white" }}
+                    style={{ color: "white", fontSize: "1.5rem" }}
                   >
                     Build connection between experience and young mind
                   </Typography>
@@ -143,7 +144,7 @@ const Mission = () => {
                   <Typography
                     variant="p"
                     component="p"
-                    style={{ color: "white" }}
+                    style={{ color: "white", fontSize: "1.5rem" }}
                   >
                     Interact with young mind of your college
                   </Typography>
