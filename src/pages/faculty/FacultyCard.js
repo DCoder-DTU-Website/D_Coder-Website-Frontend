@@ -35,18 +35,7 @@ function FacultyCard({ count, title, desc, img, post }) {
         }}
       >
         <Title>{title}</Title>
-        <Description>
-          <Typewriter
-            options={{
-              delay: 8,
-            }}
-            onInit={(typewriter) => {
-              typewriter.typeString(desc).start();
-            }}
-            style={{ width: "800px" }}
-            delay={0}
-          />
-        </Description>
+        <Description>{desc}</Description>
       </Details>
     </Card>
   );
