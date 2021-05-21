@@ -9,7 +9,7 @@ const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
 const Content = tw.div`my-16`;
 
-function Chairman() {
+function Founder() {
   const data = `As an engineering student, I was fascinated by the idea to implement technology to solve
     real-world problems, this motivated me to build a team and take part in hackathons. After
     winning multiple hackathons, I started expanding the team, and soon that small team
@@ -31,7 +31,7 @@ function Chairman() {
   return (
     <>
       <Hero
-        title="Chairman"
+        title="Founder"
         bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621440906/Chairperson_qhwx4s.jpg"
       />
       <Container style={{ margin: "-35px" }}>
@@ -55,4 +55,4 @@ function Chairman() {
   );
 }
 
-export default Chairman;
+export default Founder;

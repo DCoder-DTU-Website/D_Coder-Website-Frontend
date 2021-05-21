@@ -9,7 +9,7 @@ const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
 const Content = tw.div`my-16`;
 
-function Chairman() {
+function Founder() {
   const data = `We at D_CODER bridge the gap between college students and the industry through our
   efforts. We do projects, research, collaborate with organisations and research labs to
   contribute to new technology and innovation.
@@ -30,7 +30,7 @@ function Chairman() {
     <>
       <Hero
         title="Faculty"
-        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621440906/Chairperson_qhwx4s.jpg"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621525804/faculty_sggpms.jpg"
       />
       <Container style={{ margin: "-35px" }}>
         <SingleColumn>
@@ -53,4 +53,4 @@ function Chairman() {
   );
 }
 
-export default Chairman;
+export default Founder;
