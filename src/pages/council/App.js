@@ -10,7 +10,7 @@ export default function Council() {
     <div>
       <Hero
         title="The Council"
-        bgImage="https://www.therahnuma.com/wp-content/uploads/2018/08/unsc_somalia.jpg"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621584962/Council-min_gqyqgq.jpg"
       />
       <script type="text/javascript" src="https://form.jotform.com/jsform/211292219446454"></script>
       <Councils />
