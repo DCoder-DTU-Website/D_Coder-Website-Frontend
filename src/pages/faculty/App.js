@@ -42,7 +42,7 @@ function Founder() {
               img={
                 "https://res.cloudinary.com/dcoderdtu/image/upload/v1621625681/rahul_sir_jqgtyb_kxpatk.jpg"
               }
-              title="Dr. Rahul Katarya"
+              title="Prof. Rahul Katarya"
               delay={10}
             />
           </Content>
