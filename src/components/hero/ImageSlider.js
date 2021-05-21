@@ -2,8 +2,6 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import NavBar from "helpers/library.js";
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/custom-animations/cube-animation.css';
 
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 mb-8 bg-center bg-cover h-screen min-h-144`}
@@ -41,4 +39,3 @@ const splashScreen = (props) => {
 };
 
 export default splashScreen;
-
