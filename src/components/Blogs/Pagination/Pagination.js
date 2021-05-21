@@ -24,7 +24,8 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
             width: "30px",
             textAlign: "center",
             border:"2px solid white",
-            marginBottom:"20px"
+            marginBottom:"20px",
+            cursor:"pointer"
           }}
           href="#"
           key={num}

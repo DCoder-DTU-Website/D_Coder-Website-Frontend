@@ -38,7 +38,7 @@ const Subheading = tw(SubheadingBase)`text-center md:text-left text-blue-500`;
 const Heading = tw(
   SectionHeading
 )`md:text-left text-white mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
+const Description = tw.p`text-center md:text-justify text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
 
 const Features = tw.div`mx-auto md:mx-0 flex flex-col lg:flex-row max-w-xs lg:max-w-none`;
 const Feature = tw.div`mt-10 lg:mt-8 flex items-center md:items-start flex-col md:mr-8 last:mr-0`;
@@ -110,12 +110,14 @@ const AboutC2S = ({
                   school students to design, create and express themselves
                   through digital technologies.
                 </li>
+                <br />
                 <li>
                   Our members of D_CODER put in their efforts to teach and
                   educate school students about the importance of technical
                   innovation and how the students can think to innovate in the
                   future.
                 </li>
+                <br />
                 <li>
                   Since coding is today’s language of creativity, the school
                   students were taught programming by our team members which
