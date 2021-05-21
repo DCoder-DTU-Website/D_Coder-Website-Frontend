@@ -54,6 +54,7 @@ function NavBar() {
             >
               <Link to="/code_to_school">Code To School</Link>
               <Link to="/mission_qabil">Mission Qabil</Link>
+              <Link to="/seniors_se_mulaquaat">Seniors Se Mulaquaat</Link>
             </div>
           </li>
           <li className="navbar-dropdown">

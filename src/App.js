@@ -29,8 +29,8 @@ import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Chairman from "pages/Chairman/App";
 import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
-import ReadMore from "components/Blogs/routes/Blog/Blog"
-
+import ReadMore from "components/Blogs/routes/Blog/Blog";
+import SeniorsSeMulaquaat from "pages/ssm/App";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -70,6 +70,9 @@ function App() {
           </Route>
           <Route exact path="/mission_qabil">
             <Mission />
+          </Route>
+          <Route exact path="/seniors_se_mulaquaat">
+            <SeniorsSeMulaquaat />
           </Route>
           <Route exact path="/blog/read_more" exact component={ReadMore} />
 
