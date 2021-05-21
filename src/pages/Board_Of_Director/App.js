@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import "style.css";
 import "tailwindcss/dist/base.css";
-import Hero from "components/hero/SplashScreenWithHeading";
+import Hero from "components/hero/ImageSlider";
 import Footer from "components/footers/Footer";
 import FacultyCard from "./FacultyCard";
-
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
@@ -18,11 +19,12 @@ function BoardOfDirectors() {
     <>
       <Hero
         title="Board of Directors"
-        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621434968/BoardOfDirectors_iy8zgf.jpg"
+        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621608094/BeFunky-collage_vrf2h7.jpg"
       />
+
       <Container style={{ margin: "-35px" }}>
         <SingleColumn>
-          <Content style={{left:"15rem"}}>
+          <Content style={{ left: "15rem" }}>
             <FacultyCard
               count={1}
               desc={data}

@@ -13,7 +13,7 @@ const About = () => {
             What is Missi<span style={{ color: "#f3a94e" }}>o</span>n{" "}
             <span style={{ color: "#f3a94e" }}>Q</span>abil ?
           </a>
-          <p id="main-p" className="def-para" style={{textAlign: "center"}}>
+          <p id="main-p" className="def-para" style={{ textAlign: "center" }}>
             <br />
             Mission Qabil is an initiative to empower differently-abled college
             students. We will provide them with a competitive environment where
@@ -30,7 +30,7 @@ const About = () => {
         <iframe
           className="video"
           id="video"
-          src="https://www.youtube.com/embed/_aE-1oGvfNg?rel=0?version=3&loop=1"
+          src="https://www.youtube.com/embed/-KIE463QlK4"
           allowfullscreen="allowfullscreen"
           frameborder="0"
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

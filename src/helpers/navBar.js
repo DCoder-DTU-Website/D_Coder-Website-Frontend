@@ -63,7 +63,20 @@ function NavBar() {
             <Link to="/gallery">Gallery</Link>
           </li>
           <li className="navbar-dropdown">
-            <Link to="/lectures">Lectures</Link>
+            <Link
+              onClick={(evt) => {
+                evt.preventDefault();
+              }}
+            >
+              Education
+            </Link>
+            <div
+              className="dropdown"
+              style={{ width: "180px", borderRadius: "10px" }}
+            >
+              <Link to="/lectures">Lectures</Link>
+              <Link to="/blog">Blogs</Link>
+            </div>
           </li>
           <li className="navbar-dropdown">
             <Link to="/projects">Projects</Link>
