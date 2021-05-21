@@ -5,8 +5,6 @@ import "tailwindcss/dist/base.css";
 import Hero from "components/hero/ImageSlider";
 import Footer from "components/footers/Footer";
 import FacultyCard from "./FacultyCard";
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
 const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
 const Content = tw.div`my-16`;
