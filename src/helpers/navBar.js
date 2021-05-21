@@ -58,12 +58,6 @@ function NavBar() {
             </div>
           </li>
           <li className="navbar-dropdown">
-            <Link to="/events">Events</Link>
-          </li>
-          <li className="navbar-dropdown">
-            <Link to="/gallery">Gallery</Link>
-          </li>
-          <li className="navbar-dropdown">
             <Link
               onClick={(evt) => {
                 evt.preventDefault();
@@ -79,6 +73,13 @@ function NavBar() {
               <Link to="/blog">Blogs</Link>
             </div>
           </li>
+          <li className="navbar-dropdown">
+            <Link to="/events">Events</Link>
+          </li>
+          <li className="navbar-dropdown">
+            <Link to="/gallery">Gallery</Link>
+          </li>
+
           <li className="navbar-dropdown">
             <Link to="/projects">Projects</Link>
           </li>
