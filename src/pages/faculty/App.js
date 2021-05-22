@@ -5,14 +5,27 @@ import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
 import Footer from "components/footers/Footer";
 import FacultyCard from "./FacultyCard";
-
 const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
 const Content = tw.div`my-16`;
 
-function Faculty() {
-  const data =
-    "Sh. Anil Baijal joined the Indian Administrative  Services (IAS) in 1969. In a long  career spanning over 37 years, Mr. Baijal held several eminent positions. He served as  Union Home  Secretary, Secretary, Urban Development, GOI, Vice-Chairman of Delhi  Development Authority, Chief Secretary of Andaman & Nicobar Islands,  Additional Secretary in the Ministry of Information and Broadcasting and Joint  Secretary in the Ministry of Civil Aviation, Chairman and MD of Indian  Airlines, CEO of Prasar Bharati, Development Commissioner of Goa, Commissioner  (Sales Tax and Excise) of Delhi, Counsellor In-charge of the Indian Aid Programme in Nepal, Embassy of India, Kathmandu among other positions. He was responsible for the introduction of DD Bharti. He also served as a Member of the Advisory Group for Integrated Development of Power, Coal, and Renewable Energy chaired by Sh. S.P Prabhu, currently Minister of Railways. He was Chairman of  a High Level Committee on implementation of Corporate Social Responsibility in  2016. He holds Master's  Degree in Arts from the University of Allahabad and the University of East  Anglia. Shri Anil Baijal took over as the 21st Lt. Governor, Government of N.C.T. of Delhi on 31st December,  2016.";
+function Founder() {
+  const data = `We at D_CODER bridge the gap between college students and the industry through our
+  efforts. We do projects, research, collaborate with organisations and research labs to
+  contribute to new technology and innovation.
+  D_CODER (CALIBRE) has published 20+ research papers in the previous year, with the
+  focus of a significant number of them upon improving the feasibility during this deadly
+  pandemic via advanced Machine Learning models. This year, we aim to increase this
+  number even further by applying technologies like big data to benefit humanity.
+  Learning is a lifelong journey. Yet, many of us still think learning happens only through
+  academic training. Formal education is still an essential part of the journey, but learning goes
+  beyond the comfort of school and university. I have always encouraged all the members to
+  work hard in any scenario, learn as much as possible, and benefit from this fantastic
+  community of seniors you all are blessed with.
+  D_CODER has grown exponentially over the years, and I’m proud of all the members and
+  everything they have achieved. It gives me immense pleasure to be the faculty advisor of
+  such intelligent young minds, and I wish the entire team the best of luck in all their future
+  endeavours`;
   return (
     <>
       <Hero
@@ -25,36 +38,12 @@ function Faculty() {
             <FacultyCard
               count={1}
               desc={data}
-              img={
-                "http://www.dtu.ac.in/Web/Administrations/Images/Chancellor.jpg"
-              }
-              post={"Lt Governer of Delhi"}
-              title="Shri Anil Baijal"
               key={1}
-            />
-          </Content>
-          <Content>
-            <FacultyCard
-              count={2}
-              desc={data}
               img={
-                "http://www.dtu.ac.in/Web/Administrations/Images/Chancellor.jpg"
+                "https://res.cloudinary.com/dcoderdtu/image/upload/v1621625681/rahul_sir_jqgtyb_kxpatk.jpg"
               }
-              post={"Lt Governer of Delhi"}
-              title="Shri Anil Baijal"
-              key={2}
-            />
-          </Content>
-          <Content>
-            <FacultyCard
-              count={3}
-              desc={data}
-              img={
-                "http://www.dtu.ac.in/Web/Administrations/Images/Chancellor.jpg"
-              }
-              post={"Lt Governer of Delhi"}
-              title="Shri Anil Baijal"
-              key={3}
+              title="Prof. Rahul Katarya"
+              delay={10}
             />
           </Content>
         </SingleColumn>
@@ -64,4 +53,4 @@ function Faculty() {
   );
 }
 
-export default Faculty;
+export default Founder;

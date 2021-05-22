@@ -26,7 +26,7 @@ import GoogleForm from "./pages/GoogleForms/Form1";
 import CodeToSchool from "pages/code2school/App";
 import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
-import Chairman from "pages/Chairman/App";
+import Founder from "pages/Founder/App";
 import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
 import ReadMore from "components/Blogs/routes/Blog/Blog";
@@ -105,8 +105,8 @@ function App() {
           <Route exact path="/faculty">
             <Faculty />
           </Route>
-          <Route exact path="/chairman">
-            <Chairman />
+          <Route exact path="/founder">
+            <Founder />
           </Route>
           <Route exact path="/blog">
             <Blog />

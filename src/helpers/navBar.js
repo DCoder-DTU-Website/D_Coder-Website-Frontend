@@ -21,7 +21,7 @@ function NavBar() {
               style={{ width: "200px", borderRadius: "10px" }}
             >
               <Link to="/faculty">Faculty</Link>
-              <Link to="/chairman">Chairman</Link>
+              <Link to="/founder">Founder</Link>
               <Link to="/board_of_directors">Board of Directors</Link>
               <Link to="/council">Council</Link>
               <Link to="/alumni">Alumni</Link>
