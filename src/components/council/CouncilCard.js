@@ -1,5 +1,4 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
