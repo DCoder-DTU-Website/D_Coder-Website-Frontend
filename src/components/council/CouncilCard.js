@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import "./council.css";
+import "./CouncilCard.css";
 
 const CardContainer = tw.div`flex justify-center mt-10 p-5 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:pr-10 md:pr-6 lg:pr-12`;
 const Card = tw(
@@ -23,7 +24,24 @@ const CardContent = tw.p`mt-1 text-sm font-medium text-white`;
 
 export default function CouncilCard({ index, card }) {
   return (
-    <CardContainer key={index}>
+    <a class="card" style={{ backgroundColor: "#1a202c" }}>
+      <div
+        class="front"
+        style={{ backgroundImage: `url(${card.imageSrc})` }}
+      ></div>
+      <div class="back">
+        <div>
+          <h1>{card.title}</h1>
+          <h4>{card.content}</h4>
+          <button class="button">Click Here</button>
+        </div>
+      </div>
+    </a>
+  );
+}
+
+{
+  /* <CardContainer key={index}>
       <Card
         className="group"
         data-aos="fade-up"
@@ -45,6 +63,5 @@ export default function CouncilCard({ index, card }) {
           <CardContent>{card.content}</CardContent>
         </CardText>
       </Card>
-    </CardContainer>
-  );
+    </CardContainer> */
 }
