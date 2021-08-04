@@ -23,13 +23,24 @@ const CardTitle = tw.h5`text-lg font-semibold group-hover:text-white`;
 const CardContent = tw.p`mt-1 text-sm font-medium text-white`;
 
 export default function CouncilCard({ index, card }) {
+  const backImage = [
+    "https://i.pinimg.com/736x/b8/9d/22/b89d221eaf478e368e9b205a30d5d263.jpg",
+    "https://i.pinimg.com/originals/db/8c/82/db8c8283057bfc1e3261587c0d0223f2.jpg",
+  ];
   return (
     <a class="card" style={{ backgroundColor: "#1a202c" }}>
       <div
         class="front"
         style={{ backgroundImage: `url(${card.imageSrc})` }}
       ></div>
-      <div class="back">
+      <div
+        class="back"
+        style={{
+          backgroundImage: `url(${backImage[index % 2]})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div>
           <h1>{card.title}</h1>
           <h4>{card.content}</h4>
