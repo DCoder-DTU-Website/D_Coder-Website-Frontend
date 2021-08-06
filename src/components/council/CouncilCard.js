@@ -29,31 +29,98 @@ export default function CouncilCard({ index, card }) {
     "https://i.pinimg.com/originals/db/8c/82/db8c8283057bfc1e3261587c0d0223f2.jpg",
   ];
   return (
-    <a
-      class="card"
-      style={{ backgroundColor: "#1a202c" }}
-      data-aos="fade-up"
-      data-aos-anchor-placement="center-bottom"
+    <div
+      id="curve"
+      className="card"
+      style={{ backgroundImage: `url(${card.imageSrc})` }}
     >
-      <div
-        class="front"
-        style={{ backgroundImage: `url(${card.imageSrc})` }}
-      ></div>
-      <div
-        class="back"
-        style={{
-          backgroundImage: `url(${backImage[1]})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div>
-          <h1>{card.title}</h1>
-          <h4>{card.content}</h4>
-          <button class="button">Click Here</button>
+      <div className="footer">
+        <div className="connections">
+          <div className="connection facebook">
+            <div className="icon"></div>
+          </div>
+        </div>
+        <svg id="curve">
+          <path
+            id={index}
+            d="M0,200 Q80,100 400,200 V150 H0 V50"
+            transform="translate(0 300)"
+          />
+          <rect
+            id="dummyRect"
+            x="0"
+            y="0"
+            height="450"
+            width="400"
+            fill="transparent"
+          />
+          <animate
+            href={`#${index}`}
+            attributeName="d"
+            to="M0,50 Q80,100 400,50 V150 H0 V50"
+            fill="freeze"
+            begin="dummyRect.mouseover"
+            end="dummyRect.mouseout"
+            dur="0.1s"
+            id="bounce1"
+          />
+          <animate
+            href={`#${index}`}
+            attributeName="d"
+            to="M0,50 Q80,0 400,50 V150 H0 V50"
+            fill="freeze"
+            begin="bounce1.end"
+            end="dummyRect.mouseout"
+            dur="0.15s"
+            id="bounce2"
+          />
+          <animate
+            href={`#${index}`}
+            attributeName="d"
+            to="M0,50 Q80,80 400,50 V150 H0 V50"
+            fill="freeze"
+            begin="bounce2.end"
+            end="dummyRect.mouseout"
+            dur="0.15s"
+            id="bounce3"
+          />
+          <animate
+            href={`#${index}`}
+            attributeName="d"
+            to="M0,50 Q80,45 400,50 V150 H0 V50"
+            fill="freeze"
+            begin="bounce3.end"
+            end="dummyRect.mouseout"
+            dur="0.1s"
+            id="bounce4"
+          />
+          <animate
+            href={`#${index}`}
+            attributeName="d"
+            to="M0,50 Q80,50 400,50 V150 H0 V50"
+            fill="freeze"
+            begin="bounce4.end"
+            end="dummyRect.mouseout"
+            dur="0.05s"
+            id="bounce5"
+          />
+          <animate
+            href={`#${index}`}
+            attributeName="d"
+            to="M0,200 Q80,100 400,200 V150 H0 V50"
+            fill="freeze"
+            begin="dummyRect.mouseout"
+            dur="0.15s"
+            id="bounceOut"
+          />
+        </svg>
+        <div className="info">
+          <div className="name">{card.title}</div>
+          <div className="job">{card.content}</div>
         </div>
       </div>
-    </a>
+      <div className="card-blur"></div>
+    </div>
   );
 }
 

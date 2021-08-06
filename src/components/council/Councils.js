@@ -143,11 +143,11 @@ const Councils = ({
           >
             {tabKey !== "Heads" &&
               tabs[tabKey].map((card, index) => (
-                <CouncilCard index={index} card={card} />
+                <CouncilCard key={index} index={index} card={card} />
               ))}
             {tabKey === "Heads" &&
               tabs["Heads"].president.map((card, index) => (
-                <CouncilCard index={index} card={card} />
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -172,7 +172,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].vp.map((card, index) => (
-                <CouncilCard index={index} card={card} />
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -197,7 +197,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].gs.map((card, index) => (
-                <CouncilCard index={index} card={card} />
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -222,7 +222,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].tl.map((card, index) => (
-                <CouncilCard index={index} card={card} />
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -247,7 +247,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].frtgct.map((card, index) => (
-                <CouncilCard index={index} card={card} />
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -272,7 +272,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].rl.map((card, index) => (
-                <CouncilCard index={index} card={card} />
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
