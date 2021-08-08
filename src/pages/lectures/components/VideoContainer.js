@@ -27,9 +27,9 @@ function VideoContainer({ history, location, match }) {
     }
   };
 
-  useEffect(() => {
-    getVideos();
-  }, []);
+  // useEffect(() => {
+  //   getVideos();
+  // }, []);
 
   const topicVideos = videos.filter(
     (video) =>

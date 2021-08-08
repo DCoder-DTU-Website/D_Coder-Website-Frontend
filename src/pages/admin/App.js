@@ -12,6 +12,7 @@ import Forms from "./Form";
 import Forms2 from "./Form2";
 import Forms3 from "./Form3";
 import NoticesForm from "./NoticesForm";
+import CreateForm from "./CreateForm";
 
 import Testimonial from "components/testimonials/AdminProjects";
 import "./styles.css";
@@ -109,6 +110,23 @@ export default function Admin() {
             </CardHeader>
             <CardBody>
               <Forms />
+            </CardBody>
+          </Card>
+        </Grid>
+        <Grid item lg={4} xs={12} style={{ display: "flex" }}>
+          <Card
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexDirection: "column",
+            }}
+          >
+            <CardHeader style={{ backgroundColor: "rgb(49,130,206)" }}>
+              <h4 className={classes.cardTitleWhite}>Forms</h4>
+              <p className={classes.cardCategoryWhite}>Create Forms</p>
+            </CardHeader>
+            <CardBody>
+              <CreateForm />
             </CardBody>
           </Card>
         </Grid>
