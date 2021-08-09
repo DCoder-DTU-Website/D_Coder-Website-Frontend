@@ -32,7 +32,16 @@ export default function CouncilCard({ index, card }) {
   return (
     <div className="card__collection clear-fix" style={{ margin: "1em 3em" }}>
       <div className="cards cards--two">
-        <img src={card.imageSrc} className="img-responsive" alt="Cards Image" />
+        <img
+          src={card.imageSrc}
+          className="img-responsive"
+          alt="Cards Image"
+          style={{
+            height: "100%",
+            width: "100%",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
         <span className="cards--two__rect"></span>
         <span className="cards--two__tri"></span>
         <p>{card.title}</p>
