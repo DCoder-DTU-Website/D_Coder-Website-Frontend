@@ -56,6 +56,18 @@ export default function AdminNavbarLinks() {
             </Button>
           )}
         />
+        <Route
+          render={({ history }) => (
+            <Button
+              onClick={() => {
+                history.push("/admin/form");
+              }}
+              style={{ backgroundColor: "rgba(49,130,206)", color: "white" }}
+            >
+              Forms
+            </Button>
+          )}
+        />
       </div>
     </div>
   );

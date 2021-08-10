@@ -24,26 +24,33 @@ export default function MultilineTextFields() {
   const [link, setLink] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const clickSubmit = async () => {
+  // const clickSubmit = async () => {
+  //   try {
+  //     alert(`http://dcoderfrontend.herokuapp.com/form/${title}`);
+  //     setLoading(true);
+  //     await api.post(`/form/${title}`, {
+  //       title: title,
+  //       link: link,
+  //     });
+  //     swal({
+  //       title: "Notice Uploaded Successfully!",
+  //       icon: "success",
+  //       buttons: true,
+  //       closeOnClickOutside: true,
+  //       closeOnEsc: true,
+  //     });
+  //     setTitle("");
+  //     setLink("");
+  //     setLoading(false);
+  //   } catch (err) {
+  //     console.log(err, "Upload Failed");
+  //   }
+  // };
+  const clickSubmit = () => {
     try {
       alert(`http://dcoderfrontend.herokuapp.com/form/${title}`);
-      setLoading(true);
-      await api.post(`/form/${title}`, {
-        title: title,
-        link: link,
-      });
-      swal({
-        title: "Notice Uploaded Successfully!",
-        icon: "success",
-        buttons: true,
-        closeOnClickOutside: true,
-        closeOnEsc: true,
-      });
-      setTitle("");
-      setLink("");
-      setLoading(false);
     } catch (err) {
-      console.log(err, "Upload Failed");
+      console.log("error");
     }
   };
   return (
@@ -57,6 +64,7 @@ export default function MultilineTextFields() {
           multiline
           variant="outlined"
           required
+          name="title"
           fullWidth
           onChange={(e) => setTitle(e.target.value)}
           value={title}
@@ -66,9 +74,24 @@ export default function MultilineTextFields() {
         <TextField
           type="input"
           id="outlined-textarea"
-          label="Links"
+          label="Google Form Link"
           placeholder="E.g. Google Forms Registration Link"
           multiline
+          name="form_url" 
+          variant="outlined"
+          fullWidth
+          onChange={(e) => setLink(e.target.value)}
+          value={link}
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <TextField
+          type="input"
+          id="outlined-textarea"
+          label="Response Sheet Link"
+          placeholder="E.g. Google Sheets Link"
+          multiline
+          name="response_url"
           variant="outlined"
           fullWidth
           onChange={(e) => setLink(e.target.value)}

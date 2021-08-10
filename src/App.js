@@ -31,6 +31,7 @@ import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
 import ReadMore from "components/Blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
+import AddGoogleForm from "pages/admin/AddGoogleForm";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -90,6 +91,9 @@ function App() {
           </Route>
           <Route exact path="/admin/table">
             {isAdmin ? <Table /> : <NotAnAdmin />}
+          </Route>
+          <Route exact path="/admin/form">
+            {isAdmin ? <AddGoogleForm /> : <NotAnAdmin />}
           </Route>
           <Route
             exact
