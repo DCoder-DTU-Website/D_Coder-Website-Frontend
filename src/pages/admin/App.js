@@ -121,13 +121,13 @@ export default function Admin() {
               flexDirection: "column",
             }}
           >
-            <CardHeader style={{ backgroundColor: "rgb(49,130,206)" }}>
+            {/* <CardHeader style={{ backgroundColor: "rgb(49,130,206)" }}>
               <h4 className={classes.cardTitleWhite}>Forms</h4>
               <p className={classes.cardCategoryWhite}>Create Forms</p>
             </CardHeader>
             <CardBody>
               <CreateForm />
-            </CardBody>
+            </CardBody> */}
           </Card>
         </Grid>
       </Grid>
