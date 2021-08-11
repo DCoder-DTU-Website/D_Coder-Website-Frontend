@@ -9,13 +9,13 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchBar from "material-ui-search-bar";
-import Modal from "../modal";
-import UserModal from "../userModal";
-import AdminNavbarLinks from "../components/Navbar";
-import "../page.css";
-import api from "../../../api/apiClient";
+import Modal from "./components/NewUserAddModal";
+import UserModal from "./components/ViewUserDetailsModal";
+import AdminNavbarLinks from "../../components/Navbar";
+import "../../Styles/page.css";
+import api from "../../../../api/apiClient";
 import swal from "sweetalert";
-import "../tablelist.css";
+import "../../Styles/tablelist.css";
 
 const useStyles = makeStyles({
   table: {
@@ -162,11 +162,11 @@ export default function BasicTable() {
         </TableContainer>
 
         {/* MOBILE TABLE LIST*/}
-        
+
         <TableContainer className="mobile_list" style={{ overflow: "hidden" }}>
           <Table className={classes.table} aria-label="simple table">
-            <TableHead >
-              <TableRow >
+            <TableHead>
+              <TableRow>
                 <TableCell>Name</TableCell>
                 <TableCell align="center" style={{ paddingLeft: "90px" }}>
                   Remove User

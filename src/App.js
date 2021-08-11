@@ -17,8 +17,8 @@ import Admin from "pages/admin/App";
 import Testimonial from "pages/testimonial/App";
 import Research from "pages/research/App";
 import Interns from "pages/interns/App";
-import Table from "pages/admin/pages/Members";
-import UserProfile from "pages/admin/UserProfile";
+import Table from "pages/admin/pages/Members/Members";
+import UserProfile from "pages/admin/pages/User/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
@@ -32,7 +32,7 @@ import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
 import ReadMore from "components/Blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
-import AddGoogleForm from "pages/admin/pages/Forms";
+import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

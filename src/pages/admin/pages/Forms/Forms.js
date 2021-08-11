@@ -12,13 +12,13 @@ import Paper from "@material-ui/core/Paper";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import SearchBar from "material-ui-search-bar";
-import Modal from "../FormModal";
-import UserModal from "../userModal";
-import AdminNavbarLinks from "../components/Navbar";
-import "../page.css";
-import api from "../../../api/apiClient";
+import Modal from "./components/NewFormAddModal";
+import UserModal from "../Members/components/ViewUserDetailsModal";
+import AdminNavbarLinks from "../../components/Navbar";
+import "../../Styles/page.css";
+import api from "../../../../api/apiClient";
 import swal from "sweetalert";
-import "../tablelist.css";
+import "../../Styles/tablelist.css";
 
 const useStyles = makeStyles({
   table: {

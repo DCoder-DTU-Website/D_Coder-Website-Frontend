@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { BlueButton } from "../misc/Buttons.js";
+import { BlueButton } from "../../../components/misc/Buttons.js";
 import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chevron-left.svg";
 import { ReactComponent as ChevronRightIcon } from "feather-icons/dist/icons/chevron-right.svg";
-import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-4.svg";
-import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-5.svg";
+import { ReactComponent as SvgDecoratorBlob1 } from "../../../images/svg-decorator-blob-4.svg";
+import { ReactComponent as SvgDecoratorBlob2 } from "../../../images/svg-decorator-blob-5.svg";
 
 import "slick-carousel/slick/slick.css";
 import Button from "@material-ui/core/Button";
-import "../../pages/admin/styles.css";
-import api from "../../api/apiClient";
+import "../Styles/styles.css";
+import api from "../../../api/apiClient";
 import swal from "sweetalert";
 
 const Container = tw.div` relative -mt-16 ml-4 -mb-16`;

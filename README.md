@@ -153,7 +153,7 @@ Route - /gallery
     d. **export default**
     Main function that is to be exported. Takes slideIndex as parameter and takes the value of slideIndex from the file photoIndex.js (src/components/PhotoGallery/photoindex.js) that takes the value of the index of the image that is clicked by the user. This function is resonsible for the arranging the slides and let traversing.
 5.  **styles.js**
-    Path - src/components/Gallery/styles.css
+    Path - src/components/Gallery/Styles/styles.css
     File styled the 3D Carousel
 
 ## Lectures

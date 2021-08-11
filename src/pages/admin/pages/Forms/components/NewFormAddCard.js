@@ -4,13 +4,13 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import FormControl from "@material-ui/core/FormControl";
 import tw from "twin.macro";
-import Upload from "../../../components/features/Upload/Upload";
+import Upload from "../../../../../components/features/Upload/Upload";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
-import api from "../../../api/apiClient";
+import api from "../../../../../api/apiClient";
 import axios from "axios";
 import swal from "sweetalert";
 

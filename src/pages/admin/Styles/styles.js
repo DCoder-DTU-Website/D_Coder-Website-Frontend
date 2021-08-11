@@ -3,7 +3,7 @@ import {
   whiteColor,
   grayColor,
   hexToRgb,
-} from "./assets/jss/material-dashboard-react";
+} from "../assets/jss/material-dashboard-react";
 
 const dashboardStyle = {
   successText: {

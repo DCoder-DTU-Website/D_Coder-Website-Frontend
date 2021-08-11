@@ -27,15 +27,15 @@ import { IconButton } from "@material-ui/core";
 // import CardFooter from "components/cards/CardFooter";
 // import { RadioGroup } from "@material-ui/core";
 
-import useUser from "../../useUser";
-import api from "../../api/apiClient";
+import useUser from "../../../../useUser";
+import api from "../../../../api/apiClient";
 import swal from "sweetalert";
 import Upload from "components/features/Upload/Upload";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
-import ResetModal from "../../helpers/ResetModal";
+import ResetModal from "../../../../helpers/ResetModal";
 
 const useStyles = makeStyles((theme) => ({
   root: {

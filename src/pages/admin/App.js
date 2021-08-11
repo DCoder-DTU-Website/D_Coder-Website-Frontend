@@ -12,11 +12,11 @@ import Forms from "./DashboardCards/LectureCard";
 import Forms2 from "./DashboardCards/EventCard";
 import Forms3 from "./DashboardCards/GalleryCard";
 import NoticeCard from "./DashboardCards/NoticeCard";
-import CreateForm from "./components/NewFormAddModal";
+import CreateForm from "./pages/Forms/components/NewFormAddCard";
 
-import Testimonial from "components/testimonials/AdminProjects";
-import "./styles.css";
-import styles from "./styles";
+import Testimonial from "pages/admin/DashboardCards/ProjectCard";
+import "./Styles/styles.css";
+import styles from "./Styles/styles";
 import AdminNavbarLinks from "./components/Navbar";
 
 import "./App.css";
@@ -120,8 +120,7 @@ export default function Admin() {
               justifyContent: "space-between",
               flexDirection: "column",
             }}
-          >
-          </Card>
+          ></Card>
         </Grid>
       </Grid>
     </div>
