@@ -37,7 +37,8 @@ export default function BasicTable() {
       const fullName = form.title;
       return fullName.toLowerCase().includes(searchedVal.toLowerCase());
     });
-    setOriginalForms(filteredRows);
+    console.log(filteredRows);
+    setForms(filteredRows);
   };
 
   const cancelSearch = () => {
@@ -51,6 +52,7 @@ export default function BasicTable() {
       const { data: formsData } = data;
       formsData.reverse();
       setForms(formsData);
+      setOriginalForms(formsData);
     } catch (error) {
       console.log(error);
     }
