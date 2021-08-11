@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import tw from "twin.macro";
 import logo from "../../../images/logo.png";
 import styled from "styled-components";
+import "./Navbar.css";
 
 export const NavLink = tw.a`
   text-lg my-2 lg:text-sm lg:mx-6 lg:my-0
@@ -27,11 +28,14 @@ export default function AdminNavbarLinks() {
         justifyContent: "space-between",
         alignItems: "center",
       }}
+      className="dcoder-logo-wrapper"
     >
-      <a href="/" style={{ width: 40 }}>
-        <img src={logo} alt="logo" />
-      </a>
-      <div style={{ display: "flex", gap: "10px" }}>
+      <div style={{ width: 40 }} className="dcoder-logo">
+        <a href="/" style={{ width: 40 }}>
+          <img src={logo} alt="logo" />
+        </a>
+      </div>
+      <div style={{ display: "flex", gap: "10px" }} className="admin-btns">
         <Route
           render={({ history }) => (
             <Button
