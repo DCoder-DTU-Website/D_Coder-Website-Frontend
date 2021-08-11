@@ -90,7 +90,38 @@ export default function BasicTable() {
             <TableBody>
               {forms.map((form, index) => (
                 <TableRow>
-                  <TableCell>{form.title}</TableCell>
+                  <TableCell>
+                    <div style={{ display: "flex" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "1%",
+                        }}
+                      >
+                        <div
+                          className="circle"
+                          style={{
+                            width: "12px",
+                            height: "12px",
+                            backgroundColor: "green",
+                            borderRadius: "50%",
+                          }}
+                        ></div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "1%",
+                        }}
+                      >
+                        {form.title}
+                      </div>
+                    </div>
+                  </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
                     <FileCopyIcon
                       style={{ cursor: "pointer" }}
@@ -129,7 +160,38 @@ export default function BasicTable() {
             <TableBody>
               {forms.map((form, index) => (
                 <TableRow>
-                  <TableCell>{form.title}</TableCell>
+                  <TableCell>
+                    <div style={{ display: "flex" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "1%",
+                        }}
+                      >
+                        <div
+                          className="circle"
+                          style={{
+                            width: "12px",
+                            height: "12px",
+                            backgroundColor: "green",
+                            borderRadius: "50%",
+                          }}
+                        ></div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "1%",
+                        }}
+                      >
+                        {form.title}
+                      </div>
+                    </div>
+                  </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
                     <FileCopyIcon
                       style={{ cursor: "pointer" }}

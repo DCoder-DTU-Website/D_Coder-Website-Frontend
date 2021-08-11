@@ -39,7 +39,8 @@ export default function TransitionsModal() {
       style={{
         display: "flex",
         flexDirection: "row-reverse",
-        justifyContent: "space-around",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Button
@@ -66,9 +67,23 @@ export default function TransitionsModal() {
         BackdropProps={{
           timeout: 500,
         }}
+        style={{
+          width: "100% ",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div
+            className={classes.paper}
+            style={{
+              width: "50%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Form />
           </div>
         </Fade>
