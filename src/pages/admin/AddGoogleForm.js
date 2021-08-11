@@ -50,6 +50,7 @@ export default function BasicTable() {
       const { data } = await api.get("/forms/all");
       const { data: formsData } = data;
       setForms(formsData);
+      forms.reverse();
       // console.log(formsData[0].title);
       // console.log(forms[0].title);
       // console.log(forms[0].desc);
