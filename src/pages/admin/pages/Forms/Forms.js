@@ -30,7 +30,7 @@ export default function BasicTable() {
   const [originalForms, setOriginalForms] = useState([]);
   const [forms, setForms] = useState(originalForms);
   const [searched, setSearched] = useState("");
-  const [dot, setDot] = useState("red");
+  const [dot, setDot] = useState("green");
   const classes = useStyles();
 
   const requestSearch = (searchedVal) => {
@@ -42,6 +42,23 @@ export default function BasicTable() {
     setForms(filteredRows);
   };
 
+  const compareDate = (date) => {
+    var a = new Date();
+    var day = a.getDate();
+    var month = a.getMonth();
+    var year = a.getFullYear();
+    var year1 = parseInt(date.slice(0, 4));
+    var month1 = parseInt(date.slice(5, 7));
+    var day1 = parseInt(date.slice(8, 10));
+    if (year1 < year || month1 < month || day1 < day) {
+      return true;
+    }
+    return false;
+    // {
+    //   setDot("red");
+    // }
+    // return true;
+  };
   const cancelSearch = () => {
     setSearched("");
     requestSearch(searched);
@@ -51,6 +68,7 @@ export default function BasicTable() {
     try {
       const { data } = await api.get("/forms/all");
       const { data: formsData } = data;
+      // console.log(formsData[2].deadline.getYear());
       formsData.reverse();
       setForms(formsData);
       setOriginalForms(formsData);
@@ -98,15 +116,27 @@ export default function BasicTable() {
                           margin: "1%",
                         }}
                       >
-                        <div
-                          className="circle"
-                          style={{
-                            width: "12px",
-                            height: "12px",
-                            backgroundColor: `${dot}`,
-                            borderRadius: "50%",
-                          }}
-                        ></div>
+                        {form.deadline && compareDate(form.deadline) ? (
+                          <div
+                            className="circle"
+                            style={{
+                              width: "12px",
+                              height: "12px",
+                              backgroundColor: "red",
+                              borderRadius: "50%",
+                            }}
+                          ></div>
+                        ) : (
+                          <div
+                            className="circle"
+                            style={{
+                              width: "12px",
+                              height: "12px",
+                              backgroundColor: "green",
+                              borderRadius: "50%",
+                            }}
+                          ></div>
+                        )}
                       </div>
                       <div
                         style={{
