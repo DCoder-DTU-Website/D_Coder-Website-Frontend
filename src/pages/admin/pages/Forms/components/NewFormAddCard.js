@@ -13,6 +13,8 @@ import {
 import api from "../../../../../api/apiClient";
 import axios from "axios";
 import swal from "sweetalert";
+import "./NewFormAddCard.css";
+import { BrowserView, MobileView, isMobile } from "react-device-detect";
 
 const SubmitButton = tw.button`w-full sm:w-32 mt-6 py-3 bg-blue-600 text-white rounded-lg tracking-wide uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-blue-800 hover:text-white hocus:-translate-y-px hocus:shadow-xl`;
 const UploadImageButton = tw.button`w-full sm:w-32 mt-6 py-3 rounded-lg tracking-wide uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-blue-800 hover:text-white hocus:-translate-y-px hocus:shadow-xl`;
@@ -85,142 +87,150 @@ export default function MultilineTextFields() {
     }
   };
   return (
-    <Grid>
-      <div
-        className="full-container"
-        style={{ display: "flex", flexDirection: "column", width: "100%" }}
-      >
+    <Grid className="inside-mobile-view">
+      <div style={{ display: "flex", flexDirection: "column" }}>
         <div
-          className="inner-sections"
-          id="inner-sections1"
-          style={{
-            display: "flex",
-            padding: "10px",
-            margin: "10px",
-            width: "100%",
-          }}
+          className="full-container"
+          style={{ display: "flex", flexDirection: "column", width: "100%" }}
         >
           <div
-            className="two-column-sections"
-            id="section1"
+            className="inner-sections"
+            id="inner-sections1"
             style={{
+              display: "flex",
               padding: "10px",
               margin: "10px",
-              justifyContent: "space-between",
               width: "100%",
             }}
-          >
-            <Grid item xs={12} style={{ margin: "6px 0px" }}>
-              <TextField
-                type="input"
-                id="outlined-textarea"
-                label="Title"
-                placeholder="E.g. Senior Se Mulaqat"
-                multiline
-                variant="outlined"
-                required
-                name="title"
-                fullWidth
-                onChange={(e) => setTitle(e.target.value)}
-                value={title}
-                style={{ width: "100%", height: "100%" }}
-              />
-            </Grid>
-            <Grid item xs={12} style={{ margin: "6px 0px" }}>
-              <TextField
-                id="outlined-textarea"
-                label="Description"
-                placeholder="Placeholder"
-                multiline
-                variant="outlined"
-                rows={6}
-                placeholder="Eg. ABC"
-                required
-                name="desc"
-                fullWidth
-                onChange={(e) => setDesc(e.target.value)}
-                value={desc}
-              />
-            </Grid>
-            <Grid item xs={12} style={{ margin: "6px 0px" }}>
-              <TextField
-                type="input"
-                id="outlined-textarea"
-                label="Google Form Link"
-                placeholder="E.g. Google Forms Registration Link"
-                multiline
-                name="form_url"
-                variant="outlined"
-                fullWidth
-                onChange={(e) => setFormUrl(e.target.value)}
-                value={form_url}
-              />
-            </Grid>
-            <Grid item xs={12} style={{ margin: "6px 0px" }}>
-              <TextField
-                type="input"
-                id="outlined-textarea"
-                label="Response Sheet Link"
-                placeholder="E.g. Google Sheets Link"
-                multiline
-                name="response_url"
-                variant="outlined"
-                fullWidth
-                onChange={(e) => setResponseUrl(e.target.value)}
-                value={response_url}
-              />
-            </Grid>
-          </div>
-          <div
-            className="two-column-sections"
-            id="section2"
-            style={{ padding: "10px", margin: "10px" }}
+            className="mobile-view-form"
           >
             <div
+              className="two-column-sections"
+              id="section1"
               style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%",
+                padding: "10px",
+                margin: "10px",
+                justifyContent: "space-between",
+                width: "100%",
               }}
             >
-              <Grid>
+              <Grid item xs={12} style={{ margin: "6px 0px" }}>
                 <TextField
-                  id="date"
-                  label="Deadline"
-                  type="date"
-                  name="deadline"
-                  className={classes.textField}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  onChange={(e) => setDeadline(e.target.value)}
-                  value={deadline}
+                  type="input"
+                  id="outlined-textarea"
+                  label="Title"
+                  placeholder="E.g. Senior Se Mulaqat"
+                  multiline
+                  variant="outlined"
+                  required
+                  name="title"
+                  fullWidth
+                  onChange={(e) => setTitle(e.target.value)}
+                  value={title}
+                  style={{ width: "100%", height: "100%" }}
                 />
               </Grid>
-              <div style={{ display: "flex", marginTop: "35px" }}>
-                <Upload images={images} setImages={setImages} />
+              <Grid item xs={12} style={{ margin: "6px 0px" }}>
+                <TextField
+                  id="outlined-textarea"
+                  label="Description"
+                  placeholder="Placeholder"
+                  multiline
+                  variant="outlined"
+                  rows={isMobile ? 2 : 6}
+                  placeholder="Eg. ABC"
+                  required
+                  name="desc"
+                  fullWidth
+                  onChange={(e) => setDesc(e.target.value)}
+                  value={desc}
+                />
+              </Grid>
+              <Grid item xs={12} style={{ margin: "6px 0px" }}>
+                <TextField
+                  type="input"
+                  id="outlined-textarea"
+                  label="Google Form Link"
+                  placeholder="E.g. Google Forms Registration Link"
+                  multiline
+                  name="form_url"
+                  variant="outlined"
+                  fullWidth
+                  onChange={(e) => setFormUrl(e.target.value)}
+                  value={form_url}
+                />
+              </Grid>
+              <Grid item xs={12} style={{ margin: "6px 0px" }}>
+                <TextField
+                  type="input"
+                  id="outlined-textarea"
+                  label="Response Sheet Link"
+                  placeholder="E.g. Google Sheets Link"
+                  multiline
+                  name="response_url"
+                  variant="outlined"
+                  fullWidth
+                  onChange={(e) => setResponseUrl(e.target.value)}
+                  value={response_url}
+                />
+              </Grid>
+            </div>
+            <div
+              className="two-column-sections"
+              id="section2"
+              style={{ padding: "10px", margin: "10px" }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
+                <Grid>
+                  <TextField
+                    id="date"
+                    label="Deadline"
+                    type="date"
+                    name="deadline"
+                    className={classes.textField}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    onChange={(e) => setDeadline(e.target.value)}
+                    value={deadline}
+                  />
+                </Grid>
+                <div style={{ display: "flex", marginTop: "35px" }}>
+                  <Upload images={images} setImages={setImages} />
+                </div>
               </div>
             </div>
           </div>
+          <div className="inner-sections" id="inner-sections2"></div>
         </div>
-        <div className="inner-sections" id="inner-sections2"></div>
+        <div>
+          <Grid
+            item
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            <SubmitButton
+              onClick={clickSubmit}
+              disabled={loading}
+              className="mob-sub-btn"
+            >
+              Upload
+            </SubmitButton>
+          </Grid>
+        </div>
       </div>
-
-      <Grid
-        item
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
-        <SubmitButton onClick={clickSubmit} disabled={loading}>
-          Upload
-        </SubmitButton>
-      </Grid>
     </Grid>
   );
 }

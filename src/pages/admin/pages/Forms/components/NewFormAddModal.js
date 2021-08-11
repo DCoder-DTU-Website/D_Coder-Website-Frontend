@@ -5,6 +5,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Form from "./NewFormAddCard";
 import Button from "@material-ui/core/Button";
+import "./NewFormAddCard.css";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -76,7 +77,7 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <div
-            className={classes.paper}
+            className={`${classes.paper} mobile-view`}
             style={{
               width: "50%",
               display: "flex",
