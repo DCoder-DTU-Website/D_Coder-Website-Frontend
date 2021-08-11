@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import api from "../../api/apiClient";
+import api from "../../../api/apiClient";
 import swal from "sweetalert";
 
 const Container = tw.div`relative px-10`;

@@ -9,13 +9,13 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchBar from "material-ui-search-bar";
-import Modal from "./modal";
-import UserModal from "./userModal";
-import AdminNavbarLinks from "./Navbar";
-import "./page.css";
-import api from "../../api/apiClient";
+import Modal from "../modal";
+import UserModal from "../userModal";
+import AdminNavbarLinks from "../components/Navbar";
+import "../page.css";
+import api from "../../../api/apiClient";
 import swal from "sweetalert";
-import "./tablelist.css";
+import "../tablelist.css";
 
 const useStyles = makeStyles({
   table: {

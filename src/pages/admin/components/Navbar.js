@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@material-ui/core";
 import { Route } from "react-router-dom";
 import tw from "twin.macro";
-import logo from "../../images/logo.png";
+import logo from "../../../images/logo.png";
 import styled from "styled-components";
 
 export const NavLink = tw.a`

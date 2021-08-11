@@ -17,12 +17,12 @@ import Admin from "pages/admin/App";
 import Testimonial from "pages/testimonial/App";
 import Research from "pages/research/App";
 import Interns from "pages/interns/App";
-import Table from "pages/admin/TableList";
+import Table from "pages/admin/pages/Members";
 import UserProfile from "pages/admin/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
-import ResetPass from "./pages/admin/ResetPassForm";
+import ResetPass from "./pages/admin/components/PasswordResetForm";
 import GoogleForm from "./pages/GoogleForms/Form1";
 import CodeToSchool from "pages/code2school/App";
 import Faculty from "pages/faculty/App";
@@ -32,7 +32,7 @@ import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
 import ReadMore from "components/Blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
-import AddGoogleForm from "pages/admin/AddGoogleForm";
+import AddGoogleForm from "pages/admin/pages/Forms";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -42,8 +42,8 @@ function App() {
     setIsLoggedIn(true);
   }, [user]);
 
-  const isAdmin = true; //isLoggedIn && user && user.isAdmin;
-  const isUser = true; //isLoggedIn && user && !user.isAdmin;
+  const isAdmin = isLoggedIn && user && user.isAdmin;
+  const isUser = isLoggedIn && user && !user.isAdmin;
 
   return (
     <AnimationRevealPage disabled className="wrapper">

@@ -7,17 +7,18 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import LinkIcon from "@material-ui/icons/Link";
 import Paper from "@material-ui/core/Paper";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import SearchBar from "material-ui-search-bar";
-import Modal from "./FormModal";
-import UserModal from "./userModal";
-import AdminNavbarLinks from "./Navbar";
-import "./page.css";
-import api from "../../api/apiClient";
+import Modal from "../FormModal";
+import UserModal from "../userModal";
+import AdminNavbarLinks from "../components/Navbar";
+import "../page.css";
+import api from "../../../api/apiClient";
 import swal from "sweetalert";
-import "./tablelist.css";
+import "../tablelist.css";
 
 const useStyles = makeStyles({
   table: {
@@ -118,15 +119,9 @@ export default function BasicTable() {
                     </div>
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
-                    <a href = {"/forms/"+form._id}>View</a>
-                    {/* <FileCopyIcon
-                      style={{ cursor: "pointer" }}
-                      onClick={() => {
-                        
-                        copy(`${form.form_url}`);
-                        alert("Form Link Copied");
-                      }}
-                    ></FileCopyIcon> */}
+                    <a href={"/forms/" + form._id} target="_blank">
+                      <LinkIcon></LinkIcon>
+                    </a>
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
                     <a href={form.response_url} target="_blank">
@@ -190,13 +185,9 @@ export default function BasicTable() {
                     </div>
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
-                    <FileCopyIcon
-                      style={{ cursor: "pointer" }}
-                      onClick={() => {
-                        copy(`${form.form_url}`);
-                        alert("Form Link Copied");
-                      }}
-                    ></FileCopyIcon>
+                    <a href={"/forms/" + form._id} target="_blank">
+                      <LinkIcon></LinkIcon>
+                    </a>
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
                     <a href={form.response_url} target="_blank">

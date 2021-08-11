@@ -8,16 +8,16 @@ import Grid from "@material-ui/core/Grid";
 import Card from "components/cards/Card.js";
 import CardHeader from "components/cards/CardHeader.js";
 import CardBody from "components/cards/CardBody.js";
-import Forms from "./Form";
-import Forms2 from "./Form2";
-import Forms3 from "./Form3";
-import NoticesForm from "./NoticesForm";
-import CreateForm from "./CreateForm";
+import Forms from "./DashboardCards/LectureCard";
+import Forms2 from "./DashboardCards/EventCard";
+import Forms3 from "./DashboardCards/GalleryCard";
+import NoticeCard from "./DashboardCards/NoticeCard";
+import CreateForm from "./components/NewFormAddModal";
 
 import Testimonial from "components/testimonials/AdminProjects";
 import "./styles.css";
 import styles from "./styles";
-import AdminNavbarLinks from "./Navbar";
+import AdminNavbarLinks from "./components/Navbar";
 
 import "./App.css";
 
@@ -75,7 +75,7 @@ export default function Admin() {
               <p className={classes.cardCategoryWhite}>Update Notices</p>
             </CardHeader>
             <CardBody>
-              <NoticesForm />
+              <NoticeCard />
             </CardBody>
           </Card>
         </Grid>
@@ -121,13 +121,6 @@ export default function Admin() {
               flexDirection: "column",
             }}
           >
-            {/* <CardHeader style={{ backgroundColor: "rgb(49,130,206)" }}>
-              <h4 className={classes.cardTitleWhite}>Forms</h4>
-              <p className={classes.cardCategoryWhite}>Create Forms</p>
-            </CardHeader>
-            <CardBody>
-              <CreateForm />
-            </CardBody> */}
           </Card>
         </Grid>
       </Grid>

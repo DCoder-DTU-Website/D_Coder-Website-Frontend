@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import Upload from "../../components/features/Upload/Upload";
+import Upload from "../../../components/features/Upload/Upload";
 import tw from "twin.macro";
 import styled from "styled-components";
 import FormControl from "@material-ui/core/FormControl";
-import api from "../../api/apiClient";
+import api from "../../../api/apiClient";
 import axios from "axios";
 import swal from "sweetalert";
 const SubmitButton = tw.button`w-full sm:w-32 mt-6 py-3 bg-blue-600 text-white rounded-lg tracking-wide uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-blue-800 hover:text-white hocus:-translate-y-px hocus:shadow-xl`;

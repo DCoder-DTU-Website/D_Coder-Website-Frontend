@@ -4,8 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
 import tw from "twin.macro";
-import Upload from "../../components/features/Upload/Upload";
-import api from "../../api/apiClient";
+import Upload from "../../../components/features/Upload/Upload";
+import api from "../../../api/apiClient";
 import axios from "axios";
 import swal from "sweetalert";
 

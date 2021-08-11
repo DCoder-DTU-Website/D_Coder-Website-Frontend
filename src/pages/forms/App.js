@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import tw from "twin.macro";
 import "style.css";
 import "tailwindcss/dist/base.css";
-import Hero from "components/hero/SplashScreenWithHeading";
+import MinNavbar from "components/hero/MinNavbar";
 import Footer from "components/footers/Footer";
 import { ReactComponent as SvgDotPatternIcon } from "images/dot-pattern.svg";
 
@@ -25,8 +25,11 @@ function EventPage() {
   const getForms = async () => {
     try {
       const { data } = await api.get("/forms/all");
-      setForm(data.data.find(x=>x._id == id));
-      console.log("DATA: ", data.data.find(x=>x._id == id));
+      setForm(data.data.find((x) => x._id == id));
+      console.log(
+        "DATA: ",
+        data.data.find((x) => x._id == id)
+      );
     } catch (err) {
       console.log("Could not retrieve Events!", err);
     }
@@ -36,17 +39,20 @@ function EventPage() {
     getForms();
   }, []);
 
-
-
   return (
     <>
-      <Hero
-        title={form?.title ?? 'Form'}
-        bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621525956/events_lekcvc.jpg"
-        // bgImage="https://media.giphy.com/media/JUXtbHuixcZKeGJEro/giphy.gif"
-      />
+      <MinNavbar />
       <Container className="EventPage-root">
-      <iframe src={form?.form_url ?? ''} width="640" height="1082" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <iframe
+          src={form?.form_url ?? ""}
+          width="640"
+          height="1082"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+        >
+          Loading…
+        </iframe>
       </Container>
       <Footer />
     </>

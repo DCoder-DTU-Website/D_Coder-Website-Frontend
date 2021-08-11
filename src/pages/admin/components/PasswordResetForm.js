@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
-import api from "../../api/apiClient";
+import api from "../../../api/apiClient";
 import { useParams } from "react-router-dom";
 import swal from "sweetalert";
 import { Button } from "@material-ui/core";
