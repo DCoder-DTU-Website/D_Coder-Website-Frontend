@@ -21,36 +21,34 @@ const useStyles = makeStyles((theme) => ({
 export default function MultilineTextFields() {
   const classes = useStyles();
   const [title, setTitle] = useState("");
-  const [link, setLink] = useState("");
+  const [desc, setDesc] = useState("");
+  const [form_url, setFormUrl] = useState("");
+  const [response_url, setResponseUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // const clickSubmit = async () => {
-  //   try {
-  //     alert(`http://dcoderfrontend.herokuapp.com/form/${title}`);
-  //     setLoading(true);
-  //     await api.post(`/form/${title}`, {
-  //       title: title,
-  //       link: link,
-  //     });
-  //     swal({
-  //       title: "Notice Uploaded Successfully!",
-  //       icon: "success",
-  //       buttons: true,
-  //       closeOnClickOutside: true,
-  //       closeOnEsc: true,
-  //     });
-  //     setTitle("");
-  //     setLink("");
-  //     setLoading(false);
-  //   } catch (err) {
-  //     console.log(err, "Upload Failed");
-  //   }
-  // };
-  const clickSubmit = () => {
+  const clickSubmit = async () => {
     try {
-      alert(`http://dcoderfrontend.herokuapp.com/form/${title}`);
+      setLoading(true);
+      await api.post("/forms/add", {
+        title: title,
+        desc: desc,
+        form_url: form_url,
+        response_url: response_url,
+      });
+      swal({
+        title: "Form Uploaded Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+      setTitle("");
+      setDesc("");
+      setFormUrl("");
+      setResponseUrl("");
+      setLoading(false);
     } catch (err) {
-      console.log("error");
+      console.log(err, "Upload Failed");
     }
   };
   return (
@@ -74,14 +72,29 @@ export default function MultilineTextFields() {
         <TextField
           type="input"
           id="outlined-textarea"
+          label="Description"
+          placeholder="E.g. ABC"
+          multiline
+          variant="outlined"
+          required
+          name="desc"
+          fullWidth
+          onChange={(e) => setDesc(e.target.value)}
+          value={desc}
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <TextField
+          type="input"
+          id="outlined-textarea"
           label="Google Form Link"
           placeholder="E.g. Google Forms Registration Link"
           multiline
-          name="form_url" 
+          name="form_url"
           variant="outlined"
           fullWidth
-          onChange={(e) => setLink(e.target.value)}
-          value={link}
+          onChange={(e) => setFormUrl(e.target.value)}
+          value={form_url}
         />
       </Grid>
       <Grid item xs={12}>
@@ -94,8 +107,8 @@ export default function MultilineTextFields() {
           name="response_url"
           variant="outlined"
           fullWidth
-          onChange={(e) => setLink(e.target.value)}
-          value={link}
+          onChange={(e) => setResponseUrl(e.target.value)}
+          value={response_url}
         />
       </Grid>
       <Grid item>
