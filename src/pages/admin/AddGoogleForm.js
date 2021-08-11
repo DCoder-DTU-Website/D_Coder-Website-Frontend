@@ -118,13 +118,15 @@ export default function BasicTable() {
                     </div>
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
-                    <FileCopyIcon
+                    <a href = {"/forms/"+form._id}>View</a>
+                    {/* <FileCopyIcon
                       style={{ cursor: "pointer" }}
                       onClick={() => {
+                        
                         copy(`${form.form_url}`);
                         alert("Form Link Copied");
                       }}
-                    ></FileCopyIcon>
+                    ></FileCopyIcon> */}
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
                     <a href={form.response_url} target="_blank">

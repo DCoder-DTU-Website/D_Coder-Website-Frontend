@@ -4,6 +4,7 @@ import "tailwindcss/dist/base.css";
 import AnimationRevealPage from "helpers/AnimationRevealPage";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from "pages/home/App";
+import FormEmbed from "pages/forms/App";
 import Events from "pages/events/App";
 import Council from "pages/council/App";
 import Gallery from "pages/gallery/App";
@@ -41,8 +42,8 @@ function App() {
     setIsLoggedIn(true);
   }, [user]);
 
-  const isAdmin = isLoggedIn && user && user.isAdmin;
-  const isUser = isLoggedIn && user && !user.isAdmin;
+  const isAdmin = true; //isLoggedIn && user && user.isAdmin;
+  const isUser = true; //isLoggedIn && user && !user.isAdmin;
 
   return (
     <AnimationRevealPage disabled className="wrapper">
@@ -76,9 +77,11 @@ function App() {
             <SeniorsSeMulaquaat />
           </Route>
           <Route exact path="/blog/read_more" exact component={ReadMore} />
-
           <Route exact path="/achievements">
             <Achievements />
+          </Route>
+          <Route exact path="/forms/:id">
+            <FormEmbed />
           </Route>
           <Route exact path="/lectures">
             <Redirect to="/lectures/interview/leetcode" />
