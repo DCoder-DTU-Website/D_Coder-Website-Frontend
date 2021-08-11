@@ -51,11 +51,6 @@ export default function BasicTable() {
       const { data: formsData } = data;
       formsData.reverse();
       setForms(formsData);
-      // forms.reverse();
-      // console.log(formsData[0].title);
-      // console.log(forms[0].title);
-      // console.log(forms[0].desc);
-      // console.log(forms[0].form_url);
     } catch (error) {
       console.log(error);
     }
