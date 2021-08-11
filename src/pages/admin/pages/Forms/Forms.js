@@ -30,6 +30,7 @@ export default function BasicTable() {
   const [originalForms, setOriginalForms] = useState([]);
   const [forms, setForms] = useState(originalForms);
   const [searched, setSearched] = useState("");
+  const [dot, setDot] = useState("red");
   const classes = useStyles();
 
   const requestSearch = (searchedVal) => {
@@ -102,7 +103,7 @@ export default function BasicTable() {
                           style={{
                             width: "12px",
                             height: "12px",
-                            backgroundColor: "green",
+                            backgroundColor: `${dot}`,
                             borderRadius: "50%",
                           }}
                         ></div>
