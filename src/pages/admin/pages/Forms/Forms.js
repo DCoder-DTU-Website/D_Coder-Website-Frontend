@@ -146,10 +146,10 @@ export default function BasicTable() {
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
-                <TableCell align="right" style={{ paddingLeft: "0px" }}>
+                <TableCell align="center" style={{ paddingLeft: "0px" }}>
                   Form Url
                 </TableCell>
-                <TableCell align="right" style={{ paddingLeft: "0px" }}>
+                <TableCell align="center" style={{ paddingLeft: "0px" }}>
                   Response Sheet
                 </TableCell>
               </TableRow>
@@ -190,14 +190,14 @@ export default function BasicTable() {
                     </div>
                   </TableCell>
                   <TableCell
-                    style={{ width: "1%", paddingLeft: "0px" }}
+                    style={{ width: "50%", paddingLeft: "0px" }}
                     align="center"
                   >
                     <a href={"/forms/" + form._id} target="_blank">
                       <LinkIcon></LinkIcon>
                     </a>
                   </TableCell>
-                  <TableCell style={{ width: "98%" }} align="center">
+                  <TableCell style={{ width: "49%" }} align="center">
                     <a href={form.response_url} target="_blank">
                       <PeopleAltIcon></PeopleAltIcon>
                     </a>
