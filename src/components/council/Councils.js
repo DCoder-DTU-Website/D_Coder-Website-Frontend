@@ -3,7 +3,6 @@ import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
@@ -12,15 +11,9 @@ import "./council.css";
 import { coheads } from "./Coheads";
 import { developers } from "./Developers";
 import { heads } from "./Heads";
-import president from "./President";
-import { vp } from "./VicePresident";
-import { generalseceratory } from "./GeneralSeceratory";
-import { tl } from "./TechLead";
-import { rl } from "./Research Lead";
-import { trs } from "./Tresuery"; //Done
 import AOS from "aos";
 import "aos/dist/aos.css";
-import President from "./President";
+import CouncilCard from "./CouncilCard";
 
 //Header (Team + Carousel) Styling Starts
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`; // Team Heading +carousel
@@ -51,21 +44,6 @@ const TabControls = styled.div`
 const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap justify-center items-center sm:-mr-10 md:-mr-6 lg:-mr-12`;
-const CardContainer = tw.div`flex justify-center mt-10 p-5 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:pr-10 md:pr-6 lg:pr-12`;
-const Card = tw(
-  motion.a
-)` rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
-const CardImageContainer = styled.div`
-  ${(props) =>
-    css`
-      background-image: url("${props.imageSrc}");
-    `}
-  ${tw`h-56 xl:h-32 bg-center border-blue-600 border-4 p-32 bg-cover relative rounded-full`}
-`;
-
-const CardText = tw.div`p-4 text-white`;
-const CardTitle = tw.h5`text-lg font-semibold group-hover:text-white`;
-const CardContent = tw.p`mt-1 text-sm font-medium text-white`;
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 transform translate-x-2/3 -translate-y-12 text-pink-400`}
@@ -165,65 +143,11 @@ const Councils = ({
           >
             {tabKey !== "Heads" &&
               tabs[tabKey].map((card, index) => (
-                <CardContainer key={index}>
-                  <Card
-                    className="group"
-                    // initial="rest"
-                    // whileHover="hover"
-                    // animate="rest"
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="center-bottom"
-                  >
-                    <CardImageContainer
-                      className="image"
-                      style={{
-                        height: "60px",
-                        width: "60px",
-                        borderRadius: "50%",
-                      }}
-                      imageSrc={card.imageSrc}
-                    ></CardImageContainer>
-                    <CardText style={{ textAlign: "center" }}>
-                      <a href={card.linkedin} target="_blank" rel="noreferrer">
-                        <CardTitle style={{ cursor: "pointer" }}>
-                          {card.title}
-                        </CardTitle>
-                      </a>
-                      <CardContent>{card.content}</CardContent>
-                    </CardText>
-                  </Card>
-                </CardContainer>
+                <CouncilCard key={index} index={index} card={card} />
               ))}
             {tabKey === "Heads" &&
               tabs["Heads"].president.map((card, index) => (
-                <CardContainer key={index}>
-                  <Card
-                    className="group"
-                    // initial="rest"
-                    // whileHover="hover"
-                    // animate="rest"
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="center-bottom"
-                  >
-                    <CardImageContainer
-                      className="image"
-                      style={{
-                        height: "60px",
-                        width: "60px",
-                        borderRadius: "50%",
-                      }}
-                      imageSrc={card.imageSrc}
-                    ></CardImageContainer>
-                    <CardText style={{ textAlign: "center" }}>
-                      <a href={card.linkedin} target="_blank" rel="noreferrer">
-                        <CardTitle style={{ cursor: "pointer" }}>
-                          {card.title}
-                        </CardTitle>
-                      </a>
-                      <CardContent>{card.content}</CardContent>
-                    </CardText>
-                  </Card>
-                </CardContainer>
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -248,34 +172,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].vp.map((card, index) => (
-                <CardContainer key={index}>
-                  <Card
-                    className="group"
-                    // initial="rest"
-                    // whileHover="hover"
-                    // animate="rest"
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="center-bottom"
-                  >
-                    <CardImageContainer
-                      className="image"
-                      style={{
-                        height: "60px",
-                        width: "60px",
-                        borderRadius: "50%",
-                      }}
-                      imageSrc={card.imageSrc}
-                    ></CardImageContainer>
-                    <CardText style={{ textAlign: "center" }}>
-                      <a href={card.linkedin} target="_blank" rel="noreferrer">
-                        <CardTitle style={{ cursor: "pointer" }}>
-                          {card.title}
-                        </CardTitle>
-                      </a>
-                      <CardContent>{card.content}</CardContent>
-                    </CardText>
-                  </Card>
-                </CardContainer>
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -300,34 +197,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].gs.map((card, index) => (
-                <CardContainer key={index}>
-                  <Card
-                    className="group"
-                    // initial="rest"
-                    // whileHover="hover"
-                    // animate="rest"
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="center-bottom"
-                  >
-                    <CardImageContainer
-                      className="image"
-                      style={{
-                        height: "60px",
-                        width: "60px",
-                        borderRadius: "50%",
-                      }}
-                      imageSrc={card.imageSrc}
-                    ></CardImageContainer>
-                    <CardText style={{ textAlign: "center" }}>
-                      <a href={card.linkedin} target="_blank" rel="noreferrer">
-                        <CardTitle style={{ cursor: "pointer" }}>
-                          {card.title}
-                        </CardTitle>
-                      </a>
-                      <CardContent>{card.content}</CardContent>
-                    </CardText>
-                  </Card>
-                </CardContainer>
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -352,34 +222,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].tl.map((card, index) => (
-                <CardContainer key={index}>
-                  <Card
-                    className="group"
-                    // initial="rest"
-                    // whileHover="hover"
-                    // animate="rest"
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="center-bottom"
-                  >
-                    <CardImageContainer
-                      className="image"
-                      style={{
-                        height: "60px",
-                        width: "60px",
-                        borderRadius: "50%",
-                      }}
-                      imageSrc={card.imageSrc}
-                    ></CardImageContainer>
-                    <CardText style={{ textAlign: "center" }}>
-                      <a href={card.linkedin} target="_blank" rel="noreferrer">
-                        <CardTitle style={{ cursor: "pointer" }}>
-                          {card.title}
-                        </CardTitle>
-                      </a>
-                      <CardContent>{card.content}</CardContent>
-                    </CardText>
-                  </Card>
-                </CardContainer>
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -404,34 +247,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].frtgct.map((card, index) => (
-                <CardContainer key={index}>
-                  <Card
-                    className="group"
-                    // initial="rest"
-                    // whileHover="hover"
-                    // animate="rest"
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="center-bottom"
-                  >
-                    <CardImageContainer
-                      className="image"
-                      style={{
-                        height: "60px",
-                        width: "60px",
-                        borderRadius: "50%",
-                      }}
-                      imageSrc={card.imageSrc}
-                    ></CardImageContainer>
-                    <CardText style={{ textAlign: "center" }}>
-                      <a href={card.linkedin} target="_blank" rel="noreferrer">
-                        <CardTitle style={{ cursor: "pointer" }}>
-                          {card.title}
-                        </CardTitle>
-                      </a>
-                      <CardContent>{card.content}</CardContent>
-                    </CardText>
-                  </Card>
-                </CardContainer>
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
@@ -456,34 +272,7 @@ const Councils = ({
           >
             {tabKey === "Heads" &&
               tabs["Heads"].rl.map((card, index) => (
-                <CardContainer key={index}>
-                  <Card
-                    className="group"
-                    // initial="rest"
-                    // whileHover="hover"
-                    // animate="rest"
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="center-bottom"
-                  >
-                    <CardImageContainer
-                      className="image"
-                      style={{
-                        height: "60px",
-                        width: "60px",
-                        borderRadius: "50%",
-                      }}
-                      imageSrc={card.imageSrc}
-                    ></CardImageContainer>
-                    <CardText style={{ textAlign: "center" }}>
-                      <a href={card.linkedin} target="_blank" rel="noreferrer">
-                        <CardTitle style={{ cursor: "pointer" }}>
-                          {card.title}
-                        </CardTitle>
-                      </a>
-                      <CardContent>{card.content}</CardContent>
-                    </CardText>
-                  </Card>
-                </CardContainer>
+                <CouncilCard key={index} index={index} card={card} />
               ))}
           </TabContent>
         ))}
