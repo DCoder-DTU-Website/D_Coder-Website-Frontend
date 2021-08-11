@@ -138,14 +138,18 @@ export default function BasicTable() {
         {/* MOBILE TABLE LIST*/}
 
         <TableContainer className="mobile_list" style={{ overflow: "hidden" }}>
-          <Table className={classes.table} aria-label="simple table">
+          <Table
+            className={classes.table}
+            aria-label="simple table"
+            style={{ minWidth: "100px" }}
+          >
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
-                <TableCell align="right" style={{ paddingLeft: "90px" }}>
+                <TableCell align="right" style={{ paddingLeft: "0px" }}>
                   Form Url
                 </TableCell>
-                <TableCell align="right" style={{ paddingLeft: "90px" }}>
+                <TableCell align="right" style={{ paddingLeft: "0px" }}>
                   Response Sheet
                 </TableCell>
               </TableRow>
@@ -153,7 +157,7 @@ export default function BasicTable() {
             <TableBody>
               {forms.map((form, index) => (
                 <TableRow>
-                  <TableCell>
+                  <TableCell style={{ width: "1%" }}>
                     <div style={{ display: "flex" }}>
                       <div
                         style={{
@@ -185,12 +189,15 @@ export default function BasicTable() {
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell style={{ width: "15%" }} align="center">
+                  <TableCell
+                    style={{ width: "1%", paddingLeft: "0px" }}
+                    align="center"
+                  >
                     <a href={"/forms/" + form._id} target="_blank">
                       <LinkIcon></LinkIcon>
                     </a>
                   </TableCell>
-                  <TableCell style={{ width: "15%" }} align="center">
+                  <TableCell style={{ width: "98%" }} align="center">
                     <a href={form.response_url} target="_blank">
                       <PeopleAltIcon></PeopleAltIcon>
                     </a>
