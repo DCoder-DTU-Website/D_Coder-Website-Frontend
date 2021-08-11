@@ -27,18 +27,17 @@ const useStyles = makeStyles({
 });
 
 export default function BasicTable() {
-  const [originalRows, setOriginalRows] = useState([]);
-  const [rows, setRows] = useState(originalRows);
-  const [forms, setForms] = useState([]);
+  const [originalForms, setOriginalForms] = useState([]);
+  const [forms, setForms] = useState(originalForms);
   const [searched, setSearched] = useState("");
   const classes = useStyles();
 
   const requestSearch = (searchedVal) => {
-    const filteredRows = originalRows.filter((row) => {
-      const fullName = row.firstName + " " + row.lastName;
+    const filteredRows = originalForms.filter((form) => {
+      const fullName = form.title;
       return fullName.toLowerCase().includes(searchedVal.toLowerCase());
     });
-    setRows(filteredRows);
+    setOriginalForms(filteredRows);
   };
 
   const cancelSearch = () => {

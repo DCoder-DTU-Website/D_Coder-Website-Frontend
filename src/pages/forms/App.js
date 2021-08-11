@@ -42,18 +42,28 @@ function EventPage() {
   return (
     <>
       <MinNavbar />
-      <Container className="EventPage-root">
-        <iframe
-          src={form?.form_url ?? ""}
-          width="640"
-          height="1082"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-        >
-          Loading…
-        </iframe>
-      </Container>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "15px 0px",
+        }}
+      >
+        <Container className="EventPage-root">
+          <iframe
+            src={form?.form_url ?? ""}
+            width="640"
+            height="1082"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >
+            Loading…
+          </iframe>
+        </Container>
+      </div>
       <Footer />
     </>
   );
