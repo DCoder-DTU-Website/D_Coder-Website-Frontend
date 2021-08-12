@@ -51,13 +51,16 @@ function EventPage() {
           margin: "15px 0px",
         }}
       >
-        <Container className="EventPage-root">
+        <Container
+          className="EventPage-root"
+          style={{ width: "70%", marginTop: "3%" }}
+        >
           <iframe
             src={form?.form_url ?? ""}
-            width="640"
+            width="100%"
             height="1082"
             frameborder="0"
-            marginheight="0"
+            marginheight="10"
             marginwidth="0"
           >
             Loading…

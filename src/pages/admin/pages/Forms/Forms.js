@@ -54,10 +54,6 @@ export default function BasicTable() {
       return true;
     }
     return false;
-    // {
-    //   setDot("red");
-    // }
-    // return true;
   };
   const cancelSearch = () => {
     setSearched("");
