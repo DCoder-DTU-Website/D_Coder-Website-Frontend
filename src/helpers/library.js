@@ -88,17 +88,17 @@ function NavBar() {
                 marginBottom: isMobile ? "5px" : "0px",
               }}
             >
-              <BrowserRouter forceRefresh={true}>
+              {/* <BrowserRouter forceRefresh={true}> */}
                 <Link to="/admin/dashboard">Admin Dashboard</Link>
-              </BrowserRouter>
+              {/* </BrowserRouter> */}
             </Button>
           ) : (
             <Button style={{ marginRight: "10px" }}>
-              <BrowserRouter forceRefresh={true}>
+              {/* <BrowserRouter forceRefresh={true}> */}
                 <Link to="/admin/user">
                   <Avatar src={profile !== null && profile.image}></Avatar>
                 </Link>
-              </BrowserRouter>
+              {/* </BrowserRouter> */}
             </Button>
           )}
           <IconButton

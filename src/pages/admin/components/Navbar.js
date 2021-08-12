@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import tw from "twin.macro";
 import logo from "../../../images/logo.png";
 import styled from "styled-components";
@@ -31,9 +31,9 @@ export default function AdminNavbarLinks() {
       className="dcoder-logo-wrapper"
     >
       <div style={{ width: 40 }} className="dcoder-logo">
-        <a href="/" style={{ width: 40 }}>
+        <Link to="/" style={{ width: 40 }}>
           <img src={logo} alt="logo" />
-        </a>
+        </Link>
       </div>
       <div style={{ display: "flex", gap: "10px" }} className="admin-btns">
         <Route

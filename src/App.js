@@ -46,7 +46,7 @@ function App() {
 
   return (
     <AnimationRevealPage disabled className="wrapper">
-      <BrowserRouter forceRefresh>
+      <BrowserRouter>
         <Switch>
           <Route exact path="/events">
             <Events />
