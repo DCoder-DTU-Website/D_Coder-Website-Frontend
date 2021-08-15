@@ -30,7 +30,7 @@ function EventPage() {
   useEffect(() => {
     getForms();
   }, []);
-  
+
   const compareDate = (date) => {
     var a = new Date();
     var day = a.getDate();

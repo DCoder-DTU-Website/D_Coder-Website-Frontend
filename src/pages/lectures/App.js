@@ -20,44 +20,46 @@ const Content = tw.div``;
 export default function Lectures() {
   const [isNavOpen, setIsNavOpen] = useState(true);
   return (
-    <BrowserRouter>
+    <>
       <MinNavbar className="Navbar" />
-      <BigContainer
-        className={`Lectures-root && ${isMobile && `Lectures-root-mobile`}`}
-      >
-        <BrowserView>
-          <Container className="Lectures-sidenav-container">
-            <SideNav navOpen={setIsNavOpen} />
-          </Container>
-        </BrowserView>
-        <MobileView className="Lectures-root-mobile-in">
-          <Container className="Lectures-sidenav-container-mobile">
-            <SideNav navOpen={setIsNavOpen} />
-          </Container>
-        </MobileView>
-        <Container
-          className={`Lectures-video-container ${
-            isMobile && `Lectures-video-container-mobile`
-          } `}
+      <BrowserRouter>
+        <BigContainer
+          className={`Lectures-root && ${isMobile && `Lectures-root-mobile`}`}
         >
-          <section
-            className={`Lectures-container-close ${
-              isNavOpen && "Lectures-container-open"
-            }`}
+          <BrowserView>
+            <Container className="Lectures-sidenav-container">
+              <SideNav navOpen={setIsNavOpen} />
+            </Container>
+          </BrowserView>
+          <MobileView className="Lectures-root-mobile-in">
+            <Container className="Lectures-sidenav-container-mobile">
+              <SideNav navOpen={setIsNavOpen} />
+            </Container>
+          </MobileView>
+          <Container
+            className={`Lectures-video-container ${
+              isMobile && `Lectures-video-container-mobile`
+            } `}
           >
-            <SingleColumn className="Lectures-container-close-inside">
-              <Content>
-                <Route
-                  exact
-                  path="/lectures/:topic/:subtopic"
-                  component={VideoContainer}
-                />
-              </Content>
-            </SingleColumn>
-          </section>
-        </Container>
-      </BigContainer>
-      <Footer />
-    </BrowserRouter>
+            <section
+              className={`Lectures-container-close ${
+                isNavOpen && "Lectures-container-open"
+              }`}
+            >
+              <SingleColumn className="Lectures-container-close-inside">
+                <Content>
+                  <Route
+                    exact
+                    path="/lectures/:topic/:subtopic"
+                    component={VideoContainer}
+                  />
+                </Content>
+              </SingleColumn>
+            </section>
+          </Container>
+        </BigContainer>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 }
