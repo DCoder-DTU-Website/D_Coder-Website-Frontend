@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NotAnAdmin.css";
 const AdminError = () => {
   return (
@@ -9,7 +10,11 @@ const AdminError = () => {
         <div className="meta" />
       </div>
       <div className="mainbody" />
-      <button className="goback"><a className="return" href="/">GO BACK</a></button>
+      <button className="goback">
+        <Link className="return" to="/">
+          GO BACK
+        </Link>
+      </button>
     </div>
   );
 };

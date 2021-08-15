@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Error404.css";
 function App() {
   return (
@@ -70,7 +71,7 @@ function App() {
       </div>
       <div className="message">Page not found</div>
       <button className="message1">
-        <a href="/">Go Back</a>
+        <Link to="/">Go Back</Link>
       </button>
     </div>
   );

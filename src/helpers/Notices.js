@@ -9,7 +9,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import api from "../api/apiClient";
-import Form from "pages/GoogleForms/FormContainer";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -30,6 +29,7 @@ export default function SwipeableTemporaryDrawer() {
     right: false,
   });
   const [notices, setNotices] = useState([]);
+  const [forms, setForms] = useState();
   function compare(a, b) {
     if (a.createdAt < b.createdAt) {
       return 1;
@@ -51,8 +51,19 @@ export default function SwipeableTemporaryDrawer() {
     }
   };
 
+  const getForm = async () => {
+    try {
+      const { data } = await api.get("/forms/all");
+      const { data: formsData } = data;
+      formsData.reverse();
+      setForms(formsData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     getNotices();
+    getForm();
   }, []);
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -79,49 +90,85 @@ export default function SwipeableTemporaryDrawer() {
   }
 
   const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === "top" || anchor === "bottom",
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      {notices.map((notice) => (
-        <div>
-          <List>
-            <ListItem style={{ display: "flex", flexDirection: "column" }}>
-              <h1
-                style={{
-                  fontWeight: "bolder",
-                  fontSize: "22px",
-                  color: "#3182ce",
-                }}
-              >
-                {notice.title}
-              </h1>
-              <ListItemText primary={notice.description} />
-              {notice.link && (
-                <a
-                  href={notice.link}
-                  target="_blank"
-                  style={{ color: "#3182ce" }}
+    <>
+      <div
+        className={clsx(classes.list, {
+          [classes.fullList]: anchor === "top" || anchor === "bottom",
+        })}
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+      >
+        {notices.map((notice) => (
+          <div>
+            <List>
+              <ListItem style={{ display: "flex", flexDirection: "column" }}>
+                <h1
+                  style={{
+                    fontWeight: "bolder",
+                    fontSize: "22px",
+                    color: "#3182ce",
+                  }}
                 >
-                  Check it out here !
-                </a>
-                // <Link to={`/form/${notice.title}`}>
-                //   <Form src={notice.link} />
-                // </Link>
-              )}
-              <small style={{ color: "grey" }}>
-                {formatDate(notice.createdAt.substring(0, 10))}
-              </small>
-            </ListItem>
-          </List>
-          <Divider />
-        </div>
-      ))}
-    </div>
+                  {notice.title}
+                </h1>
+                <ListItemText primary={notice.description} />
+                {notice.link && (
+                  <a
+                    href={notice.link}
+                    target="_blank"
+                    style={{ color: "#3182ce" }}
+                  >
+                    Check it out here !
+                  </a>
+                )}
+                <small style={{ color: "grey" }}>
+                  {formatDate(notice.createdAt.substring(0, 10))}
+                </small>
+              </ListItem>
+            </List>
+            <Divider />
+          </div>
+        ))}
+      </div>
+      {/* <div
+        className={clsx(classes.list, {
+          [classes.fullList]: anchor === "top" || anchor === "bottom",
+        })}
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+      >
+        {forms.map((form) => (
+          <div>
+            <List>
+              <ListItem style={{ display: "flex", flexDirection: "column" }}>
+                <h1
+                  style={{
+                    fontWeight: "bolder",
+                    fontSize: "22px",
+                    color: "#3182ce",
+                  }}
+                >
+                  {form.title}
+                </h1>
+                <ListItemText primary={form.desc} />
+                {form.form_url && (
+                  <a
+                    href={`/forms/`+form._id}
+                    target="_blank"
+                    style={{ color: "#3182ce" }}
+                  >
+                    Check it out here !
+                  </a>
+                )}
+              </ListItem>
+            </List>
+            <Divider />
+          </div>
+        ))}
+      </div> */}
+    </>
   );
 
   return (

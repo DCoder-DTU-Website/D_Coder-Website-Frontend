@@ -23,7 +23,6 @@ import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
-import GoogleForm from "./pages/GoogleForms/Form1";
 import CodeToSchool from "pages/code2school/App";
 import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
@@ -47,7 +46,7 @@ function App() {
 
   return (
     <AnimationRevealPage disabled className="wrapper">
-      <BrowserRouter forceRefresh>
+      <BrowserRouter>
         <Switch>
           <Route exact path="/events">
             <Events />
@@ -123,9 +122,6 @@ function App() {
           </Route>
           <Route exact path="/">
             <Home />
-          </Route>
-          <Route exact path="/form/sample">
-            <GoogleForm />
           </Route>
           <Route path="/reset/:token">
             <ResetPass />

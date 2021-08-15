@@ -9,24 +9,16 @@ import Card from "components/cards/Card";
 import CardHeader from "components/cards/CardHeader.js";
 import CardBody from "components/cards/CardBody.js";
 import CreateIcon from "@material-ui/icons/Create";
-// import CameraIcon from "@material-ui/icons/Camera";
-// import avatar from "./marc.jpg";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Checkbox from "@material-ui/core/Checkbox";
-// import {ChipSet,Chip} from "@material/react-chips"
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import Chip from "@material-ui/core/Chip";
-// import InputAdornment from "@material-ui/core/InputAdornment";
 import { IconButton } from "@material-ui/core";
-// import CardFooter from "components/cards/CardFooter";
-// import { RadioGroup } from "@material-ui/core";
-
 import useUser from "../../../../useUser";
 import api from "../../../../api/apiClient";
 import swal from "sweetalert";
@@ -224,6 +216,15 @@ const ProfilesForm = (props) => {
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
             value={props.data.leetcode}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            id="resume"
+            label="Resume"
+            disabled={props.editable ? false : true}
+            onChange={(e) => props.onChange(e)}
+            value={props.data.resume}
           />
         </Grid>
       </Grid>
@@ -665,6 +666,28 @@ export default function UserProfile(props) {
                         setImages={setImages}
                         disabled={!edit}
                       />
+                    </div>
+                    <div>
+                      {data.resume ? (
+                        <a href={data.resume} target="_blank">
+                          <div
+                            style={{
+                              color: "white",
+                              padding: "10px 30px",
+                              backgroundColor: "rgb(49,130,206)",
+                              borderRadius: "5px",
+                            }}
+                          >
+                            Resume
+                          </div>
+                        </a>
+                      ) : (
+                        <a href="/noResumeAvailable" target="_blank">
+                          <Button variant="contained" color="primary">
+                            Resume
+                          </Button>
+                        </a>
+                      )}
                     </div>
                     <div>
                       <ResetModal />

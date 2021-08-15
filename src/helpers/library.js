@@ -19,7 +19,8 @@ import api from "../api/apiClient";
 import MenuDropdown from "components/hero/MenuDropdown.js";
 import { ExitToApp } from "@material-ui/icons";
 import "./NavBarStyling.css";
-
+import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRounded";
+import SecurityRoundedIcon from "@material-ui/icons/SecurityRounded";
 import DropNav from "./navBar";
 
 const StyledHeader = styled(Header)`
@@ -80,25 +81,16 @@ function NavBar() {
       {isLoggedIn.login ? (
         <>
           {isLoggedIn.login.isAdmin ? (
-            <Button
-              color="primary"
-              variant="contained"
-              style={{
-                marginRight: "10px",
-                marginBottom: isMobile ? "5px" : "0px",
-              }}
-            >
-              <BrowserRouter forceRefresh={true}>
-                <Link to="/admin/dashboard">Admin Dashboard</Link>
-              </BrowserRouter>
-            </Button>
+            <Link to="/admin/dashboard">
+              <SecurityRoundedIcon className="NavBarIcon" />
+            </Link>
           ) : (
-            <Button style={{ marginRight: "10px" }}>
-              <BrowserRouter forceRefresh={true}>
-                <Link to="/admin/user">
-                  <Avatar src={profile !== null && profile.image}></Avatar>
-                </Link>
-              </BrowserRouter>
+            <Button style={{marginRight:"-10px"}}>
+              {/* <BrowserRouter forceRefresh={true}> */}
+              <Link to="/admin/user">
+                <Avatar src={profile !== null && profile.image}></Avatar>
+              </Link>
+              {/* </BrowserRouter> */}
             </Button>
           )}
           <IconButton
@@ -132,7 +124,7 @@ function NavBar() {
               });
             }}
           >
-            <ExitToApp className="NavBarIcon" />
+            <PowerSettingsNewRoundedIcon className="NavBarIcon" />
           </IconButton>
         </>
       ) : (

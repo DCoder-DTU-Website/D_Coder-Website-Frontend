@@ -6,18 +6,10 @@ import "style.css";
 import "tailwindcss/dist/base.css";
 import MinNavbar from "components/hero/MinNavbar";
 import Footer from "components/footers/Footer";
-import { ReactComponent as SvgDotPatternIcon } from "images/dot-pattern.svg";
 
 import "./App.css";
 
-import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
-import { ReactComponent as GithubIcon } from "images/github-icon.svg";
-
 const Container = tw.div`relative bg-gray-900`;
-const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
-const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-const Subheading = tw.h3`text-5xl mt-5 font-bold text-blue-600`;
-const Content = tw.div`mt-16`;
 function EventPage() {
   const [form, setForm] = useState([]);
   const params = useParams();
@@ -38,7 +30,20 @@ function EventPage() {
   useEffect(() => {
     getForms();
   }, []);
-
+  
+  const compareDate = (date) => {
+    var a = new Date();
+    var day = a.getDate();
+    var month = a.getMonth();
+    var year = a.getFullYear();
+    var year1 = parseInt(date.slice(0, 4));
+    var month1 = parseInt(date.slice(5, 7));
+    var day1 = parseInt(date.slice(8, 10));
+    if (year1 < year || month1 < month || day1 < day) {
+      return true;
+    }
+    return false;
+  };
   return (
     <>
       <MinNavbar />
@@ -51,13 +56,16 @@ function EventPage() {
           margin: "15px 0px",
         }}
       >
-        <Container className="EventPage-root">
+        <Container
+          className="EventPage-root"
+          style={{ width: "70%", marginTop: "3%" }}
+        >
           <iframe
             src={form?.form_url ?? ""}
-            width="640"
-            height="1082"
+            width="100%"
+            height="1000"
             frameborder="0"
-            marginheight="0"
+            marginheight="10"
             marginwidth="0"
           >
             Loading…
