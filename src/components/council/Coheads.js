@@ -36,7 +36,7 @@ export const coheads = [
   },
   {
     imageSrc:
-      "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612876/karanbajaj_dgn2gc.jpg",
+      "https://res.cloudinary.com/dcoderdtu/image/upload/v1628752212/pp_-_2K19_SE_060_KARAN_BAJAJ_xfitr7.jpg",
     title: "Karan Bajaj",
     linkedin: "https://www.linkedin.com/in/bkaran091/",
     content: "Public Relation",

@@ -160,7 +160,7 @@ export const heads = {
   vp: [
     {
       imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619620724/siddharthsingh_vnxl5b.jpg",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1628752206/WhatsApp_Image_2021-08-09_at_11.00.49_rz21oo.jpg",
       title: "Siddhart Singh",
       linkedin: "https://www.linkedin.com/in/siddharth-singh-768734138/",
       content: "Vice - President",
@@ -184,7 +184,7 @@ export const heads = {
     },
     {
       imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612878/vsriram_grehez.png",
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1628752206/Photo_-_2K18_CO_380_V_SRIRAM_o6frzr.jpg",
       title: "V Sriram",
       linkedin: "https://www.linkedin.com/in/sriram-v-08b098170/",
       content: "General Secretary",
