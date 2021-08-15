@@ -40,15 +40,15 @@ const validationSchema = Yup.object().shape({
     .required()
     .label("Google Form Link")
     .matches(
-      new RegExp("^https://docs.google.com/forms\\viewform?embedded=true"),
+      new RegExp("https://docs.google.com/forms\\ "),
       "The URL must be a valid Google Form Embedd Link."
     ),
   response_url: Yup.string()
     .required()
     .label("Response Sheet")
     .matches(
-      new RegExp("^https://docs.google.com/spreadsheets\\ "),
-      "The URL must be a Google Sheet Link."
+      new RegExp("https://docs.google.com/spreadsheets\\ "),
+      "The URL must be a Valid Response Sheet URL."
     ),
 });
 
