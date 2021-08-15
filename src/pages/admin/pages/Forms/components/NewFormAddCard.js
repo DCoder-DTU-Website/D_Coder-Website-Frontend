@@ -119,10 +119,7 @@ export default function MultilineTextFields() {
   return (
     <Grid className="inside-mobile-view">
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <form
-          onSubmit={formik.handleSubmit}
-          method="POST"
-        >
+        <form onSubmit={formik.handleSubmit} method="POST">
           <div
             className="full-container"
             style={{ display: "flex", flexDirection: "column", width: "100%" }}
@@ -151,19 +148,15 @@ export default function MultilineTextFields() {
                 <Grid item xs={12} style={{ margin: "6px 0px" }}>
                   <TextField
                     type="input"
-                    id="outlined-textarea"
-                    label="Title"
+                    id="title"
                     placeholder="E.g. Senior Se Mulaqat"
-                    multiline
-                    variant="outlined"
-                    required
                     name="title"
+                    variant="outlined"
                     fullWidth
                     onChange={formik.handleChange}
                     value={formik.values.title}
                     error={formik.touched.title && Boolean(formik.errors.title)}
                     helperText={formik.touched.title && formik.errors.title}
-                    style={{ width: "100%", height: "100%" }}
                   />
                 </Grid>
                 <Grid item xs={12} style={{ margin: "6px 0px" }}>
@@ -175,7 +168,6 @@ export default function MultilineTextFields() {
                     variant="outlined"
                     rows={isMobile ? 2 : 6}
                     placeholder="Eg. ABC"
-                    required
                     name="desc"
                     fullWidth
                     value={formik.values.desc}
@@ -273,9 +265,9 @@ export default function MultilineTextFields() {
               }}
             >
               <SubmitButton
-                onClick={clickSubmit}
                 disabled={loading}
                 className="mob-sub-btn"
+                type="submit"
               >
                 Upload
               </SubmitButton>
