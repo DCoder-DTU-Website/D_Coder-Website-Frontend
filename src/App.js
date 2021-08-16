@@ -126,7 +126,7 @@ function App() {
           <Route path="/reset/:token">
             <ResetPass />
           </Route>
-          <Route path="*" component={Error404} />
+          {/* <Route path="*" component={Error404} /> */}
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>
