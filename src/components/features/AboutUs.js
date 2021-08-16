@@ -100,50 +100,54 @@ const AboutUs = ({
 
   return (
     <Container>
-      <TwoColumn
-        style={{
-          margin: "32px auto 0",
-        }}
-      >
-        <ImageColumn>
-          <Image
-            src={imageSrc}
-            imageBorder={imageBorder}
-            imageShadow={imageShadow}
-            imageRounded={imageRounded}
-            style={{
-              boxShadow: "10px 10px 5px -3px #000",
-              webkitBoxShadow: "10px 10px 5px -3px #000",
-              borderRadius: "15px",
-            }}
-          />
-          {showDecoratorBlob && <DecoratorBlob />}
-        </ImageColumn>
-        <TextColumn textOnLeft={textOnLeft}>
-          <TextContent>
-            <Subheading>{subheading}</Subheading>
-            <Heading>{heading}</Heading>
-            <Description>{description}</Description>
-            <Features>
-              {features.map((feature, index) => (
-                <Feature key={index}>
-                  <FeatureHeadingContainer>
-                    <FeatureIconContainer
-                      iconFilled={iconFilled}
-                      iconRoundedFull={iconRoundedFull}
-                      css={feature.iconContainerCss || iconContainerCss}
-                    >
-                      {<feature.Icon />}
-                    </FeatureIconContainer>
-                    <FeatureHeading>{feature.title}</FeatureHeading>
-                  </FeatureHeadingContainer>
-                  <FeatureDescription>{feature.description}</FeatureDescription>
-                </Feature>
-              ))}
-            </Features>
-          </TextContent>
-        </TextColumn>
-      </TwoColumn>
+      <div data-aos="fade-left" data-aos-duration="800">
+        <TwoColumn
+          style={{
+            margin: "32px auto 0",
+          }}
+        >
+          <ImageColumn>
+            <Image
+              src={imageSrc}
+              imageBorder={imageBorder}
+              imageShadow={imageShadow}
+              imageRounded={imageRounded}
+              style={{
+                boxShadow: "10px 10px 5px -3px #000",
+                webkitBoxShadow: "10px 10px 5px -3px #000",
+                borderRadius: "15px",
+              }}
+            />
+            {showDecoratorBlob && <DecoratorBlob />}
+          </ImageColumn>
+          <TextColumn textOnLeft={textOnLeft}>
+            <TextContent>
+              <Subheading>{subheading}</Subheading>
+              <Heading>{heading}</Heading>
+              <Description>{description}</Description>
+              <Features>
+                {features.map((feature, index) => (
+                  <Feature key={index}>
+                    <FeatureHeadingContainer>
+                      <FeatureIconContainer
+                        iconFilled={iconFilled}
+                        iconRoundedFull={iconRoundedFull}
+                        css={feature.iconContainerCss || iconContainerCss}
+                      >
+                        {<feature.Icon />}
+                      </FeatureIconContainer>
+                      <FeatureHeading>{feature.title}</FeatureHeading>
+                    </FeatureHeadingContainer>
+                    <FeatureDescription>
+                      {feature.description}
+                    </FeatureDescription>
+                  </Feature>
+                ))}
+              </Features>
+            </TextContent>
+          </TextColumn>
+        </TwoColumn>
+      </div>
     </Container>
   );
 };

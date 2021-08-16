@@ -5,6 +5,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
 import StatsIllustrationSrc from "../../images/about_us_3.jpg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
+import AOS from "aos";
 
 const Container = tw.div`relative -m-8 bg-gray-900`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -67,42 +68,46 @@ const WhyD = ({
   ];
 
   if (!statistics) statistics = defaultStatistics;
-
+  AOS.init();
   return (
     <Container>
-      <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
-        <ImageColumn css={imageContainerCss}>
-          {imageInsideDiv ? (
-            <Image
-              imageSrc={imageSrc}
-              css={imageCss}
-              style={{
-                boxShadow: "10px 10px 5px -3px #000",
-                webkitBoxShadow: "10px 10px 5px -3px #000",
-              }}
-            />
-          ) : (
-            <img src={imageSrc} css={imageCss} alt="" />
-          )}
-          {imageDecoratorBlob && <DecoratorBlob css={imageDecoratorBlobCss} />}
-        </ImageColumn>
-        <TextColumn textOnLeft={textOnLeft}>
-          <TextContent>
-            {subheading && <Subheading>{subheading}</Subheading>}
-            <Description>{description}</Description>
-            <Statistics>
-              {statistics.map((statistic, index) => (
-                <Statistic key={index}>
-                  <Value style={{ textAlign: "center" }}>
-                    {statistic.value}
-                  </Value>
-                  <Key>{statistic.key}</Key>
-                </Statistic>
-              ))}
-            </Statistics>
-          </TextContent>
-        </TextColumn>
-      </TwoColumn>
+      <div data-aos="fade-right" data-aos-duration="800">
+        <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
+          <ImageColumn css={imageContainerCss}>
+            {imageInsideDiv ? (
+              <Image
+                imageSrc={imageSrc}
+                css={imageCss}
+                style={{
+                  boxShadow: "10px 10px 5px -3px #000",
+                  webkitBoxShadow: "10px 10px 5px -3px #000",
+                }}
+              />
+            ) : (
+              <img src={imageSrc} css={imageCss} alt="" />
+            )}
+            {imageDecoratorBlob && (
+              <DecoratorBlob css={imageDecoratorBlobCss} />
+            )}
+          </ImageColumn>
+          <TextColumn textOnLeft={textOnLeft}>
+            <TextContent>
+              {subheading && <Subheading>{subheading}</Subheading>}
+              <Description>{description}</Description>
+              <Statistics>
+                {statistics.map((statistic, index) => (
+                  <Statistic key={index}>
+                    <Value style={{ textAlign: "center" }}>
+                      {statistic.value}
+                    </Value>
+                    <Key>{statistic.key}</Key>
+                  </Statistic>
+                ))}
+              </Statistics>
+            </TextContent>
+          </TextColumn>
+        </TwoColumn>
+      </div>
     </Container>
   );
 };
