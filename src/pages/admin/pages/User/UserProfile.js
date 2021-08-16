@@ -673,7 +673,7 @@ export default function UserProfile(props) {
                           <div
                             style={{
                               color: "white",
-                              padding: "10px 30px",
+                              padding: "10px 33px",
                               backgroundColor: "rgb(49,130,206)",
                               borderRadius: "5px",
                             }}
@@ -682,11 +682,7 @@ export default function UserProfile(props) {
                           </div>
                         </a>
                       ) : (
-                        <a href="/noResumeAvailable" target="_blank">
-                          <Button variant="contained" color="primary">
-                            Resume
-                          </Button>
-                        </a>
+                        <div></div>
                       )}
                     </div>
                     <div>
