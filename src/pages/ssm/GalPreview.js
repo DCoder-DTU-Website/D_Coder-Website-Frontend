@@ -4,24 +4,16 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { SectionHeading } from "components/misc/Headings";
 import { BlueButton as PrimaryButtonBase } from "components/misc/Buttons";
-import { BlueLink as PrimaryLinkBase } from "components/misc/Links.js";
 import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chevron-left.svg";
 import { ReactComponent as ChevronRightIcon } from "feather-icons/dist/icons/chevron-right.svg";
 import { Container as ContainerBase } from "components/misc/Layouts.js";
-import { ReactComponent as ArrowRightIcon } from "images/arrow-right-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
-import { Link } from "react-router-dom";
 import api from "../../api/apiClient";
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20 text-center sm:text-justify`;
-const PrimaryLink = styled(PrimaryLinkBase)`
-  ${tw`inline-flex justify-center xl:justify-start items-center text-lg sm:mx-10`}
-  svg {
-    ${tw`ml-2 w-5 h-5`}
-  }
-`;
+
 const HeadingWithControl = tw.div`flex flex-col items-center sm:items-stretch sm:flex-row justify-between p-10`;
 const Heading = tw(SectionHeading)``;
 const Controls = tw.div`flex items-center`;

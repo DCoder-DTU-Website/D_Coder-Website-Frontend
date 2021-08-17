@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import tw from "twin.macro";
 import "style.css";
 import "tailwindcss/dist/base.css";
@@ -7,8 +7,8 @@ import Footer from "components/footers/Footer";
 import Bottom from "./Bottom";
 import Gallery from "./GalPreview";
 import "./Typing.scss";
-import AboutSSM_1 from "./AboutSSM_1";
-import AboutSSM_2 from "./AboutSSM_2";
+import AboutSSM1 from "./AboutSSM_1";
+import AboutSSM2 from "./AboutSSM_2";
 
 const Container = tw.div`relative bg-gray-900`;
 
@@ -21,10 +21,10 @@ function SeniorsSeMulaquaat() {
       />
       <Container style={{ margin: "-35px" }}>
         <div>
-          <AboutSSM_1 />
+          <AboutSSM1 />
         </div>
         <div>
-          <AboutSSM_2 />
+          <AboutSSM2 />
         </div>
         <Bottom />
         <Gallery />

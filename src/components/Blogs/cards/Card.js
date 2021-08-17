@@ -1,14 +1,6 @@
-import { AiOutlineClockCircle as Time } from "react-icons/ai";
-import {
-  Route,
-  HashRouter as Router,
-  Switch,
-  useHistory,
-} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Blog from "../routes/Blog/Blog";
 
 function Card({ data, index }) {
   AOS.init();

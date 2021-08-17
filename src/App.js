@@ -20,7 +20,6 @@ import Interns from "pages/interns/App";
 import Table from "pages/admin/pages/Members/Members";
 import UserProfile from "pages/admin/pages/User/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
-import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
 import CodeToSchool from "pages/code2school/App";
@@ -31,6 +30,7 @@ import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
 import ReadMore from "components/Blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
+import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 
 function App() {
@@ -125,6 +125,9 @@ function App() {
           </Route>
           <Route path="/reset/:token">
             <ResetPass />
+          </Route>
+          <Route path="/recruitment">
+            <RecruitmentProcess />
           </Route>
           {/* <Route path="*" component={Error404} /> */}
         </Switch>

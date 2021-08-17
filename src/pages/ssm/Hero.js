@@ -37,6 +37,7 @@ const splashScreen = (props) => {
             style={{ width: "400px", height: "300px" }}
             src={img}
             className="logo_phone"
+            alt = "temp"
           />
           <Heading>Seniors Se Mulaquaat</Heading>
         </Content>

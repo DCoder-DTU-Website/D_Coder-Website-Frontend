@@ -27,7 +27,6 @@ const Image = styled.div`
 const DataContainer = tw.div`px-6 mt-12 `;
 const DataName = tw.div`font-bold text-3xl text-center pb-1 py-4 text-indigo-400 pt-12`;
 const DataPost = tw.div`text-white text-sm text-center`;
-const DataContent = tw.div` text-white text-justify text-base pt-6 font-normal`;
 const DataIcons = tw.div`w-full flex justify-center pt-5 pb-5`;
 const Icons = tw.a`mx-10`;
 
@@ -84,8 +83,8 @@ const testimonials = () => {
                       </ImageContainer>
                       <DataContainer style={{ textAlign: "center" }}>
                         <DataName>{card.Name}</DataName>
-                        <div style={{ textAlign: "center" },{marginBottom:"15px"}}>
-                          <img src={card.logo} className="logo"></img>
+                        <div style={{ textAlign: "center" , marginBottom:"15px"}}>
+                          <img src={card.logo} className="logo" alt = "logo"></img>
                         </div>
                         <DataPost>{card.Post}</DataPost>
                         <DataIcons>
