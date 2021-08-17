@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "components/sidebar/Sidebar"
+import Sidebar from "pages/RecruitmentProcess/components/sidebar/Sidebar"
 
 
 const App = () => {

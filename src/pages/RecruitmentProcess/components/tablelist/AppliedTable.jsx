@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CancelIcon from '@material-ui/icons/Cancel';
-import api from "../../api/apiClient";
+import api from "../../../../api/apiClient";
 import swal from "sweetalert";
 
 
@@ -49,12 +49,12 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
   const classes = useStyles();
-  const [applied , setApplied] = useState(rows)
+  const [applied , setApplied] = useState([])
   const [members , setMembers] = useState(rows)
 
   const getApplied = async () => {
     try {
-      const { data } = await api.get("/applied/all");
+      const { data } = await api.get("/applicants/all");
       const { data: appliedData } = data;
       let val = appliedData.filter((e) => e.applied);
       setApplied(val);
