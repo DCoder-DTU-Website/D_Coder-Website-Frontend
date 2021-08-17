@@ -31,6 +31,7 @@ import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
 import ReadMore from "components/Blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
+import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 
 function App() {
@@ -125,6 +126,9 @@ function App() {
           </Route>
           <Route path="/reset/:token">
             <ResetPass />
+          </Route>
+          <Route path="/recruitment">
+            <RecruitmentProcess />
           </Route>
           {/* <Route path="*" component={Error404} /> */}
         </Switch>
