@@ -100,7 +100,7 @@ const AboutUs = ({
 
   return (
     <Container>
-      <div data-aos="fade-left" data-aos-duration="800">
+      <div data-aos="zoom-out-left" data-aos-duration="800">
         <TwoColumn
           style={{
             margin: "32px auto 0",

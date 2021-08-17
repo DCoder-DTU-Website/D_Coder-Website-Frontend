@@ -38,7 +38,7 @@ export default function Form() {
       swal({
         title: "Successfully Submitted Your Application!",
         icon: "success",
-        buttons: true,
+        buttons: true,  
         closeOnClickOutside: true,
         closeOnEsc: true,
       });

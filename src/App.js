@@ -12,11 +12,11 @@ import Lectures from "pages/lectures/App";
 import Projects from "pages/projects/App";
 import Alumni from "pages/alumni/App";
 import Mission from "pages/qabil/App";
-
 import Admin from "pages/admin/App";
 import Testimonial from "pages/testimonial/App";
 import Research from "pages/research/App";
 import Interns from "pages/interns/App";
+import Placements from "pages/Placements/App";
 import Table from "pages/admin/pages/Members/Members";
 import UserProfile from "pages/admin/pages/User/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
@@ -63,6 +63,9 @@ function App() {
           </Route>
           <Route exact path="/internships">
             <Interns />
+          </Route>
+          <Route exact path="/placements">
+            <Placements />
           </Route>
           <Route exact path="/research">
             <Research />

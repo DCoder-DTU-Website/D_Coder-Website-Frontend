@@ -6,7 +6,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import "./testimonial.css";
-import testimonaldata from "./testimonialdata";
+import placementsData from "./PlacementsData";
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`; // Team Heading +carousel
 const Header = tw(SectionHeading)``; // Team Heading
 const MainContainer = tw.div`w-full px-4 pt-4`;
@@ -30,9 +30,9 @@ const DataPost = tw.div`text-white text-sm text-center`;
 const DataIcons = tw.div`w-full flex justify-center pt-5 pb-5`;
 const Icons = tw.a`mx-10`;
 
-const testimonials = () => {
+const Placements = () => {
   AOS.init({ duration: 2000 });
-  const tabsKeys = Object.keys(testimonaldata.tabs);
+  const tabsKeys = Object.keys(placementsData.tabs);
   return (
     <Container
       className="councilStyle"
@@ -48,7 +48,7 @@ const testimonials = () => {
               color: "#63b3ed",
             }}
           >
-            {testimonaldata.heading}
+            {placementsData.heading}
           </Header>
         </HeaderRow>
         <Header
@@ -62,13 +62,13 @@ const testimonials = () => {
             marginRight: "auto",
           }}
         >
-          {testimonaldata.subHeading}
+          {placementsData.subHeading}
         </Header>
         <MainContainer>
           <SubContainer>
             {tabsKeys.map((tabKey) => (
               <SubSubContainer>
-                {testimonaldata.tabs[tabKey].map((card, index) => (
+                {placementsData.tabs[tabKey].map((card, index) => (
                   <CardContainer data-aos="fade-up" key={index}>
                     <Card
                       className="group"
@@ -83,8 +83,14 @@ const testimonials = () => {
                       </ImageContainer>
                       <DataContainer style={{ textAlign: "center" }}>
                         <DataName>{card.Name}</DataName>
-                        <div style={{ textAlign: "center" , marginBottom:"15px"}}>
-                          <img src={card.logo} className="logo" alt = "logo"></img>
+                        <div
+                          style={{ textAlign: "center", marginBottom: "15px" }}
+                        >
+                          <img
+                            src={card.logo}
+                            className="logo"
+                            alt="logo"
+                          ></img>
                         </div>
                         <DataPost>{card.Post}</DataPost>
                         <DataIcons>
@@ -124,4 +130,4 @@ const testimonials = () => {
   );
 };
 
-export default testimonials;
+export default Placements;
