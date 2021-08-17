@@ -9,6 +9,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
+import "./loginForm.css";
+
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().label("Username").email(),
   password: Yup.string().required().label("Password"),
@@ -113,11 +115,7 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
           <Button
             variant="contained"
             type="submit"
-            style={{
-              margin: "1em",
-              backgroundColor: "#3182ce",
-              color: "white",
-            }}
+            className="login-btn"
             disabled={loading}
           >
             Login

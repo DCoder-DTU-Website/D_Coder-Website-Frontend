@@ -1,0 +1,9 @@
+.login-btn {
+  margin: 1em !important;
+  background-color: #3182ce !important;
+  color: white !important;
+  transition: all ease-in-out 400ms !important;
+}
+.login-btn:active {
+  transform: translateY(4px) !important;
+}
