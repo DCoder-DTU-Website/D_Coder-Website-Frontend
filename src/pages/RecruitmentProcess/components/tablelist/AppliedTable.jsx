@@ -1,18 +1,16 @@
-import React , {useState , useEffect} from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import CancelIcon from '@material-ui/icons/Cancel';
+import React, { useState, useEffect } from "react";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
+import CancelIcon from "@material-ui/icons/Cancel";
 import api from "../../../../api/apiClient";
 import swal from "sweetalert";
-
-
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -26,19 +24,18 @@ const StyledTableCell = withStyles((theme) => ({
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
-    '&:nth-of-type(odd)': {
+    "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
   },
 }))(TableRow);
 
-
 const rows = [
-  {name:'Aditya', email:159 , status:"Applied"},
-  {name:'Vaibhav', email:237, status:"Applied"},
-  {name:'Naman', email:262, status:"Applied"},
-  {name:'Aarya', email:305, status:"Applied"},
-  {name:'Shivansh', email:356, status:"Applied"},
+  { name: "Aditya", email: 159, status: "Applied" },
+  { name: "Vaibhav", email: 237, status: "Applied" },
+  { name: "Naman", email: 262, status: "Applied" },
+  { name: "Aarya", email: 305, status: "Applied" },
+  { name: "Shivansh", email: 356, status: "Applied" },
 ];
 
 const useStyles = makeStyles({
@@ -49,15 +46,16 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
   const classes = useStyles();
-  const [applied , setApplied] = useState([])
-  const [members , setMembers] = useState(rows)
+  const [applied, setApplied] = useState([]);
+  const [members, setMembers] = useState(rows);
 
   const getApplied = async () => {
     try {
       const { data } = await api.get("/applicants/all");
-      const { data: appliedData } = data;
-      let val = appliedData.filter((e) => e.applied);
-      setApplied(val);
+      console.log(data);
+      // const { data: appliedData } = data;
+      // let val = appliedData.filter((e) => e.applied);
+      setApplied(data);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
     }
@@ -66,25 +64,24 @@ export default function CustomizedTables() {
     getApplied();
   }, []);
 
-  const handleAccepted = (applicant)=>{
+  const handleAccepted = (applicant) => {
     //Change status to accepted
-    applicant.status = "accepted"
+    applicant.status = "accepted";
 
-    let newApplied = members.filter((e)=>e.email !== applicant.email)
-    setMembers(newApplied)
-  }
+    let newApplied = members.filter((e) => e.email !== applicant.email);
+    setMembers(newApplied);
+  };
 
-  const handleRejection = (applicant)=>{
+  const handleRejection = (applicant) => {
     //Change status to rejection
-    applicant.status = "rejected"
+    applicant.status = "rejected";
 
-    let newApplied = members.filter((e)=>e.email !== applicant.email)
-    setMembers(newApplied)
-
-  }
+    let newApplied = members.filter((e) => e.email !== applicant.email);
+    setMembers(newApplied);
+  };
 
   const handleAcceptedHelper = async (applicant) => {
-    console.log(applicant)
+    console.log(applicant);
     const res = await swal({
       title: "Are you sure you want to accept this user?",
       icon: "warning",
@@ -140,14 +137,26 @@ export default function CustomizedTables() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {members.map((row) => (
+          {applied.map((row) => (
             <StyledTableRow key={row.email}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
-              <StyledTableCell align="right" style = {{cursor:"pointer"}} onClick = {()=> handleAcceptedHelper(row)}><CheckBoxIcon style={{fill: "green"}}/></StyledTableCell>
-              <StyledTableCell align="right" style = {{cursor:"pointer"}} onClick = {()=> handleRejectionHelper(row)}><CancelIcon style={{fill: "red"}}/></StyledTableCell>
+              <StyledTableCell
+                align="right"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleAcceptedHelper(row)}
+              >
+                <CheckBoxIcon style={{ fill: "green" }} />
+              </StyledTableCell>
+              <StyledTableCell
+                align="right"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleRejectionHelper(row)}
+              >
+                <CancelIcon style={{ fill: "red" }} />
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
