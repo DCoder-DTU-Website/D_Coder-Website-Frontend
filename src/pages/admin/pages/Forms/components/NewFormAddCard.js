@@ -32,20 +32,8 @@ const validationSchema = Yup.object().shape({
     .matches(/^[a-z0-9 ]+$/i, "Form Title must be alpha-numeric.")
     .label("Title"),
   desc: Yup.string().required().min(20).max(500).label("Description"),
-  form_url: Yup.string()
-    .required()
-    .label("Google Form Link")
-    .matches(
-      new RegExp("https://docs.google.com/forms\\ "),
-      "The URL must be a valid Google Form Embedd Link."
-    ),
-  response_url: Yup.string()
-    .required()
-    .label("Response Sheet")
-    .matches(
-      new RegExp("https://docs.google.com/spreadsheets\\ "),
-      "The URL must be a Valid Response Sheet URL."
-    ),
+  form_url: Yup.string().required().label("Google Form Embed Url"),
+  response_url: Yup.string().required().label("Response Sheet Url"),
 });
 
 export default function MultilineTextFields() {
