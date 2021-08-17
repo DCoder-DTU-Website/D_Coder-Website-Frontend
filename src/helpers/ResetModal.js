@@ -37,9 +37,15 @@ export default function TransitionsModal() {
       <button
         type="button"
         onClick={handleOpen}
-        style={{ outline: 0, height: "60px" }}
+        style={{
+          outline: 0,
+          height: "45px",
+          borderRadius: "5px",
+          width: "120px",
+          padding: "0px",
+        }}
       >
-        Reset Password
+        <h5 style={{ fontSize: "13px" }}>Reset Password</h5>
       </button>
       <Modal
         aria-labelledby="transition-modal-title"

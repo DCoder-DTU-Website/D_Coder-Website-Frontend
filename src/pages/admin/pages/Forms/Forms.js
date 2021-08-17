@@ -66,6 +66,7 @@ export default function BasicTable() {
       const { data: formsData } = data;
       // console.log(formsData[2].deadline.getYear());
       formsData.reverse();
+      console.log(formsData);
       setForms(formsData);
       setOriginalForms(formsData);
     } catch (error) {
@@ -147,9 +148,15 @@ export default function BasicTable() {
                     </div>
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
-                    <a href={"/forms/" + form._id} target="_blank">
-                      <LinkIcon></LinkIcon>
-                    </a>
+                    {form.deadline && compareDate(form.deadline) ? (
+                      <a href="https://www.google.com" target="_blank">
+                        <LinkIcon></LinkIcon>
+                      </a>
+                    ) : (
+                      <a href={"/forms/" + form._id} target="_blank">
+                        <LinkIcon></LinkIcon>
+                      </a>
+                    )}
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
                     <a href={form.response_url} target="_blank">
