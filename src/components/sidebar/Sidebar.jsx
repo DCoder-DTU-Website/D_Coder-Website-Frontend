@@ -13,7 +13,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
-import Table from '../tablelist/AppliedTable'
+import Applied from '../tablelist/AppliedTable'
+import Accepted from '../tablelist/Accepted'
+import Rejected from '../tablelist/Rejected'
+import Scheduled from '../tablelist/Scheduled'
+
 
 const drawerWidth = 240;
 
@@ -49,6 +53,21 @@ export default function PermanentDrawerLeft() {
       setHead(text);
   }
 
+  const func = ()=>{
+    switch(head) {
+      case 'Applied':
+        return <Applied/>;
+      case 'Accepted':
+        return <Accepted/>;
+      case 'Rejected':
+        return <Rejected/>;
+      case 'Scheduled':
+        return <Scheduled/>
+      default:
+        return <Applied/>;
+    }
+  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -79,7 +98,7 @@ export default function PermanentDrawerLeft() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Table/>
+        {func()}
       </main>
     </div>
   );

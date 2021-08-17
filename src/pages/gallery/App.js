@@ -5,7 +5,6 @@ import Footer from "components/footers/Footer";
 
 import PhotoIndex from "components/PhotoGallery/photoindex";
 
-import { BrowserRouter as Router } from "react-router-dom";
 
 export default function Gallery() {
   useEffect(() => {

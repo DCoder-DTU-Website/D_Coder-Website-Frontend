@@ -2,14 +2,10 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import {
-  SectionHeading,
-  Subheading as SubheadingBase,
-} from "components/misc/Headings.js";
+
 import TeamIllustrationSrc from "./video2.gif";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
-import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/users.svg";
-import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/message-square.svg";
+
 import "./Typing.scss";
 const Container = tw.div`relative bg-gray-900 -m-8`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between left-0 max-w-screen-xl mx-8 py-20 md:py-24 items-center px-10 xl:px-0`;

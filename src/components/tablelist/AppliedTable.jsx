@@ -10,6 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CancelIcon from '@material-ui/icons/Cancel';
 import api from "../../api/apiClient";
+import swal from "sweetalert";
+
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -62,9 +64,9 @@ export default function CustomizedTables() {
   };
   useEffect(() => {
     getApplied();
-  }, [applied]);
+  }, []);
 
-  function handleAccepted(applicant){
+  const handleAccepted = (applicant)=>{
     //Change status to accepted
     applicant.status = "accepted"
 
@@ -72,7 +74,7 @@ export default function CustomizedTables() {
     setMembers(newApplied)
   }
 
-  function handleRejection(applicant){
+  const handleRejection = (applicant)=>{
     //Change status to rejection
     applicant.status = "rejected"
 
@@ -80,6 +82,51 @@ export default function CustomizedTables() {
     setMembers(newApplied)
 
   }
+
+  const handleAcceptedHelper = async (applicant) => {
+    console.log(applicant)
+    const res = await swal({
+      title: "Are you sure you want to accept this user?",
+      icon: "warning",
+      buttons: {
+        Yes: {
+          text: "Yes",
+          value: "Yes",
+        },
+        No: {
+          text: "No",
+          value: "No",
+        },
+      },
+    });
+    if (res === "Yes") {
+      await handleAccepted(applicant);
+    } else {
+      return;
+    }
+  };
+
+  const handleRejectionHelper = async (applicant) => {
+    const res = await swal({
+      title: "Are you sure you want to reject this user?",
+      icon: "warning",
+      buttons: {
+        Yes: {
+          text: "Yes",
+          value: "Yes",
+        },
+        No: {
+          text: "No",
+          value: "No",
+        },
+      },
+    });
+    if (res === "Yes") {
+      await handleRejection(applicant);
+    } else {
+      return;
+    }
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -99,8 +146,8 @@ export default function CustomizedTables() {
                 {row.name}
               </StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
-              <StyledTableCell align="right" style = {{cursor:"pointer"}} onClick = {()=> handleAccepted(row)}><CheckBoxIcon style={{fill: "green"}}/></StyledTableCell>
-              <StyledTableCell align="right" style = {{cursor:"pointer"}} onClick = {()=> handleRejection(row)}><CancelIcon style={{fill: "red"}}/></StyledTableCell>
+              <StyledTableCell align="right" style = {{cursor:"pointer"}} onClick = {()=> handleAcceptedHelper(row)}><CheckBoxIcon style={{fill: "green"}}/></StyledTableCell>
+              <StyledTableCell align="right" style = {{cursor:"pointer"}} onClick = {()=> handleRejectionHelper(row)}><CancelIcon style={{fill: "red"}}/></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

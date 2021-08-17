@@ -20,7 +20,6 @@ import Interns from "pages/interns/App";
 import Table from "pages/admin/pages/Members/Members";
 import UserProfile from "pages/admin/pages/User/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
-import Error404 from "./pages/miscellaneous/Error404/App";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
 import CodeToSchool from "pages/code2school/App";

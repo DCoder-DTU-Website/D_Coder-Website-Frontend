@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "tailwindcss/dist/base.css";
 import tw from "twin.macro";
 import YoutubeVideo from "./YoutubeVideo";
