@@ -9,7 +9,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import api from "../api/apiClient";
-import {BrowserRouter,Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {
@@ -131,6 +131,35 @@ export default function SwipeableTemporaryDrawer() {
             <Divider />
           </div>
         ))}
+        {forms &&
+          forms.map((form) => (
+            <div>
+              <List>
+                <ListItem style={{ display: "flex", flexDirection: "column" }}>
+                  <h1
+                    style={{
+                      fontWeight: "bolder",
+                      fontSize: "22px",
+                      color: "#3182ce",
+                    }}
+                  >
+                    {form.title}
+                  </h1>
+                  <ListItemText primary={form.desc} />
+                  {form.form_url && (
+                    <a
+                      href={"/forms/" + form._id}
+                      target="_blank"
+                      style={{ color: "#3182ce" }}
+                    >
+                      Check it out here !
+                    </a>
+                  )}
+                </ListItem>
+              </List>
+              <Divider />
+            </div>
+          ))}
       </div>
     </>
   );
