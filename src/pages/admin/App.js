@@ -2,8 +2,6 @@ import React from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import { makeStyles } from "@material-ui/core/styles";
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
 import Grid from "@material-ui/core/Grid";
 import Card from "components/cards/Card.js";
 import CardHeader from "components/cards/CardHeader.js";
@@ -12,7 +10,6 @@ import Forms from "./DashboardCards/LectureCard";
 import Forms2 from "./DashboardCards/EventCard";
 import Forms3 from "./DashboardCards/GalleryCard";
 import NoticeCard from "./DashboardCards/NoticeCard";
-import CreateForm from "./pages/Forms/components/NewFormAddCard";
 
 import Testimonial from "pages/admin/DashboardCards/ProjectCard";
 import "./Styles/styles.css";

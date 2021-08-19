@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import tw from "twin.macro";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import {
   Chip,
   FormGroup,
-  FormLabel,
   FormControlLabel,
   Grid,
   Button,

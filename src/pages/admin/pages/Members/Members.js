@@ -43,9 +43,9 @@ export default function BasicTable() {
     setOriginalRows(data.data);
   };
 
-  useEffect(async() => {
-    await getAllUsers();
-  }, []);
+  useEffect(() => {
+    getAllUsers();
+  });
 
   const cancelSearch = () => {
     setSearched("");

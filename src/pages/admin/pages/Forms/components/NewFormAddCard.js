@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import FormControl from "@material-ui/core/FormControl";
 import tw from "twin.macro";
 import Upload from "../../../../../components/features/Upload/Upload";
 
@@ -16,7 +15,6 @@ import * as Yup from "yup";
 import formurlencoded from "form-urlencoded";
 
 const SubmitButton = tw.button`w-full sm:w-32 mt-6 py-3 bg-blue-600 text-white rounded-lg tracking-wide uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-blue-800 hover:text-white hocus:-translate-y-px hocus:shadow-xl`;
-const UploadImageButton = tw.button`w-full sm:w-32 mt-6 py-3 rounded-lg tracking-wide uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-blue-800 hover:text-white hocus:-translate-y-px hocus:shadow-xl`;
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -38,17 +36,17 @@ const validationSchema = Yup.object().shape({
 
 export default function MultilineTextFields() {
   const classes = useStyles();
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  const [form_url, setFormUrl] = useState("");
-  const [response_url, setResponseUrl] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [desc, setDesc] = useState("");
+  // const [form_url, setFormUrl] = useState("");
+  // const [response_url, setResponseUrl] = useState("");
   const [images, setImages] = useState([]);
   const [deadline, setDeadline] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleDateChange = (date) => {
-    setDeadline(date);
-  };
+  // const handleDateChange = (date) => {
+  //   setDeadline(date);
+  // };
 
   const uploadImage = async () => {
     try {
@@ -109,7 +107,7 @@ export default function MultilineTextFields() {
             style={{ display: "flex", flexDirection: "column", width: "100%" }}
           >
             <div
-              className="inner-sections"
+              className="inner-sections mobile-view-form"
               id="inner-sections1"
               style={{
                 display: "flex",
@@ -117,7 +115,6 @@ export default function MultilineTextFields() {
                 margin: "10px",
                 width: "100%",
               }}
-              className="mobile-view-form"
             >
               <div
                 className="two-column-sections"
@@ -147,7 +144,6 @@ export default function MultilineTextFields() {
                   <TextField
                     id="outlined-textarea"
                     label="Description"
-                    placeholder="Placeholder"
                     multiline
                     variant="outlined"
                     rows={isMobile ? 2 : 6}
