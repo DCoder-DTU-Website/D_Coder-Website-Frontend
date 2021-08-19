@@ -93,7 +93,8 @@ function App() {
             <Alumni />
           </Route>
           <Route exact path="/admin/dashboard">
-            {isAdmin ? <Admin /> : <NotAnAdmin />}
+            {/* {isAdmin ? <Admin /> : <Admin />} */}
+            <Admin/>
           </Route>
           <Route exact path="/admin/table">
             {isAdmin ? <Table /> : <NotAnAdmin />}

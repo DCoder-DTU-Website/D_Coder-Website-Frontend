@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
 import { Button } from "@material-ui/core";
 import Card from "components/cards/Card";
 import CardHeader from "components/cards/CardHeader.js";
@@ -669,7 +667,7 @@ export default function UserProfile(props) {
                     </div>
                     <div>
                       {data.resume ? (
-                        <a href={data.resume} target="_blank">
+                        <a href={data.resume} target="_blank" rel="noreferrer">
                           <div
                             style={{
                               color: "white",

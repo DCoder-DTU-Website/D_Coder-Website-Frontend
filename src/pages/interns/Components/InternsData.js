@@ -169,7 +169,7 @@ const testimonaldata = {
       {
         imageSrc:
           "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612878/puneetkumarsherawat_cnoer6.jpg",
-        Name: "Puneet Kumar Sehrawat",
+        Name: "Puneet Sehrawat",
         linkedin:
           "https://www.linkedin.com/in/puneet-kumar-sehrawat-4b3312197/",
         Post: "Microsoft",

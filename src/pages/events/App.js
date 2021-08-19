@@ -10,13 +10,11 @@ import { ReactComponent as SvgDotPatternIcon } from "images/dot-pattern.svg";
 
 import "./App.css";
 import EvtCard from "./components/EvtCard";
-import WinnerCard from "./components/WinnerCard";
-import Winners from "./components/Winners";
 
-import dummyImage from "./dummyImage.jpg";
+// import dummyImage from "./dummyImage.jpg";
 
-import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
-import { ReactComponent as GithubIcon } from "images/github-icon.svg";
+// import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
+// import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 
 const Container = tw.div`relative bg-gray-900`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -37,93 +35,93 @@ const SvgDotPattern4 = tw(
   SvgDotPatternIcon
 )`absolute bottom-0 right-0 transform translate-x-20 rotate-90 -translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
 
-const winners = [
-  {
-    id: 1,
-    name: "Lorem1",
-    image: dummyImage,
-    position: 1,
-    links: [
-      {
-        url: "https://linkedin.com",
-        icon: LinkedinIcon,
-      },
-      {
-        url: "https://github.com",
-        icon: GithubIcon,
-      },
-    ],
-    event: "TechFest 20",
-  },
-  {
-    id: 2,
-    name: "Lorem2",
-    image: dummyImage,
-    position: "1st",
-    links: [
-      {
-        url: "https://linkedin.com",
-        icon: LinkedinIcon,
-      },
-      {
-        url: "https://github.com",
-        icon: GithubIcon,
-      },
-    ],
-    event: "TechFest 20",
-  },
-  {
-    id: 3,
-    name: "Lorem3",
-    image: dummyImage,
-    position: "2nd",
-    links: [
-      {
-        url: "https://linkedin.com",
-        icon: LinkedinIcon,
-      },
-      {
-        url: "https://github.com",
-        icon: GithubIcon,
-      },
-    ],
-    event: "TechFest 20",
-  },
-  {
-    id: 4,
-    name: "Lorem4",
-    image: dummyImage,
-    position: "3rd",
-    links: [
-      {
-        url: "https://linkedin.com",
-        icon: LinkedinIcon,
-      },
-      {
-        url: "https://github.com",
-        icon: GithubIcon,
-      },
-    ],
-    event: "TechFest 20",
-  },
-  {
-    id: 5,
-    name: "Lorem5",
-    image: dummyImage,
-    position: "4th",
-    links: [
-      {
-        url: "https://linkedin.com",
-        icon: LinkedinIcon,
-      },
-      {
-        url: "https://github.com",
-        icon: GithubIcon,
-      },
-    ],
-    event: "TechFest 20",
-  },
-];
+// const winners = [
+//   {
+//     id: 1,
+//     name: "Lorem1",
+//     image: dummyImage,
+//     position: 1,
+//     links: [
+//       {
+//         url: "https://linkedin.com",
+//         icon: LinkedinIcon,
+//       },
+//       {
+//         url: "https://github.com",
+//         icon: GithubIcon,
+//       },
+//     ],
+//     event: "TechFest 20",
+//   },
+//   {
+//     id: 2,
+//     name: "Lorem2",
+//     image: dummyImage,
+//     position: "1st",
+//     links: [
+//       {
+//         url: "https://linkedin.com",
+//         icon: LinkedinIcon,
+//       },
+//       {
+//         url: "https://github.com",
+//         icon: GithubIcon,
+//       },
+//     ],
+//     event: "TechFest 20",
+//   },
+//   {
+//     id: 3,
+//     name: "Lorem3",
+//     image: dummyImage,
+//     position: "2nd",
+//     links: [
+//       {
+//         url: "https://linkedin.com",
+//         icon: LinkedinIcon,
+//       },
+//       {
+//         url: "https://github.com",
+//         icon: GithubIcon,
+//       },
+//     ],
+//     event: "TechFest 20",
+//   },
+//   {
+//     id: 4,
+//     name: "Lorem4",
+//     image: dummyImage,
+//     position: "3rd",
+//     links: [
+//       {
+//         url: "https://linkedin.com",
+//         icon: LinkedinIcon,
+//       },
+//       {
+//         url: "https://github.com",
+//         icon: GithubIcon,
+//       },
+//     ],
+//     event: "TechFest 20",
+//   },
+//   {
+//     id: 5,
+//     name: "Lorem5",
+//     image: dummyImage,
+//     position: "4th",
+//     links: [
+//       {
+//         url: "https://linkedin.com",
+//         icon: LinkedinIcon,
+//       },
+//       {
+//         url: "https://github.com",
+//         icon: GithubIcon,
+//       },
+//     ],
+//     event: "TechFest 20",
+//   },
+// ];
 
 function EventPage() {
   const [evtData, setEvtData] = useState([]);
