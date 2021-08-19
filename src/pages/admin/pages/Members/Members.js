@@ -13,7 +13,6 @@ import Modal from "./components/NewUserAddModal";
 import UserModal from "./components/ViewUserDetailsModal";
 import AdminNavbarLinks from "../../components/Navbar";
 import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
 import "../../Styles/page.css";
 import api from "../../../../api/apiClient";
 import swal from "sweetalert";
