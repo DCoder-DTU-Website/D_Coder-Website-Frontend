@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-const currencies = [
+const techStack = [
   {
     value: 'Web Dev',
     label: 'Web Dev',
@@ -51,11 +51,40 @@ const currencies = [
   },
 ];
 
+const team = [
+  {
+    value: 'Development',
+    label: 'Development',
+  },
+  {
+    value: 'Youtube',
+    label: 'Youtube',
+  },
+  {
+    value: 'Social Media',
+    label: 'Social Media',
+  },
+  {
+    value: 'Content Writing',
+    label: 'Content Writing',
+  },
+  {
+    value: 'Video Editing',
+    label: 'Video Editing',
+  },
+  {
+    value: 'Graphic Designing',
+    label: 'Graphic Designing',
+  },
+];
+
 export default function BasicTable() {
   const [originalRows, setOriginalRows] = useState([]);
   const [rows, setRows] = useState(originalRows);
   const [searched, setSearched] = useState("");
   const [searchTechStack , setSearchTechStack] = useState("");
+  const [searchTeam , setSearchTeam] = useState("");
+
 
  
   const classes = useStyles();
@@ -70,13 +99,24 @@ export default function BasicTable() {
 
   const requestSearchTechStack = (event) => {
     setSearchTechStack(event.target.value);
-
+    setSearchTeam("");
     const filteredRows = originalRows.filter((row) => {
       const techStack = row.techStack;
       return techStack.includes(event.target.value);
     });
     setRows(filteredRows);
   };
+
+  // console.log(rows)
+  const requestSearchTeam = (event) =>{
+    setSearchTeam(event.target.value);
+
+    const filteredRows = originalRows.filter((row) => {
+      const team = row.workingWith;
+      return team.includes(event.target.value);
+    });
+    setRows(filteredRows);
+  }
 
   const getAllUsers = async () => {
     const data = await api.get("/userprofile/all");
@@ -157,7 +197,24 @@ export default function BasicTable() {
             variant="outlined"
             
           >
-            {currencies.map((option) => (
+            {techStack.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </TextField>
+          <TextField
+            id="outlined-select-currency-native"
+            select
+            value={searchTeam}
+            onChange={requestSearchTeam}
+            SelectProps={{
+              native: true,
+            }}
+            variant="outlined"
+            
+          >
+            {team.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
