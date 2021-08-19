@@ -10,6 +10,7 @@ import TeamIllustrationSrc from "../../images/about_us.jpg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/users.svg";
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/message-square.svg";
+import AOS from "aos";
 
 const Container = tw.div`relative bg-gray-900 -m-8`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between left-0 max-w-screen-xl mx-8 py-20 md:py-24 items-center`;
@@ -97,7 +98,7 @@ const AboutUs = ({
   ];
 
   if (!features) features = defaultFeatures;
-
+  AOS.init();
   return (
     <Container>
       <TwoColumn

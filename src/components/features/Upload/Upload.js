@@ -35,8 +35,13 @@ const Upload = ({ images, setImages, disabled }) => {
               className={classes.button}
               style={
                 disabled
-                  ? { color: "gray", backgroundColor: "#ddd" }
-                  : { color: "white" }
+                  ? {
+                      color: "gray",
+                      backgroundColor: "#ddd",
+                      width: "100%",
+                      marginBottom: "-10px",
+                    }
+                  : { color: "white", width: "100%", marginBottom: "-10px" }
               }
               onClick={onImageUpload}
               {...dragProps}

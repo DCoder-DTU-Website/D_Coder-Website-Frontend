@@ -501,6 +501,7 @@ export default function UserProfile(props) {
       "https://res.cloudinary.com/dcoderdtu/image/upload/v1621400604/WhatsApp_Image_2021-05-19_at_10.21.20_ekkng5.jpg",
     techStack: [],
     workingWith: [],
+    resume: "",
   });
 
   const [ogProfile, setOgProfile] = useState();
@@ -658,32 +659,37 @@ export default function UserProfile(props) {
                       margin: "1em 0",
                     }}
                   >
-                    <div>
+                    <div style={{ width: "100%" }}>
                       <Upload
                         images={images}
                         setImages={setImages}
                         disabled={!edit}
                       />
                     </div>
-                    <div>
-                      {data.resume ? (
+                    <div style={{ width: "100%" }}>
+                      <Button
+                        variant="contained"
+                        style={
+                          data.resume
+                            ? {
+                                color: "white",
+                                backgroundColor: "rgb(49,130,206)",
+                                width: "100%",
+                              }
+                            : {
+                                color: "white",
+                                color: "gray",
+                                width: "100%",
+                              }
+                        }
+                        fullWidth
+                      >
                         <a href={data.resume} target="_blank" rel="noreferrer">
-                          <div
-                            style={{
-                              color: "white",
-                              padding: "10px 33px",
-                              backgroundColor: "rgb(49,130,206)",
-                              borderRadius: "5px",
-                            }}
-                          >
-                            Resume
-                          </div>
+                          Resume
                         </a>
-                      ) : (
-                        <div></div>
-                      )}
+                      </Button>
                     </div>
-                    <div>
+                    <div style={{ width: "100%" }}>
                       <ResetModal />
                     </div>
                   </div>

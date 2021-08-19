@@ -65,9 +65,8 @@ const WhyD = ({
     <Container>
       <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
         <ImageColumn css={imageContainerCss}>
-          <div>
+          <div data-aos="fade-right" data-aos-duration="800">
             <Image
-              data-aos="fade-left"
               imageSrc={imageSrc}
               style={{
                 boxShadow: "10px 10px 5px -3px #000",

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -34,19 +35,19 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <button
+      <Button
         type="button"
         onClick={handleOpen}
+        variant="contained"
         style={{
-          outline: 0,
-          height: "45px",
-          borderRadius: "5px",
-          width: "120px",
-          padding: "0px",
+          width: "100%",
+          backgroundColor: "rgb(49,130,206)",
+          color: "white",
+          marginTop: "10px",
         }}
       >
-        <h5 style={{ fontSize: "13px" }}>Reset Password</h5>
-      </button>
+        Reset Password
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
