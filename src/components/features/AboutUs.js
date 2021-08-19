@@ -100,13 +100,13 @@ const AboutUs = ({
 
   return (
     <Container>
-      <div data-aos="zoom-out-left" data-aos-duration="800">
-        <TwoColumn
-          style={{
-            margin: "32px auto 0",
-          }}
-        >
-          <ImageColumn>
+      <TwoColumn
+        style={{
+          margin: "32px auto 0",
+        }}
+      >
+        <ImageColumn>
+          <div data-aos="fade-left" data-aos-duration="800">
             <Image
               src={imageSrc}
               imageBorder={imageBorder}
@@ -118,36 +118,34 @@ const AboutUs = ({
                 borderRadius: "15px",
               }}
             />
-            {showDecoratorBlob && <DecoratorBlob />}
-          </ImageColumn>
-          <TextColumn textOnLeft={textOnLeft}>
-            <TextContent>
-              <Subheading>{subheading}</Subheading>
-              <Heading>{heading}</Heading>
-              <Description>{description}</Description>
-              <Features>
-                {features.map((feature, index) => (
-                  <Feature key={index}>
-                    <FeatureHeadingContainer>
-                      <FeatureIconContainer
-                        iconFilled={iconFilled}
-                        iconRoundedFull={iconRoundedFull}
-                        css={feature.iconContainerCss || iconContainerCss}
-                      >
-                        {<feature.Icon />}
-                      </FeatureIconContainer>
-                      <FeatureHeading>{feature.title}</FeatureHeading>
-                    </FeatureHeadingContainer>
-                    <FeatureDescription>
-                      {feature.description}
-                    </FeatureDescription>
-                  </Feature>
-                ))}
-              </Features>
-            </TextContent>
-          </TextColumn>
-        </TwoColumn>
-      </div>
+          </div>
+          {showDecoratorBlob && <DecoratorBlob />}
+        </ImageColumn>
+        <TextColumn textOnLeft={textOnLeft}>
+          <TextContent>
+            <Subheading>{subheading}</Subheading>
+            <Heading>{heading}</Heading>
+            <Description>{description}</Description>
+            <Features>
+              {features.map((feature, index) => (
+                <Feature key={index}>
+                  <FeatureHeadingContainer>
+                    <FeatureIconContainer
+                      iconFilled={iconFilled}
+                      iconRoundedFull={iconRoundedFull}
+                      css={feature.iconContainerCss || iconContainerCss}
+                    >
+                      {<feature.Icon />}
+                    </FeatureIconContainer>
+                    <FeatureHeading>{feature.title}</FeatureHeading>
+                  </FeatureHeadingContainer>
+                  <FeatureDescription>{feature.description}</FeatureDescription>
+                </Feature>
+              ))}
+            </Features>
+          </TextContent>
+        </TextColumn>
+      </TwoColumn>
     </Container>
   );
 };
