@@ -64,16 +64,16 @@ const WhyD = ({
   return (
     <Container>
       <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
-        <ImageColumn css={imageContainerCss}>
-          <div data-aos="fade-right" data-aos-duration="800">
-            <Image
-              imageSrc={imageSrc}
-              style={{
-                boxShadow: "10px 10px 5px -3px #000",
-                webkitBoxShadow: "10px 10px 5px -3px #000",
-              }}
-            />
-          </div>
+        <ImageColumn css={imageContainerCss} data-aos = "fade-right">
+          {/* <div data-aos="fade-right" data-aos-duration="800"> */}
+          <Image
+            imageSrc={imageSrc}
+            style={{
+              boxShadow: "10px 10px 5px -3px #000",
+              webkitBoxShadow: "10px 10px 5px -3px #000",
+            }}
+          />
+          {/* </div> */}
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
