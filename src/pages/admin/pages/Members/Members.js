@@ -12,6 +12,8 @@ import SearchBar from "material-ui-search-bar";
 import Modal from "./components/NewUserAddModal";
 import UserModal from "./components/ViewUserDetailsModal";
 import AdminNavbarLinks from "../../components/Navbar";
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
 import "../../Styles/page.css";
 import api from "../../../../api/apiClient";
 import swal from "sweetalert";
@@ -23,10 +25,40 @@ const useStyles = makeStyles({
   },
 });
 
+const currencies = [
+  {
+    value: 'Web Dev',
+    label: 'Web Dev',
+  },
+  {
+    value: 'Data Structures',
+    label: 'Data Structures',
+  },
+  {
+    value: 'Algorithms',
+    label: 'Algorithms',
+  },
+  {
+    value: 'Android Dev',
+    label: 'Android Dev',
+  },
+  {
+    value: 'Machine Learning',
+    label: 'Machine Learning',
+  },
+  {
+    value: 'Artificial Intelligence',
+    label: 'Artificial Intelligence',
+  },
+];
+
 export default function BasicTable() {
   const [originalRows, setOriginalRows] = useState([]);
   const [rows, setRows] = useState(originalRows);
   const [searched, setSearched] = useState("");
+  const [searchTechStack , setSearchTechStack] = useState("");
+
+ 
   const classes = useStyles();
 
   const requestSearch = (searchedVal) => {
@@ -37,11 +69,23 @@ export default function BasicTable() {
     setRows(filteredRows);
   };
 
+  const requestSearchTechStack = (event) => {
+    setSearchTechStack(event.target.value);
+
+    const filteredRows = originalRows.filter((row) => {
+      const techStack = row.techStack;
+      return techStack.includes(event.target.value);
+    });
+    setRows(filteredRows);
+  };
+
   const getAllUsers = async () => {
     const data = await api.get("/userprofile/all");
     setRows(data.data);
     setOriginalRows(data.data);
   };
+
+  // console.log(rows)
 
   useEffect(async() => {
     await getAllUsers();
@@ -49,6 +93,7 @@ export default function BasicTable() {
 
   const cancelSearch = () => {
     setSearched("");
+    setSearchTechStack("");
     requestSearch(searched);
   };
 
@@ -97,11 +142,31 @@ export default function BasicTable() {
       <AdminNavbarLinks />
       <Modal />
       <Paper>
-        <SearchBar
-          value={searched}
-          onChange={(searchVal) => requestSearch(searchVal)}
-          onCancelSearch={() => cancelSearch()}
-        />
+        <div style = {{display : "flex" , alignItems:"center" , gap:"20px",padding:"20px 10px"}}>
+          <SearchBar
+            value={searched}
+            onChange={(searchVal) => requestSearch(searchVal)}
+            onCancelSearch={() => cancelSearch()}
+            style = {{height:"52px"}}
+          />
+          <TextField
+            id="outlined-select-currency-native"
+            select
+            value={searchTechStack}
+            onChange={requestSearchTechStack}
+            SelectProps={{
+              native: true,
+            }}
+            variant="outlined"
+            
+          >
+            {currencies.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </TextField>
+        </div>
         <TableContainer className="desktop_list">
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
