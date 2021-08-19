@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import copy from "copy-to-clipboard";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,14 +9,11 @@ import TableRow from "@material-ui/core/TableRow";
 import LinkIcon from "@material-ui/icons/Link";
 import Paper from "@material-ui/core/Paper";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
-import FileCopyIcon from "@material-ui/icons/FileCopy";
 import SearchBar from "material-ui-search-bar";
 import Modal from "./components/NewFormAddModal";
-import UserModal from "../Members/components/ViewUserDetailsModal";
 import AdminNavbarLinks from "../../components/Navbar";
 import "../../Styles/page.css";
 import api from "../../../../api/apiClient";
-import swal from "sweetalert";
 import "../../Styles/tablelist.css";
 
 const useStyles = makeStyles({
@@ -30,7 +26,6 @@ export default function BasicTable() {
   const [originalForms, setOriginalForms] = useState([]);
   const [forms, setForms] = useState(originalForms);
   const [searched, setSearched] = useState("");
-  const [dot, setDot] = useState("green");
   const classes = useStyles();
 
   const requestSearch = (searchedVal) => {
@@ -149,17 +144,17 @@ export default function BasicTable() {
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
                     {form.deadline && compareDate(form.deadline) ? (
-                      <a href="https://www.google.com" target="_blank">
+                      <a href="https://www.google.com" target="_blank" rel="noreferrer">
                         <LinkIcon></LinkIcon>
                       </a>
                     ) : (
-                      <a href={"/forms/" + form._id} target="_blank">
+                      <a href={"/forms/" + form._id} target="_blank" rel="noreferrer">
                         <LinkIcon></LinkIcon>
                       </a>
                     )}
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
-                    <a href={form.response_url} target="_blank">
+                    <a href={form.response_url} target="_blank" rel="noreferrer">
                       <PeopleAltIcon></PeopleAltIcon>
                     </a>
                   </TableCell>
@@ -227,12 +222,12 @@ export default function BasicTable() {
                     style={{ width: "50%", paddingLeft: "0px" }}
                     align="center"
                   >
-                    <a href={"/forms/" + form._id} target="_blank">
+                    <a href={"/forms/" + form._id} target="_blank" rel="noreferrer">
                       <LinkIcon></LinkIcon>
                     </a>
                   </TableCell>
                   <TableCell style={{ width: "49%" }} align="center">
-                    <a href={form.response_url} target="_blank">
+                    <a href={form.response_url} target="_blank" rel="noreferrer">
                       <PeopleAltIcon></PeopleAltIcon>
                     </a>
                   </TableCell>

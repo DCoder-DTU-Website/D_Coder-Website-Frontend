@@ -677,7 +677,6 @@ export default function UserProfile(props) {
                                 width: "100%",
                               }
                             : {
-                                color: "white",
                                 color: "gray",
                                 width: "100%",
                               }

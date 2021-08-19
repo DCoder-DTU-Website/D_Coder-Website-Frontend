@@ -79,7 +79,7 @@ function App() {
           <Route exact path="/seniors_se_mulaquaat">
             <SeniorsSeMulaquaat />
           </Route>
-          <Route exact path="/blog/read_more" exact component={ReadMore} />
+          <Route exact path="/blog/read_more" component={ReadMore} />
           <Route exact path="/achievements">
             <Achievements />
           </Route>

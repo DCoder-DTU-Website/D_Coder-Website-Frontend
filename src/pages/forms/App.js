@@ -29,21 +29,21 @@ function EventPage() {
 
   useEffect(() => {
     getForms();
-  }, []);
+  });
 
-  const compareDate = (date) => {
-    var a = new Date();
-    var day = a.getDate();
-    var month = a.getMonth();
-    var year = a.getFullYear();
-    var year1 = parseInt(date.slice(0, 4));
-    var month1 = parseInt(date.slice(5, 7));
-    var day1 = parseInt(date.slice(8, 10));
-    if (year1 < year || month1 < month || day1 < day) {
-      return true;
-    }
-    return false;
-  };
+  // const compareDate = (date) => {
+  //   var a = new Date();
+  //   var day = a.getDate();
+  //   var month = a.getMonth();
+  //   var year = a.getFullYear();
+  //   var year1 = parseInt(date.slice(0, 4));
+  //   var month1 = parseInt(date.slice(5, 7));
+  //   var day1 = parseInt(date.slice(8, 10));
+  //   if (year1 < year || month1 < month || day1 < day) {
+  //     return true;
+  //   }
+  //   return false;
+  // };
   return (
     <>
       <MinNavbar />
@@ -67,6 +67,7 @@ function EventPage() {
             frameborder="0"
             marginheight="10"
             marginwidth="0"
+            title="dcoderform"
           >
             Loading…
           </iframe>
