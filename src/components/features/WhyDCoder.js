@@ -71,43 +71,35 @@ const WhyD = ({
   AOS.init();
   return (
     <Container>
-      <div data-aos="fade-right" data-aos-duration="800">
-        <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
-          <ImageColumn css={imageContainerCss}>
-            {imageInsideDiv ? (
-              <Image
-                imageSrc={imageSrc}
-                css={imageCss}
-                style={{
-                  boxShadow: "10px 10px 5px -3px #000",
-                  webkitBoxShadow: "10px 10px 5px -3px #000",
-                }}
-              />
-            ) : (
-              <img src={imageSrc} css={imageCss} alt="" />
-            )}
-            {imageDecoratorBlob && (
-              <DecoratorBlob css={imageDecoratorBlobCss} />
-            )}
-          </ImageColumn>
-          <TextColumn textOnLeft={textOnLeft}>
-            <TextContent>
-              {subheading && <Subheading>{subheading}</Subheading>}
-              <Description>{description}</Description>
-              <Statistics>
-                {statistics.map((statistic, index) => (
-                  <Statistic key={index}>
-                    <Value style={{ textAlign: "center" }}>
-                      {statistic.value}
-                    </Value>
-                    <Key>{statistic.key}</Key>
-                  </Statistic>
-                ))}
-              </Statistics>
-            </TextContent>
-          </TextColumn>
-        </TwoColumn>
-      </div>
+      <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
+        <ImageColumn css={imageContainerCss}>
+          {/* <div data-aos="fade-right" data-aos-duration="800"> */}
+          <Image
+            imageSrc={imageSrc}
+            style={{
+              boxShadow: "10px 10px 5px -3px #000",
+              webkitBoxShadow: "10px 10px 5px -3px #000",
+            }}
+          />
+          {/* </div> */}
+        </ImageColumn>
+        <TextColumn textOnLeft={textOnLeft}>
+          <TextContent>
+            {subheading && <Subheading>{subheading}</Subheading>}
+            <Description>{description}</Description>
+            <Statistics>
+              {statistics.map((statistic, index) => (
+                <Statistic key={index}>
+                  <Value style={{ textAlign: "center" }}>
+                    {statistic.value}
+                  </Value>
+                  <Key>{statistic.key}</Key>
+                </Statistic>
+              ))}
+            </Statistics>
+          </TextContent>
+        </TextColumn>
+      </TwoColumn>
     </Container>
   );
 };
