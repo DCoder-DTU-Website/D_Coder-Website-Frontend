@@ -8,7 +8,7 @@ import { TextField, Button } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-
+import ResetModal from "./ResetModal";
 import "./loginForm.css";
 
 const validationSchema = Yup.object().shape({
@@ -120,6 +120,16 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
           >
             Login
           </Button>
+          <div
+            style={{
+              margin: "0 4em",
+              display: "flex",
+              alignItems: "center",
+              position: "relative",
+            }}
+          >
+            <ResetModal />
+          </div>
         </div>
       </form>
     </div>

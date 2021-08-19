@@ -131,7 +131,7 @@ function App() {
             <ResetPass />
           </Route>
           <Route path="/recruitment">
-            <RecruitmentProcess />
+            {isAdmin ? <RecruitmentProcess /> : <NotAnAdmin />}
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />

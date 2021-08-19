@@ -8,7 +8,7 @@ import LinkIcon from '@material-ui/icons/Link';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import swal from "sweetalert";
-
+import api from "../../../api/apiClient";
 
 
 
@@ -71,7 +71,9 @@ Fade.propTypes = {
 export default function SpringModal(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
+  const [interview_DateTime,setDateTime] =React.useState("");
+  const [interviewer_Name, setName] = React.useState("");
+  const [interview_Link, setLink] = React.useState("");
   const handleOpen = () => {
     setOpen(true);
   };
@@ -84,10 +86,24 @@ export default function SpringModal(props) {
 
   const handleSubmit = () => {
     //On form submission
-    console.log(props.applicant)
+    setDateTime("");
+    setName("");
+    setLink("");
+    props.applicant.interviewerName=interviewer_Name
+    props.applicant.inteviewLink = interview_Link;
+    props.applicant.interviewTime=interview_DateTime
+    console.log(props.applicant);
+    updateBackend(props.applicant)
+    // console.log(interviewer_Name);
+    // console.log(interview_Link);
+    // console.log(interview_DateTime);
     handleClose();
-
   }
+  const updateBackend = async (data) => {
+    console.log(data)
+    const res = await api.put(`/applicants/${data._id}`, { data });
+    swal({ title: res.data, icon: "success" });
+  };
 
   const handleSubmitHelper = async () => {
     const res = await swal({
@@ -114,7 +130,7 @@ export default function SpringModal(props) {
   return (
     <div>
       <div type="button" onClick={handleOpen}>
-        <LinkIcon style={{fill: "green"}}/>
+        <LinkIcon style={{ fill: "green" }} />
       </div>
       <Modal
         aria-labelledby="spring-modal-title"
@@ -130,12 +146,16 @@ export default function SpringModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <form style = {{display:"flex",flexDirection:"column",gap:"30px"}}>
+            <form
+              style={{ display: "flex", flexDirection: "column", gap: "30px" }}
+            >
               <TextField
                 label="Interviewer Name"
+                onChange={(e) => setName(e.target.value)}
               />
               <TextField
                 label="Meet Link"
+                onChange={(e) => setLink(e.target.value)}
               />
               <TextField
                 id="datetime-local"
@@ -147,8 +167,13 @@ export default function SpringModal(props) {
                   shrink: true,
                 }}
                 fullWidth
+                onChange={(e) => setDateTime(e.target.value)}
               />
-              <Button onClick = {()=>handleSubmitHelper()} variant="contained" color="primary">
+              <Button
+                onClick={() => handleSubmitHelper()}
+                variant="contained"
+                color="primary"
+              >
                 Submit
               </Button>
             </form>

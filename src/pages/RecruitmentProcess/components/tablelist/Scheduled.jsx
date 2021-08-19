@@ -51,8 +51,11 @@ export default function CustomizedTables() {
   const getScheduled = async () => {
     try {
       const { data } = await api.get("/applicants/all");
+      const { data: appliedData } = data;
       console.log(data);
-
+      // console.log(appliedData);
+      // let val = appliedData.filter((e) => e.applied);
+      // setScheduled(val);
       setScheduled(data);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
@@ -63,21 +66,26 @@ export default function CustomizedTables() {
   }, []);
 
   const handleAccepted = (applicant) => {
-    //Change status to accepted
-    
-
-    
+    //Change status to accept
+    applicant.isAccepted=true;
+    applicant.interviewCompleted=true;
+    console.log(applicant)
+    updateBackend(applicant);
   };
 
   const handleRejection = (applicant) => {
     //Change status to rejection
-    
-
-
+    applicant.isAccepted = false;
+    applicant.interviewCompleted = true;
+    console.log(applicant)
+    updateBackend(applicant)
   };
+    const updateBackend = async (data) => {
+      const res = await api.put(`/applicants/${data._id}`, { data });
+      swal({ title: res.data, icon: "success" });
+    };
 
   const handleAcceptedHelper = async (applicant) => {
-    console.log(applicant);
     const res = await swal({
       title: "Are you sure you want to accept this user?",
       icon: "warning",
