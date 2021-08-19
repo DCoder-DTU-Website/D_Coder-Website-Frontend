@@ -5,7 +5,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
 import StatsIllustrationSrc from "../../images/about_us_3.jpg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
-import AOS from "aos";
+// import AOS from "aos";
 
 const Container = tw.div`relative -m-8 bg-gray-900`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -57,31 +57,24 @@ const WhyD = ({
       key: "Active Members",
       value: "500+",
     },
-    // {
-    //   key: "",
-    //   value: "3891+",
-    // },
-    // {
-    //   key: "Awards",
-    //   value: "1000+",
-    // },
   ];
 
   if (!statistics) statistics = defaultStatistics;
-  AOS.init();
+  // AOS.init();
   return (
     <Container>
       <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
         <ImageColumn css={imageContainerCss}>
-          {/* <div data-aos="fade-right" data-aos-duration="800"> */}
-          <Image
-            imageSrc={imageSrc}
-            style={{
-              boxShadow: "10px 10px 5px -3px #000",
-              webkitBoxShadow: "10px 10px 5px -3px #000",
-            }}
-          />
-          {/* </div> */}
+          <div>
+            <Image
+              data-aos="fade-left"
+              imageSrc={imageSrc}
+              style={{
+                boxShadow: "10px 10px 5px -3px #000",
+                webkitBoxShadow: "10px 10px 5px -3px #000",
+              }}
+            />
+          </div>
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
