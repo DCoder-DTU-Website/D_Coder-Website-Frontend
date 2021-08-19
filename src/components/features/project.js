@@ -7,9 +7,7 @@ import useUser from "../../useUser";
 import "../../pages/events/components/EvtCard1.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 import { AiFillGithub } from "react-icons/ai";
-import accio from "../../images/accio.jpeg";
 
 const Container = tw.div`relative bg-gray-900 -m-8`;
 
@@ -117,7 +115,7 @@ const ProjectsComp = () => {
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
               }}
-              imageSrc={accio}
+              imageSrc="https://res.cloudinary.com/dumgn8uvd/image/upload/v1623168872/acciojob_tcnetd.png"
             />
             <Details>
               <Title>Accio Job</Title>

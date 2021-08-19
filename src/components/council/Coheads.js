@@ -29,7 +29,7 @@ export const coheads = [
   },
   {
     imageSrc:
-      "https://res.cloudinary.com/dcoderdtu/image/upload/v1619612872/amoghjalan_an5t0e.jpg",
+      "https://res.cloudinary.com/dumgn8uvd/image/upload/v1629356482/amogh_ioe9is.jpg",
     title: "Amogh Jalan",
     linkedin: "https://www.linkedin.com/in/amogh-jalan/",
     content: "Public Relation",

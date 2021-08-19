@@ -10,6 +10,7 @@ import TeamIllustrationSrc from "../../images/about_us.jpg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/users.svg";
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/message-square.svg";
+import AOS from "aos";
 
 const Container = tw.div`relative bg-gray-900 -m-8`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between left-0 max-w-screen-xl mx-8 py-20 md:py-24 items-center`;
@@ -97,16 +98,16 @@ const AboutUs = ({
   ];
 
   if (!features) features = defaultFeatures;
-
+  AOS.init();
   return (
     <Container>
-      <div data-aos="zoom-out-left" data-aos-duration="800">
-        <TwoColumn
-          style={{
-            margin: "32px auto 0",
-          }}
-        >
-          <ImageColumn>
+      <TwoColumn
+        style={{
+          margin: "32px auto 0",
+        }}
+      >
+        <ImageColumn>
+          <div data-aos="fade-left" data-aos-duration="800">
             <Image
               src={imageSrc}
               imageBorder={imageBorder}
@@ -118,36 +119,34 @@ const AboutUs = ({
                 borderRadius: "15px",
               }}
             />
-            {showDecoratorBlob && <DecoratorBlob />}
-          </ImageColumn>
-          <TextColumn textOnLeft={textOnLeft}>
-            <TextContent>
-              <Subheading>{subheading}</Subheading>
-              <Heading>{heading}</Heading>
-              <Description>{description}</Description>
-              <Features>
-                {features.map((feature, index) => (
-                  <Feature key={index}>
-                    <FeatureHeadingContainer>
-                      <FeatureIconContainer
-                        iconFilled={iconFilled}
-                        iconRoundedFull={iconRoundedFull}
-                        css={feature.iconContainerCss || iconContainerCss}
-                      >
-                        {<feature.Icon />}
-                      </FeatureIconContainer>
-                      <FeatureHeading>{feature.title}</FeatureHeading>
-                    </FeatureHeadingContainer>
-                    <FeatureDescription>
-                      {feature.description}
-                    </FeatureDescription>
-                  </Feature>
-                ))}
-              </Features>
-            </TextContent>
-          </TextColumn>
-        </TwoColumn>
-      </div>
+          </div>
+          {showDecoratorBlob && <DecoratorBlob />}
+        </ImageColumn>
+        <TextColumn textOnLeft={textOnLeft}>
+          <TextContent>
+            <Subheading>{subheading}</Subheading>
+            <Heading>{heading}</Heading>
+            <Description>{description}</Description>
+            <Features>
+              {features.map((feature, index) => (
+                <Feature key={index}>
+                  <FeatureHeadingContainer>
+                    <FeatureIconContainer
+                      iconFilled={iconFilled}
+                      iconRoundedFull={iconRoundedFull}
+                      css={feature.iconContainerCss || iconContainerCss}
+                    >
+                      {<feature.Icon />}
+                    </FeatureIconContainer>
+                    <FeatureHeading>{feature.title}</FeatureHeading>
+                  </FeatureHeadingContainer>
+                  <FeatureDescription>{feature.description}</FeatureDescription>
+                </Feature>
+              ))}
+            </Features>
+          </TextContent>
+        </TextColumn>
+      </TwoColumn>
     </Container>
   );
 };

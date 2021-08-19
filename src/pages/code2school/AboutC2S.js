@@ -8,8 +8,6 @@ import {
 } from "components/misc/Headings.js";
 import TeamIllustrationSrc from "images/codetoschool.JPG";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
-import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/users.svg";
-import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/message-square.svg";
 import "./Typing.scss";
 const Container = tw.div`relative bg-gray-900 -m-8`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between left-0 max-w-screen-xl mx-8 py-20 md:py-24 items-center px-10 xl:px-0`;
@@ -39,24 +37,6 @@ const Heading = tw(
   SectionHeading
 )`md:text-left text-white mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
 const Description = tw.p`text-center md:text-justify text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
-
-const Features = tw.div`mx-auto md:mx-0 flex flex-col lg:flex-row max-w-xs lg:max-w-none`;
-const Feature = tw.div`mt-10 lg:mt-8 flex items-center md:items-start flex-col md:mr-8 last:mr-0`;
-
-const FeatureHeadingContainer = tw.div`flex items-center`;
-const FeatureIconContainer = styled.div`
-  ${tw`mx-auto inline-block border border-blue-500 text-blue-500 text-center rounded p-2 flex-shrink-0`}
-  ${(props) => [
-    props.iconRoundedFull && tw`rounded-full`,
-    props.iconFilled && tw`border-0 bg-blue-500 text-gray-100`,
-  ]}
-  svg {
-    ${tw`w-5 h-5`}
-  }
-`;
-const FeatureHeading = tw.div`text-white ml-3 font-bold text-xl`;
-
-const FeatureDescription = tw.div`mt-4 text-center md:text-left text-gray-600 leading-relaxed`;
 
 const AboutC2S = ({
   subheading = "An Initiative by D_CODER",

@@ -1,8 +1,7 @@
-import React, { useState} from "react";
+import React from "react";
 import "tailwindcss/dist/base.css";
 import tw from "twin.macro";
 import YoutubeVideo from "./YoutubeVideo";
-import api from "../../../api/apiClient";
 
 import comingSoon from "../coming-soon.svg";
 import fakeData from "../fakeData";
@@ -15,21 +14,7 @@ const ImageContainer = tw.div`mt-10`;
 
 function VideoContainer({ history, location, match }) {
   const { topic, subtopic } = match.params;
-  const [videos, setVideos] = useState(fakeData);
-
-  const getVideos = async () => {
-    try {
-      const { data } = await api.get("/lecture/all");
-      const { data: dbVideos } = data;
-      setVideos(dbVideos);
-    } catch (err) {
-      console.error("Cannot retrieve Lectures!", err);
-    }
-  };
-
-  // useEffect(() => {
-  //   getVideos();
-  // }, []);
+  let videos = fakeData;
 
   const topicVideos = videos.filter(
     (video) =>
