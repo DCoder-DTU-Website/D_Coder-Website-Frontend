@@ -200,12 +200,14 @@ function EventPage() {
       />
       <Container className="EventPage-root">
         <SingleColumn>
-          <section>
-            <HeadingInfoContainer>
-              <Subheading>Upcoming Events</Subheading>
-            </HeadingInfoContainer>
-            <Content>{upcomingEvents}</Content>
-          </section>
+          {upcomingEventsData[0] && (
+            <section>
+              <HeadingInfoContainer>
+                <Subheading>Upcoming Events</Subheading>
+              </HeadingInfoContainer>
+              <Content>{upcomingEvents}</Content>
+            </section>
+          )}
           <section>{/* <Winners winners={winnerCards} /> */}</section>
           <section>
             <HeadingInfoContainer>
