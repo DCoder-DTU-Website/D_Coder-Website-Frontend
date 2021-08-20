@@ -219,7 +219,7 @@ const ProfilesForm = (props) => {
         <Grid item xs={12} sm={6}>
           <TextField
             id="resume"
-            label="Resume"
+            label="Resume (Drive Link)"
             disabled={props.editable ? false : true}
             onChange={(e) => props.onChange(e)}
             value={props.data.resume}
@@ -667,26 +667,29 @@ export default function UserProfile(props) {
                       />
                     </div>
                     <div style={{ width: "100%" }}>
-                      <Button
-                        variant="contained"
-                        style={
-                          data.resume
-                            ? {
-                                color: "white",
-                                backgroundColor: "rgb(49,130,206)",
-                                width: "100%",
-                              }
-                            : {
-                                color: "gray",
-                                width: "100%",
-                              }
-                        }
-                        fullWidth
-                      >
-                        <a href={data.resume} target="_blank" rel="noreferrer">
+                      {data.resume ? (
+                        <Button
+                          variant="contained"
+                          style={{
+                            color: "white",
+                            backgroundColor: "rgb(49,130,206)",
+                            width: "100%",
+                          }}
+                          fullWidth
+                        >
+                          <a
+                            href={data.resume}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Resume
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button variant="contained" disabled fullWidth>
                           Resume
-                        </a>
-                      </Button>
+                        </Button>
+                      )}
                     </div>
                     <div style={{ width: "100%" }}>
                       <ResetModal />

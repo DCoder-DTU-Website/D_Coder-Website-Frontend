@@ -30,13 +30,13 @@ function Home() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <Body>
-      <Posts cardData={currentPosts} loading={loading} />
+    <Body style={{ marginTop: "5%" }}>
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={paginate}
       />
+      <Posts cardData={currentPosts} loading={loading} />
     </Body>
   );
 }
