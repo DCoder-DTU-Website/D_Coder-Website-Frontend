@@ -110,6 +110,7 @@ export default function BasicTable() {
 
   // console.log(rows)
   const requestSearchTeam = (event) =>{
+    setSearchTechStack("");
     setSearchTeam(event.target.value);
 
     const filteredRows = originalRows.filter((row) => {
