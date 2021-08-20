@@ -92,7 +92,7 @@ const Placements = () => {
                             alt="logo"
                           ></img>
                         </div>
-                        <DataPost>{card.Post}</DataPost>
+                        {/* <DataPost>{card.Post}</DataPost> */}
                         <DataIcons>
                           <Icons>
                             <a

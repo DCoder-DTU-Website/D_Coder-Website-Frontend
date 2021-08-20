@@ -16,6 +16,16 @@ const placementsData = {
       },
       {
         imageSrc:
+        "https://res.cloudinary.com/dcoderdtu/image/upload/v1628752206/WhatsApp_Image_2021-08-09_at_11.00.49_rz21oo.jpg",
+        Name: "Siddharth Singh",
+        linkedin: "https://www.linkedin.com/in/siddharth-singh-768734138/",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Wells_Fargo_Logo_%282020%29.png",
+        Post: "Wells Fargo",
+        content:
+          "Most students are able to ace these but what they lack is the ability to communicate and explain well.But Spending so much time in D_Coders and haven taken so many sessions guiding the juniors has actually helped me develop my oratory skills.",
+      },
+      {
+        imageSrc:
           "https://res.cloudinary.com/dcoderdtu/image/upload/c_scale,h_207/v1619793323/Achint_xpj6r7.jpg",
         Name: "Achint Dawra",
         linkedin: "https://www.linkedin.com/in/achint-dawra/",
