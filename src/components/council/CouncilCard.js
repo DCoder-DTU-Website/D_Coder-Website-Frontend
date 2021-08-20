@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import "./council.css";
 import "./CouncilCard.scss";
+import "./council.css";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const CardContainer = tw.div`flex justify-center mt-10 p-5 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:pr-10 md:pr-6 lg:pr-12`;
@@ -30,7 +30,7 @@ export default function CouncilCard({ index, card }) {
     "https://i.pinimg.com/originals/db/8c/82/db8c8283057bfc1e3261587c0d0223f2.jpg",
   ];
   return (
-    <div className="card__collection clear-fix" style={{ margin: "1em 3em" }}>
+    <div className="card__collection clear-fix image-container-photo">
       <div className="cards cards--two">
         <img
           src={card.imageSrc}

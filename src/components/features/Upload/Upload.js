@@ -3,6 +3,7 @@ import ImageUploading from "react-images-uploading";
 import "./style.css";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 const Upload = ({ images, setImages, disabled }) => {
   const classes = useStyles();
@@ -46,6 +47,7 @@ const Upload = ({ images, setImages, disabled }) => {
               onClick={onImageUpload}
               {...dragProps}
               disabled={disabled}
+              startIcon={<CloudUploadIcon />}
             >
               Upload Image
             </Button>

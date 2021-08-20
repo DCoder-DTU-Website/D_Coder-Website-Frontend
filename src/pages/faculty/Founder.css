@@ -1,0 +1,49 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10% 0.7%;
+  row-gap: 10px;
+}
+
+.daizy {
+  width: 28%;
+  height: 28%;
+  border-radius: 50%;
+}
+
+.titleText {
+  color: rgb(49, 130, 206);
+  font-size: 4rem;
+  font-family: Roboto;
+}
+
+.descText {
+  color: white;
+  font-size: 1.5rem;
+  text-align: justify;
+}
+
+@media screen and (max-width: 775px) {
+  .mainContainer {
+    margin: -15%;
+    margin-bottom: 20px;
+  }
+  .daizy {
+    width: 56%;
+    height: 56%;
+  }
+  .titleText {
+    color: rgb(49, 130, 206);
+    font-size: 2rem;
+    font-family: Roboto;
+  }
+
+  .descText {
+    margin: 0% 6%;
+    color: white;
+    font-size: 1rem;
+    text-align: justify;
+  }
+}

@@ -23,7 +23,12 @@ function FacultyCard({ count, title, desc, img, post }) {
   return (
     <Card
       reversed={count % 2 === 1}
-      style={({ display: "flex" }, { flexDirection: "column" })}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
       <Image imageSrc={img} />
       <Details
