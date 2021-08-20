@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
-import tw from "twin.macro";
+import React from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/ImageSlider";
 import Footer from "components/footers/Footer";
-import FacultyCard from "./FacultyCard";
-const Container = tw.div`relative bg-gray-900`;
-const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
-const Content = tw.div`my-16`;
 
 function BoardOfDirectors() {
   const data =
@@ -19,19 +14,9 @@ function BoardOfDirectors() {
         bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1629386526/Background_jq65e7_acmw2q.jpg"
       />
 
-      <Container style={{ margin: "-35px" }}>
-        <SingleColumn>
-          <Content style={{ left: "15rem" }}>
-            <FacultyCard
-              count={1}
-              desc={data}
-              post={"Lt Governer of Delhi"}
-              title="Shri Anil Baijal"
-              key={1}
-            />
-          </Content>
-        </SingleColumn>
-      </Container>
+      <div className="mainContainer">
+        <h3 className="descText">{data}</h3>
+      </div>
       <Footer />
     </>
   );

@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
-import tw from "twin.macro";
+import React from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
+import Typewriter from "typewriter-effect";
+import "./Founder.css";
 import Footer from "components/footers/Footer";
-import FacultyCard from "./FacultyCard";
-const Container = tw.div`relative bg-gray-900`;
-const SingleColumn = tw.div`max-w-screen-xl mx-auto py-4`;
-const Content = tw.div`my-16`;
 
 function Founder() {
   const data = `As an engineering student, I was fascinated by the idea to implement technology to solve
@@ -34,22 +31,27 @@ function Founder() {
         title="Founder"
         bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621440906/Chairperson_qhwx4s.jpg"
       />
-      <Container style={{ margin: "-35px" }}>
-        <SingleColumn>
-          <Content>
-            <FacultyCard
-              count={1}
-              desc={data}
-              key={1}
-              img={
-                "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg"
-              }
-              title="Daizy Mehta"
-              delay={10}
-            />
-          </Content>
-        </SingleColumn>
-      </Container>
+      <div className="mainContainer">
+        <img
+          src="https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg"
+          alt=""
+          className="daizy"
+        />
+        <h2 className="titleText">Daizy Mehta</h2>
+        <h3 className="descText">
+          <Typewriter
+            options={{
+              delay: 50,
+            }}
+            onInit={(typewriter) => {
+              typewriter.typeString(data).start();
+            }}
+            style={{ width: "800px" }}
+            className="descText"
+            delay={0}
+          />
+        </h3>
+      </div>
       <Footer />
     </>
   );
