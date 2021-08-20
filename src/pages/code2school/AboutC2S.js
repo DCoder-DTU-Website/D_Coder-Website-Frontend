@@ -6,6 +6,7 @@ import {
   SectionHeading,
   Subheading as SubheadingBase,
 } from "components/misc/Headings.js";
+import AOS from "aos";
 import TeamIllustrationSrc from "images/codetoschool.JPG";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 import "./Typing.scss";
@@ -53,7 +54,9 @@ const AboutC2S = ({
   iconContainerCss = null,
 }) => {
   const defaultFeatures = [];
-
+  AOS.init({
+    duration: 1000,
+  });
   if (!features) features = defaultFeatures;
 
   return (
@@ -65,17 +68,19 @@ const AboutC2S = ({
         }}
       >
         <ImageColumn>
-          <Image
-            src={imageSrc}
-            imageBorder={imageBorder}
-            imageShadow={imageShadow}
-            imageRounded={imageRounded}
-            style={{
-              boxShadow: "10px 10px 5px -3px #000",
-              webkitBoxShadow: "10px 10px 5px -3px #000",
-              borderRadius: "15px",
-            }}
-          />
+          <div data-aos="fade-up">
+            <Image
+              src={imageSrc}
+              imageBorder={imageBorder}
+              imageShadow={imageShadow}
+              imageRounded={imageRounded}
+              style={{
+                boxShadow: "10px 10px 5px -3px #000",
+                webkitBoxShadow: "10px 10px 5px -3px #000",
+                borderRadius: "15px",
+              }}
+            />
+          </div>
           {showDecoratorBlob && <DecoratorBlob />}
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>

@@ -25,16 +25,43 @@
 
 .def-para {
   margin-bottom: 40px;
-  font-size: 40;
+  text-align: center;
 }
 
-#main-p {
-  text-align: justify;
-  font-size: 20px;
-}
-
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 850px) {
   .video {
-    height: 300px;
+    height: 500px !important;
+  }
+  .def-para{
+      font-size: 25px;
+  }
+  .title{
+    font-size: 50px !important;
+  }
+}
+@media screen and (max-width:850px) and (min-width: 450px) {
+  .video {
+    height: 300px !important;
+    width: 450px !important;
+  }
+  .def-para{
+      font-size: 18px;
+      width: 380px;
+  }
+  .title{
+    font-size: 34px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .video {
+    height: 200px !important;
+    width: 250px !important;
+  }
+  .def-para{
+      font-size: 13px;
+      width: 262px;
+  }
+  .title{
+    font-size: 24px !important;
   }
 }

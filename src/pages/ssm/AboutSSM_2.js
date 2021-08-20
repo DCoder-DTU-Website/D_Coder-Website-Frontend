@@ -2,7 +2,7 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-
+import AOS from "aos";
 import TeamIllustrationSrc from "./video2.gif";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 
@@ -29,7 +29,7 @@ const DecoratorBlob = tw(
 )`w-20 h-20 absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2 fill-current text-blue-500 -z-10`;
 
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
-const Description = tw.p`text-center md:text-justify md:text-base font-medium leading-relaxed text-secondary-100`;
+const Description = tw.p`text-center md:text-justify lg:text-2xl sm:text-xl md:text-2xl md:text-base font-medium leading-relaxed text-secondary-100`;
 
 const AboutC2S = ({
   subheading = "An Initiative by D_CODER",
@@ -46,7 +46,9 @@ const AboutC2S = ({
   iconContainerCss = null,
 }) => {
   const defaultFeatures = [];
-
+  AOS.init({
+    duration: 1000,
+  });
   if (!features) features = defaultFeatures;
 
   return (
@@ -58,24 +60,26 @@ const AboutC2S = ({
         }}
       >
         <ImageColumn>
-          <Image
-            src={imageSrc}
-            imageBorder={imageBorder}
-            imageShadow={imageShadow}
-            imageRounded={imageRounded}
-            style={{
-              boxShadow: "10px 10px 5px -3px #000",
-              webkitBoxShadow: "10px 10px 5px -3px #000",
-              borderRadius: "15px",
-            }}
-          />
+          <div data-aos="fade-up">
+            <Image
+              src={imageSrc}
+              imageBorder={imageBorder}
+              imageShadow={imageShadow}
+              imageRounded={imageRounded}
+              style={{
+                boxShadow: "10px 10px 5px -3px #000",
+                webkitBoxShadow: "10px 10px 5px -3px #000",
+                borderRadius: "15px",
+              }}
+            />
+          </div>
           {showDecoratorBlob && <DecoratorBlob />}
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
             {/* <Subheading>{subheading}</Subheading>
             <Heading>{heading}</Heading> */}
-            <Description style={{ fontSize: "1.3rem" }}>
+            <Description >
               <ul>
                 <br />
                 <li>

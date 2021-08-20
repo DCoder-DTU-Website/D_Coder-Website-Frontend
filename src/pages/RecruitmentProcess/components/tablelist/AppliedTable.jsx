@@ -50,14 +50,16 @@ export default function CustomizedTables() {
   const [applied , setApplied] = useState([])
   const [members , setMembers] = useState(rows)
 
-  const getApplied = async () => {
+    const getApplied = async () => {
     try {
       const { data } = await api.get("/applicants/all");
       // const { data: appliedData } = data;
       console.log(data);
-      // let val = appliedData.filter((e) => e.applied);
-      // setApplied(val);
-      setApplied(data);
+      let val = data.filter((e) => e.inteviewLink=="");
+      console.log(val)
+      setApplied(val);
+      setMembers(val);
+      // setApplied(data);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
     }
@@ -65,7 +67,6 @@ export default function CustomizedTables() {
   useEffect(() => {
     getApplied();
   }, []);
-
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">

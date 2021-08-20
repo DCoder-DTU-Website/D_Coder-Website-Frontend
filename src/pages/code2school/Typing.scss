@@ -3,10 +3,27 @@ $text-color: #d7b94c;
 $caret-color: white;
 $text-length: 16;
 $animation-time: 4s;
+@media screen and (min-width: 850px) {
+  .typing-h1{
+    font-size: 1.4em !important;
+  }
+}
+
+@media screen and (max-width:850px) and (min-width: 450px) {
+  .typing-h1{
+      font-size: 1.2em !important;
+      margin-bottom: 0.3em;
+  }
+}
+@media screen and (max-width: 450px) {
+  .typing-h1{
+      font-size: 1em !important;
+      margin-bottom: 0.2em;
+  }
+}
 
 .typing-h1 {
   font-family: "Inconsolata", Consolas, monospace;
-  font-size: 1.4em;
 }
 
 // Typing style

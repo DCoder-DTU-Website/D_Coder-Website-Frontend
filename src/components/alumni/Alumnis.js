@@ -54,7 +54,7 @@ const Alumni = ({
         imageSrc: dm,
         // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
         Name: "Daizy Mehta",
-        Year: "2021",
+        Year: "2020",
         linkedin: "https://www.linkedin.com/in/daizy-mehta-473763149/",
         content:
           "Former president and founder of D_CODER, Daizy Mehta is an extremely talented individual filled with zeal for perfection. Smart India Hackathon winner, Vistara Hackathon winner, DCB bank innovative carnival winner are a few gems of her accolades crown. She also served as a placement coordinator of the college for her batch. Currently, she is working as a software developer at Paytm.",
@@ -64,7 +64,7 @@ const Alumni = ({
         // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
 
         Name: "Aditya Kulraj",
-        Year: "2021",
+        Year: "2020",
         linkedin: "https://www.linkedin.com/in/adityakulrajdtu/",
         content:
           "Aditya Kulraj is one of the gems that the D_CODER family has. He was the Co-founder of D_CODER and Founder of Code To School. He was Smart India Hackathon 2018 winner. He was among the 2 Students who represented India in a 3-week long program at UNESCO. He served as a part-time UNESCO Youth Leader and is a Full-time Climate Change Activist. Former Research Intern at the National University of Singapore working on Web Scraping and Machine Learning projects.Former Deloitte India(Offices of The US) Intern.Currently, He is working as a Software Engineer at OPPO.",
@@ -74,7 +74,7 @@ const Alumni = ({
         // "blob:https://web.whatsapp.com/c65569f6-b603-422e-b89a-b8dc5256302e",
         // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
         Name: "Abhinav Thapper",
-        Year: "2021",
+        Year: "2020",
         linkedin: "https://www.linkedin.com/in/abhinav-thapper/",
         content:
           "Abhinav Thapper is dedicated, highly enthusiastic, and Ex-Vice President of D_CODER. Co-founder of Code to School, and took the initiative to lead a team of 25+ engineering students from different institutions, intending to expose students of govt. schools of over 10 schools across Delhi to Computer Science fundamentals. He also served as a volunteer at NSS. Former Coding Ninja Intern, Former Software engineer intern at Forethought Integrated Infotech Pvt. Ltd. Currently, He is working as a Software Engineer at Tata Health.",
@@ -84,7 +84,7 @@ const Alumni = ({
         // "blob:https://web.whatsapp.com/c65569f6-b603-422e-b89a-b8dc5256302e",
         // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
         Name: "Ashutosh Raturi",
-        Year: "2021",
+        Year: "2020",
         linkedin: "https://www.linkedin.com/in/ashutosh-raturi-939745136/",
         content:
           "Ashutosh Raturi, a very bright-minded and enthusiastic student, and is also an Associate Director of D_CODER. He was a former Intern at Impact Webcom Technorite Pvt. Ltd. He was also an intern at Evelyn Learning Systems Pvt. Ltd. and He was an SDE Intern at UnitedHealth Group and currently placed as a Software Engineer at the same place.",
@@ -114,21 +114,21 @@ const Alumni = ({
                   <CardImageContainer
                     imageSrc={card.imageSrc}
                   ></CardImageContainer>
-                  <a href={card.linkedin} target="_blank" rel="noreferrer">
                     <CardText style={{ textAlign: "center" }}>
-                      <CardTitle
-                        className={"Hover"}
-                        style={{
-                          fontSize: "2.5rem",
-                          width: "45vw",
-                          textAlign: "center",
-                        }}
-                      >
-                        {card.Name}({card.Year})
-                      </CardTitle>
+                      <a href={card.linkedin} target="_blank" rel="noreferrer">
+                          <CardTitle
+                            className={"Hover"}
+                            style={{
+                              fontSize: "2.5rem",
+                              width: "45vw",
+                              textAlign: "center",
+                            }}
+                          >
+                            {card.Name}({card.Year})
+                          </CardTitle>
+                      </a>
                       <CardContent>{card.content}</CardContent>
                     </CardText>
-                  </a>
                 </Card>
               </CardContainer>
             ))}

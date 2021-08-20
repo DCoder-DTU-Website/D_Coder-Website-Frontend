@@ -14,8 +14,8 @@ const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const TextColumn = styled(Column)((props) => [
   tw`md:w-7/12 mt-16 md:mt-0`,
   props.textOnLeft
-    ? tw`md:mr-12 lg:mr-16 md:order-first`
-    : tw`md:ml-12 lg:ml-16 md:order-last`,
+    ? tw`md:mr-12 lg:mr-12 md:order-first`
+    : tw`md:ml-12 lg:ml-12 md:order-last`,
 ]);
 
 const useStyles = makeStyles((theme) => ({

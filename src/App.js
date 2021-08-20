@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import AnimationRevealPage from "helpers/AnimationRevealPage";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect, Link } from "react-router-dom";
 import Home from "pages/home/App";
 import FormEmbed from "pages/forms/App";
 import Events from "pages/events/App";
@@ -19,7 +19,7 @@ import Interns from "pages/interns/App";
 import Placements from "pages/Placements/App";
 import Table from "pages/admin/pages/Members/Members";
 import UserProfile from "pages/admin/pages/User/UserProfile";
-import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
+// import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
 import CodeToSchool from "pages/code2school/App";
@@ -93,20 +93,49 @@ function App() {
             <Alumni />
           </Route>
           <Route exact path="/admin/dashboard">
-            {/* {isAdmin ? <Admin /> : <Admin />} */}
-            <Admin/>
+            {isAdmin ? (
+              <Admin />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+            {/* <Admin /> */}
           </Route>
           <Route exact path="/admin/table">
-            {isAdmin ? <Table /> : <NotAnAdmin />}
+            {isAdmin ? (
+              <Table />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
           <Route exact path="/admin/form">
-            {isAdmin ? <AddGoogleForm /> : <NotAnAdmin />}
+            {isAdmin ? (
+              <AddGoogleForm />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
           <Route
             exact
             path="/admin/user"
-            component={isUser ? UserProfile : NotAnAdmin}
-          />
+            // component={ isUser? UserProfile: UserRedirect}
+          >
+            {isUser ? (
+              <UserProfile />
+            ) : (
+              <Switch>
+                <Redirect from="/admin/user" to="/" />
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>
+            )}
+          </Route>
           <Route exact path="/testimonial">
             <Testimonial />
           </Route>
@@ -132,7 +161,13 @@ function App() {
             <ResetPass />
           </Route>
           <Route path="/recruitment">
-            {isAdmin ? <RecruitmentProcess /> : <NotAnAdmin />}
+            {isAdmin ? (
+              <RecruitmentProcess />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />

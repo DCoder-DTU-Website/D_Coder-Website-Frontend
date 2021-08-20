@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -30,13 +31,13 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-// const rows = [
-//   { name: "Aditya", email: 159, status: "Applied" },
-//   { name: "Vaibhav", email: 237, status: "Applied" },
-//   { name: "Naman", email: 262, status: "Applied" },
-//   { name: "Aarya", email: 305, status: "Applied" },
-//   { name: "Shivansh", email: 356, status: "Applied" },
-// ];
+const rows = [
+  { name: "Aditya", email: 159, status: "Applied" },
+  { name: "Vaibhav", email: 237, status: "Applied" },
+  { name: "Naman", email: 262, status: "Applied" },
+  { name: "Aarya", email: 305, status: "Applied" },
+  { name: "Shivansh", email: 356, status: "Applied" },
+];
 
 const useStyles = makeStyles({
   table: {
@@ -50,13 +51,14 @@ export default function CustomizedTables() {
 
   const getScheduled = async () => {
     try {
-      const { data } = await api.get("/applicants/all");
-      const { data: appliedData } = data;
+      const { data } = await api.get("/applicants/awaiting");
+      // const { data: appliedData } = data;
       console.log(data);
       // console.log(appliedData);
-      // let val = appliedData.filter((e) => e.applied);
-      // setScheduled(val);
-      setScheduled(data);
+      let val = data.filter((e) => e.inteviewLink!="" && e.interviewCompleted == false);
+      console.log(val)
+      setScheduled(val);
+      // setScheduled(data);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
     }
@@ -70,22 +72,29 @@ export default function CustomizedTables() {
     applicant.isAccepted=true;
     applicant.interviewCompleted=true;
     console.log(applicant)
-    updateBackend(applicant);
+    updateAcceptedBackend(applicant);
   };
+
+      const updateAcceptedBackend = async (data) => {
+        const res = await api.post(`/applicants/accept/${data._id}`, { data });
+        swal({ title: res.data, icon: "success" });
+      };
 
   const handleRejection = (applicant) => {
     //Change status to rejection
     applicant.isAccepted = false;
     applicant.interviewCompleted = true;
     console.log(applicant)
-    updateBackend(applicant)
+    updateRejectedBackend(applicant);
   };
-    const updateBackend = async (data) => {
-      const res = await api.put(`/applicants/${data._id}`, { data });
-      swal({ title: res.data, icon: "success" });
-    };
+
+      const updateRejectedBackend = async (data) => {
+        const res = await api.post(`/applicants/reject/${data._id}`, { data });
+        swal({ title: res.data, icon: "success" });
+      };
 
   const handleAcceptedHelper = async (applicant) => {
+    console.log(applicant);
     const res = await swal({
       title: "Are you sure you want to accept this user?",
       icon: "warning",

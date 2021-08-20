@@ -1,5 +1,6 @@
 import React from "react";
 import tw from "twin.macro";
+import AOS from "aos";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import {
@@ -37,7 +38,7 @@ const Subheading = tw(SubheadingBase)`text-center md:text-left text-blue-500`;
 const Heading = tw(
   SectionHeading
 )`md:text-left text-white mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`text-center md:text-justify  md:text-base  font-medium leading-relaxed text-secondary-100`;
+const Description = tw.p`text-center md:text-justify lg:text-2xl sm:text-xl md:text-2xl md:text-base  font-medium leading-relaxed text-secondary-100`;
 
 
 
@@ -58,7 +59,9 @@ const AboutC2S = ({
   iconContainerCss = null,
 }) => {
   const defaultFeatures = [];
-
+  AOS.init({
+    duration: 1000,
+  });
   if (!features) features = defaultFeatures;
 
   return (
@@ -70,6 +73,7 @@ const AboutC2S = ({
         }}
       >
         <ImageColumn>
+        <div data-aos="fade-up">         
           <Image
             src={imageSrc}
             imageBorder={imageBorder}
@@ -81,13 +85,14 @@ const AboutC2S = ({
               borderRadius: "15px",
             }}
           />
+        </div>
           {showDecoratorBlob && <DecoratorBlob />}
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
             <Subheading>{subheading}</Subheading>
             <Heading>{heading}</Heading>
-            <Description style={{ fontSize: "1.3rem" }}>
+            <Description >
               <ul>
                 <br />
                 <li>

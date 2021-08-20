@@ -101,10 +101,15 @@ export default function SpringModal(props) {
   }
   const updateBackend = async (data) => {
     console.log(data)
-    const res = await api.put(`/applicants/${data._id}`, { data });
+    const res = await api.post("/applicants/setInterview", { data });
     swal({ title: res.data, icon: "success" });
   };
-
+  // const updateBackend = async (data) => {
+  //   console.log(data);
+  //   const res = await api.put(`/applicants/${data._id}`, { data });
+  //   swal({ title: res.data, icon: "success" });
+  // };
+  
   const handleSubmitHelper = async () => {
     const res = await swal({
       title: "Are you sure you want to Schedule?",
