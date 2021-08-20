@@ -4,6 +4,10 @@ import styled from "styled-components";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import api from "../../../../../api/apiClient";
 import swal from "sweetalert";
+import { TextField, Button } from "@material-ui/core";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { FaUserAlt, FaLock } from "react-icons/fa";
 
 const Container = tw.div`relative px-10`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
@@ -23,18 +27,23 @@ const SubmitButton = tw(
   PrimaryButtonBase
 )`inline-block text-center bg-blue-600 hocus:bg-blue-800`;
 
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().label("Username").email(),
+  password: Yup.string().required().label("Password"),
+});
+
 const AddForm = () => {
-  const [registerUsername, setRegisterUsername] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const register = async () => {
     try {
+      setLoading(true);
+      const info = formik.values;
+      formik.resetForm();
       await api.post("/register", {
-        email: registerUsername,
-        username: registerUsername,
-        password: registerPassword,
+        email: info.email,
+        username: info.email,
+        password: info.password,
       });
-      setRegisterUsername("");
-      setRegisterPassword("");
       swal({
         title: "Member added Successfully!",
         icon: "success",
@@ -42,49 +51,93 @@ const AddForm = () => {
         closeOnClickOutside: true,
         closeOnEsc: true,
       });
+      setLoading(false);
     } catch (err) {
       console.log("Could not register user!", err);
     }
   };
-  
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema,
+    onSubmit: register,
+  });
+
   return (
-    <Container>
-      <div>
-        <TextColumn>
-          <TextContent>
-            <Form onSubmit={(e) => e.preventDefault()}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Input
-                  type="text"
-                  placeholder="Username"
-                  required
-                  onChange={(e) => setRegisterUsername(e.target.value)}
-                  value = {registerUsername}
-                />
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  required
-                  onChange={(e) => setRegisterPassword(e.target.value)}
-                  value = {registerPassword}
-                  minlength="8"
-                />
-                
-                <br />
-              </div>
-              <SubmitButton onClick={register}>Add</SubmitButton>
-            </Form>
-          </TextContent>
-        </TextColumn>
-      </div>
-    </Container>
+    <div style={{ margin: "1em" }}>
+      <form onSubmit={formik.handleSubmit} method="POST">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
+          <div
+            style={{
+              margin: "1em",
+              display: "flex",
+              alignItems: "center",
+              position: "relative",
+            }}
+          >
+            <FaUserAlt
+              style={{ position: "absolute", bottom: 10 }}
+              color={formik.errors.email ? "red" : "black"}
+            />
+            <TextField
+              label="Username"
+              id="username"
+              name="email"
+              type="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+              fullWidth
+              style={{ marginLeft: "25px" }}
+            />
+          </div>
+          <div
+            style={{
+              margin: "1em",
+              display: "flex",
+              alignItems: "center",
+              position: "relative",
+            }}
+          >
+            <FaLock
+              style={{ position: "absolute", bottom: 10 }}
+              color={formik.errors.password ? "red" : "black"}
+            />
+            <TextField
+              label="Password"
+              id="password"
+              name="password"
+              type="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
+              fullWidth
+              style={{ marginLeft: "25px" }}
+            />
+          </div>
+
+          <Button
+            variant="contained"
+            type="submit"
+            className="login-btn"
+            disabled={loading}
+          >
+            Add
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 };
 
