@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 7.5%;
+  margin: 5% 2.5%;
   row-gap: 10px;
 }
 
@@ -18,8 +18,7 @@
 
 @media screen and (max-width: 775px) {
   .mainContainer {
-    margin: 7.5%;
-    margin-bottom: 20px;
+    margin: 12% -10%;
   }
 
   .descText {

@@ -38,19 +38,7 @@ function Founder() {
           className="daizy"
         />
         <h2 className="titleText">Daizy Mehta</h2>
-        <h3 className="descText">
-          <Typewriter
-            options={{
-              delay: 50,
-            }}
-            onInit={(typewriter) => {
-              typewriter.typeString(data).start();
-            }}
-            style={{ width: "800px" }}
-            className="descText"
-            delay={0}
-          />
-        </h3>
+        <h3 className="descText">{data}</h3>
       </div>
       <Footer />
     </>

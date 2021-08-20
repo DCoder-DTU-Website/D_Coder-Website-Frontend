@@ -3,6 +3,7 @@ import "style.css";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/ImageSlider";
 import Footer from "components/footers/Footer";
+import "./Bod.css";
 
 function BoardOfDirectors() {
   const data =
