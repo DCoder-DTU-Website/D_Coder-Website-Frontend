@@ -7,7 +7,6 @@ import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.sv
 import api from "../../api/apiClient";
 import swal from "sweetalert";
 
-
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
@@ -48,10 +47,9 @@ const HomePageContact = () => {
 
   const sendMail = async () => {
     const data = { name: name, email: email, message: message };
-    await api.post("/send",data);
-    setName("")
-    setEmail("")
-    setMessage("")
+    setName("");
+    setEmail("");
+    setMessage("");
     swal({
       title: "Email Sent",
       icon: "success",
@@ -59,6 +57,7 @@ const HomePageContact = () => {
       closeOnClickOutside: true,
       closeOnEsc: true,
     });
+    await api.post("/send", data);
   };
 
   return (
@@ -76,8 +75,8 @@ const HomePageContact = () => {
                       id="name-input"
                       type="text"
                       placeholder="E.g. ABC"
-                      value = {name}
-                      onChange = {e => setName(e.target.value)}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </InputContainer>
                   <InputContainer>
@@ -86,9 +85,8 @@ const HomePageContact = () => {
                       id="email-input"
                       type="email"
                       placeholder="E.g. xyz@mail.com"
-                      value = {email}
-                      onChange = {e => setEmail(e.target.value)}
-
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </InputContainer>
                 </Column>
@@ -98,9 +96,8 @@ const HomePageContact = () => {
                     <TextArea
                       id="message-input"
                       placeholder="Anything you want to say goes here"
-                      value = {message}
-                      onChange = {e => setMessage(e.target.value)}
-
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                     />
                   </InputContainer>
                 </Column>
