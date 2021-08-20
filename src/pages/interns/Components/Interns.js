@@ -36,7 +36,10 @@ const testimonials = () => {
   return (
     <Container
       className="councilStyle"
-      style={({ textAlign: "center" }, { backgroundColor: "rgb(21, 26, 35)" })}
+      style={{
+        textAlign: "center",
+        backgroundColor: "rgb(21, 26, 35)",
+      }}
     >
       <ContentWithPaddingXl>
         <HeaderRow>
@@ -64,10 +67,28 @@ const testimonials = () => {
         >
           {testimonaldata.subHeading}
         </Header>
-        <MainContainer>
-          <SubContainer>
+        <MainContainer
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <SubContainer
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             {tabsKeys.map((tabKey) => (
-              <SubSubContainer>
+              <SubSubContainer
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                }}
+              >
                 {testimonaldata.tabs[tabKey].map((card, index) => (
                   <CardContainer data-aos="fade-up" key={index}>
                     <Card
@@ -83,8 +104,14 @@ const testimonials = () => {
                       </ImageContainer>
                       <DataContainer style={{ textAlign: "center" }}>
                         <DataName>{card.Name}</DataName>
-                        <div style={{ textAlign: "center" , marginBottom:"15px"}}>
-                          <img src={card.logo} className="logo" alt = "logo"></img>
+                        <div
+                          style={{ textAlign: "center", marginBottom: "15px" }}
+                        >
+                          <img
+                            src={card.logo}
+                            className="logo"
+                            alt="logo"
+                          ></img>
                         </div>
                         <DataPost>{card.Post}</DataPost>
                         <DataIcons>
