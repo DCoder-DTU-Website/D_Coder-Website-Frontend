@@ -127,7 +127,7 @@ export default function BasicTable() {
 
   useEffect(() => {
     getAllUsers();
-  });
+  },[]);
 
   const cancelSearch = () => {
     setSearched("");
