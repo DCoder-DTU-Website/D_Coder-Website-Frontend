@@ -30,7 +30,7 @@ export default function CouncilCard({ index, card }) {
     "https://i.pinimg.com/originals/db/8c/82/db8c8283057bfc1e3261587c0d0223f2.jpg",
   ];
   return (
-    <div className="card__collection clear-fix" style={{ margin: "1em 3em" }}>
+    <div className="card__collection clear-fix image-container-photo">
       <div className="cards cards--two">
         <img
           src={card.imageSrc}
