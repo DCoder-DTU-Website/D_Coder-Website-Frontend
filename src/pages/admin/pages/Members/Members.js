@@ -12,7 +12,7 @@ import SearchBar from "material-ui-search-bar";
 import Modal from "./components/NewUserAddModal";
 import UserModal from "./components/ViewUserDetailsModal";
 import AdminNavbarLinks from "../../components/Navbar";
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
 import "../../Styles/page.css";
 import api from "../../../../api/apiClient";
 import swal from "sweetalert";
@@ -26,55 +26,63 @@ const useStyles = makeStyles({
 
 const techStack = [
   {
-    value: 'Web Dev',
-    label: 'Web Dev',
+    value: "All",
+    label: "All",
   },
   {
-    value: 'Data Structures',
-    label: 'Data Structures',
+    value: "Web Dev",
+    label: "Web Dev",
   },
   {
-    value: 'Algorithms',
-    label: 'Algorithms',
+    value: "Data Structures",
+    label: "Data Structures",
   },
   {
-    value: 'Android Dev',
-    label: 'Android Dev',
+    value: "Algorithms",
+    label: "Algorithms",
   },
   {
-    value: 'Machine Learning',
-    label: 'Machine Learning',
+    value: "Android Dev",
+    label: "Android Dev",
   },
   {
-    value: 'Artificial Intelligence',
-    label: 'Artificial Intelligence',
+    value: "Machine Learning",
+    label: "Machine Learning",
+  },
+  {
+    value: "Artificial Intelligence",
+    label: "Artificial Intelligence",
   },
 ];
 
 const team = [
   {
-    value: 'Development',
-    label: 'Development',
+    value: "All",
+    label: "All",
   },
   {
-    value: 'Youtube',
-    label: 'Youtube',
+    value: "Development",
+    label: "Development",
   },
   {
-    value: 'Social Media',
-    label: 'Social Media',
+    value: "Youtube",
+    label: "Youtube",
   },
   {
-    value: 'Content Writing',
-    label: 'Content Writing',
+    value: "Social Media",
+    label: "Social Media",
   },
   {
-    value: 'Video Editing',
-    label: 'Video Editing',
+    value: "Content Writing",
+    label: "Content Writing",
   },
   {
-    value: 'Graphic Designing',
-    label: 'Graphic Designing',
+    value: "Video Editing",
+    label: "Video Editing",
+  },
+  {
+    value: "Graphic Designing",
+    label: "Graphic Designing",
   },
 ];
 
@@ -82,11 +90,9 @@ export default function BasicTable() {
   const [originalRows, setOriginalRows] = useState([]);
   const [rows, setRows] = useState(originalRows);
   const [searched, setSearched] = useState("");
-  const [searchTechStack , setSearchTechStack] = useState("");
-  const [searchTeam , setSearchTeam] = useState("");
+  const [searchTechStack, setSearchTechStack] = useState("");
+  const [searchTeam, setSearchTeam] = useState("");
 
-
- 
   const classes = useStyles();
 
   const requestSearch = (searchedVal) => {
@@ -100,6 +106,10 @@ export default function BasicTable() {
   const requestSearchTechStack = (event) => {
     setSearchTechStack(event.target.value);
     setSearchTeam("");
+    if (event.target.value == "All") {
+      setRows(originalRows);
+      return;
+    }
     const filteredRows = originalRows.filter((row) => {
       const techStack = row.techStack;
       return techStack.includes(event.target.value);
@@ -108,16 +118,19 @@ export default function BasicTable() {
   };
 
   // console.log(rows)
-  const requestSearchTeam = (event) =>{
+  const requestSearchTeam = (event) => {
     setSearchTechStack("");
     setSearchTeam(event.target.value);
-
+    if (event.target.value == "All") {
+      setRows(originalRows);
+      return;
+    }
     const filteredRows = originalRows.filter((row) => {
       const team = row.workingWith;
       return team.includes(event.target.value);
     });
     setRows(filteredRows);
-  }
+  };
 
   const getAllUsers = async () => {
     const data = await api.get("/userprofile/all");
@@ -127,7 +140,7 @@ export default function BasicTable() {
 
   useEffect(() => {
     getAllUsers();
-  },[]);
+  }, []);
 
   const cancelSearch = () => {
     setSearched("");
@@ -180,12 +193,19 @@ export default function BasicTable() {
       <AdminNavbarLinks />
       <Modal />
       <Paper>
-        <div style = {{display : "flex" , alignItems:"center" , gap:"20px",padding:"20px 10px"}}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "20px",
+            padding: "20px 10px",
+          }}
+        >
           <SearchBar
             value={searched}
             onChange={(searchVal) => requestSearch(searchVal)}
             onCancelSearch={() => cancelSearch()}
-            style = {{height:"52px"}}
+            style={{ height: "52px" }}
           />
           <TextField
             id="outlined-select-currency-native"
@@ -196,7 +216,6 @@ export default function BasicTable() {
               native: true,
             }}
             variant="outlined"
-            
           >
             {techStack.map((option) => (
               <option key={option.value} value={option.value}>
@@ -213,7 +232,6 @@ export default function BasicTable() {
               native: true,
             }}
             variant="outlined"
-            
           >
             {team.map((option) => (
               <option key={option.value} value={option.value}>
