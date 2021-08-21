@@ -57,7 +57,7 @@ const testimonaldata = {
       },
       {
         imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/v1629223550/Screenshot_20210528-001959_-_2K19-CO-242_NAVYA_SINGLA_yd1hkj.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/v1629562709/navya_gsory9.jpg",
         Name: "Navya Singla",
         linkedin:
           "https://www.linkedin.com/in/vartika-hari-durgapal-1354a7202/",
