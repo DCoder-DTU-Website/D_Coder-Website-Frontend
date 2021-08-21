@@ -4,7 +4,7 @@ import Card from "./HackathonsCard";
 import "./Hackathons.css";
 
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-const Subheading = tw.h3`text-6xl mt-5 font-bold text-blue-600`;
+const Subheading = tw.h3`text-3xl mt-5 font-bold text-blue-600 md:text-6xl`;
 const Content = tw.div`mt-16`;
 const val = {
   upcomingEvents: [

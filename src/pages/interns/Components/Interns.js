@@ -90,7 +90,11 @@ const testimonials = () => {
                 }}
               >
                 {testimonaldata.tabs[tabKey].map((card, index) => (
-                  <CardContainer data-aos="fade-up" key={index}>
+                  <CardContainer
+                    data-aos="fade-up"
+                    key={index}
+                    className="cardContainer"
+                  >
                     <Card
                       className="group"
                       initial="rest"
