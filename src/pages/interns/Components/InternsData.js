@@ -79,7 +79,7 @@ const testimonaldata = {
       },
       {
         imageSrc:
-          "https://res.cloudinary.com/dcoderdtu/image/upload/v1621666284/ebmvfqecuwmiirht5gsd.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/v1629552986/mdxfnkacgfgwyv1yxm21.jpg",
         Name: "Chirag Garg",
         linkedin: "https://www.linkedin.com/in/chirag-garg-9806151a0/",
         Post: "Microsoft",
