@@ -30,12 +30,12 @@ const CardImageContainer = styled.div`
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`flex-shrink-0 justify-center items-center bg-no-repeat w-96 h-96 border-4 border-blue-600 rounded-full mr-6 xl:w-80 xl:h-80  mb-4`}
+  ${tw`flex-shrink-0 object-center md:py-4 justify-center relative items-center bg-no-repeat  w-72 h-72  border-4 border-blue-600 rounded-full  mr-6 xl:w-80 xl:h-80  mb-2`}
 `;
 
-const CardText = tw.div`p-12 text-justify text-gray-900`;
-const CardTitle = tw.h5`-mx-4 text-sm md:w-48 xl:w-48 text-center font-semibold md:text-3xl text-xl md:text-3xl lg:text-3xl xl:w-96 xl:text-4xl text-white`;
-const CardContent = tw.p`mt-1 text-justify text-sm font-medium text-xl text-gray-600 `;
+const CardText = tw.div`p-8 -mx-1  text-justify text-gray-900 justify-center`;
+const CardTitle = tw.h5`-mx-4 sm:text-base md:w-48 xl:w-48 text-center font-semibold md:text-3xl text-xl md:text-3xl lg:text-3xl xl:w-96 xl:text-4xl text-white`;
+const CardContent = tw.p`mt-1 text-justify sm:text-sm font-medium text-xl text-gray-600 `;
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 transform translate-x-2/3 -translate-y-12 text-pink-400`}
@@ -63,7 +63,7 @@ const Alumni = ({
         imageSrc: aditya,
         // "https://res.cloudinary.com/dcoderdtu/image/upload/v1621271944/daizy_qroggh.jpg",
 
-        Name: "Aditya Kulraj",
+        Name: " Aditya Kulraj",
         Year: "2020",
         linkedin: "https://www.linkedin.com/in/adityakulrajdtu/",
         content:
@@ -112,22 +112,18 @@ const Alumni = ({
                   reversed={index % 2 === 1}
                 >
                   <CardImageContainer
+                    className="alumniImage"
                     imageSrc={card.imageSrc}
                   ></CardImageContainer>
                     <CardText style={{ textAlign: "center" }}>
                       <a href={card.linkedin} target="_blank" rel="noreferrer">
                           <CardTitle
                             className={"Hover"}
-                            style={{
-                              fontSize: "2.5rem",
-                              width: "45vw",
-                              textAlign: "center",
-                            }}
                           >
                             {card.Name}({card.Year})
                           </CardTitle>
                       </a>
-                      <CardContent>{card.content}</CardContent>
+                      <CardContent className="alumnidec">{card.content}</CardContent>
                     </CardText>
                 </Card>
               </CardContainer>
