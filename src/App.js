@@ -140,9 +140,9 @@ function App() {
           <Route exact path="/testimonial">
             <Testimonial />
           </Route>
-          <Route exact path="/code_to_school">
+          {/* <Route exact path="/code_to_school">
             <CodeToSchool />
-          </Route>
+          </Route> */}
           <Route exact path="/faculty">
             <Faculty />
           </Route>

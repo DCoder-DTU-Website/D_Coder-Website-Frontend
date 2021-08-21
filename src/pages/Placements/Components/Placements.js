@@ -47,6 +47,7 @@ const Placements = () => {
               fontWeight: "lighter",
               color: "#63b3ed",
             }}
+            
           >
             {placementsData.heading}
           </Header>
@@ -61,6 +62,7 @@ const Placements = () => {
             marginLeft: "auto",
             marginRight: "auto",
           }}
+          
         >
           {placementsData.subHeading}
         </Header>
@@ -75,7 +77,7 @@ const Placements = () => {
                 }}
               >
                 {placementsData.tabs[tabKey].map((card, index) => (
-                  <CardContainer data-aos="fade-up" key={index}>
+                  <CardContainer data-aos="fade-up" key={index} className = "cardContainer">
                     <Card
                       className="group"
                       initial="rest"
