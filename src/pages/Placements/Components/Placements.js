@@ -62,7 +62,7 @@ const Placements = () => {
             marginLeft: "auto",
             marginRight: "auto",
           }}
-          
+          className="post"
         >
           {placementsData.subHeading}
         </Header>
@@ -100,7 +100,7 @@ const Placements = () => {
                             alt="logo"
                           ></img>
                         </div>
-                        <DataPost className="post">{card.Post}</DataPost>
+                        <DataPost>{card.Post}</DataPost>
                         <DataIcons>
                           <Icons>
                             <a

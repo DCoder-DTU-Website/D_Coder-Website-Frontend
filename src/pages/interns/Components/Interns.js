@@ -64,6 +64,7 @@ const testimonials = () => {
             marginLeft: "auto",
             marginRight: "auto",
           }}
+          className="post"
         >
           {testimonaldata.subHeading}
         </Header>

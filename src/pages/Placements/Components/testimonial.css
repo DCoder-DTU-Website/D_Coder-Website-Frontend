@@ -29,6 +29,6 @@
     display: none !important;
   }
   .post{
-    visibility: hidden;
+    display: none !important;
   }
 }
