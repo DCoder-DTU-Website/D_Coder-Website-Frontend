@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import "./HackathonsCard.css";
 
 const Card = styled.div((props) => [
-  tw`mt-24 md:flex justify-center items-center`,
+  tw`mt-24 -mx-8 md:flex justify-center items-center`,
   props.reversed ? tw`flex-row-reverse` : "flex-row",
 ]);
 const Image = styled.div((props) => [
@@ -18,7 +18,7 @@ const Details = tw.div`mt-4 md:mt-0 text-2xl md:max-w-xl mx-4 sm:mx-8 md:mx-4 lg
 const Title = tw.h4`w-full text-4xl font-bold text-gray-900 text-blue-600`;
 const Description = tw.p`text-justify text-xl mt-2 leading-loose`;
 
-function EvtCard({ count,title, desc, img }) {
+function EvtCard({ count, title, desc, img }) {
   AOS.init();
 
   return (

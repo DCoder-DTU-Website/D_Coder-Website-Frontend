@@ -12,7 +12,7 @@ const App = () => {
         title="COMPETITIONS AND ACHIEVEMENTS"
         bgImage="https://res.cloudinary.com/dcoderdtu/image/upload/v1621528337/achievements_mmn7gq.jpg"
       />
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center" }} className="whiteText-mobile">
         <p className="para">
           Continuing the legacy, last year too D_CODER teams participated in
           various competitions and won accolades for the society. Not only the
