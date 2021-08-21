@@ -67,7 +67,13 @@ const Placements = () => {
         <MainContainer>
           <SubContainer>
             {tabsKeys.map((tabKey) => (
-              <SubSubContainer>
+              <SubSubContainer
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                }}
+              >
                 {placementsData.tabs[tabKey].map((card, index) => (
                   <CardContainer data-aos="fade-up" key={index}>
                     <Card
