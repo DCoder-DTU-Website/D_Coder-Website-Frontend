@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "tailwindcss/dist/base.css";
 import tw from "twin.macro";
 import YoutubeVideo from "./YoutubeVideo";
 
 import comingSoon from "../coming-soon.svg";
 import fakeData from "../fakeData";
+import api from "../../../api/apiClient";
 
 const GridContainer = tw.div`grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3`;
 const VideoSection = tw.div`m-10 flex justify-center items-center`;
@@ -14,9 +15,24 @@ const ImageContainer = tw.div`mt-10`;
 
 function VideoContainer({ history, location, match }) {
   const { topic, subtopic } = match.params;
-  let videos = fakeData;
+  const [lectures, setLectures] = useState([]);
 
-  const topicVideos = videos.filter(
+  const getLectures = async () => {
+    try {
+      const { data } = await api.get("/lecture/all");
+      const { data: lecture } = data;
+      setLectures(lecture);
+      console.log(lectures);
+    } catch (err) {
+      console.log("Could not retrieve Lectures!", err);
+    }
+  };
+
+  useEffect(() => {
+    getLectures();
+  }, []);
+
+  const topicVideos = lectures.filter(
     (video) =>
       video.topic.toLowerCase() === topic.toLowerCase() &&
       video.subtopic.toLowerCase() === subtopic.toLowerCase()

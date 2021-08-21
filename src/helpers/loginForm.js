@@ -19,8 +19,8 @@ const validationSchema = Yup.object().shape({
 const AddForm = ({ handleClose, setIsLoggedIn }) => {
   const [loading, setLoading] = useState(false);
   const login = async () => {
+    setLoading(true);
     try {
-      setLoading(true);
       const info = formik.values;
       formik.resetForm();
       const { data } = await api.post("/login", {
@@ -36,10 +36,11 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
       } else {
         swal({ title: "Successfully Logged In!", icon: "success" });
       }
-      setLoading(false);
+      window.location.reload();
     } catch (err) {
       swal({ title: "Incorrect Username or Password!", icon: "warning" });
     }
+    setLoading(false);
   };
 
   const formik = useFormik({
@@ -111,7 +112,7 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
               style={{ marginLeft: "25px" }}
             />
           </div>
-          <ForgotModal/>
+          <ForgotModal />
 
           <Button
             variant="contained"
