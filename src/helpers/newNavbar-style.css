@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0px 70px;
+  padding: 0px 0px;
 }
 
 .navbar-links {
@@ -24,9 +24,9 @@
 .navbar-links li a {
   display: block;
   text-decoration: none;
-  padding: 0 1.75em;
+  padding: 0 0.98em;
   font-weight: 700;
-  font-size:14px;
+  font-size:13px;
   transition: 0.4s all;
   color: #fff;
 }
