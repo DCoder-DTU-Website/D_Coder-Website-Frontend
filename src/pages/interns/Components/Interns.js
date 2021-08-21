@@ -113,7 +113,7 @@ const testimonials = () => {
                             alt="logo"
                           ></img>
                         </div>
-                        {/* <DataPost>{card.Post}</DataPost> */}
+                        <DataPost className="post">{card.Post}</DataPost>
                         <DataIcons>
                           <Icons>
                             <a
