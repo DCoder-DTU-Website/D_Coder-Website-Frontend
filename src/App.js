@@ -22,6 +22,7 @@ import UserProfile from "pages/admin/pages/User/UserProfile";
 import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
+import ForgotPass from "./pages/admin/components/ForgotPasswordForm";
 import CodeToSchool from "pages/code2school/App";
 import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
@@ -130,6 +131,9 @@ function App() {
           </Route>
           <Route path="/reset/:token">
             <ResetPass />
+          </Route>
+          <Route path="/forgot/:token">
+            <ForgotPass />
           </Route>
           <Route path="/recruitment">
             {isAdmin ? <RecruitmentProcess /> : <NotAnAdmin />}
