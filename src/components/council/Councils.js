@@ -10,6 +10,7 @@ import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7
 import "./council.css";
 import { coheads } from "./Coheads";
 import { developers } from "./Developers";
+import { desginers } from "./Desginer";
 import { heads } from "./Heads";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -60,6 +61,7 @@ const Councils = ({
     Heads: heads,
     CoHeads: getCoHeads(),
     Developers: getDevelopers(),
+    Desginers: getDesigners(),
   },
 }) => {
   const tabsKeys = Object.keys(tabs);
@@ -293,4 +295,7 @@ const getDevelopers = () => {
   return developers;
 };
 
+const getDesigners = () => {
+  return desginers
+};
 export default Councils;
