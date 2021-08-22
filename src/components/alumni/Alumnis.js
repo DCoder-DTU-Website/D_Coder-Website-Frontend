@@ -34,7 +34,7 @@ const CardImageContainer = styled.div`
 `;
 
 const CardText = tw.div`p-8 -mx-1  text-justify text-gray-900 justify-center`;
-const CardTitle = tw.h5`-mx-4 sm:text-base md:w-48 xl:w-48 text-center font-semibold md:text-3xl text-xl md:text-3xl lg:text-3xl xl:w-96 xl:text-4xl text-white`;
+const CardTitle = tw.h5`-mx-4 sm:text-base md:w-48  text-center font-semibold  sm:text-xl md:text-2xl lg:text-3xl xl:w-96 xl:text-3xl text-white`;
 const CardContent = tw.p`mt-1 text-justify sm:text-sm font-medium text-xl text-gray-600 `;
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
