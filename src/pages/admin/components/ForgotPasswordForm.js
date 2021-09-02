@@ -38,7 +38,7 @@ const ResetPassForm = () => {
           closeOnEsc: true,
         });
         if (res) {
-          window.location.href = "http://localhost:3000/";
+          window.location.href = "https://teamdcoder.com/";
         }
       } else if (message === "Invalid Password") {
         swal({
@@ -57,7 +57,7 @@ const ResetPassForm = () => {
           closeOnEsc: true,
         });
         if (res) {
-          window.location.href = "http://localhost:3000/";
+          window.location.href = "https://teamdcoder.com/";
         }
       }
     }
@@ -77,7 +77,6 @@ const ResetPassForm = () => {
           backgroundColor: "white",
           padding: "50px",
           borderRadius: "10px",
-          boxShadow: "-4px 2px 48px 5px rgba(49,130,206,0.75)",
         }}
         onSubmit={(e) => e.preventDefault()}
       >
