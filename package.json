@@ -1,5 +1,5 @@
 {
-  "name": "d_coder_site",
+  "name": "teamdcoder",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://dcoderbackend.herokuapp.com/api",

@@ -1,3 +1,5 @@
+import Mahek from "../../../images/mahek_jain.jpeg";
+
 const placementsData = {
   heading: "OUR GENIUSES",
   subHeading:
@@ -16,7 +18,7 @@ const placementsData = {
       },
       {
         imageSrc:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1628752206/WhatsApp_Image_2021-08-09_at_11.00.49_rz21oo.jpg",
+          "https://res.cloudinary.com/dcoderdtu/image/upload/v1628752206/WhatsApp_Image_2021-08-09_at_11.00.49_rz21oo.jpg",
         Name: "Siddharth Singh",
         linkedin: "https://www.linkedin.com/in/siddharth-singh-768734138/",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Wells_Fargo_Logo_%282020%29.png",
@@ -82,6 +84,21 @@ const placementsData = {
         linkedin: "https://www.linkedin.com/in/sriram-v-08b098170/",
         logo: "https://cdn.cms-twdigitalassets.com/content/dam/partners-twitter/partner-profile/sprinklr/Sprinklr-NewLogo.png.twimg.1920.png",
         Post: "Sprinklr",
+      },
+      {
+        imageSrc: Mahek,
+        Name: "Mahek Jain",
+        linkedin: "https://www.linkedin.com/in/mahek-jain/",
+        logo: "https://www.ta.com/system/uploads/fae/image/asset/754/Fractal_DETAIL.jpg",
+        Post: "Fractal",
+      },
+      {
+        imageSrc:
+          "https://res.cloudinary.com/dumgn8uvd/image/upload/v1629356482/rahul_nuafnk.jpg",
+        Name: "Rahul Mahar",
+        linkedin: "https://www.linkedin.com/in/rahul-mahar-b93393172/",
+        logo: "https://media-exp1.licdn.com/dms/image/C510BAQFs09mlrIcarA/company-logo_200_200/0/1546244143755?e=2159024400&v=beta&t=WJsdkVkQYT1G5NEGphy02fGvzpjUAp3aajSIEGMM-V4",
+        Post: "Gameskraft",
       },
     ],
   },
