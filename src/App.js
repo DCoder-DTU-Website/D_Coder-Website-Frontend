@@ -28,8 +28,8 @@ import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Founder from "pages/Founder/App";
 import Achievements from "pages/achievements/App";
-import Blog from "pages/Blog/App";
-import ReadMore from "components/blogs/routes/Blog/Blog";
+import Blog from "pages/Blog/App.js";
+import ReadMore from './components/blogs/routes/Blog/Blog.js'
 import SeniorsSeMulaquaat from "pages/ssm/App";
 import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
@@ -182,5 +182,4 @@ function App() {
     </AnimationRevealPage>
   );
 }
-
 export default App;
