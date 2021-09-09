@@ -1,9 +1,0 @@
-.Heading {
-  font-size: 150px !important;
-}
-
-@media (max-width: 1000px) {
-  .Heading {
-    font-size: 60px !important;
-  }
-}

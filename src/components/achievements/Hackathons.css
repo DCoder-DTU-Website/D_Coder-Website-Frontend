@@ -1,9 +1,0 @@
-.links {
-  color: #3182ce;
-}
-
-@media screen and (max-width: 500px) {
-  .para {
-    display: none;
-  }
-}
