@@ -1,0 +1,30 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 2.5%;
+  row-gap: 10px;
+}
+
+.descText {
+  color: white;
+  font-size: 1.5rem;
+  text-align: justify;
+  margin: 7.5%;
+  grid-row-gap: 10px;
+  row-gap: 10px;
+}
+
+@media screen and (max-width: 775px) {
+  .mainContainer {
+    margin: 12% -10%;
+  }
+
+  .descText {
+    margin-top: 4% !important;
+    color: white;
+    font-size: 1rem;
+    text-align: justify;
+  }
+}

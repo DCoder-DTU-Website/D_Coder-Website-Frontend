@@ -1,0 +1,14 @@
+@media screen and (max-width: 650px) {
+  .logo_phone {
+    margin-bottom: 100px;
+    width:300px !important;
+    height: 170px !important;
+  }
+}
+@media screen and (min-width: 650px) {
+  .logo_phone {
+    width:400px;
+    height: 300px;
+  }
+}
+

@@ -1,0 +1,15 @@
+.mobile_list {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .mobile_list {
+    display: block;
+  }
+  .desktop_list {
+    display: none;
+  }
+  .mobile_view {
+    visibility: hidden;
+  }
+}

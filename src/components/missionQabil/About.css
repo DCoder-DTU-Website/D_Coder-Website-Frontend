@@ -1,0 +1,67 @@
+.definition {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.video {
+  width: 80%;
+  height: 500px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.def-para {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+@media screen and (min-width: 850px) {
+  .video {
+    height: 500px !important;
+  }
+  .def-para{
+      font-size: 25px;
+  }
+  .title{
+    font-size: 50px !important;
+  }
+}
+@media screen and (max-width:850px) and (min-width: 450px) {
+  .video {
+    height: 300px !important;
+    width: 450px !important;
+  }
+  .def-para{
+      font-size: 18px;
+      width: 380px;
+  }
+  .title{
+    font-size: 34px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .video {
+    height: 200px !important;
+    width: 250px !important;
+  }
+  .def-para{
+      font-size: 13px;
+      width: 262px;
+  }
+  .title{
+    font-size: 24px !important;
+  }
+}

@@ -1,0 +1,5 @@
+.closed,
+.open {
+  background-color: transparent;
+  border-width: 0;
+}

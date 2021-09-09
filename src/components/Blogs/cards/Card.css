@@ -1,0 +1,36 @@
+.blogCard {
+  margin: 5vh;
+  padding: 2vh;
+  background-color: #1c1c24;
+  width: 90%;
+  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.75));
+  border-radius: 5px;
+}
+.blogTitle {
+  color: #039be5;
+  font-size: 1.5rem;
+  font-weight: Bold;
+  text-align: left;
+}
+.buttonArea {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 800px) {
+  .blogDesc {
+    display: none;
+  }
+  .blogCard {
+    margin: 5vh;
+    padding: 3vh;
+    width: 115%;
+  }
+  .blogTitle {
+    font-size: 1.2rem;
+  }
+  .buttonArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

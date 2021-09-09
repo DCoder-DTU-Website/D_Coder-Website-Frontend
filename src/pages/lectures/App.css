@@ -1,0 +1,64 @@
+.Lectures-root {
+  margin: 0 -35px;
+  display: flex;
+}
+
+.Lectures-root-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.Lectures-root-mobile-in {
+  position: sticky;
+}
+
+.Lectures-video-container {
+  margin-left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.Lectures-video-container::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+
+.Lectures-video-container-mobile {
+  margin-left: 0;
+}
+
+.Lectures-sidenav-container::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+}
+
+.Lectures-sidenav-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+/* .Lectures-sidenav-container-mobile {
+  height: 45px;
+} */
+
+.Lectures-container-close {
+  transition: all 200ms ease-in-out;
+  /* overflow: hidden; */
+}
+
+.Lectures-container-open {
+  transition: all 200ms ease-in-out;
+  /* overflow: hidden; */
+  /* margin-left: 270px; */
+}
+
+.SideNav-container {
+  margin-left: -32px;
+}
+
+.Lectures-container-close-inside {
+  padding: 3rem !important;
+}

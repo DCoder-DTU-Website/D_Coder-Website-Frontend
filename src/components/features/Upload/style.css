@@ -1,0 +1,27 @@
+.image-item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.image-item__btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 0px !important;
+}
+
+button {
+  height: 40px;
+  background-color: rgba(49, 130, 206);
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* STYLE FOR THE TEXTAREA IN FORM */
+.text_here:focus {
+  border-bottom: 2px solid red;
+}
+.text_here:hover {
+  border-bottom: 2px solid red;
+}
