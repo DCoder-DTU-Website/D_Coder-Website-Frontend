@@ -1,0 +1,15 @@
+.councilStyle {
+  margin: -35px;
+  background-color: rgb(21, 26, 35);
+  color: rgb(255, 255, 255);
+}
+
+.image-container-photo {
+  margin: 1em 0;
+}
+
+@media screen and (min-width: 470px) {
+  .image-container-photo {
+    margin: 1em 3em;
+  }
+}

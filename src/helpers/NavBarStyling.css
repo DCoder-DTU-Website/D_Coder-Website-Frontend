@@ -1,0 +1,20 @@
+.no-focus-outline,
+.no-focus-outline a:focus,
+.no-focus-outline button:focus {
+  outline: none !important;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.Navlist {
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width: 1024px) {
+  .Navlist {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .NavBarIcon {
+    color: white;
+  }
+}

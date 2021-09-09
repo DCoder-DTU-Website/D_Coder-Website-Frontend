@@ -1,0 +1,8 @@
+@media screen and (max-width: 850px) {
+  .mobileView-achieve {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}

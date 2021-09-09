@@ -1,0 +1,39 @@
+@media screen and (max-width: 1000px) {
+  .mobile-view {
+    width: 60% !important;
+  }
+}
+@media screen and (max-width: 900px) {
+  .mobile-view {
+    width: 70% !important;
+  }
+}
+@media screen and (max-width: 885px) {
+  .mobile-view {
+    width: 90% !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .mobile-view {
+    padding: 0 !important;
+  }
+  .mobile-view-form {
+    flex-direction: column;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  #section1 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .inside-mobile-view {
+    width: 95% !important;
+  }
+  .mob-sub-btn {
+    margin-top: -10px !important;
+    margin-bottom: 20px !important;
+    width: 80%;
+  }
+}

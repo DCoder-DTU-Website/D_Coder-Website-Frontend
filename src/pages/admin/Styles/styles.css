@@ -1,0 +1,39 @@
+@media screen and (max-width: 960px) {
+  .adminboxes {
+    display: grid;
+  }
+  .dashboard {
+    min-width: 40vw;
+    width: 70%;
+    margin-left: 6vw !important;
+    margin-right: 6vw !important;
+  }
+}
+
+@media screen and (min-width: 961px) {
+  .adminboxes {
+    display: flex;
+    max-width: 73vw;
+  }
+  .dashboard {
+    align-items: center;
+    justify-content: center;
+    margin-left: 13vw !important;
+    margin-right: 13vw !important;
+  }
+}
+
+@media screen and (min-width: 766px) {
+  .eventstyle {
+    display: flex;
+  }
+}
+
+.sameheight {
+  max-height: 55vw !important;
+  height: 350px;
+}
+
+.project {
+  text-align: center;
+}

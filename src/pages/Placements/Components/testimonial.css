@@ -1,0 +1,34 @@
+.testimonialStyle {
+  margin: -35px;
+  background-color: #1a202c;
+  color: rgb(255, 255, 255);
+}
+.svgtestimonial:hover {
+  fill: rgb(2, 114, 241);
+}
+.logo {
+  height: 70px !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.headingsub {
+  font-size: 20px;
+  margin-bottom: 35px;
+  padding: 0px 100px;
+  font-weight: lighter;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 775px) {
+  .cardContainer {
+    min-width: 100%;
+  }
+  .headingsub {
+    display: none !important;
+  }
+  .post{
+    display: none !important;
+  }
+}

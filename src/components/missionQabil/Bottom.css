@@ -1,0 +1,42 @@
+.mission {
+  padding-top: 20px;
+  width: 100%;
+  background-color: #73c2fb;
+  margin-bottom: 10px;
+}
+
+.card-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card {
+  background-color: rgba(36, 62, 99);
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-mission {
+  width: 12rem;
+  height: 200px;
+}
+
+.p-mission {
+  text-align: center;
+  margin-top: 25%;
+  font-weight: bold;
+}
+
+.myCard:hover {
+  transform: scale(2, 2);
+}
+
+@media screen and (max-width: 800px) {
+  .card-flex {
+    flex-direction: column;
+  }
+}
