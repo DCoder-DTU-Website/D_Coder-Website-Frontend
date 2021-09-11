@@ -79,8 +79,8 @@ const ProjectsComp = () => {
                 <Description>{card.desc}</Description>
                 <div
                   className="links"
-                  style={linkstyle}
-                  style={{
+                  // style={linkstyle}
+                  style={{ ...linkstyle,
                     display: "flex",
                     alignItems: "center",
                     gap: "30px",
@@ -138,8 +138,8 @@ const ProjectsComp = () => {
               </Description>
               <div
                 className="links"
-                style={linkstyle}
-                style={{
+                // style={linkstyle}
+                style={{...linkstyle,
                   display: "flex",
                   alignItems: "center",
                   gap: "30px",

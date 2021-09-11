@@ -4,7 +4,6 @@ import tw from "twin.macro";
 import YoutubeVideo from "./YoutubeVideo";
 
 import comingSoon from "../coming-soon.svg";
-import fakeData from "../fakeData";
 import api from "../../../api/apiClient";
 
 const GridContainer = tw.div`grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3`;
@@ -30,6 +29,7 @@ function VideoContainer({ history, location, match }) {
 
   useEffect(() => {
     getLectures();
+    // eslint-disable-next-line
   }, []);
 
   const topicVideos = lectures.filter(

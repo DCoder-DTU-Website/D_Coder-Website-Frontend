@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive'
 
 
@@ -25,9 +25,6 @@ function Slide({ slide, offset }) {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-device-width: 700px)'
   })
-  const isMobile = useMediaQuery({
-    query: '(max-device-width: 700px)'
-  })
   return React.createElement(
     "div",
     {
@@ -51,7 +48,7 @@ function Slide({ slide, offset }) {
       React.createElement(
         "div",
         { className: "slideContentInner" },
-        (isDesktopOrLaptop==true?React.createElement("h2", { className: "slideTitle" }, slide.title):""),
+        (isDesktopOrLaptop===true?React.createElement("h2", { className: "slideTitle" }, slide.title):""),
 
         React.createElement(
           "p",
@@ -68,12 +65,8 @@ const CoverFlowFunc = ({ slideIndex, slides }) => {
     slideIndex: slideIndex,
     slides: slides,
   };
-  function SliderPlaying(x) {
-    if (x) sliderRef?.slickPlay();
-    else sliderRef?.slickPause();
-  }
   const [state, dispatch] = React.useReducer(slidesReducer, initialState);
-  const [sliderRef, setSliderRef] = useState(null);
+  const [sliderRef, setSliderRef] = useState(null); //eslint-disable-line
 
   
   return React.createElement(

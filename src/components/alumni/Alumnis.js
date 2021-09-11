@@ -8,7 +8,6 @@ import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 import "./alumni.css";
 import "aos/dist/aos.css";
-import akk from "images/akk.jfif";
 // import abt from "images/abt.jfif";
 import abt from "images/abhinav.jpeg";
 import dm from "images/dm.jpeg";

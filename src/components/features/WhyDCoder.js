@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
 import StatsIllustrationSrc from "../../images/about_us_3.jpg";
-import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 // import AOS from "aos";
 
 const Container = tw.div`relative -m-8 bg-gray-900`;
@@ -34,9 +33,6 @@ const Statistic = tw.div` text-left sm:inline-block sm:mr-12 last:mr-0 mt-4`;
 const Value = tw.div`font-bold text-lg sm:text-xl lg:text-2xl text-white tracking-wide`;
 const Key = tw.div`font-medium text-blue-700`;
 
-const DecoratorBlob = styled(SvgDotPattern)((props) => [
-  tw`w-20 h-20 absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2 fill-current text-primary-500 -z-10`,
-]);
 
 const WhyD = ({
   subheading = "Why D_CODER?",

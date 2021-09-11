@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -35,7 +34,7 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <a
+      <button
         type="button"
         onClick={handleOpen}
         style={{
@@ -49,7 +48,7 @@ export default function TransitionsModal() {
         }}
       >
         Forgot Password?
-      </a>
+      </button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

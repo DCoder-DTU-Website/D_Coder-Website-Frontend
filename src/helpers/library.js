@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
 import tw from "twin.macro";
 import styled from "styled-components";
 import Header, {
@@ -12,12 +11,10 @@ import Header, {
 import Login from "./loginModal";
 import { Button, IconButton } from "@material-ui/core";
 import useUser from "../useUser";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 import swal from "sweetalert";
 import api from "../api/apiClient";
-import MenuDropdown from "components/hero/MenuDropdown.js";
-import { ExitToApp } from "@material-ui/icons";
 import "./NavBarStyling.css";
 import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRounded";
 import SecurityRoundedIcon from "@material-ui/icons/SecurityRounded";
@@ -65,15 +62,16 @@ function NavBar() {
 
   useEffect(() => {
     getProfile();
+    // eslint-disable-next-line
   }, [user]);
 
   useEffect(() => {
     console.log(profile);
   }, [profile]);
 
-  const isMobile = useMediaQuery({
-    query: "(max-device-width: 1154px)",
-  });
+  // const isMobile = useMediaQuery({
+  //   query: "(max-device-width: 1154px)",
+  // });
 
   const navLinks = [
     <DropNav />,

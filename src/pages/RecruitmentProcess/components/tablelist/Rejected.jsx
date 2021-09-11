@@ -8,7 +8,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import api from "../../../../api/apiClient";
-import swal from "sweetalert";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -28,13 +27,13 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const rows = [
-  { name: "Aditya", email: 159, status: "Applied" },
-  { name: "Vaibhav", email: 237, status: "Applied" },
-  { name: "Naman", email: 262, status: "Applied" },
-  { name: "Aarya", email: 305, status: "Applied" },
-  { name: "Shivansh", email: 356, status: "Applied" },
-];
+// const rows = [
+//   { name: "Aditya", email: 159, status: "Applied" },
+//   { name: "Vaibhav", email: 237, status: "Applied" },
+//   { name: "Naman", email: 262, status: "Applied" },
+//   { name: "Aarya", email: 305, status: "Applied" },
+//   { name: "Shivansh", email: 356, status: "Applied" },
+// ];
 
 const useStyles = makeStyles({
   table: {
@@ -45,7 +44,7 @@ const useStyles = makeStyles({
 export default function CustomizedTables() {
   const classes = useStyles();
   const [rejected, setRejected] = useState([]);
-  const [members, setMembers] = useState(rows);
+  // const [members, setMembers] = useState(rows);
 
   const getRejected = async () => {
     try {

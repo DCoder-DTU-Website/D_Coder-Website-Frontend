@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import tw from "twin.macro";
 import Card from "./HackathonsCard";
 import "./Hackathons.css";

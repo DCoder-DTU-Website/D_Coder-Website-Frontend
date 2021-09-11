@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import tw from "twin.macro";
-import styled from "styled-components";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import api from "../../../../../api/apiClient";
 import swal from "sweetalert";
 import { TextField, Button } from "@material-ui/core";
@@ -9,23 +6,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
-const Container = tw.div`relative px-10`;
-const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
-const TextColumn = styled(Column)((props) => [
-  tw`md:w-7/12 mt-16 md:mt-0`,
-  props.textOnLeft
-    ? tw`md:mr-12 lg:mr-16 md:order-first`
-    : tw`md:ml-12 lg:ml-16 md:order-last`,
-]);
-
-const TextContent = tw.div`lg:py-8 text-center md:text-left`;
-
-const Form = tw.form`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`;
-const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-blue-600`;
-
-const SubmitButton = tw(
-  PrimaryButtonBase
-)`inline-block text-center bg-blue-600 hocus:bg-blue-800`;
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().label("Username").email(),

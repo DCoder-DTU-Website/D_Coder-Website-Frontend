@@ -29,6 +29,7 @@ const About = () => {
         </div>
         <iframe
           className="video"
+          title="video"
           id="video"
           src="https://www.youtube.com/embed/-KIE463QlK4"
           allowfullscreen="allowfullscreen"

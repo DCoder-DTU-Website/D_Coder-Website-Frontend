@@ -36,7 +36,8 @@ const splashScreen = (props) => {
           <img
             style={{ width: "320px", height: "240px"}}
             src={logo}
-            className = "logo_phone"
+            className="logo_phone"
+            alt="phone"
           />
           <Heading>Missi<spam style = {{color:"#f3a94e"}}>o</spam>n <spam style = {{color:"#f3a94e"}}>Q</spam>abil</Heading>
         </Content>

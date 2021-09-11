@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "semantic-ui-react";
 
 const Blog = () => {
   return (
@@ -8,6 +7,7 @@ const Blog = () => {
         <iframe
           width="100%"
           height="100%"
+          title="blog"
           src="https://docs.google.com/document/d/e/2PACX-1vQQY7CWhSfA4t6uCKij8wilIm_EGSxe1FIWmKV4RqkEtPH1oGWx70jN5-8S6P5oVWT_ERP98qTNtAnd/pub?embedded=true"
         />
       </div>

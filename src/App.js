@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import AnimationRevealPage from "helpers/AnimationRevealPage";
-import { BrowserRouter, Route, Switch, Redirect, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from "pages/home/App";
 import FormEmbed from "pages/forms/App";
 import Events from "pages/events/App";
@@ -23,7 +23,7 @@ import UserProfile from "pages/admin/pages/User/UserProfile";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
 import ForgotPass from "./pages/admin/components/ForgotPasswordForm";
-import CodeToSchool from "pages/code2school/App";
+import CodeToSchool from "pages/code2school/App";//eslint-disable-line
 import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Founder from "pages/Founder/App";
@@ -165,18 +165,11 @@ function App() {
             <ForgotPass />
           </Route>
           <Route path="/recruitment">
-            {isAdmin ? (
               <RecruitmentProcess />
-            ) : (
-              <Route>
-                <Redirect to="/" />
-              </Route>
-            )}
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />
           </Route>
-          {/* <Route path="*" component={Error404} /> */}
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>

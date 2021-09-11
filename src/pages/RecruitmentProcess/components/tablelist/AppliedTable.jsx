@@ -47,6 +47,7 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
   const classes = useStyles();
+  // eslint-disable-next-line
   const [applied , setApplied] = useState([])
   const [members , setMembers] = useState(rows)
 
@@ -55,7 +56,7 @@ export default function CustomizedTables() {
       const { data } = await api.get("/applicants/all");
       // const { data: appliedData } = data;
       console.log(data);
-      let val = data.filter((e) => e.inteviewLink=="");
+      let val = data.filter((e) => e.inteviewLink==="");
       console.log(val)
       setApplied(val);
       setMembers(val);

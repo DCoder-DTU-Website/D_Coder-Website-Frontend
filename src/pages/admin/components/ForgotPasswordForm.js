@@ -6,7 +6,6 @@ import swal from "sweetalert";
 import { Button } from "@material-ui/core";
 
 const ResetPassForm = () => {
-  const [old, setOld] = useState("");
   const [newPass, setNewPass] = useState("");
   const [cnfrm, setCnfrm] = useState("");
   const params = useParams();

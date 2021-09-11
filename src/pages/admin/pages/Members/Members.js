@@ -106,7 +106,7 @@ export default function BasicTable() {
   const requestSearchTechStack = (event) => {
     setSearchTechStack(event.target.value);
     setSearchTeam("");
-    if (event.target.value == "All") {
+    if (event.target.value === "All") {
       setRows(originalRows);
       return;
     }
@@ -121,7 +121,7 @@ export default function BasicTable() {
   const requestSearchTeam = (event) => {
     setSearchTechStack("");
     setSearchTeam(event.target.value);
-    if (event.target.value == "All") {
+    if (event.target.value === "All") {
       setRows(originalRows);
       return;
     }

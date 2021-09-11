@@ -519,6 +519,7 @@ export default function UserProfile(props) {
 
   useEffect(() => {
     getProfile();
+    // eslint-disable-next-line
   }, [user]);
 
   const firstUpdate = useRef(true);
@@ -530,6 +531,7 @@ export default function UserProfile(props) {
     if (ogProfile.image !== data.image) {
       updateBackend();
     }
+    // eslint-disable-next-line
   }, [data.image]);
 
   const handleChange = (e) => {

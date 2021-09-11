@@ -31,13 +31,13 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const rows = [
-  { name: "Aditya", email: 159, status: "Applied" },
-  { name: "Vaibhav", email: 237, status: "Applied" },
-  { name: "Naman", email: 262, status: "Applied" },
-  { name: "Aarya", email: 305, status: "Applied" },
-  { name: "Shivansh", email: 356, status: "Applied" },
-];
+// const rows = [
+//   { name: "Aditya", email: 159, status: "Applied" },
+//   { name: "Vaibhav", email: 237, status: "Applied" },
+//   { name: "Naman", email: 262, status: "Applied" },
+//   { name: "Aarya", email: 305, status: "Applied" },
+//   { name: "Shivansh", email: 356, status: "Applied" },
+// ];
 
 const useStyles = makeStyles({
   table: {
@@ -55,7 +55,7 @@ export default function CustomizedTables() {
       // const { data: appliedData } = data;
       console.log(data);
       // console.log(appliedData);
-      let val = data.filter((e) => e.inteviewLink!="" && e.interviewCompleted == false);
+      let val = data.filter((e) => e.inteviewLink!=="" && e.interviewCompleted === false);
       console.log(val)
       setScheduled(val);
       // setScheduled(data);

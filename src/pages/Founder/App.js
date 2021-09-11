@@ -2,7 +2,6 @@ import React from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
-import Typewriter from "typewriter-effect";
 import "./Founder.css";
 import Footer from "components/footers/Footer";
 
