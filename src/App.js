@@ -106,7 +106,7 @@ function App() {
             {/* <Admin /> */}
           </Route>
           <Route exact path="/admin/placements">
-            {true ? (
+            {isAdmin ? (
               <PlacementsTable />
             ) : (
               <Route>
@@ -115,7 +115,7 @@ function App() {
             )}
           </Route>
           <Route exact path="/admin/internships">
-            {true ? (
+            {isAdmin ? (
               <InternsTable />
             ) : (
               <Route>
