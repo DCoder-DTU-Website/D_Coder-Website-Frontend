@@ -18,6 +18,8 @@ import Research from "pages/research/App";
 import Interns from "pages/interns/App";
 import Placements from "pages/Placements/App";
 import Table from "pages/admin/pages/Members/Members";
+import PlacementsTable from "pages/admin/pages/Members/Placements";
+import InternsTable from "pages/admin/pages/Members/Interns";
 import UserProfile from "pages/admin/pages/User/UserProfile";
 // import NotAnAdmin from "./pages/miscellaneous/AdminError/index";
 import useUser from "./useUser";
@@ -102,6 +104,24 @@ function App() {
               </Route>
             )}
             {/* <Admin /> */}
+          </Route>
+          <Route exact path="/admin/placements">
+            {true ? (
+              <PlacementsTable />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+          </Route>
+          <Route exact path="/admin/internships">
+            {true ? (
+              <InternsTable />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
           <Route exact path="/admin/table">
             {isAdmin ? (

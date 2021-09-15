@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useeEffect} from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import AOS from "aos";
@@ -7,6 +7,7 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import "./testimonial.css";
 import placementsData from "./PlacementsData";
+import api from "../../../api/apiClient";
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`; // Team Heading +carousel
 const Header = tw(SectionHeading)``; // Team Heading
 const MainContainer = tw.div`w-full px-4 pt-4`;
@@ -33,6 +34,12 @@ const Icons = tw.a`mx-10`;
 const Placements = () => {
   AOS.init({ duration: 2000 });
   const tabsKeys = Object.keys(placementsData.tabs);
+  const [data, setData] = useState([])
+  const getData = async () => {
+    const { data } = await api.get("/placements/fulltime");
+    setData(data?.data ?? []);
+  };
+  getData();
   return (
     <Container
       className="councilStyle"
@@ -76,7 +83,7 @@ const Placements = () => {
                   alignItems: "center",
                 }}
               >
-                {placementsData.tabs[tabKey].map((card, index) => (
+                {data.map((card, index) => (
                   <CardContainer data-aos="fade-up" key={index} className = "cardContainer">
                     <Card
                       className="group"
@@ -86,25 +93,25 @@ const Placements = () => {
                     >
                       <ImageContainer>
                         <ImageData>
-                          <Image imageSrc={card.imageSrc}></Image>
+                          <Image imageSrc={card?.imageSrc}></Image>
                         </ImageData>
                       </ImageContainer>
                       <DataContainer style={{ textAlign: "center" }}>
-                        <DataName>{card.Name}</DataName>
+                        <DataName>{card?.name}</DataName>
                         <div
                           style={{ textAlign: "center", marginBottom: "15px" }}
                         >
                           <img
-                            src={card.logo}
+                            src={card?.logo}
                             className="logo"
                             alt="logo"
                           ></img>
                         </div>
-                        <DataPost>{card.Post}</DataPost>
+                        <DataPost>{card?.post}</DataPost>
                         <DataIcons>
                           <Icons>
                             <a
-                              href={card.linkedin}
+                              href={card?.linkedin}
                               rel="noreferrer"
                               target="_blank"
                             >

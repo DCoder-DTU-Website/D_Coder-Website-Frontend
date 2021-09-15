@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import AOS from "aos";
+import axios from 'axios'
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import "./testimonial.css";
 import testimonaldata from "./InternsData";
+import api from "../../../api/apiClient";
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`; // Team Heading +carousel
 const Header = tw(SectionHeading)``; // Team Heading
 const MainContainer = tw.div`w-full px-4 pt-4`;
@@ -30,9 +32,15 @@ const DataPost = tw.div`text-white text-sm text-center`;
 const DataIcons = tw.div`w-full flex justify-center pt-5 pb-5`;
 const Icons = tw.a`mx-10`;
 
-const testimonials = () => {
+const Testimonials = () => {
   AOS.init({ duration: 2000 });
   const tabsKeys = Object.keys(testimonaldata.tabs);
+  const [data, setData] = useState([])
+  const getData = async () => {
+    const { data } = await api.get("/placements/interns");
+    setData(data?.data ?? []);
+  };
+  getData();
   return (
     <Container
       className="councilStyle"
@@ -90,7 +98,7 @@ const testimonials = () => {
                   alignItems: "center",
                 }}
               >
-                {testimonaldata.tabs[tabKey].map((card, index) => (
+                {data.map((card, index) => (
                   <CardContainer
                     data-aos="fade-up"
                     key={index}
@@ -104,25 +112,25 @@ const testimonials = () => {
                     >
                       <ImageContainer>
                         <ImageData>
-                          <Image imageSrc={card.imageSrc}></Image>
+                          <Image imageSrc={card?.imageSrc}></Image>
                         </ImageData>
                       </ImageContainer>
                       <DataContainer style={{ textAlign: "center" }}>
-                        <DataName>{card.Name}</DataName>
+                        <DataName>{card?.name}</DataName>
                         <div
                           style={{ textAlign: "center", marginBottom: "15px" }}
                         >
                           <img
-                            src={card.logo}
+                            src={card?.logo}
                             className="logo"
                             alt="logo"
                           ></img>
                         </div>
-                        <DataPost className="post">{card.Post}</DataPost>
+                        <DataPost className="post">{card?.post}</DataPost>
                         <DataIcons>
                           <Icons>
                             <a
-                              href={card.linkedin}
+                              href={card?.linkedin}
                               rel="noreferrer"
                               target="_blank"
                             >
@@ -156,4 +164,4 @@ const testimonials = () => {
   );
 };
 
-export default testimonials;
+export default Testimonials;
