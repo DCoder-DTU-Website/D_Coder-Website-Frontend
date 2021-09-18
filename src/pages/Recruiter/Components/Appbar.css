@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+h2{
+    cursor:pointer
+}
+.main{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    height:70px;
+    width:100vw;
+    background-color: rgb(26,32,44);
+    color:white;
+    font-family: Poppins;
+}
+
+.tabs{
+    display: flex;
+    flex-direction:row;
+    justify-content:end;
+    align-items:center;
+    height:70px;
+    background-color: rgb(26,32,44);
+    color:white;
+    margin-right: 2%;
+    gap:22px;
+}
+.org{
+    margin-left: 2%;
+}

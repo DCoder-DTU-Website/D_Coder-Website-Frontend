@@ -36,6 +36,7 @@ import SeniorsSeMulaquaat from "pages/ssm/App";
 import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
+import Recruiter from "pages/Recruiter/App";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -189,6 +190,9 @@ function App() {
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />
+          </Route>
+          <Route exact path="/recruiter">
+            <Recruiter/>
           </Route>
         </Switch>
       </BrowserRouter>

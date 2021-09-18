@@ -1,0 +1,26 @@
+import React from "react";
+import "./App.css";
+import Appbar from "./Components/Appbar";
+import Scheduled from "./Scheduled/App";
+import UnScheduled from "./UnScheduled/App"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+const App = () => {
+  return (
+    <Router>
+      <div className="main-container">
+        <Appbar />
+        <Switch>
+          <Route key="1" exact path="/scheduled">
+            <Scheduled />
+          </Route>
+                  <Route key="2" exact path="/unscheduled">
+                      <UnScheduled/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+};
+
+export default App;
