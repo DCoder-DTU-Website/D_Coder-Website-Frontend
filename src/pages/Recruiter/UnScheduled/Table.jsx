@@ -1,20 +1,24 @@
-import  React, {useState} from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Box from "@material-ui/core/Box";
-import Collapse from "@material-ui/core/Collapse";
-import IconButton from "@material-ui/core/IconButton";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
+import {
+  Box,
+  Collapse,
+  IconButton,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  Typography,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+} from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import PersonIcon from "@material-ui/icons/Person";
-import Card from "./CollapseCard/Card"
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import Card from "./CollapseCard/Card";
+import "./Table.css";
 
 function createData(name, calories, fat, carbs, protein, price) {
   return {
@@ -47,19 +51,21 @@ function Row(props) {
     <React.Fragment>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell component="th" scope="row">
-          {pos + 1}
+          <h1 className="table-item">{pos + 1}</h1>
         </TableCell>
         <TableCell component="th" scope="row">
-          {!open?row.name:""}
+          <h1 className="table-item">{!open ? row.name : ""}</h1>
         </TableCell>
-        <TableCell align="left">{!open?row.calories:""}</TableCell>
+        <TableCell align="left">
+          <h1 className="table-item">{!open ? row.calories : ""}</h1>
+        </TableCell>
         <TableCell>
           <Button
             variant="contained"
-            style = {{backgroundColor:"rgb(26,32,44)", color:"white"}}
-            startIcon={<PersonIcon />}
+            style={{ backgroundColor: "rgb(26,32,44)", color: "white" }}
+            startIcon={<ScheduleIcon />}
           >
-            Schedule Interview
+            <h1 className="sch-btn">Schedule</h1>
           </Button>
         </TableCell>
         <TableCell>
@@ -116,15 +122,21 @@ const rows = [
 
 export default function CollapsibleTable() {
   return (
-    <div className = "table-side">
-      <TableContainer component={Paper} style = {{padding:"0% 5%"}}>
+    <div className="table-side">
+      <TableContainer component={Paper} style={{ padding: "0% 5%" }}>
         <Table aria-label="collapsible table">
           <TableHead>
             <TableRow>
               <TableCell />
-              <TableCell>Name</TableCell>
-              <TableCell align="left">Roll No. </TableCell>
-              <TableCell align="left">Set Interview </TableCell>
+              <TableCell>
+                <h1 className="head-title">Name</h1>
+              </TableCell>
+              <TableCell align="left">
+                <h1 className="head-title">Roll No.</h1>
+              </TableCell>
+              <TableCell align="left">
+                <h1 className="head-title">Schedule Interview</h1>
+              </TableCell>
               <TableCell />
             </TableRow>
           </TableHead>
