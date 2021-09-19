@@ -4,12 +4,15 @@ import { TextField, Button } from "@material-ui/core";
 // import DatePicker from '@material-ui/lab/DatePicker';
 
 import "./Modal.css";
-const Modal = () => {
+const Modal = (props) => {
   return (
     <div className="main-div">
       <div className="head-close">
         <h1 className="inter">Schedule Interview</h1>
-        <CloseIcon />
+        <CloseIcon
+          style={{ cursor: "pointer" }}
+          onClick={() => props.close(false)}
+        />
       </div>
       <div className="date-time">
         <TextField

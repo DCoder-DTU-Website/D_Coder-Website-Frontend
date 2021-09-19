@@ -77,7 +77,7 @@ function Row(props) {
             effect="fadeInUp"
             onClickAway={() => setModalOpen(false)}
           >
-            <ModalCard/>
+            <ModalCard close = {setModalOpen}/>
           </Modal>
         </TableCell>
         <TableCell>
