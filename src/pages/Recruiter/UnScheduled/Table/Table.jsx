@@ -56,7 +56,7 @@ function Row(props) {
           <h1 className="table-item">{pos + 1 + "."}</h1>
         </TableCell>
         <TableCell component="th" scope="row">
-          <h1 className="table-item">{!open && row.name}</h1>
+          <h1 className="table-item">{!open && row.name}  </h1>
         </TableCell>
         <TableCell align="left">
           <h1 className="table-item">{!open && row.calories}</h1>
@@ -124,10 +124,6 @@ const rows = [
   createData("Ice cream sandwich", 237, 9.0, 37, 4.3, 4.99),
   createData("Eclair", 262, 16.0, 24, 6.0, 3.79),
   createData("Cupcake", 305, 3.7, 67, 4.3, 2.5),
-  createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
-  createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
-  createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
-  createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
   createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
   createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
 ];
