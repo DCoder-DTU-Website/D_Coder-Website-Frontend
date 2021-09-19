@@ -37,6 +37,9 @@ import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
+import Scheduled from "pages/Recruiter/Scheduled/App.js";
+import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -191,7 +194,10 @@ function App() {
           <Route path="/recruitment-form">
             <RecruitmentForm />
           </Route>
-          <Route exact path="/recruiter">
+          <Route exact path="/recruiter/unscheduled">
+            <Recruiter/>
+          </Route>
+          <Route exact path="/recruiter/scheduled">
             <Recruiter/>
           </Route>
         </Switch>

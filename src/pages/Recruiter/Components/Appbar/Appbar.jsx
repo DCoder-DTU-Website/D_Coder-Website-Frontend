@@ -9,8 +9,8 @@ export default function ButtonAppBar() {
         <Link to = "/"><h2>D_CODER DTU</h2></Link>
       </div>
       <div className="tabs">
-        <Link to="/scheduled"><h2>Scheduled</h2></Link>
-        <Link to="/unscheduled"><h2>Unscheduled</h2></Link>
+        <Link to="/recruiter/scheduled"><h2>Scheduled</h2></Link>
+        <Link to="/recruiter/unscheduled"><h2>Unscheduled</h2></Link>
       </div>
     </div>
   );

@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+.main-profile {
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  color: black;
+  padding: 0px 8%;
+}
+
+.profilePic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.rec-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60%;
+  margin: 0px 3%;
+}
+
+.rec-name {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.rec-prof {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+}
