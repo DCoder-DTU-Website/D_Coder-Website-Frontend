@@ -1,0 +1,24 @@
+$sidebar-bg-color: #16253b;
+$submenu-bg-color: #16253b;
+$submenu-bg-color-collapsed: #16253b;
+$icon-bg-color: #1a202c;
+
+@import "~react-pro-sidebar/dist/scss/styles.scss";
+
+.Sidenav-root {
+  height: 100%;
+  background-color: white;
+}
+
+.Sidenav-footer {
+  height: 50px;
+}
+
+.Sidenav-root-mobile {
+  width: 100%;
+}
+
+.pro-sidebar-layout::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+}

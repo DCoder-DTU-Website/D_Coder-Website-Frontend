@@ -88,9 +88,57 @@
   color: rgba(26, 32, 44, 0.6);
 }
 
+.line {
+  width: 2px;
+  height: 85px;
+  background-color: rgba(26, 32, 44, 0.3);
+}
 
-.line{
-    width:2px;
-    height:85px;
-    background-color:rgba(26, 32, 44, 0.3);
+@media screen and (max-width: 690px) {
+  .card-main {
+    margin: 1% 0%;
+  }
+  .name-info {
+    width: 30%;
+    flex-direction: column;
+  }
+  .pic {
+    justify-content: left;
+  }
+  .app-image {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+
+  .name {
+    font-size: 12px;
+    line-height: 35px;
+  }
+
+  .extra-info {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+  }
+  .email,
+  .phone,
+  .dob,
+  .branch,
+  .stack-head,
+  .lang-head {
+    font-size: 12px;
+    line-height: 21px;
+  }
+
+  .tech-stack,
+  .code-lang {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .line {
+    width: 2px;
+    height: 85px;
+  }
 }

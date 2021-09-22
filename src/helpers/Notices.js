@@ -9,6 +9,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import api from "../api/apiClient";
+import { useMediaQuery } from "react-responsive";
 
 const useStyles = makeStyles({
   list: {
@@ -165,12 +166,14 @@ export default function SwipeableTemporaryDrawer() {
       </div>
     </>
   );
-
+  const isPC = useMediaQuery({
+    query: "(min-device-width: 690px)",
+  });
   return (
     <div style={{ width: "1200px" }}>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button
+          {isPC && <Button
             onClick={toggleDrawer(anchor, true)}
             style={{
               position: "fixed",
@@ -187,7 +190,7 @@ export default function SwipeableTemporaryDrawer() {
             }}
           >
             <ArrowBackIcon />
-          </Button>
+          </Button>}
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}
