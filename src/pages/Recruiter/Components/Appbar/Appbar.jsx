@@ -1,11 +1,13 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import "./Appbar.css";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import MenuIcon from "@material-ui/icons/Menu";
 import logo from "../../../../images/D_CODER_LOGO_WHITE.png";
-
+import RContext from "../../Context/RContext";
 export default function ButtonAppBar() {
+  const context = useContext(RContext);
+  const { openNav, setOpenNav } = context;
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -42,9 +44,11 @@ export default function ButtonAppBar() {
             </Link>
           </>
         )}
-        <div style = {{marginRight:"3%"}}>
-          <MenuIcon />
-        </div>
+        {!isPC && (
+          <div style={{ marginRight: "3%" }}>
+            <MenuIcon onClick={() => setOpenNav(!openNav)} />
+          </div>
+        )}
       </div>
     </div>
   );
