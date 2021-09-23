@@ -1,7 +1,7 @@
 import React from "react";
 import "./Card.css";
 import { useMediaQuery } from "react-responsive";
-const Card = () => {
+const Card = ({ applicant }) => {
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -19,38 +19,58 @@ const Card = () => {
           />
         </div>
         <div className="info">
-          <div className="name">Naman Malhotra</div>
-          <div className="roll">2K20/CO/294</div>
+          <div className="name">{applicant.name}</div>
+          <div className="roll">{applicant.rollNo}</div>
         </div>
       </div>
       <div className="extra-info">
         <div className="contact">
-          <h1 className="email">namanMalhotra@gmail.com</h1>
-          <h1 className="phone">8784512365</h1>
-          <h1 className="dob">DOB: 04.05.2002</h1>
+          <h1 className="email">{applicant.email}</h1>
+          <h1 className="phone">{applicant.contact}</h1>
+          <h1 className="dob">DOB: {applicant.dob}</h1>
         </div>
         {isPC && <div className="line"></div>}
-        <div
-          style={
-            !isPC && {
-              display: "flex",
-              flexDirection: "column",
-              marginTop: "-80px",
+        {!isPC ? (
+          <div
+            style={
+              !isPC && {
+                display: "flex",
+                flexDirection: "column",
+                marginTop: "-80px",
+              }
             }
-          }
-        >
-          <div className="stack">
-            <h1 className="branch">Computer Engineering</h1>
-            <br/>
-            <h1 className="stack-head">TeckStack:</h1>
-            <h1 className="tech-stack">C++, React</h1>
+          >
+            <div className="stack">
+              <h1 className="branch">{applicant.branch}</h1>
+              <br />
+              <h1 className="stack-head">TeckStack:</h1>
+              <h1 className="tech-stack">{applicant.techStack.join(", ")}</h1>
+            </div>
+            {isPC && <div className="line"></div>}
+            <div className="lang">
+              <h1 className="lang-head">Coding Language:</h1>
+              <h1 className="code-lang">
+                {applicant.codingLanguage.join(", ")}
+              </h1>
+            </div>
           </div>
-          {isPC && <div className="line"></div>}
-          <div className="lang">
-            <h1 className="lang-head">Coding Language:</h1>
-            <h1 className="code-lang">C++, Python</h1>
-          </div>
-        </div>
+        ) : (
+          <>
+            <div className="stack">
+              <h1 className="branch">{applicant.branch}</h1>
+              <br />
+              <h1 className="stack-head">TeckStack:</h1>
+              <h1 className="tech-stack">{applicant.techStack.join(", ")}</h1>
+            </div>
+            {isPC && <div className="line"></div>}
+            <div className="lang">
+              <h1 className="lang-head">Coding Language:</h1>
+              <h1 className="code-lang">
+                {applicant.codingLanguage.join(", ")}
+              </h1>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

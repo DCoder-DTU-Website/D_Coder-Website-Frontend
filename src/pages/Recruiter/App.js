@@ -10,7 +10,7 @@ const App = () => {
   return (
     <RState>
       <Router>
-        <div className="main-container">
+        <div className="main-container" style = {{backgroundColor:"white !important"}}>
           <Appbar style={{ position: "absolute" }} />
           <Switch>
             <Route key="1" exact path="/recruiter/scheduled">
