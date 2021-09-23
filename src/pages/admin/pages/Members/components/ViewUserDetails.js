@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import tw from "twin.macro";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -263,6 +263,16 @@ const UserProfile = (props) => {
                   <GitHubIcon className={classes.icon} />
                 </a>
               </SocialMedia>
+              {props.resume && (
+                <a
+                  style={{ fontSize: "1.5em" }}
+                  href={props.resume}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Resume
+                </a>
+              )}
             </LeftSideDetails>
             <TextCard className={classes.secondContainer}>
               <InnerTextCard className={classes.nameCard}>

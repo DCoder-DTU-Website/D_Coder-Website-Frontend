@@ -252,49 +252,55 @@ export default function BasicTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row._id}>
-                  <TableCell>
-                    <UserModal
-                      firstName={row.firstName}
-                      lastName={row.lastName}
-                      email={row.email}
-                      contact={row.contact}
-                      year={row.year}
-                      description={row.desc}
-                      branch={row.branch}
-                      leetcode={row.leetcode}
-                      codeforces={row.codeforces}
-                      codechef={row.codechef}
-                      techStack={row.techStack}
-                      linkedin={row.linkedin}
-                      github={row.github}
-                      username={row.email}
-                      workingWith={row.workingWith}
-                      image={row.image}
-                    />
-                  </TableCell>
-                  <TableCell align="center">{row.email}</TableCell>
-                  <TableCell align="center">{row.contact}</TableCell>
-                  <TableCell align="center">{row.year}</TableCell>
-                  <TableCell
-                    align="center"
-                    onClick={() => remove(row._id, row.email)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <DeleteIcon />
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    style={{ cursor: "pointer" }}
-                  ></TableCell>
-                  <TableCell scope="row" style={{ display: "none" }}>
-                    <div>
-                      {row.firstName}&nbsp;{row.lastName}
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {rows.map((row) => {
+                if (row.firstName === "Vaibhav" && row.lastName === "Gupta") {
+                  console.log(row);
+                }
+                return (
+                  <TableRow key={row._id}>
+                    <TableCell>
+                      <UserModal
+                        firstName={row.firstName}
+                        lastName={row.lastName}
+                        email={row.email}
+                        contact={row.contact}
+                        year={row.year}
+                        description={row.desc}
+                        branch={row.branch}
+                        leetcode={row.leetcode}
+                        codeforces={row.codeforces}
+                        codechef={row.codechef}
+                        techStack={row.techStack}
+                        linkedin={row.linkedin}
+                        github={row.github}
+                        username={row.email}
+                        workingWith={row.workingWith}
+                        image={row.image}
+                        resume={row.resume}
+                      />
+                    </TableCell>
+                    <TableCell align="center">{row.email}</TableCell>
+                    <TableCell align="center">{row.contact}</TableCell>
+                    <TableCell align="center">{row.year}</TableCell>
+                    <TableCell
+                      align="center"
+                      onClick={() => remove(row._id, row.email)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <DeleteIcon />
+                    </TableCell>
+                    <TableCell
+                      align="center"
+                      style={{ cursor: "pointer" }}
+                    ></TableCell>
+                    <TableCell scope="row" style={{ display: "none" }}>
+                      <div>
+                        {row.firstName}&nbsp;{row.lastName}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </TableContainer>

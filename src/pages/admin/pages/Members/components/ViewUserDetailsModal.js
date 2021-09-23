@@ -88,6 +88,7 @@ export default function FullScreenDialog(props) {
           github={props.github}
           workingWith={props.workingWith}
           image={props.image}
+          resume={props.resume}
         />
       </Dialog>
     </div>
