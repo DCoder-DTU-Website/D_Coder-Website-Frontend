@@ -45,7 +45,7 @@ const TextContainer = styled.div((props) => [
 ]);
 
 // const Subheading = tw.div`mb-4`;
-const HeadingTitle = tw.div`text-blue-400 font-bold text-2xl lg:text-left leading-tight`;
+const HeadingTitle = tw.div`text-blue-400 font-bold sm:text-2xl md:text-4xl lg:text-6xl text-center leading-tight lg:mb-32`;
 // const Description = tw.p`max-w-md text-center mx-auto lg:mx-0 lg:text-left lg:max-w-none leading-relaxed text-sm sm:text-base lg:text-lg font-medium mt-4 text-secondary-100`;
 
 const QuoteContainer = tw.div`relative`;
@@ -145,93 +145,97 @@ const AdminProjects = ({
   return (
     <Container>
       <Content>
-        <TestimonialsContainer>
-          <Testimonials>
-            <Testimonial>
-              <TestimonialImageSlider
-                arrows={false}
-                ref={setImageSliderRef}
-                asNavFor={textSliderRef}
-                fade={true}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <ImageAndControlContainer key={testimonial._id}>
-                    <Image imageSrc={testimonial.image} />
-                    <ControlContainer>
-                      <ControlButton onClick={imageSliderRef?.slickPrev}>
-                        <ChevronLeftIcon
-                          className="arr"
-                          style={{ opacity: "1 !important" }}
-                        />
-                      </ControlButton>
-                      <ControlButton onClick={imageSliderRef?.slickNext}>
-                        <ChevronRightIcon className="arr" />
-                      </ControlButton>
-                    </ControlContainer>
-                  </ImageAndControlContainer>
-                ))}
-              </TestimonialImageSlider>
-              <TextContainer textOnLeft={textOnLeft}>
-                <HeadingInfo tw="hidden lg:block" heading={heading} />
-                <TestimonialTextSlider
+        {testimonials.length != 0 ? (
+          <TestimonialsContainer>
+            <Testimonials>
+              <Testimonial>
+                <TestimonialImageSlider
                   arrows={false}
-                  ref={setTextSliderRef}
-                  asNavFor={imageSliderRef}
+                  ref={setImageSliderRef}
+                  asNavFor={textSliderRef}
                   fade={true}
                 >
                   {testimonials.map((testimonial, index) => (
-                    <TestimonialText key={testimonial._id}>
-                      <QuoteContainer>
-                        <Quote>{testimonial.title}</Quote>
-                        <Quote>
-                          <Link href={testimonial.linkedin}>
-                            {testimonial.dev}
-                          </Link>
-
-                          <Link href={testimonial.github}>Github</Link>
-                        </Quote>
-                        <Quote>{testimonial.techStack}</Quote>
-                        <Quote>{testimonial.desc}</Quote>
-                      </QuoteContainer>
-                      <div
-                        style={{
-                          marginTop: "5%",
-                          textAlign: "center !important",
-                        }}
-                      >
-                        <Button
-                          onClick={() => permit(testimonial._id)}
-                          style={{
-                            backgroundColor: "green",
-                            color: "white",
-                            marginRight: "5%",
-                            fontWeight: "100",
-                            outline: 0,
-                          }}
-                          variant="contained"
-                        >
-                          Permit
-                        </Button>
-                        <Button
-                          variant="contained"
-                          onClick={() => deny(testimonial._id)}
-                          style={{
-                            backgroundColor: "red",
-                            color: "white",
-                            fontWeight: "100",
-                            outline: 0,
-                          }}
-                        >
-                          Deny
-                        </Button>
-                      </div>
-                    </TestimonialText>
+                    <ImageAndControlContainer key={testimonial._id}>
+                      <Image imageSrc={testimonial.image} />
+                      <ControlContainer>
+                        <ControlButton onClick={imageSliderRef?.slickPrev}>
+                          <ChevronLeftIcon
+                            className="arr"
+                            style={{ opacity: "1 !important" }}
+                          />
+                        </ControlButton>
+                        <ControlButton onClick={imageSliderRef?.slickNext}>
+                          <ChevronRightIcon className="arr" />
+                        </ControlButton>
+                      </ControlContainer>
+                    </ImageAndControlContainer>
                   ))}
-                </TestimonialTextSlider>
-              </TextContainer>
-            </Testimonial>
-          </Testimonials>
-        </TestimonialsContainer>
+                </TestimonialImageSlider>
+                <TextContainer textOnLeft={textOnLeft}>
+                  <HeadingInfo tw="hidden lg:block" heading={heading} />
+                  <TestimonialTextSlider
+                    arrows={false}
+                    ref={setTextSliderRef}
+                    asNavFor={imageSliderRef}
+                    fade={true}
+                  >
+                    {testimonials.map((testimonial, index) => (
+                      <TestimonialText key={testimonial._id}>
+                        <QuoteContainer>
+                          <Quote>{testimonial.title}</Quote>
+                          <Quote>
+                            <Link href={testimonial.linkedin}>
+                              {testimonial.dev}
+                            </Link>
+
+                            <Link href={testimonial.github}>Github</Link>
+                          </Quote>
+                          <Quote>{testimonial.techStack}</Quote>
+                          <Quote>{testimonial.desc}</Quote>
+                        </QuoteContainer>
+                        <div
+                          style={{
+                            marginTop: "5%",
+                            textAlign: "center !important",
+                          }}
+                        >
+                          <Button
+                            onClick={() => permit(testimonial._id)}
+                            style={{
+                              backgroundColor: "green",
+                              color: "white",
+                              marginRight: "5%",
+                              fontWeight: "100",
+                              outline: 0,
+                            }}
+                            variant="contained"
+                          >
+                            Permit
+                          </Button>
+                          <Button
+                            variant="contained"
+                            onClick={() => deny(testimonial._id)}
+                            style={{
+                              backgroundColor: "red",
+                              color: "white",
+                              fontWeight: "100",
+                              outline: 0,
+                            }}
+                          >
+                            Deny
+                          </Button>
+                        </div>
+                      </TestimonialText>
+                    ))}
+                  </TestimonialTextSlider>
+                </TextContainer>
+              </Testimonial>
+            </Testimonials>
+          </TestimonialsContainer>
+        ) : (
+          <HeadingTitle>No Projects Available</HeadingTitle>
+        )}
       </Content>
       <DecoratorBlob1 />
       <DecoratorBlob2 />
