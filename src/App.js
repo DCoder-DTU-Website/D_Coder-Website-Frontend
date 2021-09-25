@@ -37,6 +37,7 @@ import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
+import AdminPage from "pages/AdminPage/App"
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
 import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
 
@@ -77,6 +78,9 @@ function App() {
           <Route exact path="/research">
             <Research />
           </Route>
+          <Route exact path="/adminpage">
+            <AdminPage/>
+            </Route>
           <Route exact path="/lectures/:topic/:subtopic">
             <Lectures />
           </Route>
