@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+.sider {
+  display: float;
+  background-color: rgb(26, 32, 44);
+  height: 100vh;
+  position: absolute;
+  float: right;
+  z-index: 100;
+  width: 75%;
+  animation-name: my;
+  animation-duration: 1s;
+}
+
+@keyframes my {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.img {
+  width: 123px;
+  height: 123px;
+  border-radius: 50%;
+  margin-top: 20%;
+}
+
+.names,
+.rec {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.rec {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 7%;
+}
+
+.linkss {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 12px;
+  letter-spacing: 0.2em;
+
+  color: #ffffff;
+}

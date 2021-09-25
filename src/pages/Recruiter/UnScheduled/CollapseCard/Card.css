@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+.card-main {
+  border: 0px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 3% 8%;
+  border: 0px solid black;
+}
+
+.name-info {
+  width: 100%;
+  display: flex;
+  padding: 12px 10px;
+}
+
+.pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0% 3%;
+  margin-bottom: 15px;
+}
+
+.app-image {
+  width: 111px;
+  height: 111px;
+  border-radius: 50%;
+}
+
+.name {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 0.1em;
+  color: #1a202c;
+}
+
+.roll {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  color: rgba(26, 32, 44, 0.7);
+}
+.extra-info {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+}
+
+.email,
+.phone,
+.dob,
+.branch,
+.stack-head,
+.lang-head {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 28px;
+  display: flex;
+  color: #1a202c;
+}
+
+.tech-stack,
+.code-lang {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
+  color: rgba(26, 32, 44, 0.6);
+}
+
+.line {
+  width: 2px;
+  height: 85px;
+  background-color: rgba(26, 32, 44, 0.3);
+}
+
+@media screen and (max-width: 690px) {
+  .card-main {
+    margin: 1% 0%;
+  }
+  .name-info {
+    width: 30%;
+    flex-direction: column;
+  }
+  .pic {
+    justify-content: left;
+  }
+  .app-image {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+
+  .name {
+    font-size: 12px;
+    line-height: 35px;
+  }
+
+  .extra-info {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+  }
+  .email,
+  .phone,
+  .dob,
+  .branch,
+  .stack-head,
+  .lang-head {
+    font-size: 12px;
+    line-height: 21px;
+  }
+
+  .tech-stack,
+  .code-lang {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .line {
+    width: 2px;
+    height: 85px;
+  }
+}

@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.table-side {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head-title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 18px;
+  color: rgba(26, 32, 44, 0.5);
+}
+
+.table-item {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  color: #1a202c;
+}
+
+.sch-btn {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 690px) {
+  .table-side {
+    margin-top:15%;
+  }
+  
+  .table-item {
+    font-size: 12px;
+    line-height: 15px;
+
+  }
+  
+  .sch-btn {
+    font-size: 11px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 0.2em;
+  }
+  .table-cell{
+    padding:7px !important;
+  }
+}
