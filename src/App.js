@@ -71,9 +71,9 @@ function App() {
           <Route exact path="/internships">
             <Interns />
           </Route>
-          <Route exact path="/placements">
+          {/* <Route exact path="/placements">
             <Placements />
-          </Route>
+          </Route> */}
           <Route exact path="/research">
             <Research />
           </Route>
