@@ -25,7 +25,7 @@ import UserProfile from "pages/admin/pages/User/UserProfile";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
 import ForgotPass from "./pages/admin/components/ForgotPasswordForm";
-import CodeToSchool from "pages/code2school/App";//eslint-disable-line
+import CodeToSchool from "pages/code2school/App"; //eslint-disable-line
 import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Founder from "pages/Founder/App";
@@ -39,7 +39,6 @@ import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
 import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
-
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -71,9 +70,9 @@ function App() {
           <Route exact path="/internships">
             <Interns />
           </Route>
-          <Route exact path="/placements">
+          {/* <Route exact path="/placements">
             <Placements />
-          </Route>
+          </Route> */}
           <Route exact path="/research">
             <Research />
           </Route>
@@ -189,16 +188,16 @@ function App() {
             <ForgotPass />
           </Route>
           <Route path="/recruitment">
-              <RecruitmentProcess />
+            <RecruitmentProcess />
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />
           </Route>
           <Route exact path="/recruiter/unscheduled">
-            <Recruiter/>
+            <Recruiter />
           </Route>
           <Route exact path="/recruiter/scheduled">
-            <Recruiter/>
+            <Recruiter />
           </Route>
         </Switch>
       </BrowserRouter>

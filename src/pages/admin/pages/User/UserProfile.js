@@ -253,7 +253,7 @@ const MiscForm = (props) => {
               <MenuItem value={"BT"}>Bio Technology</MenuItem>
               <MenuItem value={"CHE"}>Chemical Engineering</MenuItem>
               <MenuItem value={"CE"}>Civil Engineering</MenuItem>
-              <MenuItem value={"COE"}>Computer Engineering</MenuItem>
+              <MenuItem value={"COE"}>Computer Scinece Engineering</MenuItem>
               <MenuItem value={"EE"}>Electrical Engineering</MenuItem>
               <MenuItem value={"ECE"}>
                 Electronics and Communication Engineering
