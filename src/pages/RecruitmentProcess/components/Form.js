@@ -16,16 +16,22 @@ import { Classnames } from "react-alice-carousel";
 import { classExpression } from "@babel/types";
 import "./Form.css"
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required(),
-  roll: Yup.string().required(),
-  phone: Yup.string().required(),
-  email: Yup.string().required(),
-  dob: Yup.string().required(),
-  branch: Yup.string().required(),
-  techStack: Yup.string().required(),
-  codingLanguage: Yup.string().required(),
-  whyJoin: Yup.string().required(),
-  expect: Yup.string().required(),
+  name: Yup.string().required("Name is Require.").min(4).max(30),
+  roll: Yup.string().required("Roll Number is Required"),
+  phone: Yup.number().required("Phone number is Required"),
+  email: Yup.string()
+    .required("Email is Required")
+    .email("Email must be Vaild")
+    .max(255),
+  dob: Yup.date().required("Date of Birth is Required"),
+  branch: Yup.string().required("Branch is Required"),
+  techStack: Yup.string().required("TechStack is Required"),
+  codingLanguage: Yup.string().required("Coding language is Required"),
+  whyJoin: Yup.string()
+    .required("Reason for joining is Required")
+    .min(10)
+    .max(100),
+  expect: Yup.string().required("Enter your expectations..").min(10).max(100),
 });
 
 const Image = styled.div((props) => [
@@ -266,6 +272,7 @@ export default function Form() {
             placeholder="Email"
             label="Email"
             name="email"
+            type="email"
             value={formik.values.email}
             onChange={formik.handleChange}
             style={{ width: "50%", marginBottom: "1rem" }}
@@ -339,7 +346,6 @@ export default function Form() {
                 Branch
               </InputLabel>
               <Select
-                name="branch"
                 placeholder="Branch"
                 label="Branch"
                 name="branch"
