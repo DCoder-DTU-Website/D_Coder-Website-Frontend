@@ -1,145 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 
-.formStyling{
-    display: flex;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: -75px -29px 40px -29px !important;
-    background-color: rgb(26,32,44);
-    /* height: 200vw; */
+.formStyling {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: -75px -29px 40px -29px !important;
+  background-color: rgb(26, 32, 44);
+  /* height: 200vw; */
 }
 
-.MuiFilledInput-input{
-    color: white !important;
+.MuiFilledInput-input {
+  color: white !important;
 }
-.MuiSelect-icon{
-    color: white !important;
+.MuiSelect-icon {
+  color: white !important;
 }
-.changefont{
-    font-family: 'Montserrat', sans-serif !important;
+.changefont {
+  font-family: "Montserrat", sans-serif !important;
 }
-.MuiInputBase-input{
-    margin-top: 1rem;
-    color: white !important;
-    padding: 0rem 0 1rem !important;
+.MuiInputBase-input {
+  margin-top: 1rem;
+  color: white !important;
+  padding: 0rem 0 1rem !important;
 }
 ::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+  filter: invert(1);
 }
-.marginRF{
-    margin: 1.5rem 0rem ;
+.marginRF {
+  margin: 1.5rem 0rem;
 }
-.MuiList-root{
-    color: white !important;
-    background-color: rgb(37, 44, 57) !important;
+.MuiList-root {
+  color: white !important;
+  background-color: rgb(37, 44, 57) !important;
 }
-.InputLabelStyle{
-    border-color: white !important;
-    border-bottom-width: 1px !important;
-    border-image: linear-gradient( to left ,rgb(39,48,59),rgb(255,255,255) ) !important;
-    border-image-slice: 1 !important;
-    padding: 16px 0 6px !important;
+.InputLabelStyle {
+  border-color: white !important;
+  border-bottom-width: 1px !important;
+  border-image: linear-gradient(
+    to left,
+    rgb(39, 48, 59),
+    rgb(255, 255, 255)
+  ) !important;
+  border-image-slice: 1 !important;
+  padding: 16px 0 6px !important;
 }
-.background{
-    background-color: rgb(37, 44, 57) !important;
+.background {
+  background-color: rgb(37, 44, 57) !important;
 }
-.textField{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: "8rem";
+.textField {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: "8rem";
 }
-.textFieldLeft{
-    display: flex;
-    justify-content: left;
-    align-items: center;
+.textFieldLeft {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
-.LeftTextFieldImage{
-    padding-left: 16vw !important; 
+.LeftTextFieldImage {
+  padding-left: 16vw !important;
 }
-    .sizeH1{
-        font-size: 6vw;
-    }
-    .sizeH2{
-         font-size: 3vw;
-    }
-#imgRF{
-    height: 28rem;
-    border-radius: 0.8rem;
-    box-shadow: 5px 2px 8px 2px rgba(0,0,0,0.25);
-    margin-bottom: 2rem;
+.sizeH1 {
+  font-size: 6vw;
+}
+.sizeH2 {
+  font-size: 3vw;
+}
+#imgRF {
+  height: 28rem;
+  border-radius: 0.8rem;
+  box-shadow: 5px 2px 8px 2px rgba(0, 0, 0, 0.25);
+  margin-bottom: 2rem;
 }
 @media only screen and (max-width: 769px) {
-    .LeftTextFieldImage{
-        margin-left: 10vw !important; 
-        padding-bottom: 2rem !important;
-        display: contents !important;
-    }
-    .textField{
-        padding-right: 2rem;
-    }
-    .formStyling{
-        margin: -75px -29px 130px !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-    .shift{
-        margin-left: 6vw !important;
-        width: 150vw !important
-    }
-    .sizeH1{
-        font-size: 8.5vw;
-    }
-    .sizeH2{
-         font-size: 6vw;
-    }
-    .selectbox{
-        width: 32rem !important;
-    }
-    .ContentRF{
-        margin-top: 50vh !important;
-        height: 340vh !important;
-    }
-    
-} 
-@media only screen and (max-width: 769px) and (min-width: 426px){
-    .dob{
-        margin-left: -3rem !important;
-    }
-.textFieldLeft{
+  .LeftTextFieldImage {
+    margin-left: 10vw !important;
+    padding-bottom: 2rem !important;
+    display: contents !important;
+  }
+  .textField {
+    padding-right: 2rem;
+  }
+  .formStyling {
+    margin: -75px -29px 130px !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .shift {
+    margin-left: 6vw !important;
+    width: 150vw !important;
+  }
+  .sizeH1 {
+    font-size: 8.5vw;
+  }
+  .sizeH2 {
+    font-size: 6vw;
+  }
+  .selectbox {
+    width: 32rem !important;
+  }
+  .ContentRF {
+    margin-top: 50vh !important;
+    height: 340vh !important;
+  }
+}
+@media only screen and (max-width: 769px) and (min-width: 426px) {
+  .dob {
+    margin-left: -3rem !important;
+  }
+  .textFieldLeft {
     /* display: flex;
     justify-content: left;
     align-items: center; */
     width: 150vw !important;
+  }
 }
+@media only screen and (max-width: 426px) {
+  #imgRF {
+    width: 18rem;
+    height: 20rem;
+  }
+  .ContentRF {
+    margin-top: 100vh !important;
+    margin-bottom: 60vh !important;
+    height: 220vh !important;
+  }
+  .directionChange {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    margin-right: 3rem !important;
+    margin-top: 0.8rem !important;
+  }
+  .dob {
+    margin-top: -3rem !important;
+  }
+  .branch {
+    margin-top: -1rem !important;
+  }
 }
-@media only screen and (max-width: 426px){
-    #imgRF{
-        width: 18rem;
-        height: 20rem;
-    }
-    .ContentRF{
-        margin-top: 100vh !important;
-        margin-bottom: 60vh !important;
-        height: 220vh !important;
-    }
-    .directionChange{
-        flex-direction: column !important;
-        flex-wrap: nowrap !important;
-        margin-right: 3rem !important;
-        margin-top: 0.8rem !important;
-    }
-    .dob{
-        margin-top: -3rem !important;
-    }
-    .branch{
-        margin-top: -1rem !important;
-    }
-
-} 
-@media only screen and (max-width: 376px){
-    #imgRF{
-        width: 15rem;
-        height: 18rem;
-    }
-} 
+@media only screen and (max-width: 376px) {
+  #imgRF {
+    width: 15rem;
+    height: 18rem;
+  }
+}

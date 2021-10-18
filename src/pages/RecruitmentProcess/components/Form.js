@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { TextField, Button, Grid} from "@material-ui/core";
+import { TextField, Button, Grid } from "@material-ui/core";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -14,7 +14,6 @@ import swal from "sweetalert";
 import formurlencoded from "form-urlencoded";
 import { Classnames } from "react-alice-carousel";
 import { classExpression } from "@babel/types";
-import "./Form.css"
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is Require.").min(4).max(30),
   roll: Yup.string().required("Roll Number is Required"),
@@ -60,7 +59,6 @@ const Image = styled.div((props) => [
 // ];
 
 export default function Form() {
-
   const [uploading, setUploading] = useState(false);
   // const [branch, setBranches] = React.useState(" ");
   const clickSubmit = async () => {
