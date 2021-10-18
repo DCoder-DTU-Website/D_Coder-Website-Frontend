@@ -5,7 +5,7 @@ import Hero from "components/hero/SplashScreenWithHeading";
 import MinNavbar from "components/hero/MinNavbar";
 import Footer from "components/footers/Footer";
 import Form from "./components/Form";
-import "./components/Form.css"
+import "./components/Form.css";
 
 export default function RecruitmentForm() {
   return (
@@ -13,7 +13,6 @@ export default function RecruitmentForm() {
       style={{
         position: "relative",
         backgroundColor: "rgb(26,32,44)",
-        margin: "0px -35px",
       }}
     >
       {/* <Hero /> */}
@@ -30,7 +29,7 @@ export default function RecruitmentForm() {
         }
         className={"formStyling"}
       >
-      <Form />
+        <Form />
       </div>
       {/* <Footer /> */}
     </div>
