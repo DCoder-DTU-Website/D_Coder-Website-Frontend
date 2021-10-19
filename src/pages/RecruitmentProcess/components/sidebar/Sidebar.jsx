@@ -17,6 +17,7 @@ import Applied from "../tablelist/AppliedTable";
 import Accepted from "../tablelist/Accepted";
 import Rejected from "../tablelist/Rejected";
 import Scheduled from "../tablelist/Scheduled";
+import Recruiters from "../tablelist/Recruiters";
 import AdminNavbarLinks from "pages/admin/components/Navbar";
 
 const drawerWidth = 240;
@@ -63,6 +64,8 @@ export default function PermanentDrawerLeft() {
         return <Rejected />;
       case "Scheduled":
         return <Scheduled />;
+      case "Recruiters":
+        return <Recruiters />;
       default:
         return <Applied />;
     }
@@ -87,7 +90,7 @@ export default function PermanentDrawerLeft() {
         anchor="left"
       >
         <List>
-          {["Applied", "Accepted", "Rejected", "Scheduled"].map(
+          {["Recruiters", "Applied", "Accepted", "Rejected", "Scheduled"].map(
             (text, index) => (
               <div style={head === text ? { backgroundColor: "wheat" } : {}}>
                 <ListItem button key={text} onClick={() => handleClick(text)}>

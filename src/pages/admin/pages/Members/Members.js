@@ -8,6 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import DeleteIcon from "@material-ui/icons/Delete";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 import SearchBar from "material-ui-search-bar";
 import Modal from "./components/NewUserAddModal";
 import UserModal from "./components/ViewUserDetailsModal";
@@ -166,6 +167,22 @@ export default function BasicTable() {
     }
   };
 
+  const recruitUser = async (e, email) => {
+    try {
+      await api.patch(`/user/${email}/recruiter`);
+      await getAllUsers();
+      await swal({
+        title: "User Upgraded Successfully!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (err) {
+      console.log("Could not add user as Recruiter", err);
+    }
+  };
+
   const remove = async (e, email) => {
     const res = await swal({
       title: "Are you sure you want to remove this user?",
@@ -183,6 +200,28 @@ export default function BasicTable() {
     });
     if (res === "Yes") {
       await removeUser(e, email);
+    } else {
+      return;
+    }
+  };
+
+  const recruit = async (e, email) => {
+    const res = await swal({
+      title: "Are you sure you want to add this user as a Recruiter?",
+      icon: "warning",
+      buttons: {
+        Yes: {
+          text: "Yes",
+          value: "Yes",
+        },
+        No: {
+          text: "No",
+          value: "No",
+        },
+      },
+    });
+    if (res === "Yes") {
+      await recruitUser(e, email);
     } else {
       return;
     }
@@ -249,6 +288,7 @@ export default function BasicTable() {
                 <TableCell align="center">Contact</TableCell>
                 <TableCell align="center">Year</TableCell>
                 <TableCell align="center">Remove User</TableCell>
+                <TableCell align="center">Create Recruiter</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -289,10 +329,21 @@ export default function BasicTable() {
                     >
                       <DeleteIcon />
                     </TableCell>
-                    <TableCell
-                      align="center"
-                      style={{ cursor: "pointer" }}
-                    ></TableCell>
+                    <TableCell align="center" style={{ cursor: "pointer" }}>
+                      <AddCircleIcon
+                        style={
+                          row.isRecruiter
+                            ? { color: "green" }
+                            : { color: "red" }
+                        }
+                        onClick={() => {
+                          if (row.isRecruiter) {
+                            return;
+                          }
+                          recruit(row._id, row.email);
+                        }}
+                      />
+                    </TableCell>
                     <TableCell scope="row" style={{ display: "none" }}>
                       <div>
                         {row.firstName}&nbsp;{row.lastName}
