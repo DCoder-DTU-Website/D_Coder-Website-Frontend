@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -52,13 +51,10 @@ export default function CustomizedTables() {
   const getScheduled = async () => {
     try {
       const { data } = await api.get("/applicants/awaiting");
-      // const { data: appliedData } = data;
-      console.log(data);
-      // console.log(appliedData);
-      let val = data.filter((e) => e.inteviewLink!=="" && e.interviewCompleted === false);
-      console.log(val)
+      let val = data.filter(
+        (e) => e.interviewLink !== "" && e.interviewCompleted === false
+      );
       setScheduled(val);
-      // setScheduled(data);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
     }
@@ -69,29 +65,29 @@ export default function CustomizedTables() {
 
   const handleAccepted = (applicant) => {
     //Change status to accept
-    applicant.isAccepted=true;
-    applicant.interviewCompleted=true;
-    console.log(applicant)
+    applicant.isAccepted = true;
+    applicant.interviewCompleted = true;
+    console.log(applicant);
     updateAcceptedBackend(applicant);
   };
 
-      const updateAcceptedBackend = async (data) => {
-        const res = await api.post(`/applicants/accept/${data._id}`, { data });
-        swal({ title: res.data, icon: "success" });
-      };
+  const updateAcceptedBackend = async (data) => {
+    const res = await api.post(`/applicants/accept/${data._id}`, { data });
+    swal({ title: res.data, icon: "success" });
+  };
 
   const handleRejection = (applicant) => {
     //Change status to rejection
     applicant.isAccepted = false;
     applicant.interviewCompleted = true;
-    console.log(applicant)
+    console.log(applicant);
     updateRejectedBackend(applicant);
   };
 
-      const updateRejectedBackend = async (data) => {
-        const res = await api.post(`/applicants/reject/${data._id}`, { data });
-        swal({ title: res.data, icon: "success" });
-      };
+  const updateRejectedBackend = async (data) => {
+    const res = await api.post(`/applicants/reject/${data._id}`, { data });
+    swal({ title: res.data, icon: "success" });
+  };
 
   const handleAcceptedHelper = async (applicant) => {
     console.log(applicant);

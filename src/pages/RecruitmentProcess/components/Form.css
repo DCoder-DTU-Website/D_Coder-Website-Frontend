@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 
-.formStyling {
+/* .formStyling {
   display: flex;
   justify-content: center !important;
   align-items: center !important;
   margin: -75px -29px 40px -29px !important;
   background-color: rgb(26, 32, 44);
-  /* height: 200vw; */
 }
 
 .MuiFilledInput-input {
@@ -110,9 +109,6 @@
     margin-left: -3rem !important;
   }
   .textFieldLeft {
-    /* display: flex;
-    justify-content: left;
-    align-items: center; */
     width: 150vw !important;
   }
 }
@@ -144,4 +140,4 @@
     width: 15rem;
     height: 18rem;
   }
-}
+} */

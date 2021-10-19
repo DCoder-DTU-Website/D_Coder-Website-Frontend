@@ -17,6 +17,7 @@ import Applied from "../tablelist/AppliedTable";
 import Accepted from "../tablelist/Accepted";
 import Rejected from "../tablelist/Rejected";
 import Scheduled from "../tablelist/Scheduled";
+import AdminNavbarLinks from "pages/admin/components/Navbar";
 
 const drawerWidth = 240;
 
@@ -71,15 +72,11 @@ export default function PermanentDrawerLeft() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        style={{ background: "#16253b" }}
+        style={{ background: "#16253b", height: "9vh", padding: "1em" }}
         position="fixed"
         className={classes.appBar}
       >
-        <Toolbar>
-          <Typography variant="h6" noWrap>
-            {head}
-          </Typography>
-        </Toolbar>
+        <AdminNavbarLinks />
       </AppBar>
       <Drawer
         className={classes.drawer}
@@ -92,12 +89,14 @@ export default function PermanentDrawerLeft() {
         <List>
           {["Applied", "Accepted", "Rejected", "Scheduled"].map(
             (text, index) => (
-              <ListItem button key={text} onClick={() => handleClick(text)}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
+              <div style={head === text ? { backgroundColor: "wheat" } : {}}>
+                <ListItem button key={text} onClick={() => handleClick(text)}>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItem>
+              </div>
             )
           )}
         </List>

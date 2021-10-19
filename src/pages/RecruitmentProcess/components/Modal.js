@@ -80,19 +80,14 @@ export default function SpringModal(props) {
     setOpen(false);
   };
 
-  const handleSubmit = () => {
-    //On form submission
-    setDateTime("");
-    setName("");
-    setLink("");
-    props.applicant.interviewerName = interviewer_Name;
-    props.applicant.inteviewLink = interview_Link;
-    props.applicant.interviewTime = interview_DateTime;
-    console.log(props.applicant);
-    updateBackend(props.applicant);
-    // console.log(interviewer_Name);
-    // console.log(interview_Link);
-    // console.log(interview_DateTime);
+  const handleSubmit = async () => {
+    const data = {
+      id: props.applicant._id,
+      interviewerName: interviewer_Name,
+      interviewLink: interview_Link,
+      interviewTime: interview_DateTime,
+    };
+    await updateBackend(data);
     handleClose();
   };
   const updateBackend = async (data) => {
@@ -100,11 +95,6 @@ export default function SpringModal(props) {
     const res = await api.post("/applicants/setInterview", { data });
     swal({ title: res.data, icon: "success" });
   };
-  // const updateBackend = async (data) => {
-  //   console.log(data);
-  //   const res = await api.put(`/applicants/${data._id}`, { data });
-  //   swal({ title: res.data, icon: "success" });
-  // };
 
   const handleSubmitHelper = async () => {
     const res = await swal({
