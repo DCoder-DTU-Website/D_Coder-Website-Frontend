@@ -11,22 +11,15 @@ const Card = ({ applicant }) => {
   return (
     <div className="card-main">
       <div className="name-info">
-        <div className="pic">
-          <img
-            src="https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg"
-            alt="profile"
-            className="app-image"
-          />
-        </div>
         <div className="info">
           <div className="name">{applicant.name}</div>
-          <div className="roll">{applicant.rollNo}</div>
+          <div className="roll">{applicant.roll.toUpperCase()}</div>
         </div>
       </div>
       <div className="extra-info">
         <div className="contact">
           <h1 className="email">{applicant.email}</h1>
-          <h1 className="phone">{applicant.contact}</h1>
+          <h1 className="phone">{applicant.phone}</h1>
           <h1 className="dob">DOB: {applicant.dob}</h1>
         </div>
         {isPC && <div className="line"></div>}

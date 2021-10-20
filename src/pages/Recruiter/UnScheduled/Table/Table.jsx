@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import {
   Box,
@@ -23,8 +23,6 @@ import { useMediaQuery } from "react-responsive";
 import RContext from "../../Context/RContext";
 import "./Table.css";
 
-
-
 function Row(props) {
   const { applicant, pos } = props;
   const [open, setOpen] = useState(false);
@@ -46,7 +44,9 @@ function Row(props) {
         </TableCell>
         {isPC && (
           <TableCell align="left">
-            <h1 className="table-item">{!open && applicant.rollNo}</h1>
+            <h1 className="table-item">
+              {!open && applicant.roll.toUpperCase()}
+            </h1>
           </TableCell>
         )}
         <TableCell className="table-cell">
@@ -70,7 +70,7 @@ function Row(props) {
             effect="fadeInUp"
             onClickAway={() => setModalOpen(false)}
           >
-            <ModalCard close={setModalOpen}  />
+            <ModalCard close={setModalOpen} id={applicant._id} />
           </Modal>
         </TableCell>
         <TableCell className="table-cell">
@@ -87,7 +87,7 @@ function Row(props) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Card applicant={applicant}/>
+              <Card applicant={applicant} />
             </Box>
           </Collapse>
         </TableCell>
