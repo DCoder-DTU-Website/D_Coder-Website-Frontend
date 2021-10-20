@@ -14,13 +14,11 @@ const RState = (props) => {
     const res = await api.post("/userprofile", { user });
     const userProfile = res.data;
     setData(userProfile);
-    console.log(userProfile);
   };
   const getApplicants = async () => {
     const res = await api.get("/applicants/all-recruiter");
     const app = res.data;
     setApplicants(app);
-    console.log(app);
   };
   useEffect(() => {
     getProfile();
@@ -77,7 +75,6 @@ const RState = (props) => {
       closeOnClickOutside: true,
       closeOnEsc: true,
     });
-    console.log("Interview set successfully", details);
   };
 
   return (
