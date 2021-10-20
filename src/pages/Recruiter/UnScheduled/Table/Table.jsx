@@ -19,14 +19,17 @@ import ScheduleIcon from "@material-ui/icons/Schedule";
 import Card from "../CollapseCard/Card";
 import Modal from "react-awesome-modal";
 import ModalCard from "../InterModal/Modal";
+import MarksModal from "../InterModal/MarksModal";
 import { useMediaQuery } from "react-responsive";
 import RContext from "../../Context/RContext";
 import "./Table.css";
+import useUser from "useUser";
 
 function Row(props) {
   const { applicant, pos } = props;
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [marksModalOpen, setMarksModalOpen] = useState(false);
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -50,19 +53,35 @@ function Row(props) {
           </TableCell>
         )}
         <TableCell className="table-cell">
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "rgb(26,32,44)",
-              color: "white",
-              borderRadius: "999px",
-            }}
-            size={!isPC ? "small" : "large"}
-            startIcon={<ScheduleIcon />}
-            onClick={() => setModalOpen(true)}
-          >
-            <h1 className="sch-btn">Schedule</h1>
-          </Button>
+          {!props.scheduled ? (
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "rgb(26,32,44)",
+                color: "white",
+                borderRadius: "999px",
+              }}
+              size={!isPC ? "small" : "large"}
+              startIcon={<ScheduleIcon />}
+              onClick={() => setModalOpen(true)}
+            >
+              <h1 className="sch-btn">Schedule</h1>
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "rgb(26,32,44)",
+                color: "white",
+                borderRadius: "999px",
+              }}
+              size={!isPC ? "small" : "large"}
+              startIcon={<ScheduleIcon />}
+              onClick={() => setMarksModalOpen(true)}
+            >
+              <h1 className="sch-btn">Set Marks</h1>
+            </Button>
+          )}
           <Modal
             visible={modalOpen}
             width={isPC ? "600" : "300"}
@@ -71,6 +90,15 @@ function Row(props) {
             onClickAway={() => setModalOpen(false)}
           >
             <ModalCard close={setModalOpen} id={applicant._id} />
+          </Modal>
+          <Modal
+            visible={marksModalOpen}
+            width={isPC ? "600" : "300"}
+            height="300"
+            effect="fadeInUp"
+            onClickAway={() => setMarksModalOpen(false)}
+          >
+            <MarksModal close={setMarksModalOpen} id={applicant._id} />
           </Modal>
         </TableCell>
         <TableCell className="table-cell">
@@ -96,9 +124,26 @@ function Row(props) {
   );
 }
 
-export default function CollapsibleTable() {
+export default function CollapsibleTable({ scheduled }) {
+  console.log(scheduled);
   const context = useContext(RContext);
-  const { applicants } = context;
+  let { applicants, data } = context;
+  applicants = applicants.filter((a) => {
+    if (scheduled) {
+      return (
+        a.idRecruiter === data._id &&
+        a.interviewLink &&
+        a.interviewTime &&
+        a.interviewerName
+      );
+    }
+    return (
+      a.idRecruiter === data._id &&
+      !a.interviewLink &&
+      !a.interviewTime &&
+      !a.interviewerName
+    );
+  });
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -121,16 +166,27 @@ export default function CollapsibleTable() {
                     <h1 className="head-title">Roll No.</h1>
                   </TableCell>
                 )}
-                <TableCell align="left">
-                  <h1 className="head-title">Schedule Interview</h1>
-                </TableCell>
+                {!scheduled ? (
+                  <TableCell align="left">
+                    <h1 className="head-title">Schedule Interview</h1>
+                  </TableCell>
+                ) : (
+                  <TableCell align="left">
+                    <h1 className="head-title">Set Marks</h1>
+                  </TableCell>
+                )}
                 <TableCell />
               </TableRow>
             )}
           </TableHead>
           <TableBody>
             {applicants.map((applicant, index) => (
-              <Row key={applicant.name} applicant={applicant} pos={index} />
+              <Row
+                key={applicant.name}
+                applicant={applicant}
+                pos={index}
+                scheduled={scheduled}
+              />
             ))}
           </TableBody>
         </Table>

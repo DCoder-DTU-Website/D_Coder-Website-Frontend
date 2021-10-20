@@ -79,7 +79,7 @@ const RState = (props) => {
 
   return (
     <RContext.Provider
-      value={{ him, openNav, setOpenNav, recruiter, applicants, setInterview }}
+      value={{ data, openNav, setOpenNav, recruiter, applicants, setInterview }}
     >
       {props.children}
     </RContext.Provider>

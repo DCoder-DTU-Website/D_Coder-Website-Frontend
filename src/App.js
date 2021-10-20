@@ -50,6 +50,7 @@ function App() {
 
   const isAdmin = isLoggedIn && user && user.isAdmin;
   const isUser = isLoggedIn && user && !user.isAdmin;
+  const isRecruiter = isLoggedIn && user && user.isRecruiter;
 
   return (
     <AnimationRevealPage disabled className="wrapper">
@@ -188,7 +189,13 @@ function App() {
             <ForgotPass />
           </Route>
           <Route path="/recruitment">
-            <RecruitmentProcess />
+            {isAdmin ? (
+              <RecruitmentProcess />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />
@@ -197,7 +204,13 @@ function App() {
             <Recruiter />
           </Route>
           <Route exact path="/recruiter/scheduled">
-            <Recruiter />
+            {isRecruiter ? (
+              <Recruiter />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
         </Switch>
       </BrowserRouter>

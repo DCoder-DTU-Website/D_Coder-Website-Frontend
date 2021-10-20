@@ -3,7 +3,7 @@ import Table from "./Table/Table";
 import Profile from "../Components/Profile/Profile";
 import Sidenav from "../Components/SideNav/Sidenav";
 import RContext from "../Context/RContext";
-const App = () => {
+const App = ({ scheduled }) => {
   const context = useContext(RContext);
   const { openNav } = context;
   return (
@@ -18,7 +18,7 @@ const App = () => {
       ></div>
       {openNav && <Sidenav />}
       <Profile />
-      <Table style={{ padding: "5%" }} />
+      <Table style={{ padding: "5%" }} scheduled={scheduled} />
     </div>
   );
 };

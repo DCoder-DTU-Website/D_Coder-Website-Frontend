@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 
-/* .formStyling {
+.formStyling {
   display: flex;
   justify-content: center !important;
   align-items: center !important;
@@ -8,7 +8,7 @@
   background-color: rgb(26, 32, 44);
 }
 
-.MuiFilledInput-input {
+/* .MuiFilledInput-input {
   color: white !important;
 }
 .MuiSelect-icon {
