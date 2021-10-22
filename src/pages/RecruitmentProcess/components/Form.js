@@ -8,13 +8,14 @@ import InputLabel from "@material-ui/core/InputLabel";
 import { DatePicker } from "@material-ui/pickers";
 import FormControl from "@material-ui/core/FormControl";
 import api from "../../../api/apiClient";
-import { useFormik } from "formik";
+import { useFormik,ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from "sweetalert";
 import formurlencoded from "form-urlencoded";
 import { Classnames } from "react-alice-carousel";
 import { classExpression } from "@babel/types";
 import "./Form.css"
+import ThankYouPage from "../ThankYouPage"
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is Require.").min(4).max(30),
   roll: Yup.string().required("Roll Number is Required"),
@@ -83,6 +84,8 @@ export default function Form() {
         buttons: true,
         closeOnClickOutside: true,
         closeOnEsc: true,
+      }).then(()=>{
+        window.location= "/thankyou"
       });
       setUploading(false);
     } catch (err) {
@@ -92,13 +95,10 @@ export default function Form() {
         buttons: true,
         closeOnClickOutside: true,
         closeOnEsc: true,
-      });
-    }
+      })
+    }  
     setUploading(false);
   };
-  // const handleChange = event =>{
-  //   setBranches(event.target.value);
-  // };
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -207,6 +207,7 @@ export default function Form() {
                   }}
                   InputProps={{ className: "InputLabelStyle" }}
                 />
+                {/* <ErrorMessage name="name" /> */}
               </div>
             </Grid>
             <Grid item xs={12}>
@@ -229,6 +230,7 @@ export default function Form() {
                   }}
                   InputProps={{ className: "InputLabelStyle" }}
                 />
+                {/* <ErrorMessage name="roll" /> */}
               </div>
             </Grid>
             <Grid item xs={12}>
@@ -254,6 +256,7 @@ export default function Form() {
                   }}
                   InputProps={{ className: "InputLabelStyle" }}
                 />
+                {/* <ErrorMessage name="phone" /> */}
               </div>
             </Grid>
           </Grid>
@@ -281,6 +284,7 @@ export default function Form() {
             }}
             InputProps={{ className: "InputLabelStyle" }}
           />
+          {/* <ErrorMessage name="email" /> */}
         </div>
         <Grid
           container
@@ -328,6 +332,7 @@ export default function Form() {
                 }}
                 className="dob"
               />
+              {/* <ErrorMessage name="dob" /> */}
             </div>
           </Grid>
           <Grid item xs={6}>
@@ -385,6 +390,7 @@ export default function Form() {
                 </MenuItem>
                 <MenuItem value={"SE"}>Software Engineering</MenuItem>
               </Select>
+              {/* <ErrorMessage name="branch" /> */}
             </div>
           </Grid>
         </Grid>
@@ -410,6 +416,7 @@ export default function Form() {
             }}
             InputProps={{ className: "InputLabelStyle" }}
           />
+          {/* <ErrorMessage name="techStack" /> */}
         </div>
         <div
           style={{
@@ -433,6 +440,7 @@ export default function Form() {
             }}
             InputProps={{ className: "InputLabelStyle" }}
           />
+          {/* <ErrorMessage name="codingLanguage" /> */}
         </div>
         <div
           style={{
@@ -456,6 +464,7 @@ export default function Form() {
             }}
             InputProps={{ className: "InputLabelStyle" }}
           />
+          {/* <ErrorMessage name="whyJoin" /> */}
         </div>
         <div
           style={{
@@ -479,6 +488,7 @@ export default function Form() {
             }}
             InputProps={{ className: "InputLabelStyle" }}
           />
+          {/* <ErrorMessage name="expect" /> */}
         </div>
         <Button
           disabled={uploading}
