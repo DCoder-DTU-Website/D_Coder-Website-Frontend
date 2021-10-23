@@ -8,30 +8,8 @@
     background-color: rgb(26,32,44);
     /* height: 200vw; */
 }
-
-.MuiFilledInput-input{
-    color: white !important;
-}
-.MuiSelect-icon{
-    color: white !important;
-}
 .changefont{
     font-family: 'Montserrat', sans-serif !important;
-}
-.MuiInputBase-input{
-    margin-top: 1rem;
-    color: white !important;
-    padding: 0rem 0 1rem !important;
-}
-::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-}
-.marginRF{
-    margin: 1.5rem 0rem ;
-}
-.MuiList-root{
-    color: white !important;
-    background-color: rgb(37, 44, 57) !important;
 }
 .InputLabelStyle{
     border-color: white !important;
@@ -39,6 +17,12 @@
     border-image: linear-gradient( to left ,rgb(39,48,59),rgb(255,255,255) ) !important;
     border-image-slice: 1 !important;
     padding: 16px 0 6px !important;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+.marginRF{
+    margin: 1.5rem 0rem ;
 }
 .background{
     background-color: rgb(37, 44, 57) !important;
