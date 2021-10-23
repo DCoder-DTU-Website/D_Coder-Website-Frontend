@@ -5,20 +5,19 @@ import RContext from "../../Context/RContext";
 
 import "./Modal.css";
 const Modal = (props) => {
-  const [gMeet, setGMeet] = useState("");
-  const [date, setDate] = useState("01-01-2000");
-  const [time, setTime] = useState("00:00");
-  const interTime = `${date + " " + time}`;
+  const [remarks, setRemarks] = useState("");
+  const [taskCompletion, setTaskCompletion] = useState(5);
+  const [codingSkills, setCodingSkills] = useState(5);
+  const [enthusiasm, setEnthusiasm] = useState(5);
   const context = useContext(RContext);
-  const { setInterview } = context;
-  const setInterviews = async () => {
-    await setInterview(props.id, interTime, gMeet);
-    setGMeet("");
+  const handleSubmit = async () => {
+    const { setMarks } = context;
+    await setMarks(props.id, taskCompletion, codingSkills, enthusiasm, remarks);
   };
   return (
     <div className="main-div">
       <div className="head-close">
-        <h1 className="inter">Set Marks</h1>
+        <h1 className="inter">Marks</h1>
         <CloseIcon
           style={{ cursor: "pointer" }}
           onClick={() => props.close(false)}
@@ -27,51 +26,68 @@ const Modal = (props) => {
 
       <div className="date-time">
         <TextField
-          id="date"
-          label="Date of Interview"
-          type="date"
-          value={date}
-          width={350}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          className="dattime"
-          onChange={(e) => setDate(e.target.value)}
-        />
-        <TextField
-          id="time"
-          label="Time of Interview"
-          type="time"
-          defaultValue={time}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          inputProps={{
-            step: 300, // 5 min
-          }}
-          className="dattime"
-          onChange={(e) => setTime(e.target.value)}
-        />
-      </div>
-      <div>
-        <TextField
-          id="date"
-          label="Google Meet Link"
-          defaultValue={gMeet}
+          id="task_completion"
+          label="Task Completion"
+          type="number"
+          InputProps={{ inputProps: { min: 0, max: 10 } }}
+          value={taskCompletion}
           fullWidth
           InputLabelProps={{
             shrink: true,
           }}
           className="dattime"
-          onChange={(e) => setGMeet(e.target.value)}
+          onChange={(e) => setTaskCompletion(e.target.value)}
+        />
+      </div>
+      <div>
+        <TextField
+          id="coding_skills"
+          label="Coding Skills"
+          type="number"
+          InputProps={{ inputProps: { min: 0, max: 10 } }}
+          value={codingSkills}
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
+          className="dattime"
+          onChange={(e) => setCodingSkills(e.target.value)}
+        />
+      </div>
+      <div>
+        <TextField
+          id="enthusiasm"
+          label="Enthusiasm"
+          type="number"
+          InputProps={{ inputProps: { min: 0, max: 10 } }}
+          value={enthusiasm}
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
+          className="dattime"
+          onChange={(e) => setEnthusiasm(e.target.value)}
+        />
+      </div>
+      <div>
+        <TextField
+          id="date"
+          label="Remarks"
+          defaultValue={remarks}
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
+          className="dattime"
+          onChange={(e) => setRemarks(e.target.value)}
         />
       </div>
       <Button
         variant="contained"
         style={{ backgroundColor: "rgb(26,32,44)", color: "white" }}
-        onClick={setInterviews}
+        onClick={handleSubmit}
       >
-        <h1 className="sch-btn">Schedule</h1>
+        <h1 className="sch-btn">Grade Applicant</h1>
       </Button>
     </div>
   );

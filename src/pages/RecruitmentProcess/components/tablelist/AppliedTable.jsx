@@ -51,8 +51,7 @@ export default function CustomizedTables() {
   const getApplied = async () => {
     try {
       const { data } = await api.get("/applicants/all");
-      let val = data.filter((e) => e.interviewLink === "");
-      console.log(val);
+      const val = data;
       setApplied(val);
       setMembers(val);
     } catch (err) {

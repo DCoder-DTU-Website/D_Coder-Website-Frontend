@@ -27,14 +27,6 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-// const rows = [
-//   { name: "Aditya", email: 159, status: "Applied" },
-//   { name: "Vaibhav", email: 237, status: "Applied" },
-//   { name: "Naman", email: 262, status: "Applied" },
-//   { name: "Aarya", email: 305, status: "Applied" },
-//   { name: "Shivansh", email: 356, status: "Applied" },
-// ];
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
@@ -49,9 +41,6 @@ export default function CustomizedTables() {
   const getRejected = async () => {
     try {
       const { data } = await api.get("/applicants/rejected");
-      console.log(data);
-      // const { data: appliedData } = data;
-      // let val = appliedData.filter((e) => e.applied);
       setRejected(data);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
@@ -61,11 +50,9 @@ export default function CustomizedTables() {
     getRejected();
   }, []);
 
-
-
   return (
-    <TableContainer component={Paper} >
-      <Table className={classes.table} aria-label="customized table" >
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>

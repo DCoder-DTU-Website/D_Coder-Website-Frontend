@@ -77,9 +77,50 @@ const RState = (props) => {
     });
   };
 
+  const setMarks = async (
+    id,
+    taskCompletionScore,
+    codingSkillsScore,
+    enthusiasmScore,
+    remarksByRecruiter
+  ) => {
+    try {
+      const res = await api.post("/applicants/setMarks", {
+        id,
+        taskCompletionScore,
+        codingSkillsScore,
+        enthusiasmScore,
+        remarksByRecruiter,
+      });
+      await swal({
+        title: "Applicant Marked Successfully",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (e) {
+      await swal({
+        title: "An Error Occurred",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    }
+  };
+
   return (
     <RContext.Provider
-      value={{ data, openNav, setOpenNav, recruiter, applicants, setInterview }}
+      value={{
+        data,
+        openNav,
+        setOpenNav,
+        recruiter,
+        applicants,
+        setInterview,
+        setMarks,
+      }}
     >
       {props.children}
     </RContext.Provider>

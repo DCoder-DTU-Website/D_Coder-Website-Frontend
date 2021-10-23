@@ -51,10 +51,7 @@ export default function CustomizedTables() {
   const getScheduled = async () => {
     try {
       const { data } = await api.get("/applicants/awaiting");
-      let val = data.filter(
-        (e) => e.interviewLink !== "" && e.interviewCompleted === false
-      );
-      setScheduled(val);
+      setScheduled(data);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
     }

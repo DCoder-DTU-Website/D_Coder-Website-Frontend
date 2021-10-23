@@ -16,6 +16,7 @@ import {
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import ScheduleIcon from "@material-ui/icons/Schedule";
+import AssessmentIcon from "@material-ui/icons/Assessment";
 import Card from "../CollapseCard/Card";
 import Modal from "react-awesome-modal";
 import ModalCard from "../InterModal/Modal";
@@ -76,7 +77,7 @@ function Row(props) {
                 borderRadius: "999px",
               }}
               size={!isPC ? "small" : "large"}
-              startIcon={<ScheduleIcon />}
+              startIcon={<AssessmentIcon />}
               onClick={() => setMarksModalOpen(true)}
             >
               <h1 className="sch-btn">Set Marks</h1>
@@ -94,7 +95,7 @@ function Row(props) {
           <Modal
             visible={marksModalOpen}
             width={isPC ? "600" : "300"}
-            height="300"
+            height="450"
             effect="fadeInUp"
             onClickAway={() => setMarksModalOpen(false)}
           >
@@ -134,7 +135,8 @@ export default function CollapsibleTable({ scheduled }) {
         a.idRecruiter === data._id &&
         a.interviewLink &&
         a.interviewTime &&
-        a.interviewerName
+        a.interviewerName &&
+        !a.totalScore
       );
     }
     return (
