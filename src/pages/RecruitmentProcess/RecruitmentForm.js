@@ -13,6 +13,8 @@ export default function RecruitmentForm() {
       style={{
         position: "relative",
         backgroundColor: "rgb(26,32,44)",
+        margin: "0px -35px",
+        padding: "0px 35px",
       }}
     >
       {/* <Hero /> */}

@@ -21,7 +21,7 @@
     "date-fns": "^2.0.0-beta.5",
     "feather-icons": "^4.28.0",
     "form-urlencoded": "^6.0.0",
-    "formik": "^2.2.6",
+    "formik": "^2.2.9",
     "framer-motion": "^3.10.6",
     "material-ui-search-bar": "^1.0.0",
     "package-lock-only": "0.0.4",
@@ -73,7 +73,7 @@
     "use-in-view": "^1.0.15",
     "web-vitals": "^1.1.1",
     "webpack": "4.44.2",
-    "yup": "^0.32.9"
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

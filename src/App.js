@@ -31,10 +31,11 @@ import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Founder from "pages/Founder/App";
 import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
-import ReadMore from "./components/Blogs/routes/Blog/Blog";
+import ReadMore from "./components/blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
 import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
+import ThankYouPage from "pages/RecruitmentProcess/ThankYouPage";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
@@ -199,6 +200,9 @@ function App() {
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />
+          </Route>
+          <Route path="/thankyou">
+            <ThankYouPage />
           </Route>
           <Route exact path="/recruiter/unscheduled">
             <Recruiter />
