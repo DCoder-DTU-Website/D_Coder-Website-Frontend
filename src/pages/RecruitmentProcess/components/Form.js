@@ -83,7 +83,7 @@ function Form() {
         ...applicantData,
         isAccepted: false,
         interviewCompleted: false,
-        inteviewLink: "",
+        interviewLink: "",
         interviewTime: "",
         interviewerName: "",
       };

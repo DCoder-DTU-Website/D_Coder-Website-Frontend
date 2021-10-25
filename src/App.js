@@ -25,7 +25,7 @@ import UserProfile from "pages/admin/pages/User/UserProfile";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
 import ForgotPass from "./pages/admin/components/ForgotPasswordForm";
-import CodeToSchool from "pages/code2school/App";//eslint-disable-line
+import CodeToSchool from "pages/code2school/App"; //eslint-disable-line
 import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Founder from "pages/Founder/App";
@@ -41,7 +41,6 @@ import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
 import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
 
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { user } = useUser();
@@ -52,6 +51,7 @@ function App() {
 
   const isAdmin = isLoggedIn && user && user.isAdmin;
   const isUser = isLoggedIn && user && !user.isAdmin;
+  const isRecruiter = isLoggedIn && user && user.isRecruiter;
 
   return (
     <AnimationRevealPage disabled className="wrapper">
@@ -190,7 +190,13 @@ function App() {
             <ForgotPass />
           </Route>
           <Route path="/recruitment">
-            <RecruitmentProcess />
+            {isAdmin ? (
+              <RecruitmentProcess />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />
@@ -202,7 +208,13 @@ function App() {
             <Recruiter />
           </Route>
           <Route exact path="/recruiter/scheduled">
-            <Recruiter />
+            {isRecruiter ? (
+              <Recruiter />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
         </Switch>
       </BrowserRouter>

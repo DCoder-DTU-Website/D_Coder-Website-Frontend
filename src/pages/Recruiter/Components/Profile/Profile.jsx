@@ -6,7 +6,7 @@ import "./Profile.css";
 
 const Profile = () => {
   const context = useContext(RContext);
-  const { him } = context;
+  const { recruiter } = context;
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -19,7 +19,7 @@ const Profile = () => {
         <>
           <div className="profilePic">
             <img
-              src="https://res.cloudinary.com/dcoderdtu/image/upload/v1620130571/image_-_Vaibhav_Gupta_eblpym.jpg"
+              src={recruiter.image}
               alt="profile"
               className="image"
             />
@@ -27,7 +27,7 @@ const Profile = () => {
           <div className="rec-info">
             <div className="name">
               <h1 className="rec-name">
-                {him}{" "}
+                {recruiter.name}{" "}
                 <InsertLinkIcon
                   style={{ cursor: "pointer" }}
                   fontSize="large"
