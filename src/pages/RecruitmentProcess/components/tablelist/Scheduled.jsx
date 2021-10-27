@@ -30,14 +30,6 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-// const rows = [
-//   { name: "Aditya", email: 159, status: "Applied" },
-//   { name: "Vaibhav", email: 237, status: "Applied" },
-//   { name: "Naman", email: 262, status: "Applied" },
-//   { name: "Aarya", email: 305, status: "Applied" },
-//   { name: "Shivansh", email: 356, status: "Applied" },
-// ];
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
@@ -47,6 +39,7 @@ const useStyles = makeStyles({
 export default function CustomizedTables() {
   const classes = useStyles();
   const [scheduled, setScheduled] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   const getScheduled = async () => {
     try {
@@ -58,19 +51,34 @@ export default function CustomizedTables() {
   };
   useEffect(() => {
     getScheduled();
-  }, []);
+  }, [refresh]);
 
   const handleAccepted = (applicant) => {
     //Change status to accept
     applicant.isAccepted = true;
     applicant.interviewCompleted = true;
-    console.log(applicant);
     updateAcceptedBackend(applicant);
   };
 
   const updateAcceptedBackend = async (data) => {
-    const res = await api.post(`/applicants/accept/${data._id}`, { data });
-    swal({ title: res.data, icon: "success" });
+    try {
+      const res = await api.post(`/applicants/accept/${data._id}`, { data });
+      swal({
+        title: "Successfully Accepted User!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (e) {
+      swal({
+        title: "An Error Occurred!",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    }
   };
 
   const handleRejection = (applicant) => {
@@ -82,8 +90,24 @@ export default function CustomizedTables() {
   };
 
   const updateRejectedBackend = async (data) => {
-    const res = await api.post(`/applicants/reject/${data._id}`, { data });
-    swal({ title: res.data, icon: "success" });
+    try {
+      const res = await api.post(`/applicants/reject/${data._id}`, { data });
+      swal({
+        title: "Successfully Rejected User!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (e) {
+      swal({
+        title: "An Error Occurred!",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    }
   };
 
   const handleAcceptedHelper = async (applicant) => {
@@ -152,14 +176,20 @@ export default function CustomizedTables() {
               <StyledTableCell
                 align="right"
                 style={{ cursor: "pointer" }}
-                onClick={() => handleAcceptedHelper(row)}
+                onClick={async () => {
+                  await handleAcceptedHelper(row);
+                  setRefresh(!refresh);
+                }}
               >
                 <CheckBoxIcon style={{ fill: "green" }} />
               </StyledTableCell>
               <StyledTableCell
                 align="right"
                 style={{ cursor: "pointer" }}
-                onClick={() => handleRejectionHelper(row)}
+                onClick={async () => {
+                  await handleRejectionHelper(row);
+                  setRefresh(!refresh);
+                }}
               >
                 <CancelIcon style={{ fill: "red" }} />
               </StyledTableCell>

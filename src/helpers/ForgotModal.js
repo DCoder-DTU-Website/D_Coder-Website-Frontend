@@ -44,7 +44,9 @@ export default function TransitionsModal() {
           display: "flex",
           flexDirection: "row-reverse",
           alignItems: "center",
-          textDecoration:"underline"
+          textDecoration: "underline",
+          color: "black",
+          backgroundColor: "white",
         }}
       >
         Forgot Password?

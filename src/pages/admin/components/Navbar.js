@@ -76,7 +76,7 @@ export default function AdminNavbarLinks() {
           render={({ history }) => (
             <Button
               onClick={() => {
-                history.push("/recruitment");
+                history.push("/admin/recruitment");
               }}
               style={{ backgroundColor: "rgba(49,130,206)", color: "white" }}
             >
