@@ -104,6 +104,7 @@ export default function CustomizedTables() {
             <TableHead>
               <TableRow>
                 <StyledTableCell>Name</StyledTableCell>
+                <StyledTableCell align="right">Contact</StyledTableCell>
                 <StyledTableCell align="right">Email</StyledTableCell>
               </TableRow>
             </TableHead>
@@ -111,8 +112,9 @@ export default function CustomizedTables() {
               {recruiters.map((row) => (
                 <StyledTableRow key={row.email}>
                   <StyledTableCell component="th" scope="row">
-                    {row.name}
+                    {row.firstName} {row.lastName}
                   </StyledTableCell>
+                  <StyledTableCell align="right">{row.contact}</StyledTableCell>
                   <StyledTableCell align="right">{row.email}</StyledTableCell>
                 </StyledTableRow>
               ))}

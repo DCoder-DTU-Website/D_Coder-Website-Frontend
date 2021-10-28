@@ -61,6 +61,7 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Contact</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
             {/* <StyledTableCell align="right">Schedule Interview</StyledTableCell> */}
           </TableRow>
@@ -71,6 +72,7 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
+              <StyledTableCell align="right">{row.phone}</StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
               {/* <StyledTableCell align="right" style={{ cursor: "pointer" }}>
                 <Modal applicant={row} />

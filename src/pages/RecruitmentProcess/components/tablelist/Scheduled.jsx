@@ -161,6 +161,11 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell>Coding Skills (10)</StyledTableCell>
+            <StyledTableCell>Enthusiasm (10)</StyledTableCell>
+            <StyledTableCell>Task Completion (10)</StyledTableCell>
+            <StyledTableCell>Score (30)</StyledTableCell>
+            <StyledTableCell>Remarks</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
             <StyledTableCell align="right">Accepted</StyledTableCell>
             <StyledTableCell align="right">Rejected</StyledTableCell>
@@ -171,6 +176,21 @@ export default function CustomizedTables() {
             <StyledTableRow key={row.email}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
+              </StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {row.codingSkillsScore}
+              </StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {row.enthusiasmScore}
+              </StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {row.taskCompletionScore}
+              </StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {row.totalScore}
+              </StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {row.remarksByRecruiter}
               </StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
               <StyledTableCell

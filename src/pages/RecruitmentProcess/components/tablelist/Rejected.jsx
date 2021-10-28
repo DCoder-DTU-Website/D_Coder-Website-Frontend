@@ -56,6 +56,7 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Contact</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -65,6 +66,7 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
+              <StyledTableCell align="right">{row.phone}</StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
             </StyledTableRow>
           ))}
