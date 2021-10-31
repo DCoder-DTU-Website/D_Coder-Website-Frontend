@@ -29,7 +29,7 @@ import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Founder from "pages/Founder/App";
 import Achievements from "pages/achievements/App";
 import Blog from "pages/Blog/App";
-import ReadMore from "components/blogs/routes/Blog/Blog";
+import ReadMore from "./components/Blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
 import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
@@ -65,9 +65,9 @@ function App() {
           <Route exact path="/internships">
             <Interns />
           </Route>
-          <Route exact path="/placements">
+          {/* <Route exact path="/placements">
             <Placements />
-          </Route>
+          </Route> */}
           <Route exact path="/research">
             <Research />
           </Route>

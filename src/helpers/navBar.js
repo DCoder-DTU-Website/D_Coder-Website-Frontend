@@ -36,7 +36,7 @@ function NavBar() {
               Wall of Fame
             </Link>
             <div className="dropdown" style={{ borderRadius: "10px" }}>
-              <Link to="/placements">Placements</Link>
+              {/* <Link to="/placements">Placements</Link> */}
               <Link to="/internships">Internships</Link>
               <Link to="/achievements">Achievements</Link>
             </div>
