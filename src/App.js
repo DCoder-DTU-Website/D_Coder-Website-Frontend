@@ -33,6 +33,7 @@ import ReadMore from "./components/Blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
 import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
+import RecruitmentHead from "pages/RecruitmentProcess/RecruitmentHead";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 
 function App() {
@@ -175,6 +176,9 @@ function App() {
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />
+          </Route>
+          <Route path="/recruitment-head">
+            <RecruitmentHead />
           </Route>
           {/* <Route path="*" component={Error404} /> */}
         </Switch>

@@ -1,0 +1,70 @@
+.definitionVideo {
+  display: flex;
+  margin: -30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 120px 100px 120px 100px;
+  background-color: #1A202C;
+}
+
+.containerVideo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 120px 100px 120px 100px;
+}
+
+.video {
+  width: 80%;
+  height: 500px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 80px 0px 100px 0px;
+}
+
+
+.title{
+  color: #1A202C;
+}
+
+@media screen and (min-width: 850px) {
+  .video {
+    height: 500px !important;
+  }
+  .def-para{
+      font-size: 25px;
+  }
+  .title{
+    font-size: 50px !important;
+  }
+}
+@media screen and (max-width:850px) and (min-width: 450px) {
+  .video {
+    height: 300px !important;
+    width: 450px !important;
+  }
+  .def-para{
+      font-size: 18px;
+      width: 380px;
+  }
+  .title{
+    font-size: 34px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .video {
+    height: 200px !important;
+    width: 250px !important;
+  }
+  .def-para{
+      font-size: 13px;
+      width: 262px;
+  }
+  .title{
+    font-size: 24px !important;
+  }
+}
