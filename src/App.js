@@ -36,6 +36,7 @@ import SeniorsSeMulaquaat from "pages/ssm/App";
 import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
 import ThankYouPage from "pages/RecruitmentProcess/ThankYouPage";
+import RecruitmentHead from "pages/RecruitmentProcess/RecruitmentHead";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
@@ -216,6 +217,10 @@ function App() {
               </Route>
             )}
           </Route>
+          <Route path="/recruitment-head">
+            <RecruitmentHead />
+          </Route>
+          {/* <Route path="*" component={Error404} /> */}
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>
