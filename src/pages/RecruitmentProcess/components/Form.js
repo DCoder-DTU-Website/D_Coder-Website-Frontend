@@ -5,6 +5,8 @@ import { TextField, Button, Grid, createMuiTheme, ThemeProvider } from "@materia
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
+import Upload from "components/features/Upload/Upload";
+import axios from "axios";
 import { DatePicker } from "@material-ui/pickers";
 import FormControl from "@material-ui/core/FormControl";
 import api from "../../../api/apiClient";
@@ -73,9 +75,48 @@ const Image = styled.div((props) => [
 function Form() {
 
   const [uploading, setUploading] = useState(false);
+  const [images, setImages] = useState([]);
+  const [data, setData] = useState({
+    name: "",
+    roll: "",
+    phone: "",
+    email: "",
+    dob: "",
+    branch: "",
+    techStack: "",
+    codingLanguage: "",
+    whyJoin: "",
+    expect: "",
+    image: images == ""?
+      "https://res.cloudinary.com/dcoderdtu/image/upload/v1621400604/WhatsApp_Image_2021-05-19_at_10.21.20_ekkng5.jpg":images,
+  });
   // const [branch, setBranches] = React.useState(" ");
+    // const [edit, setEdit] = React.useState(false);
+    //   const toggleEdit = () => {
+    //     setEdit(!edit);
+    //   };
+    const uploadImage = async () => {
+      try {
+        const formData = new FormData();
+        formData.append("file", images[0].file);
+        formData.append("upload_preset", "gekvwtzt");
+        const res = await axios.post(
+          "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
+          formData
+        );
+        setImages([]);
+        return res.data.url;
+      } catch (err) {
+        console.error(err, "Image Upload Failed!");
+      }
+    };
+    const updateImage = async () => {
+      const url = await uploadImage();
+      setData((prevData) => ({ ...prevData, image: url }));
+    };
   const clickSubmit = async () => {
     setUploading(true);
+    await updateImage();
     try {
       let applicantData = formik.values;
       formik.resetForm();
@@ -110,18 +151,7 @@ function Form() {
     setUploading(false);
   };
   const formik = useFormik({
-    initialValues: {
-      name: "",
-      roll: "",
-      phone: "",
-      email: "",
-      dob: "",
-      branch: "",
-      techStack: "",
-      codingLanguage: "",
-      whyJoin: "",
-      expect: "",
-    },
+    initialValues: data,
     validationSchema,
     onSubmit: clickSubmit,
   });
@@ -185,11 +215,17 @@ function Form() {
             </div>
           </div>
           <Grid container spacing={2} justifyContent="center">
-            <Grid item xs={4}>
-              <Image
-                id="imgRF"
-                imageSrc={"https://source.unsplash.com/user/erondu/900x900"}
-              />
+            <Grid container xs={4}>
+              <Grid item>
+                <Image id="imgRF" imageSrc={formik.initialValues.image} />
+              </Grid>
+              <Grid item style={{marginLeft:"30vh",marginTop:"2vh"}}>
+                <Upload
+                  images={images}
+                  setImages={setImages}
+                  disabled={false}
+                />
+              </Grid>
             </Grid>
             <Grid
               container

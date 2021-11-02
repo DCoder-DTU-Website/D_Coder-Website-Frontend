@@ -1,6 +1,7 @@
 import React from "react"
 import MinNavbar from "components/hero/MinNavbar";
 import {Button} from "@material-ui/core";
+import RecruitmentTestimonial from "./components/RecruitmentTestimonial/RecruitmentTestimonial";
 import {  Redirect } from "react-router-dom";
 import "./ThankYouPage.css"
 export default function ThankYouPage(){
@@ -35,6 +36,7 @@ export default function ThankYouPage(){
             to go back to main website
           </div>
         </div>
+        <RecruitmentTestimonial/>
       </div>
     );
 }
