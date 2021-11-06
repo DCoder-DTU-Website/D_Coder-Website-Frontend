@@ -63,7 +63,7 @@ const Card = ({ applicant }) => {
             <div className="lang">
               <h1 className="lang-head">Remarks:</h1>
               <h1 className="tech-stack">{applicant.remarksByRecruiter}</h1>
-              <h1 className="lang-head">Interviewee</h1>
+              <h1 className="lang-head">Interviewee:</h1>
               <h1 className="tech-stack">{applicant.interviewerName}</h1>
             </div>
           </div>
@@ -95,7 +95,7 @@ const Card = ({ applicant }) => {
             <div className="lang">
               <h1 className="lang-head">Remarks:</h1>
               <h1 className="tech-stack">{applicant.remarksByRecruiter}</h1>
-              <h1 className="lang-head">Interviewee</h1>
+              <h1 className="lang-head">Interviewee:</h1>
               <h1 className="tech-stack">{applicant.interviewerName}</h1>
             </div>
           </>
