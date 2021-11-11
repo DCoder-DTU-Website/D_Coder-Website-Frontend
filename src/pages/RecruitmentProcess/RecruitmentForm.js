@@ -18,21 +18,10 @@ export default function RecruitmentForm() {
       }}
     >
       {/* <Hero /> */}
-      <MinNavbar className="Navbar" />
-      <div
-        style={
-          {
-            // display: "flex",
-            // justifyContent: "center",
-            // alignItems: "center",
-            // margin: "-75px -29px 40px -29px",
-            // backgroundColor: "rgb(26,32,44)",
-          }
-        }
-        className={"formStyling"}
-      >
-        <Form />
-      </div>
+      <MinNavbar className="Navbar"/>
+        <div className={"formStyling"}>
+          <Form />
+        </div>
       {/* <Footer /> */}
     </div>
   );

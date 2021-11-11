@@ -1,7 +1,6 @@
 import React from "react"
 import MinNavbar from "components/hero/MinNavbar";
 import {Button} from "@material-ui/core";
-
 import {  Redirect } from "react-router-dom";
 import "./ThankYouPage.css"
 export default function ThankYouPage(){

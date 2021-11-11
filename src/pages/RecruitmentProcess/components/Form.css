@@ -4,53 +4,92 @@
   display: flex;
   justify-content: center !important;
   align-items: center !important;
-  margin: -75px -29px 40px -29px !important;
   background-color: rgb(26, 32, 44);
+  margin: 6rem -29px 130px !important;
 }
-.changefont{
-    font-family: 'Montserrat', sans-serif !important;
+.ContentRF {
+  width: 70vw;
+  height: 220vh;
+  background-color: rgb(26, 32, 44);
+  border-radius: 20px;
+  margin-top: 30vh;
+  justify-content: center;
+  align-items: center;
 }
-.InputLabelStyle{
-    border-color: white !important;
-    border-bottom-width: 1px !important;
-    border-image: linear-gradient( to left ,rgb(39,48,59),rgb(255,255,255) ) !important;
-    border-image-slice: 1 !important;
-    padding: 16px 0 6px !important;
+.changefont {
+  font-family: "Montserrat", sans-serif !important;
+}
+.InputLabelStyle {
+  border-color: white !important;
+  border-bottom-width: 1px !important;
+  border-image: linear-gradient(
+    to left,
+    rgb(39, 48, 59),
+    rgb(255, 255, 255)
+  ) !important;
+  border-image-slice: 1 !important;
+  padding: 15px 0 6px !important;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+  filter: invert(1);
 }
-.marginRF{
-    margin: 1.5rem 0rem ;
+.marginRF {
+  margin: 1.5rem 0rem;
 }
-.background{
-    background-color: rgb(37, 44, 57) !important;
+.background {
+  background-color: rgb(37, 44, 57) !important;
 }
-.textField{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: "8rem";
+.textField {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: "8rem";
+  margin-top: 1rem;
 }
-.textFieldLeft{
-    display: flex;
-    justify-content: left;
-    align-items: center;
+.textFieldLeft {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
-.LeftTextFieldImage{
-    padding-left: 16vw !important; 
+.LeftTextFieldImage {
+  padding-left: 16vw !important;
 }
-    .sizeH1{
-        font-size: 6vw;
-    }
-    .sizeH2{
-         font-size: 3vw;
-    }
-#imgRF{
-    height: 28rem;
-    border-radius: 0.8rem;
-    box-shadow: 5px 2px 8px 2px rgba(0,0,0,0.25);
-    margin-bottom: 2rem;
+.sizeH1 {
+  font-size: 6vw;
+}
+.sizeH2 {
+  font-size: 3vw;
+}
+#imgRF {
+  height: 16rem !important;
+  border-radius: 0.8rem;
+  box-shadow: 5px 2px 8px 2px rgba(0, 0, 0, 0.25);
+  margin-bottom: 2rem;
+  width: 16rem !important;
+}
+.UploadImageLabel {
+  background-color: blue;
+  color: white;
+  border-radius: 15px !important;
+  padding: 8px 10px;
+  margin-left: 0rem;
+}
+.ErrorMessage,
+.ErrorMessage1,
+.ErrorMessage2,
+.ErrorMessage3,
+.ErrorMessage4 {
+  justify-content: left;
+  height: 3rem !important;
+}
+.MarginError3{
+  margin-top: -4rem !important;
+}
+.MarginError4{
+    margin-top: -4rem !important;
+}
+.ErrorImageLeft{
+  margin-left: 1rem !important;
 }
 @media only screen and (max-width: 769px) {
   .LeftTextFieldImage {
@@ -60,11 +99,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .textField {
     padding-right: 2rem;
-  }
-  .formStyling {
-    margin: -75px -29px 130px !important;
-    justify-content: center !important;
-    align-items: center !important;
   }
   .shift {
     margin-left: 6vw !important;
@@ -80,26 +114,154 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 32rem !important;
   }
   .ContentRF {
-    margin-top: 50vh !important;
+    margin-top: 20vh !important;
     height: 340vh !important;
   }
 }
+.ErrorMessagedob {
+  width: 12rem !important;
+  margin-top: 3rem !important;
+}
+.ErrorMessagebranch {
+  width: 12rem !important;
+}
+@media only screen and (max-width: 1441px) and (min-width: 1025px) {
+  .ErrorMessage1 {
+    margin-left: -15.4rem !important;
+  }
+  .MarginError5{
+    margin-bottom: 2rem !important;
+  }
+  .ErrorMessage2 {
+    margin-left: 32rem !important;
+    margin-bottom: -5rem !important;
+    margin-top: 4rem !important;
+  }
+  .ErrorMessage4 {
+    margin-left: 32rem !important;
+    margin-top: -0.5rem !important;
+  }
+  .ErrorMessage3 {
+    margin-left: 32rem !important;
+    margin-top: -2.5rem !important;
+    margin-bottom: -2rem !important;
+  }
+  .ErrorMessage1 {
+    margin-left: 32rem !important;
+    margin-top: -3rem !important;
+    margin-bottom: -4rem !important;
+  }
+}
+
+@media only screen and (max-width: 1025px) and (min-width: 769px) {
+  .selectInput {
+    margin-left: -3rem !important;
+  }
+  .UploadImageLabel {
+    margin-left: -4rem !important;
+  }
+  .ErrorMessage3 {
+    margin-top: -2.4rem !important;
+    margin-left: 24.4rem !important;
+    margin-bottom: -2.5rem !important;
+  }
+  .ErrorMessage2 {
+    margin-left: 24.4rem !important;
+    margin-bottom: -5rem !important;
+    height: 5rem !important;
+  }
+  .ErrorMessage1 {
+    margin-left: 24.4rem !important;
+    margin-top: -3rem !important;
+    margin-bottom: -4rem !important;
+  }
+  .ErrorMessage4 {
+    margin-left: 24.4rem !important;
+    margin-top: -0.5rem !important;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .MarginError {
+    margin-top: 0rem !important;
+  }
+}
+
 @media only screen and (max-width: 769px) and (min-width: 426px) {
   .dob {
     margin-left: -3rem !important;
   }
+  .formStyling {
+    margin: 8rem -29px 130px !important;
+  }
+  #imgRF {
+    margin-left: 8rem !important;
+  }
+  .MarginError3{
+    margin-bottom: 0rem !important;
+  }
+  .MarginError4{
+    margin-bottom: 2rem !important;
+  }
+  .ErrorImageLeft{
+    margin-left: 6rem !important;
+  }
+  .UploadImageLabel {
+    margin-left: 5.5rem !important;
+  }
   .textFieldLeft {
     width: 150vw !important;
+  }
+  .ErrorMessage1 {
+    margin-left: 20.5rem !important;
+    margin-top: -3rem !important;
+    margin-bottom: -4rem !important;
+  }
+  .ErrorMessage2 {
+    margin-left: 20.5rem !important;
+    margin-bottom: -6rem !important;
+    height: 5rem !important;
+  }
+  .ErrorMessage3 {
+    margin-left: 20.5rem !important;
+    margin-top: -2rem !important;
+    margin-bottom: -2rem !important;
+  }
+  .ErrorMessage4 {
+    margin-left: 20.5rem !important;
+    margin-top: -0.5rem !important;
+  }
+  .ErrorMessagedob {
+    margin-left: -6.8rem !important;
+  }
+  .ErrorMessagebranch {
+    margin-left: -1rem !important;
   }
 }
 @media only screen and (max-width: 426px) {
   #imgRF {
-    width: 18rem;
-    height: 20rem;
+    width: 10rem !important;
+    height: 10rem !important;
+    margin-left: 4rem !important;
+  }
+  .ErrorImageLeft{
+    margin-left: 0rem !important;
+  }
+  .MarginError1{
+    margin-bottom: -2.5rem !important;
+  }
+  .MarginError2{
+    margin-top: -2.5rem !important;
+    margin-bottom: -1.5rem !important;
+  }
+  .UploadImageLabel {
+    margin-left: -0.5rem !important;
+  }
+  .formStyling {
+    margin: 8rem -29px 130px !important;
   }
   .ContentRF {
-    margin-top: 100vh !important;
-    margin-bottom: 60vh !important;
+    margin-top: 30vh !important;
+    margin-bottom: 40vh !important;
     height: 220vh !important;
   }
   .directionChange {
@@ -109,15 +271,86 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-top: 0.8rem !important;
   }
   .dob {
-    margin-top: -3rem !important;
+    margin-top: -5rem !important;
   }
   .branch {
     margin-top: -1rem !important;
   }
+  .ErrorMessage {
+    margin-left: 0rem !important;
+  }
+  .ErrorMessage1 {
+    margin-left: 11rem !important;
+    margin-top: -3rem !important;
+    margin-bottom: -4rem !important;
+  }
+  .ErrorMessage2 {
+    margin-left: 11rem !important;
+    margin-bottom: -4rem !important;
+    margin-top: 4rem !important;
+  }
+  .ErrorMessage3 {
+    margin-left: 11rem !important;
+    margin-bottom: 1rem !important;
+    margin-top: -2rem !important;
+  }
+  .ErrorMessage4 {
+    margin-left: 11rem !important;
+    margin-top: -0.5rem !important;
+  }
+  .ErrorMessagedob {
+    margin-left: -5.5rem !important;
+  }
+  .ErrorMessagebranch {
+    margin-left: -3rem !important;
+  }
 }
 @media only screen and (max-width: 376px) {
   #imgRF {
-    width: 15rem;
+    width: 10rem;
     height: 18rem;
   }
-} 
+  .UploadImageLabel {
+    margin-left: 0rem !important;
+  }
+  .ErrorMessage1 {
+    margin-left: 9.6rem !important;
+    margin-top: -3rem !important;
+    margin-bottom: -4rem !important;
+  }
+  .ErrorMessage2 {
+    margin-left: 9.6rem !important;
+  }
+  .ErrorMessage3 {
+    margin-left: 9.6rem !important;
+    margin-top: -2rem !important;
+  }
+  .ErrorMessage4 {
+    margin-left: 9.6rem !important;
+    margin-top: -0.5rem !important;
+  }
+}
+@media only screen and (max-width: 321px) {
+  #imgRF {
+    margin-left: 2rem !important;
+  }
+  .UploadImageLabel {
+    margin-left: -1rem !important;
+  }
+  .ErrorMessage1 {
+    margin-left: 8rem !important;
+    margin-top: -3rem !important;
+    margin-bottom: -4rem !important;
+  }
+  .ErrorMessage2 {
+    margin-left: 8rem !important;
+  }
+  .ErrorMessage3 {
+    margin-left: 8rem !important;
+    margin-top: -2rem !important;
+  }
+  .ErrorMessage4 {
+    margin-left: 8rem !important;
+    margin-top: -0.5rem !important;
+  }
+}
