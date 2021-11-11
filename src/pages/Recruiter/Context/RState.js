@@ -42,7 +42,7 @@ const RState = (props) => {
       interviewLink,
       interviewerName,
     };
-    if (internviewTime < new Date()) {
+    if (details.internviewTime < new Date()) {
       await swal({
         title: "Interview time cannot be in the past",
         icon: "error",
