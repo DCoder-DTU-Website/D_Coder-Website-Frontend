@@ -11,6 +11,95 @@ import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import CancelIcon from "@material-ui/icons/Cancel";
 import api from "../../../../api/apiClient";
 import swal from "sweetalert";
+import Modal from "react-awesome-modal";
+import ModalCard from "../../../Recruiter/UnScheduled/InterModal/Modal";
+import MarksModal from "../../../Recruiter/UnScheduled/InterModal/MarksModal";
+import { Box, Collapse, IconButton, Button } from "@material-ui/core";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import ScheduleIcon from "@material-ui/icons/Schedule";
+import AssessmentIcon from "@material-ui/icons/Assessment";
+import Card from "../../../Recruiter/UnScheduled/CollapseCard/MarksNewCard";
+import { useMediaQuery } from "react-responsive";
+
+function Row(props) {
+  const { applicant, pos } = props;
+  const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [marksModalOpen, setMarksModalOpen] = useState(false);
+  const isPC = useMediaQuery({
+    query: "(min-device-width: 690px)",
+  });
+  const isMobile = useMediaQuery({
+    query: "(max-device-width: 690px)",
+  });
+  return (
+    <React.Fragment>
+      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+        <TableCell
+          component="th"
+          scope="row"
+          className="table-cell"
+          align="left"
+        >
+          <h1 className="table-item">{applicant.name} </h1>
+        </TableCell>
+        {isPC && (
+          <TableCell align="left">
+            <h1 className="table-item">{applicant.totalScore}</h1>
+          </TableCell>
+        )}
+        {isPC && (
+          <TableCell align="right">
+            <h1 className="table-item">{applicant.email}</h1>
+          </TableCell>
+        )}
+        {isPC && (
+          <TableCell
+            align="right"
+            style={{ cursor: "pointer" }}
+            onClick={async () => {
+              await props.handleRejectionHelper(props.applicant);
+              props.setRefresh(!props.refresh);
+            }}
+          >
+            <CancelIcon style={{ fill: "red" }} />
+          </TableCell>
+        )}
+        {isPC && (
+          <TableCell
+            align="right"
+            style={{ cursor: "pointer" }}
+            onClick={async () => {
+              await props.handleAcceptedHelper(props.applicant);
+              props.setRefresh(!props.refresh);
+            }}
+          >
+            <CheckBoxIcon style={{ fill: "green" }} />
+          </TableCell>
+        )}
+        <TableCell className="table-cell" align="right">
+          <IconButton
+            aria-label="expand row"
+            size="small"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <Box sx={{ margin: 1 }}>
+              <Card applicant={applicant} />
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
+  );
+}
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -161,18 +250,27 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell>Coding Skills (10)</StyledTableCell>
-            <StyledTableCell>Enthusiasm (10)</StyledTableCell>
-            <StyledTableCell>Task Completion (10)</StyledTableCell>
             <StyledTableCell>Score (30)</StyledTableCell>
-            <StyledTableCell>Remarks</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
             <StyledTableCell align="right">Accepted</StyledTableCell>
             <StyledTableCell align="right">Rejected</StyledTableCell>
+            <StyledTableCell align="right">Dropdown</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {scheduled.map((row) => (
+          {scheduled.map((applicant, index) => (
+            <Row
+              key={applicant.name}
+              applicant={applicant}
+              pos={index}
+              scheduled={scheduled}
+              handleRejectionHelper={handleRejectionHelper}
+              handleAcceptedHelper={handleAcceptedHelper}
+              setRefresh={setRefresh}
+              refresh={refresh}
+            />
+          ))}
+          {/* {scheduled.map((row) => (
             <StyledTableRow key={row.email}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
@@ -214,7 +312,7 @@ export default function CustomizedTables() {
                 <CancelIcon style={{ fill: "red" }} />
               </StyledTableCell>
             </StyledTableRow>
-          ))}
+          ))} */}
         </TableBody>
       </Table>
     </TableContainer>
