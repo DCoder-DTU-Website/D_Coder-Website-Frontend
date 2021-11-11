@@ -129,7 +129,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .ErrorMessage1 {
     margin-left: -15.4rem !important;
   }
+  .MarginError2{
+    margin-top: -3rem !important;
+  }
   .MarginError5{
+    margin-top: -4rem !important;
     margin-bottom: 2rem !important;
   }
   .ErrorMessage2 {
@@ -218,7 +222,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .ErrorMessage2 {
     margin-left: 20.5rem !important;
-    margin-bottom: -6rem !important;
+    margin-bottom: -7rem !important;
+    margin-top: 4rem !important;
     height: 5rem !important;
   }
   .ErrorMessage3 {
