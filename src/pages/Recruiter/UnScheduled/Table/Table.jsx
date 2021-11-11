@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import {
   Box,
@@ -16,19 +16,21 @@ import {
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import ScheduleIcon from "@material-ui/icons/Schedule";
+import AssessmentIcon from "@material-ui/icons/Assessment";
 import Card from "../CollapseCard/Card";
 import Modal from "react-awesome-modal";
 import ModalCard from "../InterModal/Modal";
+import MarksModal from "../InterModal/MarksModal";
 import { useMediaQuery } from "react-responsive";
 import RContext from "../../Context/RContext";
 import "./Table.css";
-
-
+import useUser from "useUser";
 
 function Row(props) {
   const { applicant, pos } = props;
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [marksModalOpen, setMarksModalOpen] = useState(false);
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -46,23 +48,41 @@ function Row(props) {
         </TableCell>
         {isPC && (
           <TableCell align="left">
-            <h1 className="table-item">{!open && applicant.rollNo}</h1>
+            <h1 className="table-item">
+              {!open && applicant.roll.toUpperCase()}
+            </h1>
           </TableCell>
         )}
         <TableCell className="table-cell">
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "rgb(26,32,44)",
-              color: "white",
-              borderRadius: "999px",
-            }}
-            size={!isPC ? "small" : "large"}
-            startIcon={<ScheduleIcon />}
-            onClick={() => setModalOpen(true)}
-          >
-            <h1 className="sch-btn">Schedule</h1>
-          </Button>
+          {!props.scheduled ? (
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "rgb(26,32,44)",
+                color: "white",
+                borderRadius: "999px",
+              }}
+              size={!isPC ? "small" : "large"}
+              startIcon={<ScheduleIcon />}
+              onClick={() => setModalOpen(true)}
+            >
+              <h1 className="sch-btn">Schedule</h1>
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "rgb(26,32,44)",
+                color: "white",
+                borderRadius: "999px",
+              }}
+              size={!isPC ? "small" : "large"}
+              startIcon={<AssessmentIcon />}
+              onClick={() => setMarksModalOpen(true)}
+            >
+              <h1 className="sch-btn">Set Marks</h1>
+            </Button>
+          )}
           <Modal
             visible={modalOpen}
             width={isPC ? "600" : "300"}
@@ -70,7 +90,16 @@ function Row(props) {
             effect="fadeInUp"
             onClickAway={() => setModalOpen(false)}
           >
-            <ModalCard close={setModalOpen}  />
+            <ModalCard close={setModalOpen} id={applicant._id} />
+          </Modal>
+          <Modal
+            visible={marksModalOpen}
+            width={isPC ? "600" : "300"}
+            height="450"
+            effect="fadeInUp"
+            onClickAway={() => setMarksModalOpen(false)}
+          >
+            <MarksModal close={setMarksModalOpen} id={applicant._id} />
           </Modal>
         </TableCell>
         <TableCell className="table-cell">
@@ -87,7 +116,7 @@ function Row(props) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Card applicant={applicant}/>
+              <Card applicant={applicant} />
             </Box>
           </Collapse>
         </TableCell>
@@ -96,9 +125,27 @@ function Row(props) {
   );
 }
 
-export default function CollapsibleTable() {
+export default function CollapsibleTable({ scheduled }) {
+  console.log(scheduled);
   const context = useContext(RContext);
-  const { applicants } = context;
+  let { applicants, data } = context;
+  applicants = applicants.filter((a) => {
+    if (scheduled) {
+      return (
+        a.idRecruiter === data._id &&
+        a.interviewLink &&
+        a.interviewTime &&
+        a.interviewerName &&
+        !a.totalScore
+      );
+    }
+    return (
+      a.idRecruiter === data._id &&
+      !a.interviewLink &&
+      !a.interviewTime &&
+      !a.interviewerName
+    );
+  });
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -121,16 +168,27 @@ export default function CollapsibleTable() {
                     <h1 className="head-title">Roll No.</h1>
                   </TableCell>
                 )}
-                <TableCell align="left">
-                  <h1 className="head-title">Schedule Interview</h1>
-                </TableCell>
+                {!scheduled ? (
+                  <TableCell align="left">
+                    <h1 className="head-title">Schedule Interview</h1>
+                  </TableCell>
+                ) : (
+                  <TableCell align="left">
+                    <h1 className="head-title">Set Marks</h1>
+                  </TableCell>
+                )}
                 <TableCell />
               </TableRow>
             )}
           </TableHead>
           <TableBody>
             {applicants.map((applicant, index) => (
-              <Row key={applicant.name} applicant={applicant} pos={index} />
+              <Row
+                key={applicant.name}
+                applicant={applicant}
+                pos={index}
+                scheduled={scheduled}
+              />
             ))}
           </TableBody>
         </Table>

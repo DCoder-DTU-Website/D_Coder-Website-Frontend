@@ -1,187 +1,126 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RContext from "./RContext";
+import api from "../../../api/apiClient";
+import useUser from "../../../useUser";
+import swal from "sweetalert";
 
 const RState = (props) => {
   const him = "Vaibhav Gupta";
+  const { user } = useUser();
+  const [data, setData] = useState({});
+  const [applicants, setApplicants] = useState([]);
   const [openNav, setOpenNav] = useState(false);
+  const getProfile = async () => {
+    const res = await api.post("/userprofile", { user });
+    const userProfile = res.data;
+    setData(userProfile);
+  };
+  const getApplicants = async () => {
+    const res = await api.get("/applicants/all-recruiter");
+    const app = res.data;
+    setApplicants(app);
+  };
+  useEffect(() => {
+    getProfile();
+    getApplicants();
+  }, [user]);
   const recruiter = {
-    name: "Vaibhav Gupta",
+    name: `${data.firstName + " " + data.lastName}`,
+    image: `${data.image}`,
     gMeet: "https://meet.google.com",
   };
-  const applicants = [
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-    {
-      name: "Naman Malhotra",
-      rollNo: "2K20/EE/294",
-      contact: 8795461248,
-      email:"thisisme@gmail.com",
-      dob: "04.05.2002",
-      image:
-        "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/Naman_Malhotra_-_Naman_Malhotra_eygjun.jpg",
-      branch: "Computer Engineering",
-      techStack: ["C++", "React", "Redux"],
-      codingLanguage: ["C++", "Python", "JAVA"],
-      interviewer: "Vibhor Jain",
-    },
-  ];
+
+  const setInterview = async (
+    id,
+    interviewTime,
+    interviewLink,
+    interviewerName = `${data.firstName + " " + data.lastName}`
+  ) => {
+    const details = {
+      id,
+      interviewTime,
+      interviewLink,
+      interviewerName,
+    };
+    for (let i = 0; i < applicants.length; i++) {
+      if (applicants[i]._id === id) {
+        if (applicants[i].interviewLink) {
+          await swal({
+            title: "Interview is already scheduled",
+            icon: "error",
+            buttons: true,
+            closeOnClickOutside: true,
+            closeOnEsc: true,
+          });
+          return;
+        }
+      }
+    }
+
+    if (interviewLink === "") {
+      await swal({
+        title: "Interview Link is Missing or Wrong",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+      return;
+    }
+    const res = await api.post("/applicants/setInterview", details);
+    await swal({
+      title: "Interview Set Successfully",
+      icon: "success",
+      buttons: true,
+      closeOnClickOutside: true,
+      closeOnEsc: true,
+    });
+  };
+
+  const setMarks = async (
+    id,
+    taskCompletionScore,
+    codingSkillsScore,
+    enthusiasmScore,
+    remarksByRecruiter
+  ) => {
+    try {
+      const res = await api.post("/applicants/setMarks", {
+        id,
+        taskCompletionScore,
+        codingSkillsScore,
+        enthusiasmScore,
+        remarksByRecruiter,
+      });
+      await swal({
+        title: "Applicant Marked Successfully",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (e) {
+      await swal({
+        title: "An Error Occurred",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    }
+  };
+
   return (
     <RContext.Provider
-      value={{ him, openNav, setOpenNav, recruiter, applicants }}
+      value={{
+        data,
+        openNav,
+        setOpenNav,
+        recruiter,
+        applicants,
+        setInterview,
+        setMarks,
+      }}
     >
       {props.children}
     </RContext.Provider>

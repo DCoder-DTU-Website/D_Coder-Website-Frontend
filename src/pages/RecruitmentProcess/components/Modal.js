@@ -1,21 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
-import LinkIcon from '@material-ui/icons/Link';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import { useSpring, animated } from "react-spring/web.cjs"; // web.cjs is required for IE 11 support
+import LinkIcon from "@material-ui/icons/Link";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import swal from "sweetalert";
 import api from "../../../api/apiClient";
 
-
-
 const useStyles = makeStyles((theme) => ({
   container: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -23,17 +21,17 @@ const useStyles = makeStyles((theme) => ({
     width: 200,
   },
   modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border:0,
+    border: 0,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    outline:"none",
-    borderRadius:"20px",
+    outline: "none",
+    borderRadius: "20px",
   },
 }));
 
@@ -71,7 +69,7 @@ Fade.propTypes = {
 export default function SpringModal(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [interview_DateTime,setDateTime] =React.useState("");
+  const [interview_DateTime, setDateTime] = React.useState("");
   const [interviewer_Name, setName] = React.useState("");
   const [interview_Link, setLink] = React.useState("");
   const handleOpen = () => {
@@ -82,34 +80,22 @@ export default function SpringModal(props) {
     setOpen(false);
   };
 
-  
-
-  const handleSubmit = () => {
-    //On form submission
-    setDateTime("");
-    setName("");
-    setLink("");
-    props.applicant.interviewerName=interviewer_Name
-    props.applicant.inteviewLink = interview_Link;
-    props.applicant.interviewTime=interview_DateTime
-    console.log(props.applicant);
-    updateBackend(props.applicant)
-    // console.log(interviewer_Name);
-    // console.log(interview_Link);
-    // console.log(interview_DateTime);
+  const handleSubmit = async () => {
+    const data = {
+      id: props.applicant._id,
+      interviewerName: interviewer_Name,
+      interviewLink: interview_Link,
+      interviewTime: interview_DateTime,
+    };
+    await updateBackend(data);
     handleClose();
-  }
+  };
   const updateBackend = async (data) => {
-    console.log(data)
+    console.log(data);
     const res = await api.post("/applicants/setInterview", { data });
     swal({ title: res.data, icon: "success" });
   };
-  // const updateBackend = async (data) => {
-  //   console.log(data);
-  //   const res = await api.put(`/applicants/${data._id}`, { data });
-  //   swal({ title: res.data, icon: "success" });
-  // };
-  
+
   const handleSubmitHelper = async () => {
     const res = await swal({
       title: "Are you sure you want to Schedule?",

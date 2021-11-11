@@ -35,6 +35,7 @@ function FacultyCard({ count, title, desc, img, post }) {
           marginRight: "0px!important",
           marginTop: "20px",
           maxWidth: "4000px",
+          textAlign:"center"
         }}
       >
         <Title>{title}</Title>

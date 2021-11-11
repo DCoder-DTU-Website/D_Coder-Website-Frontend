@@ -25,7 +25,7 @@ import UserProfile from "pages/admin/pages/User/UserProfile";
 import useUser from "./useUser";
 import ResetPass from "./pages/admin/components/PasswordResetForm";
 import ForgotPass from "./pages/admin/components/ForgotPasswordForm";
-import CodeToSchool from "pages/code2school/App";//eslint-disable-line
+import CodeToSchool from "pages/code2school/App"; //eslint-disable-line
 import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Founder from "pages/Founder/App";
@@ -35,11 +35,12 @@ import ReadMore from "./components/blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
 import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
+import ThankYouPage from "pages/RecruitmentProcess/ThankYouPage";
+import RecruitmentHead from "pages/RecruitmentProcess/RecruitmentHead";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
 import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
-
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,6 +52,7 @@ function App() {
 
   const isAdmin = isLoggedIn && user && user.isAdmin;
   const isUser = isLoggedIn && user && !user.isAdmin;
+  const isRecruiter = isLoggedIn && user && user.isRecruiter;
 
   return (
     <AnimationRevealPage disabled className="wrapper">
@@ -71,9 +73,9 @@ function App() {
           <Route exact path="/internships">
             <Interns />
           </Route>
-          <Route exact path="/placements">
+          {/* <Route exact path="/placements">
             <Placements />
-          </Route>
+          </Route> */}
           <Route exact path="/research">
             <Research />
           </Route>
@@ -189,17 +191,36 @@ function App() {
             <ForgotPass />
           </Route>
           <Route path="/recruitment">
+            {isAdmin ? (
               <RecruitmentProcess />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
           <Route path="/recruitment-form">
             <RecruitmentForm />
           </Route>
+          <Route path="/thankyou">
+            <ThankYouPage />
+          </Route>
           <Route exact path="/recruiter/unscheduled">
-            <Recruiter/>
+            <Recruiter />
           </Route>
           <Route exact path="/recruiter/scheduled">
-            <Recruiter/>
+            {isRecruiter ? (
+              <Recruiter />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
+          <Route path="/recruitment-head">
+            <RecruitmentHead />
+          </Route>
+          {/* <Route path="*" component={Error404} /> */}
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>

@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: "http://dcoderbackend.herokuapp.com/api",
 });
 // const api = axios.create({
-//   baseURL: "http://localhost:8080/api/",
+//   baseURL: "http://localhost:8080/api",
 // });
 api.interceptors.request.use(
   (config) => {

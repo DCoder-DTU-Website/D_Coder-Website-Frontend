@@ -5,7 +5,6 @@ import MinNavbar from "components/hero/MinNavbar";
 // import BlogCard from "./BlogCard";
 import Footer from "components/footers/Footer";
 import Home from "../../components/blogs/routes/Home/Home";
-
 function Blog() {
   return (
     <>

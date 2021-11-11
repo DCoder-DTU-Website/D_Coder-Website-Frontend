@@ -27,6 +27,8 @@ import { Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import ResetModal from "../../../../helpers/ResetModal";
 
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -482,6 +484,7 @@ const MiscForm = (props) => {
 };
 
 export default function UserProfile(props) {
+  const history = useHistory();
   const classes = useStyles();
   const { user } = useUser();
   const [data, setData] = React.useState({
@@ -695,6 +698,28 @@ export default function UserProfile(props) {
                     </div>
                     <div style={{ width: "100%" }}>
                       <ResetModal />
+                    </div>
+                    <div style={{ width: "100%" }}>
+                      {user.isRecruiter && (
+                        <Button
+                          variant="contained"
+                          style={{
+                            color: "white",
+                            backgroundColor: "rgb(49,130,206)",
+                            width: "100%",
+                            marginTop: "1em",
+                          }}
+                          fullWidth
+                          onClick={() => {
+                            if (user.isRecruiter) {
+                              history.push("/recruiter/unscheduled");
+                            }
+                          }}
+                          disabled={!user.isRecruiter}
+                        >
+                          Recruitment
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </Grid>

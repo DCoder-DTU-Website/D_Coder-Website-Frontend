@@ -49,9 +49,6 @@ export default function CustomizedTables() {
   const getAccepted = async () => {
     try {
       const { data } = await api.get("/applicants/accepted");
-      console.log(data);
-      // const { data: appliedData } = data;
-      // let val = appliedData.filter((e) => e.applied);
       setAccepted(data);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
@@ -61,11 +58,9 @@ export default function CustomizedTables() {
     getAccepted();
   }, []);
 
-
-
   return (
-    <TableContainer component={Paper} >
-      <Table className={classes.table} aria-label="customized table" >
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
