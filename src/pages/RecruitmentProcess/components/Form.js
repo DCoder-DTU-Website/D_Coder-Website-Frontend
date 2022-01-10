@@ -25,6 +25,29 @@ import { classExpression } from "@babel/types";
 import "./Form.css";
 import ThankYouPage from "../ThankYouPage";
 
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormGroup from "@material-ui/core/FormGroup";
+import Chip from "@material-ui/core/Chip";
+import { IconButton } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+const BlueCheckbox = withStyles({
+  root: {
+    backgroundColor: " #001eff",
+    color: "white",
+  },
+})((props) => (
+  <Chip
+    color="#001eff"
+    style={
+      props.isChosen
+        ? { backgroundColor: "#3d5afe" }
+        : { backgroundColor: "#808080" }
+    }
+    {...props}
+  />
+));
+
 const backgroundImage =
   "https://res.cloudinary.com/dcoderdtu/image/upload/v1621400604/WhatsApp_Image_2021-05-19_at_10.21.20_ekkng5.jpg";
 
@@ -450,68 +473,73 @@ function Form() {
                       <ErrorMessage render={ErrorComponent} name="phone" />
                     </div>
                   )}
+                  {formik.errors.email && formik.touched.email ? (
+                    <div className={"MarginError MarginError2"}>
+                      <Grid item xs={8}>
+                        <div
+                          style={{
+                            width: "50rem",
+                            marginBottom: "-0.2rem",
+                          }}
+                          className={"textFieldLeft changefont marginRF"}
+                        >
+                          <TextField
+                            placeholder="Email"
+                            label="Email"
+                            name="email"
+                            value={formik.values.email}
+                            onChange={formik.handleChange}
+                            style={{ width: "50%" }}
+                            InputLabelProps={{
+                              style: {
+                                color: "white",
+                                borderColor: "white",
+                              },
+                            }}
+                            InputProps={{ className: "InputLabelStyle" }}
+                          />
+                        </div>
+                      </Grid>
+                      <ErrorMessage render={ErrorComponent} name="email" />
+                    </div>
+                  ) : (
+                    <div className={"MarginError  MarginError3"}>
+                      <Grid item xs={8}>
+                        <div
+                          style={{
+                            width: "50rem",
+                            marginBottom: "-0.5rem",
+                          }}
+                          className={"textFieldLeft changefont marginRF"}
+                        >
+                          <TextField
+                            placeholder="Email"
+                            label="Email"
+                            name="email"
+                            value={formik.values.email}
+                            onChange={formik.handleChange}
+                            style={{ width: "50%" }}
+                            InputLabelProps={{
+                              style: {
+                                color: "white",
+                                borderColor: "white",
+                              },
+                            }}
+                            InputProps={{ className: "InputLabelStyle" }}
+                          />
+                        </div>
+                      </Grid>
+                      <ErrorMessage render={ErrorComponent} name="email" />
+                    </div>
+                  )}
                 </Grid>
               </Grid>
-              {formik.errors.email && formik.touched.email ? (
-                <div>
-                  <div
-                    style={{
-                      width: "120vw",
-                      marginLeft: "5rem",
-                    }}
-                    className={"textField shift changefont marginRF"}
-                  >
-                    <TextField
-                      placeholder="Email"
-                      label="Email"
-                      name="email"
-                      type="email"
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                      style={{ width: "50%", marginBottom: "2rem" }}
-                      InputLabelProps={{
-                        style: { color: "white", borderColor: "white" },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage3"}>
-                    <ErrorMessage render={ErrorComponent} name="email" />
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <div
-                    style={{
-                      width: "120vw",
-                      marginLeft: "5rem",
-                    }}
-                    className={"textField shift changefont marginRF"}
-                  >
-                    <TextField
-                      placeholder="Email"
-                      label="Email"
-                      name="email"
-                      type="email"
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                      style={{ width: "50%", marginBottom: "2rem" }}
-                      InputLabelProps={{
-                        style: { color: "white", borderColor: "white" },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage3"}>
-                    <ErrorMessage render={ErrorComponent} name="email" />
-                  </div>
-                </div>
-              )}
               <Grid
                 container
                 spacing={2}
                 justifyContent="center"
                 className={"directionChange marginRF selectInput"}
+                style={{ width: "80%" }}
               >
                 {formik.errors.dob && formik.touched.dob ? (
                   <Grid
@@ -796,143 +824,197 @@ function Form() {
                   </Grid>
                 )}
               </Grid>
-              {formik.errors.techStack && formik.touched.techStack ? (
-                <div>
-                  <div
-                    style={{
-                      width: "120vw",
-                      marginLeft: "5rem",
-                    }}
-                    className={"textField shift changefont marginRF"}
-                  >
-                    <TextField
-                      placeholder="Tech Stack"
-                      label="Tech Stack"
-                      name="techStack"
-                      value={formik.values.techStack}
-                      onChange={formik.handleChange}
-                      style={{
-                        width: "50%",
-                        marginTop: "-2rem",
-                        marginBottom: "-4rem",
-                      }}
-                      InputLabelProps={{
-                        style: { color: "white", borderColor: "white" },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage2"}>
-                    <ErrorMessage render={ErrorComponent} name="techStack" />
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <div
-                    style={{
-                      width: "120vw",
-                      marginLeft: "5rem",
-                    }}
-                    className={"textField shift changefont marginRF"}
-                  >
-                    <TextField
-                      placeholder="Tech Stack"
-                      label="Tech Stack"
-                      name="techStack"
-                      value={formik.values.techStack}
-                      onChange={formik.handleChange}
-                      style={{
-                        width: "50%",
-                        marginTop: "-2rem",
-                        marginBottom: "-4rem",
-                      }}
-                      InputLabelProps={{
-                        style: { color: "white", borderColor: "white" },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage2"}>
-                    <ErrorMessage render={ErrorComponent} name="techStack" />
-                  </div>
-                </div>
-              )}
-
-              {formik.errors.codingLanguage && formik.touched.codingLanguage ? (
-                <div>
-                  <div
-                    style={{
-                      width: "120vw",
-                      marginLeft: "5rem",
-                    }}
-                    className={"textField shift changefont"}
-                  >
-                    <TextField
-                      placeholder="Coding Language"
-                      label="Coding Language"
-                      name="codingLanguage"
-                      value={formik.values.codingLanguage}
-                      onChange={formik.handleChange}
-                      style={{
-                        width: "50%",
-                        marginTop: "3rem",
-                        marginBottom: "3rem",
-                      }}
-                      InputLabelProps={{
-                        style: { color: "white", borderColor: "white" },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage1"}>
-                    <ErrorMessage
-                      render={ErrorComponent}
-                      name="codingLanguage"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <div
-                    style={{
-                      width: "120vw",
-                      marginLeft: "5rem",
-                    }}
-                    className={"textField shift changefont"}
-                  >
-                    <TextField
-                      placeholder="Coding Language"
-                      label="Coding Language"
-                      name="codingLanguage"
-                      value={formik.values.codingLanguage}
-                      onChange={formik.handleChange}
-                      style={{
-                        width: "50%",
-                        marginTop: "3rem",
-                        marginBottom: "3rem",
-                      }}
-                      InputLabelProps={{
-                        style: { color: "white", borderColor: "white" },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage1"}>
-                    <ErrorMessage
-                      render={ErrorComponent}
-                      name="codingLanguage"
-                    />
-                  </div>
-                </div>
-              )}
+              <Grid
+                item
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginBottom: "2em",
+                }}
+              >
+                <FormLabel
+                  id="demo-simple-select-label"
+                  style={{
+                    color: "white",
+                  }}
+                >
+                  Tech Stack
+                </FormLabel>
+                <FormGroup row fullWidth>
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                </FormGroup>
+              </Grid>
+              <Grid
+                item
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginBottom: "2em",
+                }}
+              >
+                <FormLabel
+                  id="demo-simple-select-label"
+                  style={{
+                    color: "white",
+                  }}
+                >
+                  Coding Languages
+                </FormLabel>
+                <FormGroup row fullWidth>
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="web"
+                        label="Web Dev"
+                        // isChosen={props.data.techStack.includes("Web Dev")}
+                        // onClick={(e) => props.onTechChange(e)}
+                        // name="Web Dev"
+                        // clickable
+                        // disabled={props.editable ? false : true}
+                      />
+                    }
+                    style={{ marginTop: "20px" }}
+                  />
+                </FormGroup>
+              </Grid>
 
               {formik.errors.whyJoin && formik.touched.whyJoin ? (
-                <div>
+                <div style={{ width: "100%" }}>
                   <div
                     style={{
-                      paddingTop: "1rem",
-                      width: "120vw",
-                      marginLeft: "5rem",
+                      width: "100%",
+                      margin: "auto",
                     }}
                     className={"textField shift changefont marginRF"}
                   >
@@ -962,12 +1044,11 @@ function Form() {
                   </div>
                 </div>
               ) : (
-                <div>
+                <div style={{ width: "100%" }}>
                   <div
                     style={{
-                      paddingTop: "1rem",
-                      width: "120vw",
-                      marginLeft: "5rem",
+                      width: "100%",
+                      margin: "auto",
                     }}
                     className={"textField shift changefont marginRF"}
                   >
@@ -978,15 +1059,12 @@ function Form() {
                       value={formik.values.whyJoin}
                       onChange={formik.handleChange}
                       style={{
-                        width: "50%",
-                        marginTop: "1rem",
-                        marginBottom: "2rem",
+                        width: "70%",
                       }}
                       InputLabelProps={{
                         style: {
                           color: "white",
                           borderColor: "white",
-                          width: "16rem",
                         },
                       }}
                       InputProps={{ className: "InputLabelStyle" }}
@@ -997,56 +1075,68 @@ function Form() {
                   </div>
                 </div>
               )}
-
               {formik.errors.expect && formik.touched.expect ? (
-                <div>
+                <div style={{ width: "100%" }}>
                   <div
                     style={{
-                      width: "120vw",
-                      marginLeft: "5rem",
+                      width: "100%",
+                      margin: "auto",
                     }}
                     className={"textField shift changefont marginRF"}
                   >
                     <TextField
-                      placeholder="Expectations from D_CODER"
-                      label="Expectations from D_CODER"
+                      placeholder="Why you want to join D_CODER?"
+                      label="Why you want to join D_CODER?"
                       name="expect"
                       value={formik.values.expect}
                       onChange={formik.handleChange}
-                      style={{ width: "50%", marginTop: "2rem" }}
+                      style={{
+                        width: "50%",
+                        marginTop: "1rem",
+                        marginBottom: "2rem",
+                      }}
                       InputLabelProps={{
-                        style: { color: "white", borderColor: "white" },
+                        style: {
+                          color: "white",
+                          borderColor: "white",
+                          width: "16rem",
+                        },
                       }}
                       InputProps={{ className: "InputLabelStyle" }}
                     />
                   </div>
-                  <div className={"ErrorMessage4"}>
-                    <ErrorMessage render={ErrorComponent} name="expect" />
+                  <div className={"ErrorMessage1"}>
+                    <ErrorMessage render={ErrorComponent} name="whyJoin" />
                   </div>
                 </div>
               ) : (
-                <div>
+                <div style={{ width: "100%" }}>
                   <div
                     style={{
-                      width: "120vw",
-                      marginLeft: "5rem",
+                      width: "100%",
+                      margin: "auto",
                     }}
                     className={"textField shift changefont marginRF"}
                   >
                     <TextField
-                      placeholder="Expectations from D_CODER"
-                      label="Expectations from D_CODER"
+                      placeholder="Expectations From D_CODER"
+                      label="Expectations From D_CODER"
                       name="expect"
                       value={formik.values.expect}
                       onChange={formik.handleChange}
-                      style={{ width: "50%", marginTop: "2rem" }}
+                      style={{
+                        width: "70%",
+                      }}
                       InputLabelProps={{
-                        style: { color: "white", borderColor: "white" },
+                        style: {
+                          color: "white",
+                          borderColor: "white",
+                        },
                       }}
                       InputProps={{ className: "InputLabelStyle" }}
                     />
                   </div>
-                  <div className={"ErrorMessage4"}>
+                  <div className={"ErrorMessage1"}>
                     <ErrorMessage render={ErrorComponent} name="expect" />
                   </div>
                 </div>

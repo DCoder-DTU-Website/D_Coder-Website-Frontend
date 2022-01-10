@@ -9,7 +9,7 @@
 }
 .ContentRF {
   width: 80%;
-  height: 220vh;
+  height: 150vh;
   background-color: rgb(26, 32, 44);
   border-radius: 20px;
   justify-content: center;
@@ -27,7 +27,7 @@
     rgb(255, 255, 255)
   ) !important;
   border-image-slice: 1 !important;
-  padding: 15px 0 6px !important;
+  padding: 0 !important;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
@@ -51,7 +51,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
 }
 .LeftTextFieldImage {
-  padding-left: 16vw !important;
+  padding-left: 10em !important;
 }
 .sizeH1 {
   font-size: 44px;
