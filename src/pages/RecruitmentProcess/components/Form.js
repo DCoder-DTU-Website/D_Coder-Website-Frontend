@@ -145,7 +145,7 @@ function Form() {
         interviewTime: "",
         interviewerName: "",
       };
-      console.log(applicantData)
+      console.log(applicantData);
       await api.post("/applicants", formurlencoded(applicantData));
       swal({
         title: "Successfully Submitted Your Application!",
@@ -185,13 +185,11 @@ function Form() {
           {(formik) => (
             <form
               style={{
-                height: "100%",
                 width: "100%",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-around",
                 alignItems: "center",
-                marginTop: "-10rem",
               }}
               onSubmit={formik.handleSubmit}
               method="POST"
@@ -201,12 +199,11 @@ function Form() {
                   backgroundColor: "white",
                   width: "100vw",
                   color: "black",
-                  marginBottom: "15vh",
+                  marginBottom: "5em",
                 }}
               >
                 <div
                   style={{
-                    // fontSize: "6vw",
                     textAlign: "center",
                     backgroundColor: "white",
                     fontWeight: "300",
@@ -217,12 +214,10 @@ function Form() {
                 </div>
                 <div
                   style={{
-                    // fontSize: "3vw",
                     textAlign: "center",
                     backgroundColor: "white",
-                    marginTop: "1vw",
-                    marginBottom: "2vw",
                     fontWeight: "700",
+                    margin: "0.3em 0",
                   }}
                   className="changefont sizeH2"
                 >
@@ -1066,7 +1061,7 @@ function Form() {
                   marginTop: "3rem",
                   marginBottom: "15rem",
                   fontFamily: "Poppins",
-                  marginLeft:"-5vw"
+                  marginLeft: "-5vw",
                 }}
                 type="submit"
               >

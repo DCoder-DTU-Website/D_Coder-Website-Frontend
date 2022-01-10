@@ -17,12 +17,11 @@ export default function RecruitmentForm() {
         padding: "0px 35px",
       }}
     >
-      {/* <Hero /> */}
-      <MinNavbar className="Navbar"/>
-        <div className={"formStyling"}>
-          <Form />
-        </div>
-      {/* <Footer /> */}
+      <MinNavbar className="Navbar" />
+      <div className={"formStyling"}>
+        <Form />
+      </div>
+      <Footer />
     </div>
   );
 }
