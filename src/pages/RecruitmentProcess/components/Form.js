@@ -68,7 +68,7 @@ const validationSchema = Yup.object().shape({
     .min(10)
     .max(100),
   expect: Yup.string().required("Enter your expectations..").min(10).max(100),
-  image: Yup.string().required("Enter Image"),
+  image: Yup.string().required("Image is required"),
 });
 
 const theme = createMuiTheme({
@@ -133,22 +133,22 @@ function Form() {
     image: "",
   });
 
-  const [allEmails , setAllEmails] = useState([]);
-  const [allMobile , setAllMobile] = useState([]);
+  const [allEmails, setAllEmails] = useState([]);
+  const [allMobile, setAllMobile] = useState([]);
 
   useEffect(async () => {
-      const applicants = await api.get("/applicants/all");
-      console.log(applicants.data);
-      let res = [];
-      let res2 = [];
-      applicants.data.forEach((applicant) => {
-        console.log(applicant.email);
-        res.push(applicant.email);
-        res2.push(applicant.phone);
-      }) 
-      setAllEmails(res)
-      setAllMobile(res2);
-  }, [])
+    const applicants = await api.get("/applicants/all");
+    console.log(applicants.data);
+    let res = [];
+    let res2 = [];
+    applicants.data.forEach((applicant) => {
+      console.log(applicant.email);
+      res.push(applicant.email);
+      res2.push(applicant.phone);
+    });
+    setAllEmails(res);
+    setAllMobile(res2);
+  }, []);
 
   useEffect(() => {
     try {
@@ -162,9 +162,7 @@ function Form() {
         )
         .then((response) => {
           // console.log(response.data.url);
-          setData((prevData) => {
-            prevData.image = response.data.url;
-          });
+          setData((prevData) => ({ ...prevData, image: response.data.url }));
           console.log(response.data.url);
           // console.log(data.image)
         });
@@ -174,6 +172,7 @@ function Form() {
   }, [images]);
 
   const clickSubmit = async (values, actions) => {
+    console.log("gello");
     console.log(values);
     setUploading(true);
     try {
@@ -200,6 +199,7 @@ function Form() {
       });
       setUploading(false);
     } catch (err) {
+      console.log(err);
       swal({
         title: "Unable to submit your application! Try Again Later!",
         icon: "error",
@@ -211,6 +211,35 @@ function Form() {
     setUploading(false);
   };
 
+  const updateTechStack = (e) => {
+    const ts = e.target.innerText;
+    if (data.techStack.includes(ts)) {
+      setData((prevData) => ({
+        ...prevData,
+        techStack: prevData.techStack.replace(ts, ""),
+      }));
+    } else {
+      setData((prevData) => ({
+        ...prevData,
+        techStack: `${prevData.techStack} ${ts}`,
+      }));
+    }
+  };
+
+  const updateCodingLanguages = (e) => {
+    const ts = e.target.innerText;
+    if (data.codingLanguage.includes(ts)) {
+      setData((prevData) => ({
+        ...prevData,
+        codingLanguage: prevData.codingLanguage.replace(ts, ""),
+      }));
+    } else {
+      setData((prevData) => ({
+        ...prevData,
+        codingLanguage: `${prevData.codingLanguage} ${ts}`,
+      }));
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -230,7 +259,6 @@ function Form() {
                 alignItems: "center",
               }}
               onSubmit={formik.handleSubmit}
-              method="POST"
             >
               <div
                 style={{
@@ -264,11 +292,7 @@ function Form() {
               </div>
               <Grid container xs={9} justifyContent="center">
                 <Grid item xs={5}>
-                  {images != "" ? (
-                    <Image id="imgRF" imageSrc={formik.initialValues.image} />
-                  ) : (
-                    <Image id="imgRF" imageSrc={backgroundImage} />
-                  )}
+                  <Image id="imgRF" imageSrc={data.image} />
                   <Grid
                     item
                     style={{
@@ -295,7 +319,7 @@ function Form() {
                         ></input>
                       </div>
                     </Grid>
-                    {formik.initialValues.image == "" ? (
+                    {data.image == "" ? (
                       <div className="ErrorImageLeft">
                         <ErrorMessage render={ErrorComponent} name="image" />
                       </div>
@@ -588,13 +612,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="DSA"
+                        label="DSA"
+                        isChosen={data.techStack.includes("DSA")}
+                        onClick={(e) => updateTechStack(e)}
+                        name="DSA"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -604,11 +627,10 @@ function Form() {
                       <BlueCheckbox
                         id="web"
                         label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        isChosen={data.techStack.includes("Web Dev")}
+                        onClick={(e) => updateTechStack(e)}
+                        name="Web Dev"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -616,13 +638,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="ML & AI"
+                        label="ML & AI"
+                        isChosen={data.techStack.includes("ML & AI")}
+                        onClick={(e) => updateTechStack(e)}
+                        name="ML & AI"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -630,13 +651,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="App Dev"
+                        label="App Dev"
+                        isChosen={data.techStack.includes("App Dev")}
+                        onClick={(e) => updateTechStack(e)}
+                        name="App Dev"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -644,13 +664,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="Blockchain"
+                        label="Blockchain"
+                        isChosen={data.techStack.includes("Blockchain")}
+                        onClick={(e) => updateTechStack(e)}
+                        name="Blockchain"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -680,13 +699,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="c"
+                        label="C"
+                        isChosen={data.codingLanguage.includes("C")}
+                        onClick={(e) => updateCodingLanguages(e)}
+                        name="C"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -694,13 +712,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="C++"
+                        label="C++"
+                        isChosen={data.codingLanguage.includes("C++")}
+                        onClick={(e) => updateCodingLanguages(e)}
+                        name="C++"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -708,13 +725,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="Java"
+                        label="Java"
+                        isChosen={data.codingLanguage.includes("Java")}
+                        onClick={(e) => updateCodingLanguages(e)}
+                        name="Java"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -722,13 +738,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="Python"
+                        label="Python"
+                        isChosen={data.codingLanguage.includes("Python")}
+                        onClick={(e) => updateCodingLanguages(e)}
+                        name="Python"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -736,13 +751,12 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        // isChosen={props.data.techStack.includes("Web Dev")}
-                        // onClick={(e) => props.onTechChange(e)}
-                        // name="Web Dev"
-                        // clickable
-                        // disabled={props.editable ? false : true}
+                        id="Javascript"
+                        label="Javascript"
+                        isChosen={data.codingLanguage.includes("Javascript")}
+                        onClick={(e) => updateCodingLanguages(e)}
+                        name="Javascript"
+                        clickable
                       />
                     }
                     style={{ marginTop: "20px" }}
@@ -841,7 +855,7 @@ function Form() {
                 }}
                 type="submit"
               >
-                Apply Now! 🍻
+                Apply Now!
               </Button>
             </form>
           )}
