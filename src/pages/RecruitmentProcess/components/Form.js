@@ -132,10 +132,27 @@ function Form() {
     expect: "",
     image: "",
   });
+
+  const [allEmails , setAllEmails] = useState([]);
+  const [allMobile , setAllMobile] = useState([]);
+
+  useEffect(async () => {
+      const applicants = await api.get("/applicants/all");
+      console.log(applicants.data);
+      let res = [];
+      let res2 = [];
+      applicants.data.forEach((applicant) => {
+        console.log(applicant.email);
+        res.push(applicant.email);
+        res2.push(applicant.phone);
+      }) 
+      setAllEmails(res)
+      setAllMobile(res2);
+  }, [])
+
   useEffect(() => {
     try {
       const formData = new FormData();
-      console.log(images);
       formData.append("file", images);
       formData.append("upload_preset", "gekvwtzt");
       axios
@@ -155,7 +172,9 @@ function Form() {
       console.error(err, "Image Upload Failed!");
     }
   }, [images]);
+
   const clickSubmit = async (values, actions) => {
+    console.log(values);
     setUploading(true);
     try {
       let applicantData = values;
@@ -191,11 +210,7 @@ function Form() {
     }
     setUploading(false);
   };
-  // const formik = useFormik({
-  //   initialValues: data,
-  //   validationSchema,
-  //   onSubmit: clickSubmit,
-  // });
+
 
   return (
     <ThemeProvider theme={theme}>
