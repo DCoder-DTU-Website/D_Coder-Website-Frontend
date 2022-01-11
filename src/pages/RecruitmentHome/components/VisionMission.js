@@ -11,11 +11,11 @@ const VisionMission = () => {
   };
   return (
     <div className="flex w-full min-h-[100vh] flex-col justify-center items-center">
-      <h1 className="text-white text-6xl text-bold my-8 justify-center">
+      <h1 className="text-white text-2xl sm:text-4xl md:text-6xl text-bold my-8 justify-center">
         Our Vision {`&`} Mission
       </h1>
       <div className="flex flex-col w-full h-full justify-center items-center">
-        <div className="flex flex-row gap-x-12">
+        <div className="flex flex-col md:flex-row gap-x-12">
           <Card desc={LoremText} />
           <Card desc={LoremText} />
           <Card desc={LoremText} />

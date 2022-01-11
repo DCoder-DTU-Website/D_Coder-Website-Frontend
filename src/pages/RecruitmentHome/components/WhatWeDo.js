@@ -7,8 +7,8 @@ const WhatWeDo = () => {
       <div className="hidden sm:flex w-full justify-content items-center">
         <img src={WhatDo} alt="hero" className="w-[85%]" />
       </div>
-      <div className="flex flex-col justify-center items-center w-full px-12">
-        <h1 className="text-white text-6xl text-bold my-8 justify-left">
+      <div className="flex flex-col justify-center items-center w-full sm:px-12">
+        <h1 className="text-white text-3xl sm:text-4xl md:text-6xl text-bold my-8 justify-left">
           {" "}
           What We Do?
         </h1>
@@ -18,7 +18,10 @@ const WhatWeDo = () => {
           reprehenderit quam. Et inventore nobis dolor voluptatum ad temporibus
           fuga repellat excepturi obcaecati. Fugiat cumque molestias nulla ad
           beatae enim harum tenetur quidem quisquam sed ipsum inventore,
-          doloremque quam ipsa culpa.
+          doloremque quam ipsa culpa. Et inventore nobis dolor voluptatum ad
+          temporibus fuga repellat excepturi obcaecati. Fugiat cumque molestias
+          nulla ad beatae enim harum tenetur quidem quisquam sed ipsum
+          inventore, doloremque quam ipsa culpa.
         </p>
       </div>
     </div>
