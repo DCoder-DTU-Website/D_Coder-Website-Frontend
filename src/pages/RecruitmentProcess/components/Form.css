@@ -5,11 +5,11 @@
   justify-content: center !important;
   align-items: center !important;
   background-color: rgb(26, 32, 44);
-  margin: 0rem -29px 130px !important;
+  margin: 0rem -29px !important;
 }
 .ContentRF {
   width: 80%;
-  height: 150vh;
+  height: 90%;
   background-color: rgb(26, 32, 44);
   border-radius: 20px;
   justify-content: center;
@@ -88,6 +88,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: -4rem !important;
 }
 .ErrorImageLeft {
+  margin-top: -1em !important;
   margin-left: 1rem !important;
 }
 

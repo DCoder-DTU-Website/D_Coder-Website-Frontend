@@ -247,27 +247,23 @@ function Form() {
                   Registration Form
                 </div>
               </div>
-              <Grid container spacing={2} justifyContent="center">
-                <Grid container xs={4}>
-                  <Grid item>
-                    {images != "" ? (
-                      <Image id="imgRF" imageSrc={formik.initialValues.image} />
-                    ) : (
-                      <Image id="imgRF" imageSrc={backgroundImage} />
-                    )}
-                  </Grid>
+              <Grid container xs={9} justifyContent="center">
+                <Grid item xs={5}>
+                  {images != "" ? (
+                    <Image id="imgRF" imageSrc={formik.initialValues.image} />
+                  ) : (
+                    <Image id="imgRF" imageSrc={backgroundImage} />
+                  )}
                   <Grid
-                    container
                     item
-                    xs={8}
                     style={{
                       left: window.innerWidth <= 450 ? "22vw" : "13vw",
-                      marginTop: "3vh",
+                      marginTop: "0.5em",
                       alignItems: "center",
                       flexDirection: "row",
                     }}
                   >
-                    <Grid item xs={16}>
+                    <Grid item>
                       <div>
                         <label for="files" className="UploadImageLabel">
                           Select Image
@@ -284,545 +280,275 @@ function Form() {
                         ></input>
                       </div>
                     </Grid>
-                    <Grid item xs={16}>
-                      {formik.initialValues.image == "" ? (
-                        <div
-                          style={{ width: "10rem", marginTop: "-2.1rem" }}
-                          className="ErrorImageLeft"
-                        >
-                          <ErrorMessage render={ErrorComponent} name="image" />
-                        </div>
-                      ) : null}
-                    </Grid>
+                    {formik.initialValues.image == "" ? (
+                      <div className="ErrorImageLeft">
+                        <ErrorMessage render={ErrorComponent} name="image" />
+                      </div>
+                    ) : null}
                   </Grid>
                 </Grid>
                 <Grid
                   container
-                  item
-                  xs={8}
-                  spacing={1}
+                  xs={5}
                   direction="row"
-                  row={24}
                   className={"LeftTextFieldImage"}
                 >
-                  {formik.errors.name && formik.touched.name ? (
-                    <div className={"MarginError1 MarginError MarginError5"}>
-                      <Grid item xs={8}>
-                        <div
-                          style={{
-                            width: "50rem",
-                            marginBottom: "-0.5vw",
+                  <div className={"MarginError MarginError3"}>
+                    <Grid item>
+                      <div
+                        style={{
+                          width: "50rem",
+                          marginBottom: "-0.5rem",
+                        }}
+                        className={"textFieldLeft changefont marginRF"}
+                      >
+                        <TextField
+                          placeholder="Name"
+                          label="Name"
+                          name="name"
+                          value={formik.values.name}
+                          onChange={formik.handleChange}
+                          style={{ width: "50%" }}
+                          InputLabelProps={{
+                            style: { color: "white", borderColor: "white" },
                           }}
-                          className={"textFieldLeft changefont marginRF"}
-                        >
-                          <TextField
-                            placeholder="Name"
-                            label="Name"
-                            name="name"
-                            value={formik.values.name}
-                            onChange={formik.handleChange}
-                            style={{ width: "50%" }}
-                            InputLabelProps={{
-                              style: { color: "white", borderColor: "white" },
-                            }}
-                            InputProps={{ className: "InputLabelStyle" }}
-                          />
-                        </div>
-                      </Grid>
+                          InputProps={{ className: "InputLabelStyle" }}
+                        />
+                      </div>
+                    </Grid>
+                    {formik.errors.name && formik.touched.name && (
                       <ErrorMessage render={ErrorComponent} name="name" />
-                    </div>
-                  ) : (
-                    <div className={"MarginError MarginError4"}>
-                      <Grid item xs={8}>
-                        <div
-                          style={{
-                            width: "50rem",
-                            marginBottom: "-1.5vw",
+                    )}
+                  </div>
+                  <div className={"MarginError MarginError3"}>
+                    <Grid item>
+                      <div
+                        style={{
+                          width: "50rem",
+                          marginBottom: "-0.5rem",
+                        }}
+                        className={"textFieldLeft changefont marginRF"}
+                      >
+                        <TextField
+                          placeholder="Roll Number"
+                          label="Roll Number"
+                          name="roll"
+                          value={formik.values.roll}
+                          onChange={formik.handleChange}
+                          style={{ width: "50%" }}
+                          InputLabelProps={{
+                            style: { color: "white", borderColor: "white" },
                           }}
-                          className={"textFieldLeft changefont marginRF"}
-                        >
-                          <TextField
-                            placeholder="Name"
-                            label="Name"
-                            name="name"
-                            value={formik.values.name}
-                            onChange={formik.handleChange}
-                            style={{ width: "50%" }}
-                            InputLabelProps={{
-                              style: { color: "white", borderColor: "white" },
-                            }}
-                            InputProps={{ className: "InputLabelStyle" }}
-                          />
-                        </div>
-                      </Grid>
-                      <ErrorMessage render={ErrorComponent} name="name" />
-                    </div>
-                  )}
-                  {formik.errors.roll && formik.touched.roll ? (
-                    <div
-                      style={{ marginTop: "-4rem" }}
-                      className={"MarginError"}
-                    >
-                      <Grid item xs={8}>
-                        <div
-                          style={{
-                            width: "50rem",
-                            marginBottom: "-0.5rem",
-                          }}
-                          className={"textFieldLeft changefont marginRF"}
-                        >
-                          <TextField
-                            placeholder="Roll Number"
-                            label="Roll Number"
-                            name="roll"
-                            value={formik.values.roll}
-                            onChange={formik.handleChange}
-                            style={{ width: "50%" }}
-                            InputLabelProps={{
-                              style: { color: "white", borderColor: "white" },
-                            }}
-                            InputProps={{ className: "InputLabelStyle" }}
-                          />
-                        </div>
-                      </Grid>
+                          InputProps={{ className: "InputLabelStyle" }}
+                        />
+                      </div>
+                    </Grid>
+                    {formik.errors.roll && formik.touched.roll && (
                       <ErrorMessage render={ErrorComponent} name="roll" />
-                    </div>
-                  ) : (
-                    <div className={"MarginError MarginError4"}>
-                      <Grid item xs={8}>
-                        <div
-                          style={{
-                            width: "50rem",
-                            marginBottom: "-0.5rem",
+                    )}
+                  </div>
+                  <div className={"MarginError  MarginError3"}>
+                    <Grid item xs={8}>
+                      <div
+                        style={{
+                          width: "50rem",
+                          marginBottom: "-0.5rem",
+                        }}
+                        className={"textFieldLeft changefont marginRF"}
+                      >
+                        <TextField
+                          placeholder="Mobile"
+                          label="Mobile"
+                          name="phone"
+                          value={formik.values.phone}
+                          onChange={formik.handleChange}
+                          style={{ width: "50%" }}
+                          InputLabelProps={{
+                            style: {
+                              color: "white",
+                              borderColor: "white",
+                            },
                           }}
-                          className={"textFieldLeft changefont marginRF"}
-                        >
-                          <TextField
-                            placeholder="Roll Number"
-                            label="Roll Number"
-                            name="roll"
-                            value={formik.values.roll}
-                            onChange={formik.handleChange}
-                            style={{ width: "50%" }}
-                            InputLabelProps={{
-                              style: { color: "white", borderColor: "white" },
-                            }}
-                            InputProps={{ className: "InputLabelStyle" }}
-                          />
-                        </div>
-                      </Grid>
-                      <ErrorMessage render={ErrorComponent} name="roll" />
-                    </div>
-                  )}
-                  {formik.errors.phone && formik.touched.phone ? (
-                    <div className={"MarginError MarginError2"}>
-                      <Grid item xs={8}>
-                        <div
-                          style={{
-                            width: "50rem",
-                            marginBottom: "-0.2rem",
-                          }}
-                          className={"textFieldLeft changefont marginRF"}
-                        >
-                          <TextField
-                            placeholder="Mobile"
-                            label="Mobile"
-                            name="phone"
-                            value={formik.values.phone}
-                            onChange={formik.handleChange}
-                            style={{ width: "50%" }}
-                            InputLabelProps={{
-                              style: {
-                                color: "white",
-                                borderColor: "white",
-                              },
-                            }}
-                            InputProps={{ className: "InputLabelStyle" }}
-                          />
-                        </div>
-                      </Grid>
+                          InputProps={{ className: "InputLabelStyle" }}
+                        />
+                      </div>
+                    </Grid>
+                    {formik.errors.phone && formik.touched.phone && (
                       <ErrorMessage render={ErrorComponent} name="phone" />
-                    </div>
-                  ) : (
-                    <div className={"MarginError  MarginError3"}>
-                      <Grid item xs={8}>
-                        <div
-                          style={{
-                            width: "50rem",
-                            marginBottom: "-0.5rem",
+                    )}
+                  </div>
+
+                  <div className={"MarginError  MarginError3"}>
+                    <Grid item xs={8}>
+                      <div
+                        style={{
+                          width: "50rem",
+                          marginBottom: "-0.5rem",
+                        }}
+                        className={"textFieldLeft changefont marginRF"}
+                      >
+                        <TextField
+                          placeholder="Email"
+                          label="Email"
+                          name="email"
+                          value={formik.values.email}
+                          onChange={formik.handleChange}
+                          style={{ width: "50%" }}
+                          InputLabelProps={{
+                            style: {
+                              color: "white",
+                              borderColor: "white",
+                            },
                           }}
-                          className={"textFieldLeft changefont marginRF"}
-                        >
-                          <TextField
-                            placeholder="Mobile"
-                            label="Mobile"
-                            name="phone"
-                            value={formik.values.phone}
-                            onChange={formik.handleChange}
-                            style={{ width: "50%" }}
-                            InputLabelProps={{
-                              style: {
-                                color: "white",
-                                borderColor: "white",
-                              },
-                            }}
-                            InputProps={{ className: "InputLabelStyle" }}
-                          />
-                        </div>
-                      </Grid>
-                      <ErrorMessage render={ErrorComponent} name="phone" />
-                    </div>
-                  )}
-                  {formik.errors.email && formik.touched.email ? (
-                    <div className={"MarginError MarginError2"}>
-                      <Grid item xs={8}>
-                        <div
-                          style={{
-                            width: "50rem",
-                            marginBottom: "-0.2rem",
-                          }}
-                          className={"textFieldLeft changefont marginRF"}
-                        >
-                          <TextField
-                            placeholder="Email"
-                            label="Email"
-                            name="email"
-                            value={formik.values.email}
-                            onChange={formik.handleChange}
-                            style={{ width: "50%" }}
-                            InputLabelProps={{
-                              style: {
-                                color: "white",
-                                borderColor: "white",
-                              },
-                            }}
-                            InputProps={{ className: "InputLabelStyle" }}
-                          />
-                        </div>
-                      </Grid>
+                          InputProps={{ className: "InputLabelStyle" }}
+                        />
+                      </div>
+                    </Grid>
+                    {formik.errors.email && formik.touched.email && (
                       <ErrorMessage render={ErrorComponent} name="email" />
-                    </div>
-                  ) : (
-                    <div className={"MarginError  MarginError3"}>
-                      <Grid item xs={8}>
-                        <div
-                          style={{
-                            width: "50rem",
-                            marginBottom: "-0.5rem",
-                          }}
-                          className={"textFieldLeft changefont marginRF"}
-                        >
-                          <TextField
-                            placeholder="Email"
-                            label="Email"
-                            name="email"
-                            value={formik.values.email}
-                            onChange={formik.handleChange}
-                            style={{ width: "50%" }}
-                            InputLabelProps={{
-                              style: {
-                                color: "white",
-                                borderColor: "white",
-                              },
-                            }}
-                            InputProps={{ className: "InputLabelStyle" }}
-                          />
-                        </div>
-                      </Grid>
-                      <ErrorMessage render={ErrorComponent} name="email" />
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </Grid>
               </Grid>
               <Grid
                 container
-                spacing={2}
-                justifyContent="center"
-                className={"directionChange marginRF selectInput"}
-                style={{ width: "80%" }}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "70%",
+                }}
               >
-                {formik.errors.dob && formik.touched.dob ? (
-                  <Grid
-                    container
-                    item
-                    xs={6}
-                    spacing={1}
-                    direction="row"
-                    alignItems="center"
+                <Grid item style={{ width: "50%" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    className={"textField shift changefont marginRF"}
                   >
-                    <Grid item xs={12}>
-                      <div
-                        style={{
-                          justifyContent: "left",
-                          marginLeft: "7rem",
-                        }}
-                        className={"textField shift changefont marginRF"}
-                      >
-                        <TextField
-                          placeholder="DOB"
-                          label="Date Of Birth"
-                          name="dob"
-                          type="date"
-                          format={"Select"}
-                          defaultValue="Select"
-                          value={formik.values.dob}
-                          onChange={formik.handleChange}
-                          style={{
-                            width: "15rem",
-                            color: "white",
-                            marginBottom: "-0.5rem",
-                          }}
-                          InputLabelProps={{
-                            style: {
-                              color: "white",
-                              // borderColor: "white",
-                            },
-                          }}
-                          InputProps={{
-                            // className: "InputLabelStyle",
-                            style: {
-                              padding: "1rem 0.6rem 0rem 0.8rem",
-                              borderRadius: "0.8rem",
-                              height: "4rem",
-                              boxShadow: "5px 2px 8px 2px rgba(0,0,0,0.25)",
-                              margin: "4rem 0rem 1rem 0rem",
-                              backgroundColor: "rgb(43, 50, 65)",
-                            },
-                          }}
-                          className="dob"
-                        />
-                      </div>
-                    </Grid>
-                    <Grid
-                      item
-                      xs={6}
+                    <TextField
+                      placeholder="DOB"
+                      label="Date Of Birth"
+                      name="dob"
+                      type="date"
+                      format={"Select"}
+                      defaultValue="Select"
+                      value={formik.values.dob}
+                      onChange={formik.handleChange}
                       style={{
-                        marginLeft: "7.2rem",
-                        marginTop: "-5rem",
+                        width: "15rem",
+                        color: "white",
                       }}
-                      // className={"textField shift changefont marginRF"}
-                    >
-                      <div className="ErrorMessagedob">
-                        <ErrorMessage render={ErrorComponent} name="dob" />
-                      </div>
-                    </Grid>
-                  </Grid>
-                ) : (
-                  <Grid item xs={6}>
-                    <div
-                      style={{
-                        justifyContent: "left",
-                        marginLeft: "7rem",
-                      }}
-                      className={"textField shift changefont marginRF"}
-                    >
-                      <TextField
-                        placeholder="DOB"
-                        label="Date Of Birth"
-                        name="dob"
-                        type="date"
-                        format={"Select"}
-                        defaultValue="Select"
-                        value={formik.values.dob}
-                        onChange={formik.handleChange}
-                        style={{
-                          width: "15rem",
+                      InputLabelProps={{
+                        style: {
                           color: "white",
-                        }}
-                        InputLabelProps={{
-                          style: {
-                            color: "white",
-                            // borderColor: "white",
-                          },
-                        }}
-                        InputProps={{
-                          // className: "InputLabelStyle",
-                          style: {
-                            padding: "1rem 0.6rem 0rem 0.8rem",
-                            borderRadius: "0.8rem",
-                            height: "4rem",
-                            boxShadow: "5px 2px 8px 2px rgba(0,0,0,0.25)",
-                            margin: "4rem 0rem 1rem 0rem",
-                            backgroundColor: "rgb(43, 50, 65)",
-                          },
-                        }}
-                        className="dob"
-                      />
-                    </div>
-                  </Grid>
-                )}
-                {formik.errors.branch && formik.touched.branch ? (
-                  <Grid
-                    container
-                    item
-                    xs={6}
-                    spacing={1}
-                    direction="row"
-                    alignItems="center"
-                  >
-                    <Grid item xs={12}>
-                      <div
-                        style={{
-                          justifyContent: "left",
-                          marginTop: "2.5rem",
-                          marginLeft: "4.2rem",
-                        }}
-                        className={
-                          "textField branch selectbox shift changefont marginRF"
-                        }
-                      >
-                        <InputLabel
-                          id="demo-simple-select-label"
-                          style={{
-                            color: "white",
-                            margin: "1rem -3rem 7.8rem 0rem",
-                          }}
-                        >
-                          Branch1
-                        </InputLabel>
-                        <Select
-                          placeholder="Branch"
-                          label="Branch"
-                          name="branch"
-                          value={formik.values.branch}
-                          onChange={formik.handleChange}
-                          style={{
-                            width: "15rem",
-                            color: "white",
-                            height: "4rem",
-                            // backgroundColor: "white",
-                            padding: "1rem 1.5rem 0rem 0.8rem",
-                            borderRadius: "0.8rem",
-                            boxShadow: "5px 2px 8px 2px rgba(0,0,0,0.25)",
-                            // margin: "3.5rem 0rem",
-                            marginLeft: "-1rem",
-                            backgroundColor: "rgb(43, 50, 65)",
-                          }}
-                          className="color"
-                        >
-                          <MenuItem value={"BT"}>Bio Technology</MenuItem>
-                          <MenuItem value={"CHE"}>
-                            Chemical Engineering
-                          </MenuItem>
-                          <MenuItem value={"CE"}>Civil Engineering</MenuItem>
-                          <MenuItem value={"COE"}>
-                            Computer Engineering
-                          </MenuItem>
-                          <MenuItem value={"EE"}>
-                            Electrical Engineering
-                          </MenuItem>
-                          <MenuItem value={"ECE"}>
-                            Electronics and Communication Engineering
-                          </MenuItem>
-                          <MenuItem value={"EP"}>Engineering Physics</MenuItem>
-                          <MenuItem value={"ENE"}>
-                            Environmental Engineering
-                          </MenuItem>
-                          <MenuItem value={"IT"}>
-                            Information Technology
-                          </MenuItem>
-                          <MenuItem value={"MCE"}>
-                            Mathematics and Computing
-                          </MenuItem>
-                          <MenuItem value={"ME"}>
-                            Mechanical Engineering
-                          </MenuItem>
-                          <MenuItem value={"MAM"}>
-                            Mechanical with specialization in Automotive
-                            Engineering
-                          </MenuItem>
-                          <MenuItem value={"PIE"}>
-                            Production and Industrial Engineering
-                          </MenuItem>
-                          <MenuItem value={"SE"}>Software Engineering</MenuItem>
-                        </Select>
-                      </div>
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      style={{
-                        marginTop: "-5.2rem",
-                        marginLeft: "4.7rem",
+                          // borderColor: "white",
+                        },
                       }}
-                      // className={
-                      //   "textField branch selectbox shift changefont marginRF"
-                      // }
-                    >
-                      <div className="ErrorMessagebranch">
-                        <ErrorMessage render={ErrorComponent} name="branch" />
-                      </div>
-                    </Grid>
-                  </Grid>
-                ) : (
-                  <Grid item xs={6}>
-                    <div
-                      style={{
-                        justifyContent: "left",
-                        marginTop: "3.5rem",
-                        marginLeft: "4.2rem",
-                      }}
-                      className={
-                        "textField branch selectbox shift changefont marginRF"
-                      }
-                    >
-                      <InputLabel
-                        id="demo-simple-select-label"
-                        style={{
-                          color: "white",
-                          margin: "0rem -3rem 7.8rem 0rem",
-                        }}
-                      >
-                        Branch
-                      </InputLabel>
-                      <Select
-                        placeholder="Branch"
-                        label="Branch"
-                        name="branch"
-                        value={formik.values.branch}
-                        onChange={formik.handleChange}
-                        style={{
-                          width: "15rem",
-                          color: "white",
-                          height: "4rem",
-                          // backgroundColor: "white",
-                          padding: "1rem 1.5rem 0rem 0.8rem",
+                      InputProps={{
+                        // className: "InputLabelStyle",
+                        style: {
+                          padding: "1rem 0.6rem 0rem 0.8rem",
                           borderRadius: "0.8rem",
+                          height: "4rem",
                           boxShadow: "5px 2px 8px 2px rgba(0,0,0,0.25)",
-                          // margin: "3.5rem 0rem",
+                          margin: "4rem 0rem 1rem 0rem",
                           backgroundColor: "rgb(43, 50, 65)",
-                        }}
-                        className="color"
-                      >
-                        <MenuItem value={"BT"}>Bio Technology</MenuItem>
-                        <MenuItem value={"CHE"}>Chemical Engineering</MenuItem>
-                        <MenuItem value={"CE"}>Civil Engineering</MenuItem>
-                        <MenuItem value={"COE"}>Computer Engineering</MenuItem>
-                        <MenuItem value={"EE"}>Electrical Engineering</MenuItem>
-                        <MenuItem value={"ECE"}>
-                          Electronics and Communication Engineering
-                        </MenuItem>
-                        <MenuItem value={"EP"}>Engineering Physics</MenuItem>
-                        <MenuItem value={"ENE"}>
-                          Environmental Engineering
-                        </MenuItem>
-                        <MenuItem value={"IT"}>Information Technology</MenuItem>
-                        <MenuItem value={"MCE"}>
-                          Mathematics and Computing
-                        </MenuItem>
-                        <MenuItem value={"ME"}>Mechanical Engineering</MenuItem>
-                        <MenuItem value={"MAM"}>
-                          Mechanical with specialization in Automotive
-                          Engineering
-                        </MenuItem>
-                        <MenuItem value={"PIE"}>
-                          Production and Industrial Engineering
-                        </MenuItem>
-                        <MenuItem value={"SE"}>Software Engineering</MenuItem>
-                      </Select>
+                        },
+                      }}
+                      className="dob"
+                    />
+                  </div>
+                  {formik.errors.dob && formik.touched.dob && (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginTop: "-2.78em",
+                      }}
+                      className={"textField shift"}
+                    >
+                      <ErrorMessage render={ErrorComponent} name="dob" />
                     </div>
-                  </Grid>
-                )}
+                  )}
+                </Grid>
+
+                <Grid item style={{ width: "45%" }}>
+                  <div
+                    style={{
+                      marginTop: "2.78em",
+                    }}
+                    className={
+                      "textField branch selectbox shift changefont marginRF"
+                    }
+                  >
+                    <InputLabel
+                      id="demo-simple-select-label"
+                      style={{
+                        color: "white",
+                        margin: "0rem -3rem 7.8rem 0rem",
+                      }}
+                    >
+                      Branch
+                    </InputLabel>
+                    <Select
+                      placeholder="Branch"
+                      label="Branch"
+                      name="branch"
+                      value={formik.values.branch}
+                      onChange={formik.handleChange}
+                      style={{
+                        width: "15rem",
+                        color: "white",
+                        height: "4rem",
+                        // backgroundColor: "white",
+                        padding: "1rem 1.5rem 0rem 0.8rem",
+                        borderRadius: "0.8rem",
+                        boxShadow: "5px 2px 8px 2px rgba(0,0,0,0.25)",
+                        // margin: "3.5rem 0rem",
+                        backgroundColor: "rgb(43, 50, 65)",
+                      }}
+                      className="color"
+                    >
+                      <MenuItem value={"BT"}>Bio Technology</MenuItem>
+                      <MenuItem value={"CHE"}>Chemical Engineering</MenuItem>
+                      <MenuItem value={"CE"}>Civil Engineering</MenuItem>
+                      <MenuItem value={"COE"}>Computer Engineering</MenuItem>
+                      <MenuItem value={"EE"}>Electrical Engineering</MenuItem>
+                      <MenuItem value={"ECE"}>
+                        Electronics and Communication Engineering
+                      </MenuItem>
+                      <MenuItem value={"EP"}>Engineering Physics</MenuItem>
+                      <MenuItem value={"ENE"}>
+                        Environmental Engineering
+                      </MenuItem>
+                      <MenuItem value={"IT"}>Information Technology</MenuItem>
+                      <MenuItem value={"MCE"}>
+                        Mathematics and Computing
+                      </MenuItem>
+                      <MenuItem value={"ME"}>Mechanical Engineering</MenuItem>
+                      <MenuItem value={"MAM"}>
+                        Mechanical with specialization in Automotive Engineering
+                      </MenuItem>
+                      <MenuItem value={"PIE"}>
+                        Production and Industrial Engineering
+                      </MenuItem>
+                      <MenuItem value={"SE"}>Software Engineering</MenuItem>
+                    </Select>
+                  </div>
+                  {formik.errors.branch && formik.touched.branch && (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginTop: "-4.2em",
+                      }}
+                      className={"textField shift"}
+                    >
+                      <ErrorMessage render={ErrorComponent} name="branch" />
+                    </div>
+                  )}
+                </Grid>
               </Grid>
               <Grid
                 item
@@ -1008,139 +734,86 @@ function Form() {
                   />
                 </FormGroup>
               </Grid>
-
-              {formik.errors.whyJoin && formik.touched.whyJoin ? (
-                <div style={{ width: "100%" }}>
-                  <div
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    width: "75%",
+                    margin: "1.5em auto",
+                  }}
+                  className={"textField shift changefont marginRF"}
+                >
+                  <TextField
+                    placeholder="Why you want to join D_CODER?"
+                    label="Why you want to join D_CODER?"
+                    name="whyJoin"
+                    value={formik.values.whyJoin}
+                    onChange={formik.handleChange}
                     style={{
-                      width: "100%",
-                      margin: "auto",
+                      width: "70%",
                     }}
-                    className={"textField shift changefont marginRF"}
-                  >
-                    <TextField
-                      placeholder="Why you want to join D_CODER?"
-                      label="Why you want to join D_CODER?"
-                      name="whyJoin"
-                      value={formik.values.whyJoin}
-                      onChange={formik.handleChange}
-                      style={{
-                        width: "50%",
-                        marginTop: "1rem",
-                        marginBottom: "2rem",
-                      }}
-                      InputLabelProps={{
-                        style: {
-                          color: "white",
-                          borderColor: "white",
-                          width: "16rem",
-                        },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage1"}>
-                    <ErrorMessage render={ErrorComponent} name="whyJoin" />
-                  </div>
+                    InputLabelProps={{
+                      style: {
+                        color: "white",
+                        borderColor: "white",
+                      },
+                    }}
+                    InputProps={{ className: "InputLabelStyle" }}
+                  />
                 </div>
-              ) : (
-                <div style={{ width: "100%" }}>
-                  <div
-                    style={{
-                      width: "100%",
-                      margin: "auto",
-                    }}
-                    className={"textField shift changefont marginRF"}
-                  >
-                    <TextField
-                      placeholder="Why you want to join D_CODER?"
-                      label="Why you want to join D_CODER?"
-                      name="whyJoin"
-                      value={formik.values.whyJoin}
-                      onChange={formik.handleChange}
-                      style={{
-                        width: "70%",
-                      }}
-                      InputLabelProps={{
-                        style: {
-                          color: "white",
-                          borderColor: "white",
-                        },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage1"}>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  {formik.errors.whyJoin && formik.touched.whyJoin && (
                     <ErrorMessage render={ErrorComponent} name="whyJoin" />
-                  </div>
+                  )}
                 </div>
-              )}
-              {formik.errors.expect && formik.touched.expect ? (
-                <div style={{ width: "100%" }}>
-                  <div
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    width: "75%",
+                    margin: "1.5em auto",
+                  }}
+                  className={"textField shift changefont marginRF"}
+                >
+                  <TextField
+                    placeholder="Expectations From D_CODER"
+                    label="Expectations From D_CODER"
+                    name="expect"
+                    value={formik.values.expect}
+                    onChange={formik.handleChange}
                     style={{
-                      width: "100%",
-                      margin: "auto",
+                      width: "70%",
                     }}
-                    className={"textField shift changefont marginRF"}
-                  >
-                    <TextField
-                      placeholder="Why you want to join D_CODER?"
-                      label="Why you want to join D_CODER?"
-                      name="expect"
-                      value={formik.values.expect}
-                      onChange={formik.handleChange}
-                      style={{
-                        width: "50%",
-                        marginTop: "1rem",
-                        marginBottom: "2rem",
-                      }}
-                      InputLabelProps={{
-                        style: {
-                          color: "white",
-                          borderColor: "white",
-                          width: "16rem",
-                        },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage1"}>
-                    <ErrorMessage render={ErrorComponent} name="whyJoin" />
-                  </div>
+                    InputLabelProps={{
+                      style: {
+                        color: "white",
+                        borderColor: "white",
+                      },
+                    }}
+                    InputProps={{ className: "InputLabelStyle" }}
+                  />
                 </div>
-              ) : (
-                <div style={{ width: "100%" }}>
-                  <div
-                    style={{
-                      width: "100%",
-                      margin: "auto",
-                    }}
-                    className={"textField shift changefont marginRF"}
-                  >
-                    <TextField
-                      placeholder="Expectations From D_CODER"
-                      label="Expectations From D_CODER"
-                      name="expect"
-                      value={formik.values.expect}
-                      onChange={formik.handleChange}
-                      style={{
-                        width: "70%",
-                      }}
-                      InputLabelProps={{
-                        style: {
-                          color: "white",
-                          borderColor: "white",
-                        },
-                      }}
-                      InputProps={{ className: "InputLabelStyle" }}
-                    />
-                  </div>
-                  <div className={"ErrorMessage1"}>
+                <div>
+                  {formik.errors.expect && formik.touched.expect && (
                     <ErrorMessage render={ErrorComponent} name="expect" />
-                  </div>
+                  )}
                 </div>
-              )}
+              </div>
 
               <Button
                 disabled={uploading}
@@ -1148,10 +821,8 @@ function Form() {
                 style={{
                   backgroundColor: "white",
                   fontWeight: "bold",
-                  marginTop: "3rem",
-                  marginBottom: "15rem",
+                  margin: "1.5em auto",
                   fontFamily: "Poppins",
-                  marginLeft: "-5vw",
                 }}
                 type="submit"
               >
