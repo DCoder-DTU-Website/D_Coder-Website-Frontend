@@ -41,6 +41,7 @@ import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
 import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
+import RecruitmentHome from "pages/RecruitmentHome/index.js";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -91,6 +92,9 @@ function App() {
           {/* <Route exact path="/blog/read_more" component={ReadMore} /> */}
           <Route exact path="/achievements">
             <Achievements />
+          </Route>
+          <Route exact path="/recruitment">
+            <RecruitmentHome />
           </Route>
           <Route exact path="/forms/:id">
             <FormEmbed />
