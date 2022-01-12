@@ -290,18 +290,25 @@ function Form() {
                   Registration Form
                 </div>
               </div>
-              <Grid container xs={9} justifyContent="center">
-                <Grid item xs={5}>
-                  <Image id="imgRF" imageSrc={data.image} />
+              <Grid
+                container
+                xs={12}
+                className="main-container-1"
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <Grid item xs={6} style={{ marginRight: "-15%" }}>
                   <Grid
                     item
                     style={{
-                      left: window.innerWidth <= 450 ? "22vw" : "13vw",
-                      marginTop: "0.5em",
+                      width: "100%",
+                      margin: "0.5em",
+                      display: "flex",
                       alignItems: "center",
-                      flexDirection: "row",
+                      flexDirection: "column",
+                      justifyContent: "center",
                     }}
                   >
+                    <Image id="imgRF" imageSrc={data.image} />
                     <Grid item>
                       <div>
                         <label for="files" className="UploadImageLabel">
@@ -316,6 +323,7 @@ function Form() {
                           onChange={(event) => {
                             setImages(event.target.files[0]);
                           }}
+                          style={{ width: "0" }}
                         ></input>
                       </div>
                     </Grid>
@@ -328,7 +336,7 @@ function Form() {
                 </Grid>
                 <Grid
                   container
-                  xs={5}
+                  xs={6}
                   direction="row"
                   className={"LeftTextFieldImage"}
                 >
