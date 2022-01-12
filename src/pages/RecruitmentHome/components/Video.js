@@ -1,7 +1,10 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Video = () => {
+  AOS.init();
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -19,6 +22,8 @@ const Video = () => {
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
+          data-aos="flip-up"
+          data-aos-delay="300"
         ></iframe>
       ) : (
         <iframe
@@ -29,6 +34,8 @@ const Video = () => {
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
+          data-aos="flip-up"
+          data-aos-delay="300"
         ></iframe>
       )}
     </div>
