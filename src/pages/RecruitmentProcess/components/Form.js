@@ -290,13 +290,8 @@ function Form() {
                   Registration Form
                 </div>
               </div>
-              <Grid
-                container
-                xs={12}
-                className="main-container-1"
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Grid item xs={6} style={{ marginRight: "-15%" }}>
+              <Grid container xs={12} className="main-container-1">
+                <Grid item xs={12} sm={12} md={6} lg={4}>
                   <Grid
                     item
                     style={{
@@ -328,24 +323,34 @@ function Form() {
                       </div>
                     </Grid>
                     {data.image == "" ? (
-                      <div className="ErrorImageLeft">
+                      <div>
                         <ErrorMessage render={ErrorComponent} name="image" />
                       </div>
                     ) : null}
                   </Grid>
                 </Grid>
-                <Grid
-                  container
-                  xs={6}
-                  direction="row"
-                  className={"LeftTextFieldImage"}
-                >
-                  <div className={"MarginError MarginError3"}>
-                    <Grid item>
+                <Grid container xs={12} sm={12} md={6} lg={6} direction="row">
+                  <div
+                    className={"MarginError MarginError3"}
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Grid
+                      item
+                      style={{
+                        width: "100%",
+                      }}
+                    >
                       <div
                         style={{
-                          width: "50rem",
+                          width: "100%",
                           marginBottom: "-0.5rem",
+                          display: "flex",
+                          justifyContent: "center",
                         }}
                         className={"textFieldLeft changefont marginRF"}
                       >
@@ -355,7 +360,7 @@ function Form() {
                           name="name"
                           value={formik.values.name}
                           onChange={formik.handleChange}
-                          style={{ width: "50%" }}
+                          style={{ width: "100%" }}
                           InputLabelProps={{
                             style: { color: "white", borderColor: "white" },
                           }}
@@ -367,12 +372,22 @@ function Form() {
                       <ErrorMessage render={ErrorComponent} name="name" />
                     )}
                   </div>
-                  <div className={"MarginError MarginError3"}>
-                    <Grid item>
+                  <div
+                    className={"MarginError MarginError3"}
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Grid item style={{ width: "100%" }}>
                       <div
                         style={{
-                          width: "50rem",
+                          width: "100%",
                           marginBottom: "-0.5rem",
+                          display: "flex",
+                          justifyContent: "center",
                         }}
                         className={"textFieldLeft changefont marginRF"}
                       >
@@ -382,7 +397,7 @@ function Form() {
                           name="roll"
                           value={formik.values.roll}
                           onChange={formik.handleChange}
-                          style={{ width: "50%" }}
+                          style={{ width: "100%" }}
                           InputLabelProps={{
                             style: { color: "white", borderColor: "white" },
                           }}
@@ -394,12 +409,22 @@ function Form() {
                       <ErrorMessage render={ErrorComponent} name="roll" />
                     )}
                   </div>
-                  <div className={"MarginError  MarginError3"}>
-                    <Grid item xs={8}>
+                  <div
+                    className={"MarginError  MarginError3"}
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Grid item style={{ width: "100%" }}>
                       <div
                         style={{
-                          width: "50rem",
+                          width: "100%",
                           marginBottom: "-0.5rem",
+                          display: "flex",
+                          justifyContent: "center",
                         }}
                         className={"textFieldLeft changefont marginRF"}
                       >
@@ -409,7 +434,7 @@ function Form() {
                           name="phone"
                           value={formik.values.phone}
                           onChange={formik.handleChange}
-                          style={{ width: "50%" }}
+                          style={{ width: "100%" }}
                           InputLabelProps={{
                             style: {
                               color: "white",
@@ -425,12 +450,22 @@ function Form() {
                     )}
                   </div>
 
-                  <div className={"MarginError  MarginError3"}>
-                    <Grid item xs={8}>
+                  <div
+                    className={"MarginError  MarginError3"}
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Grid item style={{ width: "100%" }}>
                       <div
                         style={{
-                          width: "50rem",
+                          width: "100%",
                           marginBottom: "-0.5rem",
+                          display: "flex",
+                          justifyContent: "center",
                         }}
                         className={"textFieldLeft changefont marginRF"}
                       >
@@ -440,7 +475,7 @@ function Form() {
                           name="email"
                           value={formik.values.email}
                           onChange={formik.handleChange}
-                          style={{ width: "50%" }}
+                          style={{ width: "100%" }}
                           InputLabelProps={{
                             style: {
                               color: "white",
@@ -462,10 +497,11 @@ function Form() {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  width: "70%",
+                  width: "100%",
                 }}
+                xs={12}
               >
-                <Grid item style={{ width: "50%" }}>
+                <Grid item xs={12} md={6}>
                   <div
                     style={{
                       display: "flex",
@@ -511,7 +547,7 @@ function Form() {
                       style={{
                         display: "flex",
                         justifyContent: "center",
-                        marginTop: "-2.78em",
+                        marginTop: "-5%",
                       }}
                       className={"textField shift"}
                     >
@@ -520,7 +556,7 @@ function Form() {
                   )}
                 </Grid>
 
-                <Grid item style={{ width: "45%" }}>
+                <Grid item md={6}>
                   <div
                     style={{
                       marginTop: "2.78em",
@@ -588,7 +624,7 @@ function Form() {
                       style={{
                         display: "flex",
                         justifyContent: "center",
-                        marginTop: "-4.2em",
+                        marginTop: "-8%",
                       }}
                       className={"textField shift"}
                     >
@@ -616,7 +652,11 @@ function Form() {
                 >
                   Tech Stack
                 </FormLabel>
-                <FormGroup row fullWidth>
+                <FormGroup
+                  row
+                  fullWidth
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
                   <FormControlLabel
                     control={
                       <BlueCheckbox
@@ -703,7 +743,11 @@ function Form() {
                 >
                   Coding Languages
                 </FormLabel>
-                <FormGroup row fullWidth>
+                <FormGroup
+                  row
+                  fullWidth
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
                   <FormControlLabel
                     control={
                       <BlueCheckbox
@@ -782,10 +826,10 @@ function Form() {
               >
                 <div
                   style={{
-                    width: "75%",
+                    width: "70%",
                     margin: "1.5em auto",
                   }}
-                  className={"textField shift changefont marginRF"}
+                  className={"textField shift changefont marginRF mgin"}
                 >
                   <TextField
                     placeholder="Why you want to join D_CODER?"
@@ -794,7 +838,7 @@ function Form() {
                     value={formik.values.whyJoin}
                     onChange={formik.handleChange}
                     style={{
-                      width: "70%",
+                      width: "100%",
                     }}
                     InputLabelProps={{
                       style: {
@@ -822,10 +866,10 @@ function Form() {
               >
                 <div
                   style={{
-                    width: "75%",
+                    width: "70%",
                     margin: "1.5em auto",
                   }}
-                  className={"textField shift changefont marginRF"}
+                  className={"textField shift changefont marginRF mgin"}
                 >
                   <TextField
                     placeholder="Expectations From D_CODER"
@@ -834,7 +878,7 @@ function Form() {
                     value={formik.values.expect}
                     onChange={formik.handleChange}
                     style={{
-                      width: "70%",
+                      width: "100%",
                     }}
                     InputLabelProps={{
                       style: {
@@ -843,6 +887,7 @@ function Form() {
                       },
                     }}
                     InputProps={{ className: "InputLabelStyle" }}
+                    className="mgin"
                   />
                 </div>
                 <div>
