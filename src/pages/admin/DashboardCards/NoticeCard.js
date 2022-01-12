@@ -87,8 +87,8 @@ export default function MultilineTextFields() {
           value={link}
         />
       </Grid>
-      <Grid item>
-        <SubmitButton onClick={clickSubmit} disabled={loading}>
+      <Grid item style={{ width: "100%  " }}>
+        <SubmitButton onClick={clickSubmit} disabled={loading} fullWidth>
           Upload
         </SubmitButton>
       </Grid>
