@@ -194,7 +194,7 @@ function App() {
           <Route path="/forgot/:token">
             <ForgotPass />
           </Route>
-          <Route path="/recruitment">
+          <Route path="/admin/recruitment">
             {isAdmin ? (
               <RecruitmentProcess />
             ) : (
