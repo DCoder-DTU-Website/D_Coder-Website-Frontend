@@ -12,7 +12,7 @@ const ApplyNow = () => {
         Come Join Us!!
       </h1>
       <div
-        className="bg-[#3182CE] py-4 px-12 my-16 rounded-full cursor-pointer text-2xl text-bold shadow-xl shadow-slate-600"
+        className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 border-b-4 border-blue-700 hover:border-blue-500 rounded-full cursor-pointer mt-12"
         onClick={() => history.push("/recruitment-form")}
       >
         Apply Now

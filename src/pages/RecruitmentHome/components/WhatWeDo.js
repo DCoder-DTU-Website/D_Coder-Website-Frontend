@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 const WhatWeDo = () => {
   AOS.init();
   return (
-    <div className="flex w-full h-[100vh]">
+    <div className="flex w-full min-h-[100vh]">
       <div className="hidden sm:flex w-full justify-content items-center">
         <img
           src={WhatDo}
@@ -17,7 +17,7 @@ const WhatWeDo = () => {
         />
       </div>
       <div className="flex flex-col justify-center items-center w-full sm:px-12">
-        <h1 className="text-white text-3xl sm:text-4xl md:text-6xl text-bold my-8 justify-left">
+        <h1 className="text-white text-4xl sm:text-4xl md:text-6xl text-bold my-8 justify-left">
           {" "}
           What We Do?
         </h1>

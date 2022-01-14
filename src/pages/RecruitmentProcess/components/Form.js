@@ -311,7 +311,7 @@ function Form() {
                         </label>
                         <input
                           id="files"
-                          type="file"
+                        type="file"
                           name="image"
                           placeholder="image"
                           style={{ visibility: "hidden" }}
