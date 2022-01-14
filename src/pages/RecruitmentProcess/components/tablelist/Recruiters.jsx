@@ -71,8 +71,13 @@ export default function CustomizedTables() {
   const handleClick = async () => {
     const idApplicants = applied.map((applicant) => applicant._id);
     const idRecruiters = recruiters.map((recruiter) => recruiter._id);
+    console.log(idApplicants, "Applicants");
+    console.log(idRecruiters, "Recruiters");
     setLoading(true);
     try {
+      console.log(idApplicants, "Applicants");
+      console.log(idRecruiters, "Recruiters");
+
       const res = await api.post("/applicants/assignToRecruitersBulk", {
         idRecruiters,
         idApplicants,
