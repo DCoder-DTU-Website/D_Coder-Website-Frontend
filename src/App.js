@@ -30,16 +30,18 @@ import Faculty from "pages/faculty/App";
 import BoardOfDirectors from "pages/Board_Of_Director/App";
 import Founder from "pages/Founder/App";
 import Achievements from "pages/achievements/App";
-import Blog from "./pages/Blog/App";
+import Blog from "pages/Blog/App";
 import ReadMore from "./components/Blogs/routes/Blog/Blog";
 import SeniorsSeMulaquaat from "pages/ssm/App";
 import RecruitmentProcess from "pages/RecruitmentProcess/App";
 import RecruitmentForm from "pages/RecruitmentProcess/RecruitmentForm";
 import ThankYouPage from "pages/RecruitmentProcess/ThankYouPage";
+import RecruitmentHead from "pages/RecruitmentProcess/RecruitmentHead";
 import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
 import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
+import RecruitmentHome from "pages/RecruitmentHome/index.js";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -87,9 +89,12 @@ function App() {
           <Route exact path="/seniors_se_mulaquaat">
             <SeniorsSeMulaquaat />
           </Route>
-          <Route exact path="/blog/read_more" component={ReadMore} />
+          {/* <Route exact path="/blog/read_more" component={ReadMore} /> */}
           <Route exact path="/achievements">
             <Achievements />
+          </Route>
+          <Route exact path="/recruitment">
+            <RecruitmentHome />
           </Route>
           <Route exact path="/forms/:id">
             <FormEmbed />
@@ -216,6 +221,10 @@ function App() {
               </Route>
             )}
           </Route>
+          <Route path="/recruitment-head">
+            <RecruitmentHead />
+          </Route>
+          {/* <Route path="*" component={Error404} /> */}
         </Switch>
       </BrowserRouter>
     </AnimationRevealPage>

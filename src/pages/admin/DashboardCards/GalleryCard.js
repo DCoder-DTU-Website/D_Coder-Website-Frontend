@@ -77,7 +77,7 @@ export default function MultilineTextFields() {
       <Grid item xs={12} lg={6}>
         <Upload images={images} setImages={setImages} />
       </Grid>
-      <Grid item>
+      <Grid item style={{ width: "100%  " }}>
         <SubmitButton onClick={clickSubmit} disabled={loading}>
           Upload
         </SubmitButton>

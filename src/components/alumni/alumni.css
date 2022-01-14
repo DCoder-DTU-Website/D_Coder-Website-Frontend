@@ -9,7 +9,7 @@
 @media screen and (min-width: 450px) {
     .Hover{
             font-size: 2.5rem !important;
-            width: 45vw;
+            width: 45rem !important;
             text-align: center;
             padding-left: 0.3rem !important;
     }
@@ -20,7 +20,7 @@
 @media screen and (max-width: 450px) {
     .Hover{
             font-size: 1.6rem !important;
-            width: 73vw !important;
+            width: 20rem !important;
             text-align: center;
     }
     .alumniImage{

@@ -6,17 +6,17 @@ import MinNavbar from "components/hero/MinNavbar";
 import Footer from "components/footers/Footer";
 import Home from "../../components/Blogs/routes/Home/Home";
 function Blog() {
-  return (
-    <>
-      <MinNavbar />
-      <Router>
-        <Switch>
-          <Route path="/" component={Home} />
-        </Switch>
-      </Router>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <MinNavbar />
+            <Router>
+                <Switch>
+                    <Route path="/" component={Home} />
+                </Switch>
+            </Router>
+            <Footer />
+        </>
+    );
 }
 
 export default Blog;
