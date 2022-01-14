@@ -14,7 +14,7 @@ const VisionMission = () => {
   };
   return (
     <div className="flex w-full min-h-[100vh] flex-col justify-center items-center mt-12">
-      <h1 className="text-white text-2xl sm:text-4xl md:text-6xl text-bold my-8 justify-center">
+      <h1 className="recruiter-heading text-white text-2xl sm:text-4xl md:text-6xl text-bold my-8 justify-center">
         Our Vision {`&`} Mission
       </h1>
       <div className="flex flex-col w-full h-full justify-center items-center">

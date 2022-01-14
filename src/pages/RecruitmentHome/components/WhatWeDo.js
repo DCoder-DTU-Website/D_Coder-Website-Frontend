@@ -17,7 +17,7 @@ const WhatWeDo = () => {
         />
       </div>
       <div className="flex flex-col justify-center items-center w-full sm:px-12">
-        <h1 className="text-white text-4xl sm:text-4xl md:text-6xl text-bold my-8 justify-left">
+        <h1 className="recruiter-heading text-white text-4xl sm:text-4xl md:text-6xl text-bold my-8 justify-left">
           {" "}
           What We Do?
         </h1>

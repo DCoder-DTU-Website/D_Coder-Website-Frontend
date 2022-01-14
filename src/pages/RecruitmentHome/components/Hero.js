@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="flex w-full min-h-[100vh]">
       <div className="flex flex-col items-center w-full sm:px-12 mt-24">
-        <h1 className="text-white text-5xl sm:text-4xl md:text-6xl text-bold my-8 text-center sm:text-left sm:justify-left sm:pr-12">
+        <h1 className="recruiter-heading text-white text-5xl sm:text-4xl md:text-6xl text-bold my-8 text-center sm:text-left sm:justify-left sm:pr-12">
           {" "}
           We Are Recruiting!!
         </h1>

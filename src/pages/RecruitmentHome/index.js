@@ -8,6 +8,7 @@ import {
   VisionMission,
   ApplyNow,
 } from "./components";
+import "./index.css";
 
 const RecruitmentHome = () => {
   return (
