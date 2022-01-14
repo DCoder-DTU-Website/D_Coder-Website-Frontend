@@ -150,27 +150,6 @@ function Form() {
     setAllMobile(res2);
   }, []);
 
-  useEffect(() => {
-    try {
-      const formData = new FormData();
-      formData.append("file", images);
-      formData.append("upload_preset", "gekvwtzt");
-      axios
-        .post(
-          "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
-          formData
-        )
-        .then((response) => {
-          // console.log(response.data.url);
-          setData((prevData) => ({ ...prevData, image: response.data.url }));
-          console.log(response.data.url);
-          // console.log(data.image)
-        });
-    } catch (err) {
-      console.error(err, "Image Upload Failed!");
-    }
-  }, [images]);
-
   const clickSubmit = async (values, actions) => {
     console.log("gello");
     console.log(values);
@@ -211,33 +190,30 @@ function Form() {
     setUploading(false);
   };
 
-  const updateTechStack = (e) => {
+  const updateTechStack = (formik, e) => {
     const ts = e.target.innerText;
-    if (data.techStack.includes(ts)) {
-      setData((prevData) => ({
-        ...prevData,
-        techStack: prevData.techStack.replace(ts, ""),
-      }));
+    if (formik.values.techStack.includes(ts)) {
+      formik.setFieldValue(
+        "techStack",
+        formik.values.techStack.replace(ts, "")
+      );
     } else {
-      setData((prevData) => ({
-        ...prevData,
-        techStack: `${prevData.techStack} ${ts}`,
-      }));
+      formik.setFieldValue("techStack", `${formik.values.techStack} ${ts}`);
     }
   };
 
-  const updateCodingLanguages = (e) => {
+  const updateCodingLanguages = (formik, e) => {
     const ts = e.target.innerText;
-    if (data.codingLanguage.includes(ts)) {
-      setData((prevData) => ({
-        ...prevData,
-        codingLanguage: prevData.codingLanguage.replace(ts, ""),
-      }));
+    if (formik.values.codingLanguage.includes(ts)) {
+      formik.setFieldValue(
+        "codingLanguage",
+        formik.values.codingLanguage.replace(ts, "")
+      );
     } else {
-      setData((prevData) => ({
-        ...prevData,
-        codingLanguage: `${prevData.codingLanguage} ${ts}`,
-      }));
+      formik.setFieldValue(
+        "codingLanguage",
+        `${formik.values.codingLanguage} ${ts}`
+      );
     }
   };
 
@@ -245,7 +221,19 @@ function Form() {
     <ThemeProvider theme={theme}>
       <div className="ContentRF">
         <Formik
-          initialValues={data}
+          initialValues={{
+            name: "",
+            roll: "",
+            phone: "",
+            email: "",
+            dob: "",
+            branch: "",
+            techStack: "",
+            codingLanguage: "",
+            whyJoin: "",
+            expect: "",
+            image: "",
+          }}
           validationSchema={validationSchema}
           onSubmit={clickSubmit}
         >
@@ -303,7 +291,7 @@ function Form() {
                       justifyContent: "center",
                     }}
                   >
-                    <Image id="imgRF" imageSrc={data.image} />
+                    <Image id="imgRF" imageSrc={formik.values.image} />
                     <Grid item>
                       <div>
                         <label for="files" className="UploadImageLabel">
@@ -316,13 +304,30 @@ function Form() {
                           placeholder="image"
                           style={{ visibility: "hidden" }}
                           onChange={(event) => {
-                            setImages(event.target.files[0]);
+                            try {
+                              const formData = new FormData();
+                              formData.append("file", event.target.files[0]);
+                              formData.append("upload_preset", "gekvwtzt");
+                              axios
+                                .post(
+                                  "https://api.cloudinary.com/v1_1/dcoderdtu/image/upload",
+                                  formData
+                                )
+                                .then((response) => {
+                                  formik.setFieldValue(
+                                    "image",
+                                    response.data.url
+                                  );
+                                });
+                            } catch (err) {
+                              console.error(err, "Image Upload Failed!");
+                            }
                           }}
                           style={{ width: "0" }}
                         ></input>
                       </div>
                     </Grid>
-                    {data.image == "" ? (
+                    {formik.values.image == "" ? (
                       <div>
                         <ErrorMessage render={ErrorComponent} name="image" />
                       </div>
@@ -662,8 +667,8 @@ function Form() {
                       <BlueCheckbox
                         id="DSA"
                         label="DSA"
-                        isChosen={data.techStack.includes("DSA")}
-                        onClick={(e) => updateTechStack(e)}
+                        isChosen={formik.values.techStack.includes("DSA")}
+                        onClick={(e) => updateTechStack(formik, e)}
                         name="DSA"
                         clickable
                       />
@@ -675,8 +680,8 @@ function Form() {
                       <BlueCheckbox
                         id="web"
                         label="Web Dev"
-                        isChosen={data.techStack.includes("Web Dev")}
-                        onClick={(e) => updateTechStack(e)}
+                        isChosen={formik.values.techStack.includes("Web Dev")}
+                        onClick={(e) => updateTechStack(formik, e)}
                         name="Web Dev"
                         clickable
                       />
@@ -688,8 +693,8 @@ function Form() {
                       <BlueCheckbox
                         id="ML & AI"
                         label="ML & AI"
-                        isChosen={data.techStack.includes("ML & AI")}
-                        onClick={(e) => updateTechStack(e)}
+                        isChosen={formik.values.techStack.includes("ML & AI")}
+                        onClick={(e) => updateTechStack(formik, e)}
                         name="ML & AI"
                         clickable
                       />
@@ -701,8 +706,8 @@ function Form() {
                       <BlueCheckbox
                         id="App Dev"
                         label="App Dev"
-                        isChosen={data.techStack.includes("App Dev")}
-                        onClick={(e) => updateTechStack(e)}
+                        isChosen={formik.values.techStack.includes("App Dev")}
+                        onClick={(e) => updateTechStack(formik, e)}
                         name="App Dev"
                         clickable
                       />
@@ -714,8 +719,10 @@ function Form() {
                       <BlueCheckbox
                         id="Blockchain"
                         label="Blockchain"
-                        isChosen={data.techStack.includes("Blockchain")}
-                        onClick={(e) => updateTechStack(e)}
+                        isChosen={formik.values.techStack.includes(
+                          "Blockchain"
+                        )}
+                        onClick={(e) => updateTechStack(formik, e)}
                         name="Blockchain"
                         clickable
                       />
@@ -753,8 +760,8 @@ function Form() {
                       <BlueCheckbox
                         id="c"
                         label="C"
-                        isChosen={data.codingLanguage.includes("C")}
-                        onClick={(e) => updateCodingLanguages(e)}
+                        isChosen={formik.values.codingLanguage.includes("C")}
+                        onClick={(e) => updateCodingLanguages(formik, e)}
                         name="C"
                         clickable
                       />
@@ -766,8 +773,8 @@ function Form() {
                       <BlueCheckbox
                         id="C++"
                         label="C++"
-                        isChosen={data.codingLanguage.includes("C++")}
-                        onClick={(e) => updateCodingLanguages(e)}
+                        isChosen={formik.values.codingLanguage.includes("C++")}
+                        onClick={(e) => updateCodingLanguages(formik, e)}
                         name="C++"
                         clickable
                       />
@@ -779,8 +786,8 @@ function Form() {
                       <BlueCheckbox
                         id="Java"
                         label="Java"
-                        isChosen={data.codingLanguage.includes("Java")}
-                        onClick={(e) => updateCodingLanguages(e)}
+                        isChosen={formik.values.codingLanguage.includes("Java")}
+                        onClick={(e) => updateCodingLanguages(formik, e)}
                         name="Java"
                         clickable
                       />
@@ -792,8 +799,10 @@ function Form() {
                       <BlueCheckbox
                         id="Python"
                         label="Python"
-                        isChosen={data.codingLanguage.includes("Python")}
-                        onClick={(e) => updateCodingLanguages(e)}
+                        isChosen={formik.values.codingLanguage.includes(
+                          "Python"
+                        )}
+                        onClick={(e) => updateCodingLanguages(formik, e)}
                         name="Python"
                         clickable
                       />
@@ -805,8 +814,10 @@ function Form() {
                       <BlueCheckbox
                         id="Javascript"
                         label="Javascript"
-                        isChosen={data.codingLanguage.includes("Javascript")}
-                        onClick={(e) => updateCodingLanguages(e)}
+                        isChosen={formik.values.codingLanguage.includes(
+                          "Javascript"
+                        )}
+                        onClick={(e) => updateCodingLanguages(formik, e)}
                         name="Javascript"
                         clickable
                       />
