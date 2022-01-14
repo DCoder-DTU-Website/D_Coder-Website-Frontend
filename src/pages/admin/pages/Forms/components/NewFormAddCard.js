@@ -72,6 +72,7 @@ export default function MultilineTextFields() {
       formik.resetForm();
       const imageUrl = await uploadImage();
       form = { ...form, image: imageUrl };
+      console.log(form);
       await api.post("/forms/add", formurlencoded(form));
       swal({
         title: "Form Uploaded Successfully!",

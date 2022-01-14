@@ -65,10 +65,6 @@ function NavBar() {
     // eslint-disable-next-line
   }, [user]);
 
-  useEffect(() => {
-    console.log(profile);
-  }, [profile]);
-
   // const isMobile = useMediaQuery({
   //   query: "(max-device-width: 1154px)",
   // });
