@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import api from "../../../../api/apiClient";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
+import swal from "sweetalert";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -36,6 +38,7 @@ const useStyles = makeStyles({
 export default function CustomizedTables() {
   const classes = useStyles();
   const [rejected, setRejected] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   // const [members, setMembers] = useState(rows);
 
   const getRejected = async () => {
@@ -50,13 +53,66 @@ export default function CustomizedTables() {
     getRejected();
   }, []);
 
+  const handleAccepted = (applicant) => {
+    //Change status to accept
+    applicant.isAccepted = true;
+    applicant.interviewCompleted = true;
+    updateAcceptedBackend(applicant);
+  };
+
+  const updateAcceptedBackend = async (data) => {
+    try {
+      const res = await api.post(`/applicants/accept/${data._id}`, { data });
+      swal({
+        title: "Successfully Accepted User!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    } catch (e) {
+      swal({
+        title: "An Error Occurred!",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+    }
+  };
+
+  const handleAcceptedHelper = async (applicant) => {
+    console.log(applicant);
+    const res = await swal({
+      title: "Are you sure you want to accept this user?",
+      icon: "warning",
+      buttons: {
+        Yes: {
+          text: "Yes",
+          value: "Yes",
+        },
+        No: {
+          text: "No",
+          value: "No",
+        },
+      },
+    });
+    if (res === "Yes") {
+      await handleAccepted(applicant);
+    } else {
+      return;
+    }
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Contact</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
+            <StyledTableCell align="right">Accept</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -65,7 +121,18 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
+              <StyledTableCell align="right">{row.phone}</StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
+              <StyledTableCell
+                align="right"
+                style={{ cursor: "pointer" }}
+                onClick={async () => {
+                  await handleAcceptedHelper(row);
+                  setRefresh(!refresh);
+                }}
+              >
+                <CheckBoxIcon style={{ fill: "green" }} />
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

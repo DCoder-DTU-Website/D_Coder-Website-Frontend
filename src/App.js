@@ -41,6 +41,7 @@ import AddGoogleForm from "pages/admin/pages/Forms/Forms";
 import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
 import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
+import RecruitmentHome from "pages/RecruitmentHome/index.js";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -76,155 +77,164 @@ function App() {
                     {/* <Route exact path="/placements">
             <Placements />
           </Route> */}
-                    <Route exact path="/research">
-                        <Research />
-                    </Route>
-                    <Route exact path="/lectures/:topic/:subtopic">
-                        <Lectures />
-                    </Route>
-                    <Route exact path="/mission_qabil">
-                        <Mission />
-                    </Route>
-                    <Route exact path="/seniors_se_mulaquaat">
-                        <SeniorsSeMulaquaat />
-                    </Route>
-                    {/* <Route exact path="/blog/read_more" component={ReadMore} /> */}
-                    <Route exact path="/achievements">
-                        <Achievements />
-                    </Route>
-                    <Route exact path="/forms/:id">
-                        <FormEmbed />
-                    </Route>
-                    <Route exact path="/lectures">
-                        <Redirect to="/lectures/interview/leetcode" />
-                    </Route>
-                    <Route exact path="/alumni">
-                        <Alumni />
-                    </Route>
-                    <Route exact path="/admin/dashboard">
-                        {isAdmin ? (
-                            <Admin />
-                        ) : (
-                            <Route>
-                                <Redirect to="/" />
-                            </Route>
-                        )}
-                        {/* <Admin /> */}
-                    </Route>
-                    <Route exact path="/admin/placements">
-                        {isAdmin ? (
-                            <PlacementsTable />
-                        ) : (
-                            <Route>
-                                <Redirect to="/" />
-                            </Route>
-                        )}
-                    </Route>
-                    <Route exact path="/admin/internships">
-                        {isAdmin ? (
-                            <InternsTable />
-                        ) : (
-                            <Route>
-                                <Redirect to="/" />
-                            </Route>
-                        )}
-                    </Route>
-                    <Route exact path="/admin/table">
-                        {isAdmin ? (
-                            <Table />
-                        ) : (
-                            <Route>
-                                <Redirect to="/" />
-                            </Route>
-                        )}
-                    </Route>
-                    <Route exact path="/admin/form">
-                        {isAdmin ? (
-                            <AddGoogleForm />
-                        ) : (
-                            <Route>
-                                <Redirect to="/" />
-                            </Route>
-                        )}
-                    </Route>
-                    <Route
-                        exact
-                        path="/admin/user"
-                        // component={ isUser? UserProfile: UserRedirect}
-                    >
-                        {isUser ? (
-                            <UserProfile />
-                        ) : (
-                            <Switch>
-                                <Redirect from="/admin/user" to="/" />
-                                <Route path="/">
-                                    <Home />
-                                </Route>
-                            </Switch>
-                        )}
-                    </Route>
-                    <Route exact path="/testimonial">
-                        <Testimonial />
-                    </Route>
-                    {/* <Route exact path="/code_to_school">
+          <Route exact path="/research">
+            <Research />
+          </Route>
+          <Route exact path="/lectures/:topic/:subtopic">
+            <Lectures />
+          </Route>
+          <Route exact path="/mission_qabil">
+            <Mission />
+          </Route>
+          <Route exact path="/seniors_se_mulaquaat">
+            <SeniorsSeMulaquaat />
+          </Route>
+          {/* <Route exact path="/blog/read_more" component={ReadMore} /> */}
+          <Route exact path="/achievements">
+            <Achievements />
+          </Route>
+          <Route exact path="/recruitment">
+            <RecruitmentHome />
+          </Route>
+          <Route exact path="/forms/:id">
+            <FormEmbed />
+          </Route>
+          <Route exact path="/lectures">
+            <Redirect to="/lectures/interview/leetcode" />
+          </Route>
+          <Route exact path="/alumni">
+            <Alumni />
+          </Route>
+          <Route exact path="/admin/dashboard">
+            {isAdmin ? (
+              <Admin />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+            {/* <Admin /> */}
+          </Route>
+          <Route exact path="/admin/placements">
+            {isAdmin ? (
+              <PlacementsTable />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+          </Route>
+          <Route exact path="/admin/internships">
+            {isAdmin ? (
+              <InternsTable />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+          </Route>
+          <Route exact path="/admin/table">
+            {isAdmin ? (
+              <Table />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+          </Route>
+          <Route exact path="/admin/form">
+            {isAdmin ? (
+              <AddGoogleForm />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+          </Route>
+          <Route
+            exact
+            path="/admin/user"
+            // component={ isUser? UserProfile: UserRedirect}
+          >
+            {isUser ? (
+              <UserProfile />
+            ) : (
+              <Switch>
+                <Redirect from="/admin/user" to="/" />
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>
+            )}
+          </Route>
+          <Route exact path="/testimonial">
+            <Testimonial />
+          </Route>
+          {/* <Route exact path="/code_to_school">
             <CodeToSchool />
           </Route> */}
-                    <Route exact path="/faculty">
-                        <Faculty />
-                    </Route>
-                    <Route exact path="/founder">
-                        <Founder />
-                    </Route>
-                    <Route exact path="/blog">
-                        <Blog />
-                    </Route>
-                    <Route exact path="/board_of_directors">
-                        <BoardOfDirectors />
-                    </Route>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/reset/:token">
-                        <ResetPass />
-                    </Route>
-                    <Route path="/forgot/:token">
-                        <ForgotPass />
-                    </Route>
-                    <Route path="/recruitment">
-                        {isAdmin ? (
-                            <RecruitmentProcess />
-                        ) : (
-                            <Route>
-                                <Redirect to="/" />
-                            </Route>
-                        )}
-                    </Route>
-                    <Route path="/recruitment-form">
-                        <RecruitmentForm />
-                    </Route>
-                    <Route path="/thankyou">
-                        <ThankYouPage />
-                    </Route>
-                    <Route exact path="/recruiter/unscheduled">
-                        <Recruiter />
-                    </Route>
-                    <Route exact path="/recruiter/scheduled">
-                        {isRecruiter ? (
-                            <Recruiter />
-                        ) : (
-                            <Route>
-                                <Redirect to="/" />
-                            </Route>
-                        )}
-                    </Route>
-                    <Route path="/recruitment-head">
-                        <RecruitmentHead />
-                    </Route>
-                    {/* <Route path="*" component={Error404} /> */}
-                </Switch>
-            </BrowserRouter>
-        </AnimationRevealPage>
-    );
+          <Route exact path="/faculty">
+            <Faculty />
+          </Route>
+          <Route exact path="/founder">
+            <Founder />
+          </Route>
+          <Route exact path="/blog">
+            <Blog />
+          </Route>
+          <Route exact path="/board_of_directors">
+            <BoardOfDirectors />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/reset/:token">
+            <ResetPass />
+          </Route>
+          <Route path="/forgot/:token">
+            <ForgotPass />
+          </Route>
+          <Route path="/admin/recruitment">
+            {isAdmin ? (
+              <RecruitmentProcess />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+          </Route>
+          <Route path="/recruitment-form">
+            <RecruitmentForm />
+          </Route>
+          <Route path="/thankyou">
+            <ThankYouPage />
+          </Route>
+          <Route exact path="/recruiter/unscheduled">
+            {isRecruiter ? (
+              <Recruiter />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+          </Route>
+          <Route exact path="/recruiter/scheduled">
+            {isRecruiter ? (
+              <Recruiter />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
+          </Route>
+          <Route path="/recruitment-head">
+            <RecruitmentHead />
+          </Route>
+          {/* <Route path="*" component={Error404} /> */}
+        </Switch>
+      </BrowserRouter>
+    </AnimationRevealPage>
+  );
 }
 
 export default App;

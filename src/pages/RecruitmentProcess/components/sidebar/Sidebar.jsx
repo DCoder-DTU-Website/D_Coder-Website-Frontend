@@ -105,7 +105,7 @@ export default function PermanentDrawerLeft() {
         </List>
         <Divider />
       </Drawer>
-      <main className={classes.content}>
+      <main className={classes.content} style={{ backgroundColor: "#16253b" }}>
         <div className={classes.toolbar} />
         {func()}
       </main>

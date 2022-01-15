@@ -8,7 +8,6 @@ const ImageUpload = () => {
   const onDrop = (pic) => {
     setPicture([...picture,pic]);
     setdata(true);
-    console.log(pic);
   };
   return (
     <div>

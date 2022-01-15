@@ -27,14 +27,6 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-// const rows = [
-//   { name: "Aditya", email: 159, status: "Applied" },
-//   { name: "Vaibhav", email: 237, status: "Applied" },
-//   { name: "Naman", email: 262, status: "Applied" },
-//   { name: "Aarya", email: 305, status: "Applied" },
-//   { name: "Shivansh", email: 356, status: "Applied" },
-// ];
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
@@ -64,6 +56,7 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Contact</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -73,6 +66,7 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
+              <StyledTableCell align="right">{row.phone}</StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
             </StyledTableRow>
           ))}

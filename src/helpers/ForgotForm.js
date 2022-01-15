@@ -27,8 +27,7 @@ const AddForm = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const data = { email: email };
   const login = async () => {
-    const msg = await api.post("forgot-pass", data);
-    console.log(msg);
+  const msg = await api.post("forgot-pass", data);
     if (msg.data.message === "No such user exist !") {
       swal({
         title: msg.data.message,

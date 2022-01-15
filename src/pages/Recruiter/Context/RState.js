@@ -42,6 +42,17 @@ const RState = (props) => {
       interviewLink,
       interviewerName,
     };
+    if (details.internviewTime < new Date()) {
+      await swal({
+        title: "Interview time cannot be in the past",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+      return;
+    }
+
     for (let i = 0; i < applicants.length; i++) {
       if (applicants[i]._id === id) {
         if (applicants[i].interviewLink) {
@@ -85,6 +96,46 @@ const RState = (props) => {
     remarksByRecruiter
   ) => {
     try {
+      if (!remarksByRecruiter) {
+        await swal({
+          title: "Remarks is Missing",
+          icon: "error",
+          buttons: true,
+          closeOnClickOutside: true,
+          closeOnEsc: true,
+        });
+        return;
+      }
+      if (taskCompletionScore > 10 || taskCompletionScore < 0) {
+        await swal({
+          title: "Task Completion Score is Wrong",
+          icon: "error",
+          buttons: true,
+          closeOnClickOutside: true,
+          closeOnEsc: true,
+        });
+        return;
+      }
+      if (codingSkillsScore > 10 || codingSkillsScore < 0) {
+        await swal({
+          title: "Coding Skills Score is Wrong",
+          icon: "error",
+          buttons: true,
+          closeOnClickOutside: true,
+          closeOnEsc: true,
+        });
+        return;
+      }
+      if (enthusiasmScore > 10 || enthusiasmScore < 0) {
+        await swal({
+          title: "Enthusiasm Score is Wrong",
+          icon: "error",
+          buttons: true,
+          closeOnClickOutside: true,
+          closeOnEsc: true,
+        });
+        return;
+      }
       const res = await api.post("/applicants/setMarks", {
         id,
         taskCompletionScore,

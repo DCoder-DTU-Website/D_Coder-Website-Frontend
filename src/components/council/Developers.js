@@ -1,20 +1,6 @@
 export const developers= [
   {
     imageSrc:
-      "https://res.cloudinary.com/dcoderdtu/image/upload/v1620131085/satyam_2_-_Satyam_Gaur_xtdm5h.jpg",
-    title: "Satyam Gaur",
-    content: "Team Lead",
-    linkedin: "https://www.linkedin.com/in/sxtyam/",
-  },
-  {
-    imageSrc:
-      "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/circle-mr_-_surya_kumar_sahani_sqdkzh.png",
-    title: "Surya Kumar Sahani",
-    content: "Team Lead",
-    linkedin: "https://www.linkedin.com/in/surya-kumar-sahani-25911b1a3",
-  },
-  {
-    imageSrc:
     "https://res.cloudinary.com/dcoderdtu/image/upload/v1620130572/websiteImage_-_VIBHOR_JAIN_oycylo.jpg",
     title: "Vibhor Jain",
     content: "Team Lead",

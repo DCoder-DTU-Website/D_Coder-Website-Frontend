@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import api from "../../../../api/apiClient";
 import Modal from "../Modal";
 import { Button } from "@material-ui/core";
+import swal from "sweetalert";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -29,13 +30,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const rows = [
-  { name: "Aditya", email: 159, status: "Applied" },
-  { name: "Vaibhav", email: 237, status: "Applied" },
-  { name: "Naman", email: 262, status: "Applied" },
-  { name: "Aarya", email: 305, status: "Applied" },
-  { name: "Shivansh", email: 356, status: "Applied" },
-];
+const rows = [];
 
 const useStyles = makeStyles({
   table: {
@@ -48,6 +43,7 @@ export default function CustomizedTables() {
   // eslint-disable-next-line
   const [applied, setApplied] = useState([]);
   const [recruiters, setRecruiters] = useState(rows);
+  const [loading, setLoading] = useState(false);
 
   const getRecruiters = async () => {
     try {
@@ -61,7 +57,7 @@ export default function CustomizedTables() {
   const getApplied = async () => {
     try {
       const { data } = await api.get("/applicants/all");
-      let val = data.filter((e) => e.interviewLink === "");
+      let val = data.filter((e) => !e.idRecruiter);
       setApplied(val);
     } catch (err) {
       console.log("Could not retrieve Applicants List!", err);
@@ -75,15 +71,42 @@ export default function CustomizedTables() {
   const handleClick = async () => {
     const idApplicants = applied.map((applicant) => applicant._id);
     const idRecruiters = recruiters.map((recruiter) => recruiter._id);
+    console.log(idApplicants, "Applicants");
+    console.log(idRecruiters, "Recruiters");
+    setLoading(true);
+    if (idApplicants.length === 0) {
+      swal({
+        title: "No User to Assign",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+      setLoading(false);
+      return;
+    }
     try {
       const res = await api.post("/applicants/assignToRecruitersBulk", {
         idRecruiters,
         idApplicants,
       });
-      console.log(res);
+      swal({
+        title: "Successfully Assigned Recruiters to Applicants!",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
     } catch (err) {
-      console.log("Could not retrieve Applicants List!", err);
+      swal({
+        title: "An Error Occurred!",
+        icon: "error",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
     }
+    setLoading(false);
   };
 
   return (
@@ -94,6 +117,7 @@ export default function CustomizedTables() {
             <TableHead>
               <TableRow>
                 <StyledTableCell>Name</StyledTableCell>
+                <StyledTableCell align="right">Contact</StyledTableCell>
                 <StyledTableCell align="right">Email</StyledTableCell>
               </TableRow>
             </TableHead>
@@ -101,8 +125,9 @@ export default function CustomizedTables() {
               {recruiters.map((row) => (
                 <StyledTableRow key={row.email}>
                   <StyledTableCell component="th" scope="row">
-                    {row.name}
+                    {row.firstName} {row.lastName}
                   </StyledTableCell>
+                  <StyledTableCell align="right">{row.contact}</StyledTableCell>
                   <StyledTableCell align="right">{row.email}</StyledTableCell>
                 </StyledTableRow>
               ))}
@@ -112,10 +137,9 @@ export default function CustomizedTables() {
       </div>
       <Button
         variant="contained"
-        color="primary"
-        style={{ marginTop: "10px" }}
+        style={{ marginTop: "10px", backgroundColor: "white" }}
         onClick={handleClick}
-        disabled={true}
+        disabled={loading}
       >
         Assign Applicants to Recruiters
       </Button>

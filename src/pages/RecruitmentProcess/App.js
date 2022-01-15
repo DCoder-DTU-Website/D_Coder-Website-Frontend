@@ -1,9 +1,10 @@
 import React from "react";
 import Sidebar from "pages/RecruitmentProcess/components/sidebar/Sidebar";
+import "../../pages/admin/Styles/page.css";
 
 const App = () => {
   return (
-    <div>
+    <div style={{ backgroundColor: "#16253b" }}>
       <Sidebar />
     </div>
   );

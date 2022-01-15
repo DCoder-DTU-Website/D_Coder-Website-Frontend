@@ -1,56 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 
-.ContentRFT{
-    width: 70vw;
-    height: 65vh;
-    border-radius: 20px;
-    margin-top: 10vh;
-    margin-left:12vw;
-    font-weight: 600;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: rgb(26,32,44);
+.ContentRFT {
+  width: 70vw;
+  height: 65vh;
+  border-radius: 20px;
+  margin-top: 10vh;
+  margin-left: 12vw;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgb(26, 32, 44);
 }
-.changefont{
-    font-family: 'Montserrat', sans-serif !important;
+.changefont {
+  font-family: "Montserrat", sans-serif !important;
 }
-    .sizeH1T{
-        font-size: 5vw;
-    }
-    .sizeH2T{
-         font-size: 2.6vw;
-         margin-top: 3rem;
-    }
-    .sizeH3T{
-         font-size: 2vw;
-         margin-top: 8rem;
-         color: rgb(216, 216, 216);
-    }
+.sizeH1T {
+  font-size: 5vw;
+}
+.sizeH2T {
+  font-size: 2.6vw;
+  margin-top: 3rem;
+}
+.sizeH3T {
+  font-size: 2vw;
+  margin-top: 8rem;
+  color: rgb(216, 216, 216);
+}
 @media only screen and (max-width: 769px) {
-    .sizeH1T{
-        font-size: 8.5vw;
-    }
-    .sizeH2T{
-         font-size: 6vw;
-    }
-    .sizeH3T{
-         font-size: 3vw;
-         margin-top: 2rem;
-    }
-    .ContentRFT{
-        margin-top: 50vh !important;
-        height: 340vh !important;
-    }
-    
-} 
+  .sizeH1T {
+    font-size: 8.5vw;
+  }
+  .sizeH2T {
+    font-size: 6vw;
+  }
+  .sizeH3T {
+    font-size: 3vw;
+    margin-top: 2rem;
+  }
+  .ContentRFT {
+    margin-top: 50vh !important;
+    height: 340vh !important;
+  }
+}
 
-@media only screen and (max-width: 426px){
-    .ContentRF{
-        margin-top: 100vh !important;
-        margin-bottom: 60vh !important;
-        height: 220vh !important;
-    }
-} 
-
+@media only screen and (max-width: 426px) {
+  .ContentRFT {
+    margin-top: 100vh !important;
+    margin-bottom: 60vh !important;
+    height: 220vh !important;
+  }
+}

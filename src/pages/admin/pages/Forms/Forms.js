@@ -59,7 +59,6 @@ export default function BasicTable() {
     try {
       const { data } = await api.get("/forms/all");
       const { data: formsData } = data;
-      // console.log(formsData[2].deadline.getYear());
       formsData.reverse();
       console.log(formsData);
       setForms(formsData);
@@ -144,17 +143,29 @@ export default function BasicTable() {
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
                     {form.deadline && compareDate(form.deadline) ? (
-                      <a href="https://www.google.com" target="_blank" rel="noreferrer">
+                      <a
+                        href="https://www.google.com"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <LinkIcon></LinkIcon>
                       </a>
                     ) : (
-                      <a href={"/forms/" + form._id} target="_blank" rel="noreferrer">
+                      <a
+                        href={"/forms/" + form._id}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <LinkIcon></LinkIcon>
                       </a>
                     )}
                   </TableCell>
                   <TableCell style={{ width: "15%" }} align="center">
-                    <a href={form.response_url} target="_blank" rel="noreferrer">
+                    <a
+                      href={form.response_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <PeopleAltIcon></PeopleAltIcon>
                     </a>
                   </TableCell>
@@ -222,12 +233,20 @@ export default function BasicTable() {
                     style={{ width: "50%", paddingLeft: "0px" }}
                     align="center"
                   >
-                    <a href={"/forms/" + form._id} target="_blank" rel="noreferrer">
+                    <a
+                      href={"/forms/" + form._id}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <LinkIcon></LinkIcon>
                     </a>
                   </TableCell>
                   <TableCell style={{ width: "49%" }} align="center">
-                    <a href={form.response_url} target="_blank" rel="noreferrer">
+                    <a
+                      href={form.response_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <PeopleAltIcon></PeopleAltIcon>
                     </a>
                   </TableCell>

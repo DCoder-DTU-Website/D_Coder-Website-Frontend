@@ -13,7 +13,7 @@ const Image = styled.div((props) => [
 ]);
 const Details = tw.div`mt-4 text-justify md:mt-0 md:max-w-xl justify-center text-xl mx-4 sm:mx-8 md:mx-16 lg:mx-16 text-white`;
 const Title = tw.h4`flex my-4 justify-center text-4xl font-bold text-gray-900 text-blue-600`;
-const Description = tw.p`mt-2 leading-loose`;
+const Description = tw.p`mt-2 leading-loose text-justify`;
 
 function FacultyCard({ count, title, desc, img, post }) {
   AOS.init();

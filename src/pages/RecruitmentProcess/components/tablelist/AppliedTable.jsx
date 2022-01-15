@@ -28,13 +28,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const rows = [
-  { name: "Aditya", email: 159, status: "Applied" },
-  { name: "Vaibhav", email: 237, status: "Applied" },
-  { name: "Naman", email: 262, status: "Applied" },
-  { name: "Aarya", email: 305, status: "Applied" },
-  { name: "Shivansh", email: 356, status: "Applied" },
-];
+const rows = [];
 
 const useStyles = makeStyles({
   table: {
@@ -67,6 +61,7 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Contact</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
             {/* <StyledTableCell align="right">Schedule Interview</StyledTableCell> */}
           </TableRow>
@@ -77,6 +72,7 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
+              <StyledTableCell align="right">{row.phone}</StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
               {/* <StyledTableCell align="right" style={{ cursor: "pointer" }}>
                 <Modal applicant={row} />

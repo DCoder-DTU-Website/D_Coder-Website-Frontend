@@ -8,11 +8,9 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import DeleteIcon from "@material-ui/icons/Delete";
-import SearchBar from "material-ui-search-bar";
 import Modal from "./components/NewPlacementModal";
 import UserModal from "./components/ViewUserDetailsModal";
 import AdminNavbarLinks from "../../components/Navbar";
-import TextField from "@material-ui/core/TextField";
 import "../../Styles/page.css";
 import api from "../../../../api/apiClient";
 import swal from "sweetalert";
@@ -133,7 +131,7 @@ export default function BasicTable() {
   };
 
   const getAllUsers = async () => {
-    const {data} = await api.get("/placements/fulltime");
+    const { data } = await api.get("/placements/fulltime");
     console.log("RECEIVED!", data);
     setRows(data.data);
     setOriginalRows(data.data);
@@ -191,7 +189,7 @@ export default function BasicTable() {
   return (
     <>
       <AdminNavbarLinks />
-      <Modal getData={getAllUsers}/>
+      <Modal getData={getAllUsers} />
       <Paper>
         {/* <div
           style={{
@@ -255,8 +253,12 @@ export default function BasicTable() {
             <TableBody>
               {rows.map((row) => (
                 <TableRow key={row._id}>
-                  <TableCell align="center"><img style={{maxWidth: 128}} src={row.imageSrc} /></TableCell>
-                  <TableCell align="center"><img style={{maxWidth: 128}} src={row.logo} /></TableCell>
+                  <TableCell align="center">
+                    <img style={{ maxWidth: 128 }} src={row.imageSrc} />
+                  </TableCell>
+                  <TableCell align="center">
+                    <img style={{ maxWidth: 128 }} src={row.logo} />
+                  </TableCell>
                   <TableCell align="center">{row.name}</TableCell>
                   <TableCell align="center">{row.post}</TableCell>
                   <TableCell align="center">{row.content}</TableCell>
