@@ -109,8 +109,6 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
               style={{ marginLeft: "25px" }}
             />
           </div>
-          <ForgotModal />
-
           <Button
             variant="contained"
             type="submit"
@@ -119,6 +117,7 @@ const AddForm = ({ handleClose, setIsLoggedIn }) => {
           >
             Login
           </Button>
+          <ForgotModal />
         </div>
       </form>
     </div>

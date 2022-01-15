@@ -44,8 +44,8 @@ export default function TransitionsModal() {
           display: "flex",
           flexDirection: "row-reverse",
           alignItems: "center",
-          textDecoration: "underline",
-          color: "black",
+          justifyContent: "center",
+          color: "rgb(49,130,206)",
           backgroundColor: "white",
         }}
       >

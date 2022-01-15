@@ -126,11 +126,9 @@ function Form() {
 
   useEffect(async () => {
     const applicants = await api.get("/applicants/all");
-    console.log(applicants.data);
     let res = [];
     let res2 = [];
     applicants.data.forEach((applicant) => {
-      console.log(applicant.email);
       res.push(applicant.email);
       res2.push(applicant.phone);
     });
@@ -151,7 +149,6 @@ function Form() {
         interviewTime: "",
         interviewerName: "",
       };
-      console.log(applicantData);
       await api.post("/applicants", formurlencoded(applicantData));
       swal({
         title: "Successfully Submitted Your Application!",
@@ -164,7 +161,6 @@ function Form() {
       });
       setUploading(false);
     } catch (err) {
-      console.log(err);
       swal({
         title: "Unable to submit your application! Try Again Later!",
         icon: "error",
@@ -204,7 +200,6 @@ function Form() {
   };
 
   const validateEmail = (value) => {
-    console.log(value);
     let error;
     if (allEmails.includes(value)) {
       error = "Email Address already Registered!";

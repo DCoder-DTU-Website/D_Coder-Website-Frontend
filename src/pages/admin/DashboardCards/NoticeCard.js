@@ -41,7 +41,6 @@ export default function MultilineTextFields() {
       setLink("");
       setLoading(false);
     } catch (err) {
-      console.log(err, "Upload Failed");
     }
   };
   return (

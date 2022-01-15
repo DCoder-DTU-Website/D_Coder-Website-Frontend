@@ -19,7 +19,7 @@ const val = {
             href="https://www.linkedin.com/in/riya-dev-varshney-361304197/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Riya Dev Varshney
           </a>
@@ -28,7 +28,7 @@ const val = {
             href="https://www.linkedin.com/in/ridham-jain-460327197/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Ridham Jain
           </a>{" "}
@@ -37,7 +37,7 @@ const val = {
             href="https://www.linkedin.com/in/garvit-gulati-700082193/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Garvit Gulati
           </a>{" "}
@@ -60,7 +60,7 @@ const val = {
             href="https://www.linkedin.com/in/puneet-kumar-sehrawat-4b3312197/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Puneet Kumar Sehrawat
           </a>
@@ -69,7 +69,7 @@ const val = {
             href="https://www.linkedin.com/in/sameer-ahmed-2001/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Sameer Ahmed
           </a>
@@ -78,7 +78,7 @@ const val = {
             href="https://www.linkedin.com/in/vanshika-gupta-89a30a197/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Vanshika Gupta
           </a>{" "}
@@ -87,7 +87,7 @@ const val = {
             href="https://www.linkedin.com/in/bkaran091/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Karan Bajaj
           </a>{" "}
@@ -97,7 +97,7 @@ const val = {
             href="https://www.linkedin.com/in/riya-dev-varshney-361304197/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Riya Dev Varshney
           </a>
@@ -106,7 +106,7 @@ const val = {
             href="https://www.linkedin.com/in/ridham-jain-460327197/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Ridham Jain
           </a>{" "}
@@ -115,7 +115,7 @@ const val = {
             href="https://www.linkedin.com/in/garvit-gulati-700082193/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Garvit Gulati
           </a>{" "}
@@ -138,7 +138,7 @@ const val = {
             href="https://www.linkedin.com/in/adityakulrajdtu/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             {" "}
             Aditya Kulraj
@@ -148,7 +148,7 @@ const val = {
             href="https://www.linkedin.com/in/aarnavjindal/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Aarnav Jindal
           </a>
@@ -157,7 +157,7 @@ const val = {
             href="https://www.linkedin.com/in/singhaditya8499/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Aditya Singh
           </a>
@@ -166,7 +166,7 @@ const val = {
             href="https://www.linkedin.com/in/akashdeep-9/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Akashdeep Ramnaney
           </a>
@@ -175,7 +175,7 @@ const val = {
             href="https://www.linkedin.com/in/deepanshuvarshney/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Deepanshu Varshney
           </a>{" "}
@@ -184,7 +184,7 @@ const val = {
             href="https://www.linkedin.com/in/daizy-mehta-473763149/"
             target="_blank"
             rel="noopener noreferrer"
-            className="links"
+            className="achievements_links"
           >
             Daizy Mehta
           </a>

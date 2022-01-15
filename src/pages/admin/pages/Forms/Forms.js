@@ -33,7 +33,6 @@ export default function BasicTable() {
       const fullName = form.title;
       return fullName.toLowerCase().includes(searchedVal.toLowerCase());
     });
-    console.log(filteredRows);
     setForms(filteredRows);
   };
 
@@ -59,12 +58,10 @@ export default function BasicTable() {
     try {
       const { data } = await api.get("/forms/all");
       const { data: formsData } = data;
-      formsData.reverse();
-      console.log(formsData);
+      formsData.reverse();;
       setForms(formsData);
       setOriginalForms(formsData);
     } catch (error) {
-      console.log(error);
     }
   };
 

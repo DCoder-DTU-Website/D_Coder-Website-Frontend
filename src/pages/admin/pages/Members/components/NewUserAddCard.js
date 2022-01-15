@@ -33,7 +33,6 @@ const AddForm = () => {
       });
       setLoading(false);
     } catch (err) {
-      console.log("Could not register user!", err);
     }
   };
 

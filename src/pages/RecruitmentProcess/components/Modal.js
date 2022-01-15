@@ -91,7 +91,6 @@ export default function SpringModal(props) {
     handleClose();
   };
   const updateBackend = async (data) => {
-    console.log(data);
     const res = await api.post("/applicants/setInterview", { data });
     swal({ title: res.data, icon: "success" });
   };

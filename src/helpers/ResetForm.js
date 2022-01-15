@@ -28,7 +28,6 @@ const AddForm = ({ handleClose }) => {
   const data = { email: email };
   const login = async () => {
     const msg = await api.post("reset-pass", data);
-    console.log(msg);
     if (msg.data.message === "No such user exist !") {
       swal({
         title: msg.data.message,

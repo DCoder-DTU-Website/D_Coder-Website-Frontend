@@ -58,7 +58,6 @@ export default function MultilineTextFields() {
         formData
       );
       setImages([]);
-      console.log(res.data.url);
       return res.data.url;
     } catch (err) {
       console.error(err, "Image Upload Failed!");
@@ -72,9 +71,7 @@ export default function MultilineTextFields() {
       formik.resetForm();
       const imageUrl = await uploadImage();
       form = { ...form, image: imageUrl };
-      // console.log(form);
       let sendForm = form;
-      console.log(sendForm);
       await api.post("/forms/add", sendForm);
 
       swal({
@@ -86,7 +83,6 @@ export default function MultilineTextFields() {
       });
       setLoading(false);
     } catch (err) {
-      console.log(err, "Upload Failed");
     }
   };
 

@@ -126,7 +126,6 @@ function Row(props) {
 }
 
 export default function CollapsibleTable({ scheduled }) {
-  console.log(scheduled);
   const context = useContext(RContext);
   let { applicants, data } = context;
   applicants = applicants.filter((a) => {
