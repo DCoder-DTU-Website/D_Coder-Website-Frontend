@@ -72,8 +72,11 @@ export default function MultilineTextFields() {
       formik.resetForm();
       const imageUrl = await uploadImage();
       form = { ...form, image: imageUrl };
-      console.log(form);
-      await api.post("/forms/add", formurlencoded(form));
+      // console.log(form);
+      let sendForm = form;
+      console.log(sendForm);
+      await api.post("/forms/add", sendForm);
+
       swal({
         title: "Form Uploaded Successfully!",
         icon: "success",
@@ -223,8 +226,17 @@ export default function MultilineTextFields() {
                       InputLabelProps={{
                         shrink: true,
                       }}
-                      onChange={(e) => setDeadline(e.target.value)}
-                      value={deadline}
+                      // onChange={(e) => setDeadline(e.target.value)}
+                      // value={deadline}
+                      onChange={formik.handleChange}
+                      value={formik.values.deadline}
+                      error={
+                        formik.touched.deadline &&
+                        Boolean(formik.errors.deadline)
+                      }
+                      helperText={
+                        formik.touched.deadline && formik.errors.deadline
+                      }
                     />
                   </Grid>
                   <div style={{ display: "flex", marginTop: "35px" }}>

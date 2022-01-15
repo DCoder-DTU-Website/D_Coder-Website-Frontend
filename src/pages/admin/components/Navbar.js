@@ -84,6 +84,30 @@ export default function AdminNavbarLinks() {
             </Button>
           )}
         />
+        <Route
+          render={({ history }) => (
+            <Button
+              onClick={() => {
+                history.push("/admin/internships");
+              }}
+              style={{ backgroundColor: "rgba(49,130,206)", color: "white" }}
+            >
+              Internships
+            </Button>
+          )}
+        />
+        <Route
+          render={({ history }) => (
+            <Button
+              onClick={() => {
+                history.push("/admin/placements");
+              }}
+              style={{ backgroundColor: "rgba(49,130,206)", color: "white" }}
+            >
+              Placements
+            </Button>
+          )}
+        />
       </div>
     </div>
   );
