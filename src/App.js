@@ -210,7 +210,13 @@ function App() {
             <ThankYouPage />
           </Route>
           <Route exact path="/recruiter/unscheduled">
-            <Recruiter />
+            {isRecruiter ? (
+              <Recruiter />
+            ) : (
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            )}
           </Route>
           <Route exact path="/recruiter/scheduled">
             {isRecruiter ? (

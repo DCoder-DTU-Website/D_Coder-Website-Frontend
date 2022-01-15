@@ -74,10 +74,18 @@ export default function CustomizedTables() {
     console.log(idApplicants, "Applicants");
     console.log(idRecruiters, "Recruiters");
     setLoading(true);
+    if (idApplicants.length === 0) {
+      swal({
+        title: "No User to Assign",
+        icon: "success",
+        buttons: true,
+        closeOnClickOutside: true,
+        closeOnEsc: true,
+      });
+      setLoading(false);
+      return;
+    }
     try {
-      console.log(idApplicants, "Applicants");
-      console.log(idRecruiters, "Recruiters");
-
       const res = await api.post("/applicants/assignToRecruitersBulk", {
         idRecruiters,
         idApplicants,
