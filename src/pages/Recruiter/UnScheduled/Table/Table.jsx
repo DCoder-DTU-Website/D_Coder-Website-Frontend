@@ -131,19 +131,10 @@ export default function CollapsibleTable({ scheduled }) {
   applicants = applicants.filter((a) => {
     if (scheduled) {
       return (
-        a.idRecruiter === data._id &&
-        a.interviewLink &&
-        a.interviewTime &&
-        a.interviewerName &&
-        !a.totalScore
+        a.interviewLink && a.interviewTime && a.interviewerName && !a.totalScore
       );
     }
-    return (
-      a.idRecruiter === data._id &&
-      !a.interviewLink &&
-      !a.interviewTime &&
-      !a.interviewerName
-    );
+    return !a.interviewLink && !a.interviewTime && !a.interviewerName;
   });
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
