@@ -653,7 +653,6 @@ export default function UserProfile(props) {
                       style={{
                         borderRadius: "50%",
                       }}
-                      onClick={() => console.log()}
                     />
                   </Grid>
                   <div

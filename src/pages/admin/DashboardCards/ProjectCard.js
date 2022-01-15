@@ -72,7 +72,6 @@ const AdminProjects = ({
       let val = projectsData.filter((e) => !e.confirmed);
       setProjects(val);
     } catch (err) {
-      console.log("Could not retrieve Projects!", err);
     }
   };
 
@@ -89,7 +88,6 @@ const AdminProjects = ({
         closeOnEsc: true,
       });
     } catch (err) {
-      console.log("Could not permit !", err);
     }
   };
 
@@ -106,7 +104,6 @@ const AdminProjects = ({
         closeOnEsc: true,
       });
     } catch (err) {
-      console.log("Could not delete project!", err);
     }
   };
 

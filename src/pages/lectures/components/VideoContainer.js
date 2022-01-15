@@ -21,9 +21,7 @@ function VideoContainer({ history, location, match }) {
       const { data } = await api.get("/lecture/all");
       const { data: lecture } = data;
       setLectures(lecture);
-      console.log(lectures);
     } catch (err) {
-      console.log("Could not retrieve Lectures!", err);
     }
   };
 

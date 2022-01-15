@@ -46,7 +46,6 @@ export default function CustomizedTables() {
       const { data } = await api.get("/applicants/rejected");
       setRejected(data);
     } catch (err) {
-      console.log("Could not retrieve Applicants List!", err);
     }
   };
   useEffect(() => {
@@ -82,7 +81,6 @@ export default function CustomizedTables() {
   };
 
   const handleAcceptedHelper = async (applicant) => {
-    console.log(applicant);
     const res = await swal({
       title: "Are you sure you want to accept this user?",
       icon: "warning",

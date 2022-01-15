@@ -98,6 +98,53 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: -1em !important;
   margin-left: 1rem !important;
 }
+#ThankYou_RF-img{
+  margin-top: 1rem;
+  width: 15rem;
+  height: 15rem;
+}
+#ThankYou_RF-title{
+  margin: 1rem;
+  font-size: 2rem ;
+}
+#ThankYou_RF-description{
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+#ThankYou_RF-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ThankYou_RF-socialMedia p{
+  margin-left: 5rem;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+@media only screen and (max-width: 600px) {
+  #ThankYou_RF-img{
+  margin-top: 1rem;
+  width: 10rem;
+  height: 10rem;
+}
+#ThankYou_RF-title{
+  margin: 0.5rem;
+  font-size: 1.5rem ;
+}
+#ThankYou_RF-description{
+  margin: 0.5rem;
+  font-size: 1rem;
+  text-align:center;
+  width: 15rem;
+}
+.ThankYou_RF-socialMedia p{
+  margin-left: 3.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: -0.5rem;
+  font-size: 1.2rem;
+}
+}
 /* 
 @media only screen and (min-width: 769px) {
 }

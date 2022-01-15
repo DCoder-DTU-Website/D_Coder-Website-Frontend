@@ -44,37 +44,37 @@ import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
 import RecruitmentHome from "pages/RecruitmentHome/index.js";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { user } = useUser();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { user } = useUser();
 
-  useEffect(() => {
-    setIsLoggedIn(true);
-  }, [user]);
+    useEffect(() => {
+        setIsLoggedIn(true);
+    }, [user]);
 
-  const isAdmin = isLoggedIn && user && user.isAdmin;
-  const isUser = isLoggedIn && user && !user.isAdmin;
-  const isRecruiter = isLoggedIn && user && user.isRecruiter;
+    const isAdmin = isLoggedIn && user && user.isAdmin;
+    const isUser = isLoggedIn && user && !user.isAdmin;
+    const isRecruiter = isLoggedIn && user && user.isRecruiter;
 
-  return (
-    <AnimationRevealPage disabled className="wrapper">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/events">
-            <Events />
-          </Route>
-          <Route exact path="/council">
-            <Council />
-          </Route>
-          <Route exact path="/gallery">
-            <Gallery />
-          </Route>
-          <Route exact path="/projects">
-            <Projects />
-          </Route>
-          <Route exact path="/internships">
-            <Interns />
-          </Route>
-          {/* <Route exact path="/placements">
+    return (
+        <AnimationRevealPage disabled className="wrapper">
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/events">
+                        <Events />
+                    </Route>
+                    <Route exact path="/council">
+                        <Council />
+                    </Route>
+                    <Route exact path="/gallery">
+                        <Gallery />
+                    </Route>
+                    <Route exact path="/projects">
+                        <Projects />
+                    </Route>
+                    <Route exact path="/internships">
+                        <Interns />
+                    </Route>
+                    {/* <Route exact path="/placements">
             <Placements />
           </Route> */}
           <Route exact path="/research">
@@ -206,9 +206,9 @@ function App() {
           <Route path="/recruitment-form">
             <RecruitmentForm />
           </Route>
-          <Route path="/thankyou">
+          {/* <Route path="/thankyou">
             <ThankYouPage />
-          </Route>
+          </Route> */}
           <Route exact path="/recruiter/unscheduled">
             {isRecruiter ? (
               <Recruiter />

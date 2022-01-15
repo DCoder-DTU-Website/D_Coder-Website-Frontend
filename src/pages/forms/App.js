@@ -18,12 +18,7 @@ function EventPage() {
     try {
       const { data } = await api.get("/forms/all");
       setForm(data.data.find((x) => x._id === id));
-      console.log(
-        "DATA: ",
-        data.data.find((x) => x._id === id)
-      );
     } catch (err) {
-      console.log("Could not retrieve Events!", err);
     }
   };
 

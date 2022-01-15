@@ -6,7 +6,6 @@ import Footer from "../../components/footers/Footer";
 import Placements from "./Components/Interns";
 export default function Testimonials() {
   useEffect(() => {
-    console.log("came");
     window.scrollTo(0, 0);
   }, []);
   return (

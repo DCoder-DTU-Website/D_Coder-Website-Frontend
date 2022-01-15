@@ -45,7 +45,6 @@ export default function BasicTextFields() {
         closeOnEsc: true,
       });
     } catch (err) {
-      console.log(err, "Upload Failed");
     }
   };
 

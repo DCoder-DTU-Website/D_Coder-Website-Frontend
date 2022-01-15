@@ -49,7 +49,6 @@ const ProjectsComp = () => {
       let val = projectsData.filter((e) => e.confirmed);
       setProjects(val);
     } catch (err) {
-      console.log("Could not retrieve Projects!", err);
     }
   };
   useEffect(() => {

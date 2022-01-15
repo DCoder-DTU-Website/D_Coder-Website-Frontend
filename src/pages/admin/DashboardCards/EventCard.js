@@ -57,7 +57,6 @@ const Form2 = ({
         formData
       );
       setImages([]);
-      console.log(res.data.url);
       return res.data.url;
     } catch (err) {
       console.error(err, "Image Upload Failed!");
@@ -88,7 +87,6 @@ const Form2 = ({
       });
       setLoading(false);
     } catch (err) {
-      console.log(err, "Upload Failed");
     }
   };
   return (
