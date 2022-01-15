@@ -16,9 +16,12 @@ const RState = (props) => {
     setData(userProfile);
   };
   const getApplicants = async () => {
-    const res = await api.get("/applicants/all-recruiter");
+    const res = await api.post("/applicants/all-recruiter", {
+      userId: data._id,
+    });
     const app = res.data;
     setApplicants(app);
+    console.log(applicants, "applicants");
   };
   useEffect(() => {
     getProfile();
