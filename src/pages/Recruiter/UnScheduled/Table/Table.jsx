@@ -128,15 +128,20 @@ function Row(props) {
 export default function CollapsibleTable({ scheduled }) {
   const context = useContext(RContext);
   let { applicants, data } = context;
-  let applicantData = applicants.filter((a) => {
+  let applicantData = [];
+  // for (let i = 0; i < applicants.length; i++) {
+  //   console.log(applicants[i]);
+  //   if (applicants[i].interviewLink === "") {
+  //     applicantData.push(applicants[i]);
+  //   }
+  // }
+  applicantData = applicants.filter((a) => {
     if (scheduled) {
-      return (
-        a.interviewLink && a.interviewTime && a.interviewerName && !a.totalScore
-      );
+      return a.interviewLink;
     }
-    return !a.interviewLink && !a.interviewTime && !a.interviewerName;
+    return !a.interviewLink;
   });
-  console.log(applicantData,"Applicant Data");
+  console.log(applicantData, "Applicant Data");
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
