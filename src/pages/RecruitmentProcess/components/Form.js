@@ -31,6 +31,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import Chip from "@material-ui/core/Chip";
 import { IconButton } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { ApplyNow } from "pages/RecruitmentHome/components";
 const BlueCheckbox = withStyles({
   root: {
     backgroundColor: " #001eff",
@@ -50,26 +51,6 @@ const BlueCheckbox = withStyles({
 
 const backgroundImage =
   "https://res.cloudinary.com/dcoderdtu/image/upload/v1621400604/WhatsApp_Image_2021-05-19_at_10.21.20_ekkng5.jpg";
-
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Name is Required").min(4).max(30),
-  roll: Yup.string().required("Roll Number is Required"),
-  phone: Yup.number().required("Phone number is Required"),
-  email: Yup.string()
-    .required("Email is Required")
-    .email("Email must be Vaild")
-    .max(255),
-  dob: Yup.date().required("Date of Birth is Required"),
-  branch: Yup.string().required("Branch is Required"),
-  techStack: Yup.string().required("TechStack is Required"),
-  codingLanguage: Yup.string().required("Coding language is Required"),
-  whyJoin: Yup.string()
-    .required("Reason for joining is Required")
-    .min(10)
-    .max(100),
-  expect: Yup.string().required("Enter your expectations..").min(10).max(100),
-  image: Yup.string().required("Image is required"),
-});
 
 const theme = createMuiTheme({
   overrides: {
@@ -117,24 +98,31 @@ const ErrorComponent = (msg) => (
 );
 
 function Form() {
+  let dte = new Date();
+  dte = dte.toISOString().substring(0, 10);
+  const [imgUploading, setImgUploading] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [images, setImages] = useState("");
-  const [data, setData] = useState({
-    name: "",
-    roll: "",
-    phone: "",
-    email: "",
-    dob: "",
-    branch: "",
-    techStack: "",
-    codingLanguage: "",
-    whyJoin: "",
-    expect: "",
-    image: "",
-  });
 
   const [allEmails, setAllEmails] = useState([]);
   const [allMobile, setAllMobile] = useState([]);
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is Required").min(4).max(30),
+    roll: Yup.string().required("Roll Number is Required"),
+    phone: Yup.number().required("Phone number is Required"),
+    email: Yup.string()
+      .required("Email is Required")
+      .email("Email must be Vaild")
+      .max(255),
+    dob: Yup.date().required("Date of Birth is Required"),
+    branch: Yup.string().required("Branch is Required"),
+    whyJoin: Yup.string()
+      .required("Reason for joining is Required")
+      .min(10)
+      .max(100),
+    expect: Yup.string().required("Enter your expectations..").min(10).max(100),
+    image: Yup.string().required("Image is required"),
+  });
 
   useEffect(async () => {
     const applicants = await api.get("/applicants/all");
@@ -151,8 +139,6 @@ function Form() {
   }, []);
 
   const clickSubmit = async (values, actions) => {
-    console.log("gello");
-    console.log(values);
     setUploading(true);
     try {
       let applicantData = values;
@@ -195,10 +181,10 @@ function Form() {
     if (formik.values.techStack.includes(ts)) {
       formik.setFieldValue(
         "techStack",
-        formik.values.techStack.replace(ts, "")
+        formik.values.techStack.filter((elem) => elem !== ts)
       );
     } else {
-      formik.setFieldValue("techStack", `${formik.values.techStack} ${ts}`);
+      formik.setFieldValue("techStack", [...formik.values.techStack, ts]);
     }
   };
 
@@ -207,14 +193,31 @@ function Form() {
     if (formik.values.codingLanguage.includes(ts)) {
       formik.setFieldValue(
         "codingLanguage",
-        formik.values.codingLanguage.replace(ts, "")
+        formik.values.codingLanguage.filter((elem) => elem !== ts)
       );
     } else {
-      formik.setFieldValue(
-        "codingLanguage",
-        `${formik.values.codingLanguage} ${ts}`
-      );
+      formik.setFieldValue("codingLanguage", [
+        ...formik.values.codingLanguage,
+        ts,
+      ]);
     }
+  };
+
+  const validateEmail = (value) => {
+    console.log(value);
+    let error;
+    if (allEmails.includes(value)) {
+      error = "Email Address already Registered!";
+    }
+    return error;
+  };
+
+  const validateMobile = (value) => {
+    let error;
+    if (allMobile.includes(value)) {
+      error = "Mobile already Registered!";
+    }
+    return error;
   };
 
   return (
@@ -223,16 +226,16 @@ function Form() {
         <Formik
           initialValues={{
             name: "",
-            roll: "",
+            roll: "2K21/",
             phone: "",
-            email: "",
+            email: "@dtu.ac.in",
             dob: "",
             branch: "",
-            techStack: "",
-            codingLanguage: "",
+            techStack: [],
+            codingLanguage: [],
             whyJoin: "",
             expect: "",
-            image: "",
+            image: backgroundImage,
           }}
           validationSchema={validationSchema}
           onSubmit={clickSubmit}
@@ -275,9 +278,13 @@ function Form() {
                   }}
                   className="changefont sizeH2"
                 >
-                  Registration Form
+                  Registration Form{" "}
+                  <p style={{ fontSize: "0.6em" }}>
+                    (Fields marked with * are mandatory)
+                  </p>
                 </div>
               </div>
+
               <Grid container xs={12} className="main-container-1">
                 <Grid item xs={12} sm={12} md={6} lg={4}>
                   <Grid
@@ -294,17 +301,29 @@ function Form() {
                     <Image id="imgRF" imageSrc={formik.values.image} />
                     <Grid item>
                       <div>
-                        <label for="files" className="UploadImageLabel">
-                          Select Image
+                        <label
+                          for="files"
+                          className="UploadImageLabel RecruitmentForm-img-upload-btn"
+                        >
+                          {!imgUploading &&
+                          formik.values.image === backgroundImage
+                            ? "Select Image"
+                            : "Change Image"}
+                          {imgUploading && "Uploading..."}
                         </label>
                         <input
+                          disabled={imgUploading}
                           id="files"
-                        type="file"
+                          type="file"
                           name="image"
                           placeholder="image"
                           style={{ visibility: "hidden" }}
                           onChange={(event) => {
+                            setImgUploading(true);
                             try {
+                              if (event.target.files[0].size > 1000000) {
+                                throw new Error("Image Size Exceeded!");
+                              }
                               const formData = new FormData();
                               formData.append("file", event.target.files[0]);
                               formData.append("upload_preset", "gekvwtzt");
@@ -318,9 +337,35 @@ function Form() {
                                     "image",
                                     response.data.url
                                   );
+                                  swal({
+                                    title: "Successfully Uploaded Image!",
+                                    icon: "success",
+                                    buttons: true,
+                                    closeOnClickOutside: true,
+                                    closeOnEsc: true,
+                                  });
                                 });
+                              setImgUploading(false);
                             } catch (err) {
-                              console.error(err, "Image Upload Failed!");
+                              setImgUploading(false);
+                              if (err.message === "Image Size Exceeded!") {
+                                swal({
+                                  title: "Image size must be less than 1MB!",
+                                  icon: "error",
+                                  buttons: true,
+                                  closeOnClickOutside: true,
+                                  closeOnEsc: true,
+                                });
+                              } else {
+                                swal({
+                                  title:
+                                    "Unable to submit your application! Try Again Later!",
+                                  icon: "error",
+                                  buttons: true,
+                                  closeOnClickOutside: true,
+                                  closeOnEsc: true,
+                                });
+                              }
                             }
                           }}
                           style={{ width: "0" }}
@@ -360,6 +405,7 @@ function Form() {
                         className={"textFieldLeft changefont marginRF"}
                       >
                         <TextField
+                          required
                           placeholder="Name"
                           label="Name"
                           name="name"
@@ -397,10 +443,16 @@ function Form() {
                         className={"textFieldLeft changefont marginRF"}
                       >
                         <TextField
+                          required
                           placeholder="Roll Number"
                           label="Roll Number"
                           name="roll"
-                          value={formik.values.roll}
+                          value={
+                            formik.values.roll.startsWith("2K21/")
+                              ? formik.values.roll
+                              : "2K21/"
+                          }
+                          // value={formik.values.roll}
                           onChange={formik.handleChange}
                           style={{ width: "100%" }}
                           InputLabelProps={{
@@ -434,6 +486,7 @@ function Form() {
                         className={"textFieldLeft changefont marginRF"}
                       >
                         <TextField
+                          required
                           placeholder="Mobile"
                           label="Mobile"
                           name="phone"
@@ -475,10 +528,16 @@ function Form() {
                         className={"textFieldLeft changefont marginRF"}
                       >
                         <TextField
+                          required
                           placeholder="Email"
                           label="Email"
                           name="email"
-                          value={formik.values.email}
+                          value={
+                            formik.values.email.endsWith("@dtu.ac.in")
+                              ? formik.values.email
+                              : "@dtu.ac.in"
+                          }
+                          // value={formik.values.email}
                           onChange={formik.handleChange}
                           style={{ width: "100%" }}
                           InputLabelProps={{
@@ -503,20 +562,28 @@ function Form() {
                   display: "flex",
                   justifyContent: "center",
                   width: "100%",
+                  marginBottom: "2em",
                 }}
                 xs={12}
               >
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={4} style={{ margin: "auto 0" }}>
                   <div
                     style={{
                       display: "flex",
-                      justifyContent: "center",
+                      flexDirection: "column",
                     }}
                     className={"textField shift changefont marginRF"}
                   >
+                    <InputLabel
+                      style={{
+                        color: "white",
+                      }}
+                    >
+                      Date Of Birth*
+                    </InputLabel>
                     <TextField
+                      required
                       placeholder="DOB"
-                      label="Date Of Birth"
                       name="dob"
                       type="date"
                       format={"Select"}
@@ -534,13 +601,14 @@ function Form() {
                         },
                       }}
                       InputProps={{
+                        inputProps: { max: dte },
                         // className: "InputLabelStyle",
                         style: {
                           padding: "1rem 0.6rem 0rem 0.8rem",
                           borderRadius: "0.8rem",
                           height: "4rem",
                           boxShadow: "5px 2px 8px 2px rgba(0,0,0,0.25)",
-                          margin: "4rem 0rem 1rem 0rem",
+                          margin: "1rem 0rem 1rem 0rem",
                           backgroundColor: "rgb(43, 50, 65)",
                         },
                       }}
@@ -561,29 +629,35 @@ function Form() {
                   )}
                 </Grid>
 
-                <Grid item md={6}>
+                <Grid item md={4} style={{ margin: "auto 0" }}>
                   <div
                     style={{
-                      marginTop: "2.78em",
+                      display: "flex",
+                      flexDirection: "column",
                     }}
+                    // style={{
+                    //   marginTop: "2.78em",
+                    // }}
                     className={
                       "textField branch selectbox shift changefont marginRF"
                     }
                   >
                     <InputLabel
-                      id="demo-simple-select-label"
                       style={{
                         color: "white",
-                        margin: "0rem -3rem 7.8rem 0rem",
                       }}
                     >
-                      Branch
+                      Branch*
                     </InputLabel>
                     <Select
                       placeholder="Branch"
                       label="Branch"
                       name="branch"
-                      value={formik.values.branch}
+                      value={
+                        formik.values.branch === ""
+                          ? "SELE"
+                          : formik.values.branch
+                      }
                       onChange={formik.handleChange}
                       style={{
                         width: "15rem",
@@ -595,9 +669,13 @@ function Form() {
                         boxShadow: "5px 2px 8px 2px rgba(0,0,0,0.25)",
                         // margin: "3.5rem 0rem",
                         backgroundColor: "rgb(43, 50, 65)",
+                        margin: "1rem 0rem 1rem 0rem",
                       }}
                       className="color"
                     >
+                      <option hidden value={"SELE"}>
+                        Select Branch
+                      </option>
                       <MenuItem value={"BT"}>Bio Technology</MenuItem>
                       <MenuItem value={"CHE"}>Chemical Engineering</MenuItem>
                       <MenuItem value={"CE"}>Civil Engineering</MenuItem>
@@ -655,7 +733,7 @@ function Form() {
                     color: "white",
                   }}
                 >
-                  Tech Stack
+                  Field of Interest (if any)
                 </FormLabel>
                 <FormGroup
                   row
@@ -673,7 +751,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                   <FormControlLabel
                     control={
@@ -686,7 +764,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                   <FormControlLabel
                     control={
@@ -699,7 +777,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                   <FormControlLabel
                     control={
@@ -712,7 +790,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                   <FormControlLabel
                     control={
@@ -727,7 +805,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                 </FormGroup>
               </Grid>
@@ -748,7 +826,7 @@ function Form() {
                     color: "white",
                   }}
                 >
-                  Coding Languages
+                  Coding Languages (if any)
                 </FormLabel>
                 <FormGroup
                   row
@@ -766,7 +844,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                   <FormControlLabel
                     control={
@@ -779,7 +857,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                   <FormControlLabel
                     control={
@@ -792,7 +870,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                   <FormControlLabel
                     control={
@@ -807,7 +885,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                   <FormControlLabel
                     control={
@@ -822,7 +900,7 @@ function Form() {
                         clickable
                       />
                     }
-                    style={{ marginTop: "20px" }}
+                    style={{ margin: "20px 1em 0" }}
                   />
                 </FormGroup>
               </Grid>
@@ -843,6 +921,7 @@ function Form() {
                   className={"textField shift changefont marginRF mgin"}
                 >
                   <TextField
+                    required
                     placeholder="Why you want to join D_CODER?"
                     label="Why you want to join D_CODER?"
                     name="whyJoin"
@@ -883,6 +962,7 @@ function Form() {
                   className={"textField shift changefont marginRF mgin"}
                 >
                   <TextField
+                    required
                     placeholder="Expectations From D_CODER"
                     label="Expectations From D_CODER"
                     name="expect"
@@ -912,12 +992,12 @@ function Form() {
                 disabled={uploading}
                 variant="contained"
                 style={{
-                  backgroundColor: "white",
                   fontWeight: "bold",
                   margin: "1.5em auto",
                   fontFamily: "Poppins",
                 }}
                 type="submit"
+                className="RecruitmentForm-ApplyNowbtn"
               >
                 Apply Now!
               </Button>
