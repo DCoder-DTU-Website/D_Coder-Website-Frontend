@@ -104,39 +104,49 @@ function Form() {
   const [uploading, setUploading] = useState(false);
   const [images, setImages] = useState("");
 
-  const [allEmails, setAllEmails] = useState([]);
-  const [allMobile, setAllMobile] = useState([]);
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is Required").min(4).max(30),
-    roll: Yup.string().required("Roll Number is Required"),
-    phone: Yup.number().required("Phone number is Required"),
+    name: Yup.string()
+      .required("Name is Required")
+      .min(4, "Name must have atleast 4 characters!")
+      .max(30, "Name must have atmost 30 characters!"),
+    roll: Yup.string().matches(
+      /2K21\/[a-zA-Z][0-9]+\/\d\d/i,
+      "Roll number must be of the form 2K21/XX/XX"
+    ),
+    phone: Yup.string().matches(
+      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+      "Phone number is not valid!"
+    ),
     email: Yup.string()
       .required("Email is Required")
       .email("Email must be Vaild")
-      .max(255),
+      .max(255, "Email must be less than 255 characters!"),
     dob: Yup.date().required("Date of Birth is Required"),
     branch: Yup.string().required("Branch is Required"),
     whyJoin: Yup.string()
       .required("Reason for joining is Required")
-      .min(10)
-      .max(100),
-    expect: Yup.string().required("Enter your expectations..").min(10).max(100),
+      .min(10, "Content must be greater than 10 characters!")
+      .max(100, "Content must be less than 100 characters!"),
+    expect: Yup.string()
+      .required("Enter your expectations..")
+      .min(10, "Content must be greater than 10 characters!")
+      .max(100, "Content must be less than 100 characters!"),
     image: Yup.string().required("Image is required"),
   });
 
-  useEffect(async () => {
-    const applicants = await api.get("/applicants/all");
-    console.log(applicants.data);
-    let res = [];
-    let res2 = [];
-    applicants.data.forEach((applicant) => {
-      console.log(applicant.email);
-      res.push(applicant.email);
-      res2.push(applicant.phone);
-    });
-    setAllEmails(res);
-    setAllMobile(res2);
-  }, []);
+  // useEffect(async () => {
+  //   const applicants = await api.get("/applicants/all");
+  //   console.log(applicants.data);
+  //   let res = [];
+  //   let res2 = [];
+  //   applicants.data.forEach((applicant) => {
+  //     console.log(applicant.email);
+  //     res.push(applicant.email);
+  //     res2.push(applicant.phone);
+  //   });
+  //   setAllEmails(res);
+  //   setAllMobile(res2);
+  // }, []);
 
   const clickSubmit = async (values, actions) => {
     setUploading(true);
@@ -203,22 +213,22 @@ function Form() {
     }
   };
 
-  const validateEmail = (value) => {
-    console.log(value);
-    let error;
-    if (allEmails.includes(value)) {
-      error = "Email Address already Registered!";
-    }
-    return error;
-  };
+  // const validateEmail = (value) => {
+  //   console.log(value);
+  //   let error;
+  //   if (allEmails.includes(value)) {
+  //     error = "Email Address already Registered!";
+  //   }
+  //   return error;
+  // };
 
-  const validateMobile = (value) => {
-    let error;
-    if (allMobile.includes(value)) {
-      error = "Mobile already Registered!";
-    }
-    return error;
-  };
+  // const validateMobile = (value) => {
+  //   let error;
+  //   if (allMobile.includes(value)) {
+  //     error = "Mobile already Registered!";
+  //   }
+  //   return error;
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -299,7 +309,24 @@ function Form() {
                     }}
                   >
                     <Image id="imgRF" imageSrc={formik.values.image} />
-                    <Grid item>
+                    <Grid
+                      item
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-around",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "white",
+                          margin: "0 0 1em",
+                          textAlign: "center",
+                        }}
+                      >
+                        Image size must be less than 1MB.
+                      </div>
                       <div>
                         <label
                           for="files"
@@ -535,10 +562,25 @@ function Form() {
                           value={
                             formik.values.email.endsWith("@dtu.ac.in")
                               ? formik.values.email
-                              : "@dtu.ac.in"
+                              : ""
                           }
                           // value={formik.values.email}
                           onChange={formik.handleChange}
+                          style={{ width: "100%" }}
+                          InputLabelProps={{
+                            style: {
+                              color: "white",
+                              borderColor: "white",
+                            },
+                          }}
+                          InputProps={{ className: "InputLabelStyle" }}
+                        />
+                        <TextField
+                          disabled
+                          placeholder=""
+                          label="&nbsp;"
+                          name=""
+                          value={"@dtu.ac.in"}
                           style={{ width: "100%" }}
                           InputLabelProps={{
                             style: {
@@ -733,7 +775,7 @@ function Form() {
                     color: "white",
                   }}
                 >
-                  Field of Interest (if any)
+                  Field of Interest
                 </FormLabel>
                 <FormGroup
                   row
@@ -743,11 +785,13 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="DSA"
-                        label="DSA"
-                        isChosen={formik.values.techStack.includes("DSA")}
+                        id="Data Structures"
+                        label="Data Structures"
+                        isChosen={formik.values.techStack.includes(
+                          "Data Structures"
+                        )}
                         onClick={(e) => updateTechStack(formik, e)}
-                        name="DSA"
+                        name="Data Structures"
                         clickable
                       />
                     }
@@ -756,11 +800,13 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="web"
-                        label="Web Dev"
-                        isChosen={formik.values.techStack.includes("Web Dev")}
+                        id="Algorithms"
+                        label="Algorithms"
+                        isChosen={formik.values.techStack.includes(
+                          "Algorithms"
+                        )}
                         onClick={(e) => updateTechStack(formik, e)}
-                        name="Web Dev"
+                        name="Algorithms"
                         clickable
                       />
                     }
@@ -769,11 +815,13 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="ML & AI"
-                        label="ML & AI"
-                        isChosen={formik.values.techStack.includes("ML & AI")}
+                        id="Web Development"
+                        label="Web Development"
+                        isChosen={formik.values.techStack.includes(
+                          "Web Development"
+                        )}
                         onClick={(e) => updateTechStack(formik, e)}
-                        name="ML & AI"
+                        name="Web Development"
                         clickable
                       />
                     }
@@ -782,11 +830,43 @@ function Form() {
                   <FormControlLabel
                     control={
                       <BlueCheckbox
-                        id="App Dev"
-                        label="App Dev"
-                        isChosen={formik.values.techStack.includes("App Dev")}
+                        id="Machine Learning"
+                        label="Machine Learning"
+                        isChosen={formik.values.techStack.includes(
+                          "Machine Learning"
+                        )}
                         onClick={(e) => updateTechStack(formik, e)}
-                        name="App Dev"
+                        name="Machine Learning"
+                        clickable
+                      />
+                    }
+                    style={{ margin: "20px 1em 0" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="Artificial Intelligence"
+                        label="Artificial Intelligence"
+                        isChosen={formik.values.techStack.includes(
+                          "Artificial Intelligence"
+                        )}
+                        onClick={(e) => updateTechStack(formik, e)}
+                        name="Artificial Intelligence"
+                        clickable
+                      />
+                    }
+                    style={{ margin: "20px 1em 0" }}
+                  />
+                  <FormControlLabel
+                    control={
+                      <BlueCheckbox
+                        id="App Development"
+                        label="App Development"
+                        isChosen={formik.values.techStack.includes(
+                          "App Development"
+                        )}
+                        onClick={(e) => updateTechStack(formik, e)}
+                        name="App Development"
                         clickable
                       />
                     }
