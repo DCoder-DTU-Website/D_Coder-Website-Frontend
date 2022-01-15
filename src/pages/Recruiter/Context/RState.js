@@ -15,6 +15,7 @@ const RState = (props) => {
     const userProfile = res.data;
     setData(userProfile);
   };
+  
   const getApplicants = async () => {
     console.log("hello");
     const res = await api.post("/applicants/all-recruiter", {
