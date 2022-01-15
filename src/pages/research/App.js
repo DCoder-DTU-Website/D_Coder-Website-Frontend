@@ -143,7 +143,6 @@ function EventPage() {
       });
       setEvtData(evts);
     } catch (err) {
-      console.log("Could not retrieve Events!", err);
     }
   };
 

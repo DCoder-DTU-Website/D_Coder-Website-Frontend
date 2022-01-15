@@ -47,7 +47,6 @@ export default function SwipeableTemporaryDrawer() {
       noticesData.sort(compare);
       setNotices(noticesData);
     } catch (err) {
-      console.log("Could not retrieve Notices!", err);
     }
   };
 
@@ -57,9 +56,7 @@ export default function SwipeableTemporaryDrawer() {
       const { data: formsData } = data;
       formsData.reverse();
       setForms(formsData);
-      console.log(forms);
     } catch (error) {
-      console.log(error);
     }
   };
   useEffect(() => {

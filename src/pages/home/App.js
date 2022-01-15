@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <div style={{ position: "relative" }}>
       <Hero
-        onClick={() => console.log()}
         bigHead={"D_CODER"}
         subheading={""}
         bgImage={dcoderGif}

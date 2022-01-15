@@ -115,7 +115,6 @@ export default function BasicTable() {
     setRows(filteredRows);
   };
 
-  // console.log(rows)
   const requestSearchTeam = (event) => {
     setSearchTechStack("");
     setSearchTeam(event.target.value);
@@ -132,7 +131,7 @@ export default function BasicTable() {
 
   const getAllUsers = async () => {
     const { data } = await api.get("/placements/fulltime");
-    console.log("RECEIVED!", data);
+
     setRows(data.data);
     setOriginalRows(data.data);
   };
@@ -150,7 +149,6 @@ export default function BasicTable() {
   const removeUser = async (id) => {
     try {
       const resp = await api.delete(`placements/${id}/delete`);
-      console.log("RESP!", resp);
       await getAllUsers();
       await swal({
         title: "Placement Removed Successfully!",
@@ -160,7 +158,6 @@ export default function BasicTable() {
         closeOnEsc: true,
       });
     } catch (err) {
-      console.log("Could not remove placement", err);
     }
   };
 

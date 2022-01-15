@@ -118,7 +118,6 @@ export default function BasicTable() {
     setRows(filteredRows);
   };
 
-  // console.log(rows)
   const requestSearchTeam = (event) => {
     setSearchTechStack("");
     setSearchTeam(event.target.value);
@@ -163,7 +162,7 @@ export default function BasicTable() {
         closeOnEsc: true,
       });
     } catch (err) {
-      console.log("Could not remove user", err);
+
     }
   };
 
@@ -179,7 +178,6 @@ export default function BasicTable() {
         closeOnEsc: true,
       });
     } catch (err) {
-      console.log("Could not add user as Recruiter", err);
     }
   };
 
@@ -294,7 +292,6 @@ export default function BasicTable() {
             <TableBody>
               {rows.map((row) => {
                 if (row.firstName === "Vaibhav" && row.lastName === "Gupta") {
-                  console.log(row);
                 }
                 return (
                   <TableRow key={row._id}>

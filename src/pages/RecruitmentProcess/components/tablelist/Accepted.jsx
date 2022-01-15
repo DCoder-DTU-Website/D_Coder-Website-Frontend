@@ -43,7 +43,6 @@ export default function CustomizedTables() {
       const { data } = await api.get("/applicants/accepted");
       setAccepted(data);
     } catch (err) {
-      console.log("Could not retrieve Applicants List!", err);
     }
   };
   useEffect(() => {

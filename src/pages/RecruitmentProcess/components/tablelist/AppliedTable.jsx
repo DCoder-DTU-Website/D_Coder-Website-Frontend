@@ -46,10 +46,10 @@ export default function CustomizedTables() {
     try {
       const { data } = await api.get("/applicants/all");
       const val = data;
+      console.log(data)
       setApplied(val);
       setMembers(val);
     } catch (err) {
-      console.log("Could not retrieve Applicants List!", err);
     }
   };
   useEffect(() => {
@@ -57,6 +57,9 @@ export default function CustomizedTables() {
   }, []);
   return (
     <TableContainer component={Paper}>
+      <div style={{ backgroundColor: "rgb(22,37,59)",color:"white",padding:" 1rem 0rem" }}>
+        Number of Applicants is: {applied.length}
+      </div>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>

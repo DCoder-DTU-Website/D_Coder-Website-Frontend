@@ -27,7 +27,6 @@ const ResetPassForm = () => {
       };
       const msg = await api.post("/forgot", data);
       const message = msg.data.message;
-      console.log(message);
       if (message === "Token is expired") {
         const res = await swal({
           title: message,

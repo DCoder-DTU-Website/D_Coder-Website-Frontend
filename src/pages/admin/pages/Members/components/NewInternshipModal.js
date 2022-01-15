@@ -110,7 +110,6 @@ export default function TransitionsModal(props) {
                 closeOnClickOutside: true,
                 closeOnEsc: true,
               });
-              console.log("RESP!", resp);
               props.getData();
             }}>Add Internship</Button>
           </Grid>

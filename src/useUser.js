@@ -11,7 +11,6 @@ function useUser() {
       const { data } = await api.get("/user");
       setUser(data);
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -20,7 +19,6 @@ function useUser() {
       await api.get("/logout");
       localStorage.removeItem("token");
     } catch (err) {
-      console.log(err);
     }
   };
 

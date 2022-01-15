@@ -19,7 +19,6 @@ const SocialMedia = styled.div`
 
 function RecruitmentTC() {
     const size = window.innerWidth
-    console.log(`The window width is ${size}`);
     return (
       <div>
         <div style={{ padding: size/12 }}>

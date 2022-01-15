@@ -51,7 +51,6 @@ export default function CustomizedTables() {
       let val = data.filter((e) => e.isRecruiter === true);
       setRecruiters(val);
     } catch (err) {
-      console.log("Could not retrieve Applicants List!", err);
     }
   };
   const getApplied = async () => {
@@ -60,7 +59,6 @@ export default function CustomizedTables() {
       let val = data.filter((e) => !e.idRecruiter);
       setApplied(val);
     } catch (err) {
-      console.log("Could not retrieve Applicants List!", err);
     }
   };
   useEffect(() => {
@@ -71,8 +69,6 @@ export default function CustomizedTables() {
   const handleClick = async () => {
     const idApplicants = applied.map((applicant) => applicant._id);
     const idRecruiters = recruiters.map((recruiter) => recruiter._id);
-    console.log(idApplicants, "Applicants");
-    console.log(idRecruiters, "Recruiters");
     setLoading(true);
     if (idApplicants.length === 0) {
       swal({
