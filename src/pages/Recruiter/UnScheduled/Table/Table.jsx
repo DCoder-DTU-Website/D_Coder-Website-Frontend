@@ -128,7 +128,7 @@ function Row(props) {
 export default function CollapsibleTable({ scheduled }) {
   const context = useContext(RContext);
   let { applicants, data } = context;
-  applicants = applicants.filter((a) => {
+  let applicantData = applicants.filter((a) => {
     if (scheduled) {
       return (
         a.interviewLink && a.interviewTime && a.interviewerName && !a.totalScore
@@ -136,6 +136,7 @@ export default function CollapsibleTable({ scheduled }) {
     }
     return !a.interviewLink && !a.interviewTime && !a.interviewerName;
   });
+  console.log(applicantData,"Applicant Data");
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -172,7 +173,7 @@ export default function CollapsibleTable({ scheduled }) {
             )}
           </TableHead>
           <TableBody>
-            {applicants.map((applicant, index) => (
+            {applicantData.map((applicant, index) => (
               <Row
                 key={applicant.name}
                 applicant={applicant}
