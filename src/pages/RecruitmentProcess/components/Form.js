@@ -24,8 +24,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import Chip from "@material-ui/core/Chip";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { ApplyNow } from "pages/RecruitmentHome/components";
-import Modal from '@material-ui/core/Modal';
+import Modal from "@material-ui/core/Modal";
 const BlueCheckbox = withStyles({
   root: {
     backgroundColor: " #001eff",
@@ -217,11 +216,11 @@ function Form() {
   //Modal start
   const useStyles = makeStyles((theme) => ({
     paper: {
-      position: 'absolute',
+      position: "absolute",
       width: 400,
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(2, 4, 3),
-      outline:0,
+      outline: 0,
     },
   }));
 
@@ -236,14 +235,14 @@ function Form() {
     setOpen(false);
   };
 
-  function getModalStyle() {  
+  function getModalStyle() {
     return {
       top: `${50}%`,
       left: `${50}%`,
       transform: `translate(-${50}%, -${50}%)`,
     };
   }
-  
+
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Text in a modal</h2>
@@ -252,14 +251,10 @@ function Form() {
       </p>
     </div>
   );
-  
-  
+
   return (
     <ThemeProvider theme={theme}>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
+      <Modal open={open} onClose={handleClose}>
         {body}
       </Modal>
       <div className="ContentRF">
