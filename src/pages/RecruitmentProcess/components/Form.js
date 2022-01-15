@@ -24,7 +24,13 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import Chip from "@material-ui/core/Chip";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+
 import Modal from "@material-ui/core/Modal";
+import ThankYou_RF from "../../../images/ThankYou-RF.jpeg";
+import { ReactComponent as InstagramIcon } from "../../../images/instagram-icon.svg";
+import { ReactComponent as YoutubeIcon } from "../../../images/youtube-icon.svg";
+import { ReactComponent as LinkedinIcon } from "../../../images/linkedin-icon.svg";
+
 const BlueCheckbox = withStyles({
   root: {
     backgroundColor: " #001eff",
@@ -76,6 +82,13 @@ const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
   tw`rounded md:w-32 lg:w-5/12 xl:w-64 xl:h-64 xl:mx-32 flex-shrink-0 my-1 h-64 w-64 md:h-32  bg-center sm:w-1/3  sm:mx-8 md:mx-16 lg:mx-24`,
 ]);
+const SocialLinksContainer = tw.div`mt-10`;
+const SocialLink = styled.a`
+  ${tw`cursor-pointer inline-block text-gray-500 hover:text-gray-500 transition duration-300 mx-5 md:mx-8 xl:mx-8 lg:mx-8`}
+  svg {
+    ${tw`w-8 h-8`}
+  }
+`;
 
 const ErrorComponent = (msg) => (
   <div
@@ -212,15 +225,23 @@ function Form() {
   const useStyles = makeStyles((theme) => ({
     paper: {
       position: "absolute",
-      width: 400,
-      backgroundColor: theme.palette.background.paper,
+      width: 600,
+      backgroundColor: "rgb(236,239,242)",
+      color: "black",
       padding: theme.spacing(2, 4, 3),
       outline: 0,
+      justifyContent: "center",
+      alignItems: "center",
+      display: "flex",
+      flexDirection: "column",
+      "@media (max-width: 600px)":{
+        width:300,
+      }
     },
   }));
 
   const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const handleOpen = () => {
     setOpen(true);
@@ -240,10 +261,37 @@ function Form() {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
+      <img id="ThankYou_RF-img" src={ThankYou_RF}></img>
+      <div id="ThankYou_RF-content">
+        <p id="ThankYou_RF-title">THANK YOU</p>
+        <p id="ThankYou_RF-description">
+          The form was filled successfully. You will be receive all the necessary
+          details in your email soon.
+        </p>
+        <div className="ThankYou_RF-socialMedia">
+          <p>FOLLOW US</p>
+          <SocialLinksContainer>
+            <SocialLink
+              target="_blank"
+              href="https://www.instagram.com/d_coder_dtu/"
+            >
+              <InstagramIcon />
+            </SocialLink>
+            <SocialLink
+              target="_blank"
+              href="https://www.youtube.com/channel/UCz0Bs3AXaa5ccEJBsLxyXzg"
+            >
+              <YoutubeIcon />
+            </SocialLink>
+            <SocialLink
+              target="_blank"
+              href="https://www.linkedin.com/company/dcoder/mycompany/"
+            >
+              <LinkedinIcon />
+            </SocialLink>
+          </SocialLinksContainer>
+        </div>
+      </div>
     </div>
   );
 
