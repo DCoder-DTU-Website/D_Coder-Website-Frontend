@@ -206,9 +206,9 @@ function App() {
           <Route path="/recruitment-form">
             <RecruitmentForm />
           </Route>
-          <Route path="/thankyou">
+          {/* <Route path="/thankyou">
             <ThankYouPage />
-          </Route>
+          </Route> */}
           <Route exact path="/recruiter/unscheduled">
             {isRecruiter ? (
               <Recruiter />
