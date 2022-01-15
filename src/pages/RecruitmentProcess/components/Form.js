@@ -11,27 +11,21 @@ import {
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
-import Upload from "components/features/Upload/Upload";
 import axios from "axios";
-import { DatePicker } from "@material-ui/pickers";
-import FormControl from "@material-ui/core/FormControl";
 import api from "../../../api/apiClient";
 import { Formik, useFormik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from "sweetalert";
 import formurlencoded from "form-urlencoded";
-import { Classnames } from "react-alice-carousel";
-import { classExpression } from "@babel/types";
 import "./Form.css";
-import ThankYouPage from "../ThankYouPage";
 
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import Chip from "@material-ui/core/Chip";
-import { IconButton } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { ApplyNow } from "pages/RecruitmentHome/components";
+import Modal from '@material-ui/core/Modal';
 const BlueCheckbox = withStyles({
   root: {
     backgroundColor: " #001eff",
@@ -153,15 +147,16 @@ function Form() {
       };
       console.log(applicantData);
       await api.post("/applicants", formurlencoded(applicantData));
-      swal({
-        title: "Successfully Submitted Your Application!",
-        icon: "success",
-        buttons: true,
-        closeOnClickOutside: true,
-        closeOnEsc: true,
-      }).then(() => {
-        window.location = "/thankyou";
-      });
+      // swal({
+      //   title: "Successfully Submitted Your Application!",
+      //   icon: "success",
+      //   buttons: true,
+      //   closeOnClickOutside: true,
+      //   closeOnEsc: true,
+      // }).then(() => {
+      //   window.location = "/thankyou";
+      // });
+      handleOpen();
       setUploading(false);
     } catch (err) {
       console.log(err);
@@ -219,9 +214,54 @@ function Form() {
     }
     return error;
   };
+  //Modal start
+  const useStyles = makeStyles((theme) => ({
+    paper: {
+      position: 'absolute',
+      width: 400,
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing(2, 4, 3),
+      outline:0,
+    },
+  }));
 
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(true);
+  const classes = useStyles();
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  function getModalStyle() {  
+    return {
+      top: `${50}%`,
+      left: `${50}%`,
+      transform: `translate(-${50}%, -${50}%)`,
+    };
+  }
+  
+  const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title">Text in a modal</h2>
+      <p id="simple-modal-description">
+        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+      </p>
+    </div>
+  );
+  
+  
   return (
     <ThemeProvider theme={theme}>
+      <Modal
+        open={open}
+        onClose={handleClose}
+      >
+        {body}
+      </Modal>
       <div className="ContentRF">
         <Formik
           initialValues={{
