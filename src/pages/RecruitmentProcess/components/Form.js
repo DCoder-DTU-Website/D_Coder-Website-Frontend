@@ -84,7 +84,7 @@ const Image = styled.div((props) => [
 ]);
 const SocialLinksContainer = tw.div`mt-10`;
 const SocialLink = styled.a`
-  ${tw`cursor-pointer inline-block text-gray-500 hover:text-gray-500 transition duration-300 mx-5 md:mx-8 xl:mx-8 lg:mx-8`}
+  ${tw`cursor-pointer inline-block text-gray-500 hover:text-gray-900 transition duration-300 mx-5 md:mx-8 xl:mx-8 lg:mx-8`}
   svg {
     ${tw`w-8 h-8`}
   }
@@ -156,15 +156,6 @@ function Form() {
         interviewerName: "",
       };
       await api.post("/applicants", formurlencoded(applicantData));
-      // swal({
-      //   title: "Successfully Submitted Your Application!",
-      //   icon: "success",
-      //   buttons: true,
-      //   closeOnClickOutside: true,
-      //   closeOnEsc: true,
-      // }).then(() => {
-      //   window.location = "/thankyou";
-      // });
       handleOpen();
       setUploading(false);
     } catch (err) {
@@ -234,6 +225,7 @@ function Form() {
       alignItems: "center",
       display: "flex",
       flexDirection: "column",
+      borderRadius:"10px",
       "@media (max-width: 600px)":{
         width:300,
       }
@@ -241,7 +233,7 @@ function Form() {
   }));
 
   const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const classes = useStyles();
   const handleOpen = () => {
     setOpen(true);
@@ -252,7 +244,7 @@ function Form() {
   };
 
   function getModalStyle() {
-    return {
+    return { 
       top: `${50}%`,
       left: `${50}%`,
       transform: `translate(-${50}%, -${50}%)`,
@@ -265,7 +257,7 @@ function Form() {
       <div id="ThankYou_RF-content">
         <p id="ThankYou_RF-title">THANK YOU</p>
         <p id="ThankYou_RF-description">
-          The form was filled successfully. You will be receive all the necessary
+          The form was filled successfully. You will receive all the necessary
           details in your email soon.
         </p>
         <div className="ThankYou_RF-socialMedia">
@@ -291,6 +283,7 @@ function Form() {
             </SocialLink>
           </SocialLinksContainer>
         </div>
+        <button id="ThankYou_RF-Button" onClick={()=>window.location = "/"}>OK</button>
       </div>
     </div>
   );
@@ -309,7 +302,7 @@ function Form() {
             email: "@dtu.ac.in",
             dob: "",
             branch: "",
-            techStack: [],
+            techStack: [], 
             codingLanguage: [],
             whyJoin: "",
             expect: "",
