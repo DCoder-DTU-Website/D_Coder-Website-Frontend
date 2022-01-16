@@ -10,12 +10,13 @@ const RState = (props) => {
   const [data, setData] = useState({});
   const [applicants, setApplicants] = useState([]);
   const [openNav, setOpenNav] = useState(false);
+  const [anyChange, setAnyChange] = useState(false);
   const getProfile = async () => {
     const res = await api.post("/userprofile", { user });
     const userProfile = res.data;
     setData(userProfile);
   };
-  
+
   const getApplicants = async () => {
     console.log("hello");
     const res = await api.post("/applicants/all-recruiter", {
@@ -23,12 +24,12 @@ const RState = (props) => {
     });
     const app = res.data;
     setApplicants(app);
-    console.log(applicants, "applicants");
+    // console.log(applicants, "applicants");
   };
   useEffect(() => {
     getProfile();
     getApplicants();
-  }, [user]);
+  }, [user, anyChange]);
   const recruiter = {
     name: `${data.firstName + " " + data.lastName}`,
     image: `${data.image}`,
@@ -176,6 +177,8 @@ const RState = (props) => {
         applicants,
         setInterview,
         setMarks,
+        anyChange,
+        setAnyChange,
       }}
     >
       {props.children}

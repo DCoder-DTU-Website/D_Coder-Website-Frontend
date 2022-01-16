@@ -13,6 +13,7 @@ const Modal = (props) => {
   const { setInterview } = context;
   const setInterviews = async () => {
     await setInterview(props.id, interTime, gMeet);
+    props.setAnyChange(!props.anyChange);
     setGMeet("");
   };
   return (

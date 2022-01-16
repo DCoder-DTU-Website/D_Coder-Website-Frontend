@@ -27,7 +27,7 @@ import "./Table.css";
 import useUser from "useUser";
 
 function Row(props) {
-  const { applicant, pos } = props;
+  const { applicant, pos, anyChange, setAnyChange } = props;
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [marksModalOpen, setMarksModalOpen] = useState(false);
@@ -90,7 +90,12 @@ function Row(props) {
             effect="fadeInUp"
             onClickAway={() => setModalOpen(false)}
           >
-            <ModalCard close={setModalOpen} id={applicant._id} />
+            <ModalCard
+              close={setModalOpen}
+              id={applicant._id}
+              anyChange={anyChange}
+              setAnyChange={setAnyChange}
+            />
           </Modal>
           <Modal
             visible={marksModalOpen}
@@ -127,7 +132,7 @@ function Row(props) {
 
 export default function CollapsibleTable({ scheduled }) {
   const context = useContext(RContext);
-  let { applicants, data } = context;
+  let { applicants, data, anyChange, setAnyChange } = context;
   let applicantData = [];
   // for (let i = 0; i < applicants.length; i++) {
   //   console.log(applicants[i]);
@@ -184,6 +189,8 @@ export default function CollapsibleTable({ scheduled }) {
                 applicant={applicant}
                 pos={index}
                 scheduled={scheduled}
+                anyChange={anyChange}
+                setAnyChange={setAnyChange}
               />
             ))}
           </TableBody>
