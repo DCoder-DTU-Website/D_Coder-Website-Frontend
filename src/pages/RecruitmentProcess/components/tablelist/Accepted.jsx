@@ -8,6 +8,66 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import api from "../../../../api/apiClient";
+import { useMediaQuery } from "react-responsive";
+import { Box, Collapse, IconButton, Button } from "@material-ui/core";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import Card from "../../../Recruiter/UnScheduled/CollapseCard/MarksNewCard";
+
+function Row(props) {
+  const { applicant, pos } = props;
+  const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [marksModalOpen, setMarksModalOpen] = useState(false);
+  const isPC = useMediaQuery({
+    query: "(min-device-width: 690px)",
+  });
+  const isMobile = useMediaQuery({
+    query: "(max-device-width: 690px)",
+  });
+  return (
+    <React.Fragment>
+      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+        <TableCell
+          component="th"
+          scope="row"
+          className="table-cell"
+          align="left"
+        >
+          <h1 className="table-item">{applicant.name} </h1>
+        </TableCell>
+        {isPC && (
+          <TableCell align="left">
+            <h1 className="table-item">{applicant.phone}</h1>
+          </TableCell>
+        )}
+        {isPC && (
+          <TableCell align="right">
+            <h1 className="table-item">{applicant.email}</h1>
+          </TableCell>
+        )}
+        <TableCell className="table-cell" align="right">
+          <IconButton
+            aria-label="expand row"
+            size="small"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <Box sx={{ margin: 1 }}>
+              <Card applicant={applicant} />
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
+  );
+}
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -42,8 +102,8 @@ export default function CustomizedTables() {
     try {
       const { data } = await api.get("/applicants/accepted");
       setAccepted(data);
-    } catch (err) {
-    }
+      console.log(accepted);
+    } catch (err) {}
   };
   useEffect(() => {
     getAccepted();
@@ -55,12 +115,13 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="right">Contact</StyledTableCell>
+            <StyledTableCell align="left">Contact</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
+            <StyledTableCell align="right"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {accepted.map((row) => (
+          {/* {accepted.map((row) => (
             <StyledTableRow key={row.email}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
@@ -68,6 +129,15 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.phone}</StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
             </StyledTableRow>
+          ))} */}
+          {accepted.map((applicant, index) => (
+            <Row
+              key={applicant.name}
+              applicant={applicant}
+              pos={index}
+              // setRefresh={setRefresh}
+              // refresh={refresh}
+            />
           ))}
         </TableBody>
       </Table>

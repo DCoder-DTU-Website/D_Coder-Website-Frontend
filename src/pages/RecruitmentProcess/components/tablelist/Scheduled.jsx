@@ -59,18 +59,6 @@ function Row(props) {
             align="right"
             style={{ cursor: "pointer" }}
             onClick={async () => {
-              await props.handleRejectionHelper(props.applicant);
-              props.setRefresh(!props.refresh);
-            }}
-          >
-            <CancelIcon style={{ fill: "red" }} />
-          </TableCell>
-        )}
-        {isPC && (
-          <TableCell
-            align="right"
-            style={{ cursor: "pointer" }}
-            onClick={async () => {
               await props.handleAcceptedHelper(props.applicant);
               props.setRefresh(!props.refresh);
             }}
@@ -78,6 +66,19 @@ function Row(props) {
             <CheckBoxIcon style={{ fill: "green" }} />
           </TableCell>
         )}
+        {isPC && (
+          <TableCell
+            align="right"
+            style={{ cursor: "pointer" }}
+            onClick={async () => {
+              await props.handleRejectionHelper(props.applicant);
+              props.setRefresh(!props.refresh);
+            }}
+          >
+            <CancelIcon style={{ fill: "red" }} />
+          </TableCell>
+        )}
+        
         <TableCell className="table-cell" align="right">
           <IconButton
             aria-label="expand row"
@@ -133,9 +134,10 @@ export default function CustomizedTables() {
   const getScheduled = async () => {
     try {
       const { data } = await api.get("/applicants/awaiting");
+      //sort data by total score in descending order
+      data.sort((a, b) => b.totalScore - a.totalScore);
       setScheduled(data);
-    } catch (err) {
-    }
+    } catch (err) {}
   };
   useEffect(() => {
     getScheduled();
@@ -249,8 +251,8 @@ export default function CustomizedTables() {
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Score (30)</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
-            <StyledTableCell align="right">Accepted</StyledTableCell>
-            <StyledTableCell align="right">Rejected</StyledTableCell>
+            <StyledTableCell align="right">Accept</StyledTableCell>
+            <StyledTableCell align="right">Reject</StyledTableCell>
             <StyledTableCell align="right">Dropdown</StyledTableCell>
           </TableRow>
         </TableHead>
