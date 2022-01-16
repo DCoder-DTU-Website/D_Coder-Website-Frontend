@@ -243,7 +243,7 @@ function Form() {
   }));
 
   const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const handleOpen = () => {
     setOpen(true);
