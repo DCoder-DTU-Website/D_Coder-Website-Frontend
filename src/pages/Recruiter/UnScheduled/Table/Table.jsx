@@ -27,7 +27,7 @@ import "./Table.css";
 import useUser from "useUser";
 
 function Row(props) {
-  const { applicant, pos } = props;
+  const { applicant, pos, anyChange, setAnyChange } = props;
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [marksModalOpen, setMarksModalOpen] = useState(false);
@@ -90,7 +90,12 @@ function Row(props) {
             effect="fadeInUp"
             onClickAway={() => setModalOpen(false)}
           >
-            <ModalCard close={setModalOpen} id={applicant._id} />
+            <ModalCard
+              close={setModalOpen}
+              id={applicant._id}
+              anyChange={anyChange}
+              setAnyChange={setAnyChange}
+            />
           </Modal>
           <Modal
             visible={marksModalOpen}
@@ -127,24 +132,21 @@ function Row(props) {
 
 export default function CollapsibleTable({ scheduled }) {
   const context = useContext(RContext);
-  let { applicants, data } = context;
-  applicants = applicants.filter((a) => {
+  let { applicants, data, anyChange, setAnyChange } = context;
+  let applicantData = [];
+  // for (let i = 0; i < applicants.length; i++) {
+  //   console.log(applicants[i]);
+  //   if (applicants[i].interviewLink === "") {
+  //     applicantData.push(applicants[i]);
+  //   }
+  // }
+  applicantData = applicants.filter((a) => {
     if (scheduled) {
-      return (
-        a.idRecruiter === data._id &&
-        a.interviewLink &&
-        a.interviewTime &&
-        a.interviewerName &&
-        !a.totalScore
-      );
+      return a.interviewLink;
     }
-    return (
-      a.idRecruiter === data._id &&
-      !a.interviewLink &&
-      !a.interviewTime &&
-      !a.interviewerName
-    );
+    return !a.interviewLink;
   });
+  console.log(applicantData, "Applicant Data");
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -181,12 +183,14 @@ export default function CollapsibleTable({ scheduled }) {
             )}
           </TableHead>
           <TableBody>
-            {applicants.map((applicant, index) => (
+            {applicantData.map((applicant, index) => (
               <Row
                 key={applicant.name}
                 applicant={applicant}
                 pos={index}
                 scheduled={scheduled}
+                anyChange={anyChange}
+                setAnyChange={setAnyChange}
               />
             ))}
           </TableBody>
