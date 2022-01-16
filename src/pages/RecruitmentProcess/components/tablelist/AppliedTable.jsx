@@ -57,7 +57,7 @@ export default function CustomizedTables() {
   }, []);
   return (
     <TableContainer component={Paper}>
-      <div style={{ backgroundColor: "rgb(22,37,59)",color:"white",padding:" 1rem 0rem" }}>
+      <div style={{ backgroundColor: "rgb(22,37,59)",color:"white",padding:" 1rem 0rem",fontSize:"1.4rem" }}>
         Number of Applicants is: {applied.length}
       </div>
       <Table className={classes.table} aria-label="customized table">

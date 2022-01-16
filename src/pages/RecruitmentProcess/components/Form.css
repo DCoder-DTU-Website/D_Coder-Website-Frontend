@@ -122,6 +122,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: 1rem;
   font-size: 1.6rem;
 }
+#ThankYou_RF-Button{
+  padding: 0rem 2rem;
+  margin: 1.5rem 1rem 0rem 1rem;
+  border-radius: 10px;
+}
 @media only screen and (max-width: 600px) {
   #ThankYou_RF-img{
   margin-top: 1rem;
