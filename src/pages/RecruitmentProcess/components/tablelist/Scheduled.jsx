@@ -21,6 +21,7 @@ import ScheduleIcon from "@material-ui/icons/Schedule";
 import AssessmentIcon from "@material-ui/icons/Assessment";
 import Card from "../../../Recruiter/UnScheduled/CollapseCard/MarksNewCard";
 import { useMediaQuery } from "react-responsive";
+import Loader from "../../../../helpers/Loader";
 
 function Row(props) {
   const { applicant, pos } = props;
@@ -78,7 +79,7 @@ function Row(props) {
             <CancelIcon style={{ fill: "red" }} />
           </TableCell>
         )}
-        
+
         <TableCell className="table-cell" align="right">
           <IconButton
             aria-label="expand row"
@@ -130,13 +131,16 @@ export default function CustomizedTables() {
   const classes = useStyles();
   const [scheduled, setScheduled] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getScheduled = async () => {
     try {
+      setLoading(true);
       const { data } = await api.get("/applicants/awaiting");
       //sort data by total score in descending order
       data.sort((a, b) => b.totalScore - a.totalScore);
       setScheduled(data);
+      setLoading(false);
     } catch (err) {}
   };
   useEffect(() => {
@@ -245,75 +249,36 @@ export default function CustomizedTables() {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell>Score (30)</StyledTableCell>
-            <StyledTableCell align="right">Email</StyledTableCell>
-            <StyledTableCell align="right">Accept</StyledTableCell>
-            <StyledTableCell align="right">Reject</StyledTableCell>
-            <StyledTableCell align="right">Dropdown</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {scheduled.map((applicant, index) => (
-            <Row
-              key={applicant.name}
-              applicant={applicant}
-              pos={index}
-              scheduled={scheduled}
-              handleRejectionHelper={handleRejectionHelper}
-              handleAcceptedHelper={handleAcceptedHelper}
-              setRefresh={setRefresh}
-              refresh={refresh}
-            />
-          ))}
-          {/* {scheduled.map((row) => (
-            <StyledTableRow key={row.email}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {row.codingSkillsScore}
-              </StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {row.enthusiasmScore}
-              </StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {row.taskCompletionScore}
-              </StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {row.totalScore}
-              </StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {row.remarksByRecruiter}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.email}</StyledTableCell>
-              <StyledTableCell
-                align="right"
-                style={{ cursor: "pointer" }}
-                onClick={async () => {
-                  await handleAcceptedHelper(row);
-                  setRefresh(!refresh);
-                }}
-              >
-                <CheckBoxIcon style={{ fill: "green" }} />
-              </StyledTableCell>
-              <StyledTableCell
-                align="right"
-                style={{ cursor: "pointer" }}
-                onClick={async () => {
-                  await handleRejectionHelper(row);
-                  setRefresh(!refresh);
-                }}
-              >
-                <CancelIcon style={{ fill: "red" }} />
-              </StyledTableCell>
-            </StyledTableRow>
-          ))} */}
-        </TableBody>
-      </Table>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell>Score (30)</StyledTableCell>
+              <StyledTableCell align="right">Email</StyledTableCell>
+              <StyledTableCell align="right">Accept</StyledTableCell>
+              <StyledTableCell align="right">Reject</StyledTableCell>
+              <StyledTableCell align="right">Dropdown</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {scheduled.map((applicant, index) => (
+              <Row
+                key={applicant.name}
+                applicant={applicant}
+                pos={index}
+                scheduled={scheduled}
+                handleRejectionHelper={handleRejectionHelper}
+                handleAcceptedHelper={handleAcceptedHelper}
+                setRefresh={setRefresh}
+                refresh={refresh}
+              />
+            ))}
+          </TableBody>
+        </Table>
+      )}
     </TableContainer>
   );
 }

@@ -11,6 +11,7 @@ import api from "../../../../api/apiClient";
 import Modal from "../Modal";
 import { Button } from "@material-ui/core";
 import swal from "sweetalert";
+import Loader from "../../../../helpers/Loader";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -47,19 +48,21 @@ export default function CustomizedTables() {
 
   const getRecruiters = async () => {
     try {
+      setLoading(true);
       const { data } = await api.get("/userprofile/all");
       let val = data.filter((e) => e.isRecruiter === true);
       setRecruiters(val);
-    } catch (err) {
-    }
+      setLoading(false);
+    } catch (err) {}
   };
   const getApplied = async () => {
     try {
+      setLoading(true);
       const { data } = await api.get("/applicants/all");
       let val = data.filter((e) => !e.idRecruiter);
       setApplied(val);
-    } catch (err) {
-    }
+      setLoading(false);
+    } catch (err) {}
   };
   useEffect(() => {
     getRecruiters();
@@ -109,26 +112,32 @@ export default function CustomizedTables() {
     <div>
       <div>
         <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>Name</StyledTableCell>
-                <StyledTableCell align="right">Contact</StyledTableCell>
-                <StyledTableCell align="right">Email</StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {recruiters.map((row) => (
-                <StyledTableRow key={row.email}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.firstName} {row.lastName}
-                  </StyledTableCell>
-                  <StyledTableCell align="right">{row.contact}</StyledTableCell>
-                  <StyledTableCell align="right">{row.email}</StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
+          {loading ? (
+            <Loader />
+          ) : (
+            <Table className={classes.table} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell>Name</StyledTableCell>
+                  <StyledTableCell align="right">Contact</StyledTableCell>
+                  <StyledTableCell align="right">Email</StyledTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {recruiters.map((row) => (
+                  <StyledTableRow key={row.email}>
+                    <StyledTableCell component="th" scope="row">
+                      {row.firstName} {row.lastName}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      {row.contact}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">{row.email}</StyledTableCell>
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
         </TableContainer>
       </div>
       <Button

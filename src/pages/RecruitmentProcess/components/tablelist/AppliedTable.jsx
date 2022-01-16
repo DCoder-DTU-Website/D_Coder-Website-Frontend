@@ -9,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import api from "../../../../api/apiClient";
 import Modal from "../Modal";
+import Loader from "../../../../helpers/Loader";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -41,49 +42,62 @@ export default function CustomizedTables() {
   // eslint-disable-next-line
   const [applied, setApplied] = useState([]);
   const [members, setMembers] = useState(rows);
+  const [loading, setLoading] = useState(false);
 
   const getApplied = async () => {
     try {
+      setLoading(true);
       const { data } = await api.get("/applicants/all");
       const val = data;
-      console.log(data)
+      console.log(data);
       setApplied(val);
       setMembers(val);
-    } catch (err) {
-    }
+      setLoading(false);
+    } catch (err) {}
   };
   useEffect(() => {
     getApplied();
   }, []);
   return (
     <TableContainer component={Paper}>
-      <div style={{ backgroundColor: "rgb(22,37,59)",color:"white",padding:" 1rem 0rem",fontSize:"1.4rem" }}>
+      <div
+        style={{
+          backgroundColor: "rgb(22,37,59)",
+          color: "white",
+          padding: " 1rem 0rem",
+          fontSize: "1.4rem",
+        }}
+      >
         Number of Applicants is: {applied.length}
       </div>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="right">Contact</StyledTableCell>
-            <StyledTableCell align="right">Email</StyledTableCell>
-            {/* <StyledTableCell align="right">Schedule Interview</StyledTableCell> */}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {members.map((row) => (
-            <StyledTableRow key={row.email}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.phone}</StyledTableCell>
-              <StyledTableCell align="right">{row.email}</StyledTableCell>
-              {/* <StyledTableCell align="right" style={{ cursor: "pointer" }}>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell align="right">Contact</StyledTableCell>
+              <StyledTableCell align="right">Email</StyledTableCell>
+              {/* <StyledTableCell align="right">Schedule Interview</StyledTableCell> */}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {members.map((row) => (
+              <StyledTableRow key={row.email}>
+                <StyledTableCell component="th" scope="row">
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.phone}</StyledTableCell>
+                <StyledTableCell align="right">{row.email}</StyledTableCell>
+                {/* <StyledTableCell align="right" style={{ cursor: "pointer" }}>
                 <Modal applicant={row} />
               </StyledTableCell> */}
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      )}
     </TableContainer>
   );
 }

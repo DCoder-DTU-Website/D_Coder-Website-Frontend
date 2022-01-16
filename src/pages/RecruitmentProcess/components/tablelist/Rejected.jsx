@@ -15,6 +15,7 @@ import { Box, Collapse, IconButton, Button } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Card from "../../../Recruiter/UnScheduled/CollapseCard/MarksNewCard";
+import Loader from "../../../../helpers/Loader";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -45,11 +46,14 @@ export default function CustomizedTables() {
   const [rejected, setRejected] = useState([]);
   const [refresh, setRefresh] = useState(false);
   // const [members, setMembers] = useState(rows);
+  const [loading, setLoading] = useState(false);
 
   const getRejected = async () => {
     try {
+      setLoading(true);
       const { data } = await api.get("/applicants/rejected");
       setRejected(data);
+      setLoading(false);
     } catch (err) {}
   };
   useEffect(() => {
@@ -95,7 +99,7 @@ export default function CustomizedTables() {
               <h1 className="table-item">{applicant.email}</h1>
             </TableCell>
           )}
-          
+
           <TableCell
             align="right"
             style={{ cursor: "pointer" }}
@@ -173,18 +177,21 @@ export default function CustomizedTables() {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="left">Contact</StyledTableCell>
-            <StyledTableCell align="right">Email</StyledTableCell>
-            <StyledTableCell align="right">Accept</StyledTableCell>
-            <StyledTableCell align="right"></StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {/* {rejected.map((row) => (
+      {loading ? (
+        <Loader />
+      ) : (
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell align="left">Contact</StyledTableCell>
+              <StyledTableCell align="right">Email</StyledTableCell>
+              <StyledTableCell align="right">Accept</StyledTableCell>
+              <StyledTableCell align="right"></StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {/* {rejected.map((row) => (
             <StyledTableRow key={row.email}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
@@ -203,17 +210,18 @@ export default function CustomizedTables() {
               </StyledTableCell>
             </StyledTableRow>
           ))} */}
-          {rejected.map((applicant, index) => (
-            <Row
-              key={applicant.name}
-              applicant={applicant}
-              pos={index}
-              // setRefresh={setRefresh}
-              // refresh={refresh}
-            />
-          ))}
-        </TableBody>
-      </Table>
+            {rejected.map((applicant, index) => (
+              <Row
+                key={applicant.name}
+                applicant={applicant}
+                pos={index}
+                // setRefresh={setRefresh}
+                // refresh={refresh}
+              />
+            ))}
+          </TableBody>
+        </Table>
+      )}
     </TableContainer>
   );
 }

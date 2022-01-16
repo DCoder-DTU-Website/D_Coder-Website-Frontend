@@ -13,6 +13,7 @@ import { Box, Collapse, IconButton, Button } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Card from "../../../Recruiter/UnScheduled/CollapseCard/MarksNewCard";
+import Loader from "../../../../helpers/Loader";
 
 function Row(props) {
   const { applicant, pos } = props;
@@ -97,11 +98,14 @@ export default function CustomizedTables() {
   const classes = useStyles();
   const [accepted, setAccepted] = useState([]);
   // const [members, setMembers] = useState(rows);
+  const [loading, setLoading] = useState(true);
 
   const getAccepted = async () => {
     try {
+      setLoading(true);
       const { data } = await api.get("/applicants/accepted");
       setAccepted(data);
+      setLoading(false);
       console.log(accepted);
     } catch (err) {}
   };
@@ -111,17 +115,31 @@ export default function CustomizedTables() {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="left">Contact</StyledTableCell>
-            <StyledTableCell align="right">Email</StyledTableCell>
-            <StyledTableCell align="right"></StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {/* {accepted.map((row) => (
+      {loading ? (
+        <Loader />
+      ) : (
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell align="left">Contact</StyledTableCell>
+              <StyledTableCell align="right">Email</StyledTableCell>
+              <StyledTableCell align="right"></StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {accepted.map((applicant, index) => (
+              <Row key={applicant.name} applicant={applicant} pos={index} />
+            ))}
+          </TableBody>
+        </Table>
+      )}
+    </TableContainer>
+  );
+}
+
+{
+  /* {accepted.map((row) => (
             <StyledTableRow key={row.email}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
@@ -129,18 +147,5 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.phone}</StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
             </StyledTableRow>
-          ))} */}
-          {accepted.map((applicant, index) => (
-            <Row
-              key={applicant.name}
-              applicant={applicant}
-              pos={index}
-              // setRefresh={setRefresh}
-              // refresh={refresh}
-            />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+          ))} */
 }
