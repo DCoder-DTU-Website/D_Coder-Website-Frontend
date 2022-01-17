@@ -128,6 +128,7 @@ export default function CustomizedTables() {
             </TableRow>
           </TableHead>
           <TableBody>
+          {accepted.length==0? (<div style={{padding:"10px"}}>Nothing to show here</div>):null}
             {accepted.map((applicant, index) => (
               <Row key={applicant.name} applicant={applicant} pos={index} />
             ))}

@@ -163,14 +163,10 @@ function Form() {
       interviewTime: "",
       interviewerName: "",
     };
-    console.log(applicantData);
     try {
       await api.post("/applicants", formurlencoded(applicantData));
       handleOpen();// Success Modal
     } catch (err) {
-      console.log("1st erorr");
-      console.log(err);
-      console.log(err.message)
       swal({
         title: "Unable to submit your application! Try Again Later!",
         icon: "error",
@@ -433,7 +429,6 @@ function Form() {
                                     closeOnEsc: true,
                                   });
                                   setProfileImg(response.data.url);
-                                  console.log(response.data.url, typeof(response.data.url));
                                   setImgUploading(false);
                                 });
                             } catch (err) {
@@ -447,7 +442,6 @@ function Form() {
                                   closeOnEsc: true,
                                 });
                               } else {
-                                console.log("2nd eror");
                                 swal({
                                   title:
                                     "Unable to submit your application! Try Again Later!",
@@ -536,7 +530,7 @@ function Form() {
                         <TextField
                           required
                           placeholder="Roll Number"
-                          label="Roll Number ( Eg: 2K21/A8/09 or 2K21/B12/01 )"
+                          label="Roll Number (Eg: 2K21/A8/09)"
                           name="roll"
                           value={formik.values.roll}
                           onChange={formik.handleChange}
