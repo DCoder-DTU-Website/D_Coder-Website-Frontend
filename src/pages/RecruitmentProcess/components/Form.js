@@ -267,8 +267,8 @@ function Form() {
       <div id="ThankYou_RF-content">
         <p id="ThankYou_RF-title">THANK YOU</p>
         <p id="ThankYou_RF-description">
-          The form was filled successfully. You will be receive all the
-          necessary details in your email soon.
+          Your form has been submitted successfully. We will contact you soon.
+          Please check your email regularly.
         </p>
         <div className="ThankYou_RF-socialMedia">
           <p>FOLLOW US</p>
@@ -293,7 +293,9 @@ function Form() {
             </SocialLink>
           </SocialLinksContainer>
         </div>
-        <button id="ThankYou_RF-Button" onClick={()=>window.location = "/"}>OK</button>
+        <button id="ThankYou_RF-Button" onClick={() => (window.location = "/")}>
+          OK
+        </button>
       </div>
     </div>
   );
