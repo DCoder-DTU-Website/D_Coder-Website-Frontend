@@ -120,11 +120,13 @@ function Form() {
     .string()
     .matches(
       /2K21\/(A|B)[0-9]{1,2}\/[0-9]{1,2}$/m,
-      "Enter valid Roll number"
-      )
+      "Enter valid Roll number")
       .required("Roll number is required"),
     phone: Yup
     .string()
+    .matches(
+      /\+([0-9]|\s|\.){12,16}$/m,
+      "Enter valid Mobile Number")
     .required("Mobile number is required")
     ,
     email: Yup
@@ -568,7 +570,7 @@ function Form() {
                         <TextField
                           required
                           placeholder="Mobile"
-                          label="Mobile"
+                          label="Mobile (Eg: +XX XXXXXXXXXX)"
                           name="phone"
                           value={formik.values.phone}
                           onChange={formik.handleChange}
