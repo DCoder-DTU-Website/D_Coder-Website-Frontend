@@ -119,7 +119,7 @@ function Form() {
     roll: Yup
     .string()
     .matches(
-      /2K21\/(A|B)[0-9]{1,2}\/[0-9]{1,2}$/m,
+      /2(k|K)21\/(A|B|a|b)[0-9]{1,2}\/[0-9]{1,2}$/m,
       "Enter valid Roll number")
       .required("Roll number is required"),
     phone: Yup
