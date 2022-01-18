@@ -54,7 +54,7 @@ const splash = (props) => {
             <PrimaryAction
               style={{ paddingTop: "8px" }}
             >
-              Join Us 🔔
+              Join Us!
             </PrimaryAction>
           </Link>
         </Content>
