@@ -38,8 +38,8 @@ const VisionMission = () => {
   const Card = ({ item }) => {
     return (
       <div className="w-[20rem] h-[12rem] bg-white mx-6 border my-6 rounded-xl p-4 border-4 border-[#3182CE] shadow-lg shadow-white">
-        <h1 className="text-2xl font-semibold text-center">{item.title}</h1>
-        <p className="text-center">{item.desc}</p>
+        <h1 className="text-2xl font-semibold text-center mb-4">{item.title}</h1>
+        <p className="text-sm text-center">{item.desc}</p>
       </div>
     );
   };
