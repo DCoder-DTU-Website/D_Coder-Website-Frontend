@@ -50,7 +50,7 @@ const splash = (props) => {
               {props.subheading}
             </Heading>
           )}
-          <Link to="/recruitment-form">
+          <Link to="/recruitment">
             <PrimaryAction
               style={{ paddingTop: "8px" }}
             >
