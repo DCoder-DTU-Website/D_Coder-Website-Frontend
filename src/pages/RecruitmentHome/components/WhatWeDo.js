@@ -26,15 +26,13 @@ const WhatWeDo = () => {
           data-aos="flip-right"
           data-aos-delay="300"
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-          molestias expedita sunt, dolorem, ipsam facere, iusto sit ipsum est
-          reprehenderit quam. Et inventore nobis dolor voluptatum ad temporibus
-          fuga repellat excepturi obcaecati. Fugiat cumque molestias nulla ad
-          beatae enim harum tenetur quidem quisquam sed ipsum inventore,
-          doloremque quam ipsa culpa. Et inventore nobis dolor voluptatum ad
-          temporibus fuga repellat excepturi obcaecati. Fugiat cumque molestias
-          nulla ad beatae enim harum tenetur quidem quisquam sed ipsum
-          inventore, doloremque quam ipsa culpa.
+          We create a fostering environment where students can have a space to
+          share and solve each other's problems ranging from academics to
+          placements to college life in general. Good peer groups can give the
+          best of growth in college life. Therefore our society expands upon
+          this idea and brings together a community of seniors who are happy to
+          help and mentor the students to excel in any tech opportunity they
+          want.
         </p>
       </div>
     </div>
