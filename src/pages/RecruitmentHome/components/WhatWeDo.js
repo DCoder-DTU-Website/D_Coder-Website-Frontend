@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 const WhatWeDo = () => {
   AOS.init();
   return (
-    <div className="flex w-full min-h-[100vh]">
+    <div className="flex w-full sm:min-h-[100vh]">
       <div className="hidden sm:flex w-full justify-content items-center">
         <img
           src={WhatDo}

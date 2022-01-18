@@ -9,7 +9,7 @@ const Video = () => {
     query: "(min-device-width: 690px)",
   });
   return (
-    <div className="flex w-full h-[100vh] justify-center items-center flex-col">
+    <div className="flex w-full sm:min-h-[100vh] justify-center items-center flex-col">
       <h1 className="recruiter-heading text-white text-2xl sm:text-4xl md:text-6xl text-bold my-24">
         Our Orientation
       </h1>

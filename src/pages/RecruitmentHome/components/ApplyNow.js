@@ -7,7 +7,7 @@ const ApplyNow = () => {
   const history = useHistory();
   return (
     <div
-      className={`flex w-full min-h-[100vh] flex-col justify-center items-center  bg-no-repeat bg-bottom`}
+      className={`flex w-full h-[80vh] sm:min-h-[100vh] flex-col justify-center items-center  bg-no-repeat bg-bottom`}
     >
       <h1 className="recruiter-heading text-white text-2xl text-center my-4 sm:text-4xl md:text-6xl text-bold sm:my-8 justify-center">
         What are you Waiting for?

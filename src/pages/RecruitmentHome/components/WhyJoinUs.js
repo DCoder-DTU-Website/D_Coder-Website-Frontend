@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 const WhyJoinUs = () => {
   AOS.init();
   return (
-    <div className="flex w-full min-h-[100vh]">
+    <div className="flex w-full sm:min-h-[100vh]">
       <div className="flex flex-col justify-center items-center w-full sm:px-12">
         <h1 className="recruiter-heading text-white text-3xl sm:text-4xl md:text-6xl text-bold my-8 justify-left">
           {" "}
