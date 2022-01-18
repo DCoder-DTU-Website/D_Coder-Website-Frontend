@@ -11,6 +11,11 @@ const Card = ({ applicant }) => {
   return (
     <div className="card-main">
       <div className="name-info">
+        <img
+          src={applicant.image}
+          alt="image"
+          className="w-24 rounded-full"
+        ></img>
         <div className="info">
           <div className="name">{applicant.name}</div>
           <div className="roll">{applicant.roll.toUpperCase()}</div>
