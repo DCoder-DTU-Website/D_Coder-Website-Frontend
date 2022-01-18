@@ -13,7 +13,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import axios from "axios";
 import api from "../../../api/apiClient";
-import { Formik, useFormik, ErrorMessage } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from "sweetalert";
 import formurlencoded from "form-urlencoded";
@@ -30,6 +30,7 @@ import ThankYou_RF from "../../../images/ThankYou-RF.jpeg";
 import { ReactComponent as InstagramIcon } from "../../../images/instagram-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../../images/youtube-icon.svg";
 import { ReactComponent as LinkedinIcon } from "../../../images/linkedin-icon.svg";
+import { ConnectedFocusError } from 'focus-formik-error'
 
 const BlueCheckbox = withStyles({
   root: {
@@ -80,7 +81,7 @@ const theme = createMuiTheme({
 
 const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded md:w-32 lg:w-5/12 xl:w-64 xl:h-64 xl:mx-32 flex-shrink-0 my-1 h-64 w-64 md:h-32  bg-center sm:w-1/3  sm:mx-8 md:mx-16 lg:mx-24`,
+  tw`rounded md:w-32 lg:w-5/12 xl:w-64 xl:h-64 xl:mx-32 flex-shrink-0 my-1 h-64 w-64 md:h-32  bg-center sm:w-1/3 bg-cover sm:mx-8 md:mx-16 lg:mx-24`,
 ]);
 const SocialLinksContainer = tw.div`mt-10`;
 const SocialLink = styled.a`
@@ -95,8 +96,7 @@ const ErrorComponent = (msg) => (
     style={{
       color: "red",
       justifyContent: "left",
-      marginTop: "1.2rem",
-      marginBottom: "1.5rem",
+      marginTop: "10px",
     }}
   >
     {msg}
@@ -108,25 +108,34 @@ function Form() {
   dte = dte.toISOString().substring(0, 10);
   const [imgUploading, setImgUploading] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [images, setImages] = useState("");
+  const [profileImg,setProfileImg] = useState(backgroundImage);
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .required("Name is Required")
+    name: Yup
+      .string()
       .min(4, "Name must have atleast 4 characters!")
-      .max(30, "Name must have atmost 30 characters!"),
-    roll: Yup.string().matches(
-      /2K21\/[a-zA-Z][0-9]+\/\d\d/i,
-      "Roll number must be of the form 2K21/XX/XX"
-    ),
-    phone: Yup.string().matches(
-      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-      "Phone number is not valid!"
-    ),
-    email: Yup.string()
+      .max(30, "Name must have atmost 30 characters!")
+      .required("Name is required"),
+    roll: Yup
+    .string()
+    .matches(
+      /2K21\/(A|B)[0-9]{1,2}\/[0-9]{1,2}$/m,
+      "Enter valid Roll number")
+      .required("Roll number is required"),
+    phone: Yup
+    .string()
+    .matches(
+      /\+([0-9]|\s|\.){12,16}$/m,
+      "Enter valid Mobile Number")
+    .required("Mobile number is required")
+    ,
+    email: Yup
+    .string()
       .required("Email is Required")
-      .email("Email must be Vaild")
-      .max(255, "Email must be less than 255 characters!"),
+      .matches(
+        /[a-z0-9_]+@dtu\.ac\.in/,
+        "Enter valid DTU Email Id"
+      ),
     dob: Yup.date().required("Date of Birth is Required"),
     branch: Yup.string().required("Branch is Required"),
     whyJoin: Yup.string()
@@ -137,37 +146,28 @@ function Form() {
       .required("Enter your expectations..")
       .min(10, "Content must be greater than 10 characters!")
       .max(100, "Content must be less than 100 characters!"),
-    image: Yup.string().required("Image is required"),
+    image: Yup
+    .string()
+    .required("Image is required"),
   });
-
-  // useEffect(async () => {
-  //   const applicants = await api.get("/applicants/all");
-  //   let res = [];
-  //   let res2 = [];
-  //   applicants.data.forEach((applicant) => {
-  //     res.push(applicant.email);
-  //     res2.push(applicant.phone);
-  //   });
-  //   setAllEmails(res);
-  //   setAllMobile(res2);
-  // }, []);
 
   const clickSubmit = async (values, actions) => {
     setUploading(true);
+    let applicantData = {...values};
+    actions.resetForm();
+    setProfileImg(backgroundImage);
+    applicantData = {
+      ...applicantData,
+      phone:+values.phone,
+      isAccepted: false,
+      interviewCompleted: false,
+      interviewLink: "",
+      interviewTime: "",
+      interviewerName: "",
+    };
     try {
-      let applicantData = values;
-      actions.resetForm();
-      applicantData = {
-        ...applicantData,
-        isAccepted: false,
-        interviewCompleted: false,
-        interviewLink: "",
-        interviewTime: "",
-        interviewerName: "",
-      };
       await api.post("/applicants", formurlencoded(applicantData));
-      handleOpen();
-      setUploading(false);
+      handleOpen();// Success Modal
     } catch (err) {
       swal({
         title: "Unable to submit your application! Try Again Later!",
@@ -206,23 +206,7 @@ function Form() {
       ]);
     }
   };
-
-  // const validateEmail = (value) => {
-  //   let error;
-  //   if (allEmails.includes(value)) {
-  //     error = "Email Address already Registered!";
-  //   }
-  //   return error;
-  // };
-
-  // const validateMobile = (value) => {
-  //   let error;
-  //   if (allMobile.includes(value)) {
-  //     error = "Mobile already Registered!";
-  //   }
-  //   return error;
-  // };
-  //Modal start
+  //Success Modal start
   const useStyles = makeStyles((theme) => ({
     paper: {
       position: "absolute",
@@ -267,8 +251,8 @@ function Form() {
       <div id="ThankYou_RF-content">
         <p id="ThankYou_RF-title">THANK YOU</p>
         <p id="ThankYou_RF-description">
-          The form was filled successfully. You will be receive all the
-          necessary details in your email soon.
+          Your form has been submitted successfully. We will contact you soon.
+          Please check your email regularly.
         </p>
         <div className="ThankYou_RF-socialMedia">
           <p>FOLLOW US</p>
@@ -293,10 +277,13 @@ function Form() {
             </SocialLink>
           </SocialLinksContainer>
         </div>
-        <button id="ThankYou_RF-Button" onClick={()=>window.location = "/"}>OK</button>
+        <button id="ThankYou_RF-Button" onClick={() => (window.location = "/")}>
+          OK
+        </button>
       </div>
     </div>
   );
+// Success Modal end
 
   return (
     <ThemeProvider theme={theme}>
@@ -316,22 +303,23 @@ function Form() {
             codingLanguage: [],
             whyJoin: "",
             expect: "",
-            image: backgroundImage,
+            image:"",
           }}
           validationSchema={validationSchema}
           onSubmit={clickSubmit}
         >
           {(formik) => (
             <form
-              style={{
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-around",
-                alignItems: "center",
-              }}
-              onSubmit={formik.handleSubmit}
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+            onSubmit={formik.handleSubmit}
             >
+            <ConnectedFocusError />
               <div
                 style={{
                   backgroundColor: "white",
@@ -379,7 +367,7 @@ function Form() {
                       justifyContent: "center",
                     }}
                   >
-                    <Image id="imgRF" imageSrc={formik.values.image} />
+                    <Image id="imgRF" imageSrc={ profileImg==backgroundImage? backgroundImage : profileImg } />
                     <Grid
                       item
                       style={{
@@ -396,18 +384,18 @@ function Form() {
                           textAlign: "center",
                         }}
                       >
-                        Image size must be less than 1MB.
+                        Image size should be less than 1MB.
                       </div>
                       <div>
                         <label
                           for="files"
                           className="UploadImageLabel RecruitmentForm-img-upload-btn"
                         >
+                          {imgUploading && "Uploading..."}
                           {!imgUploading &&
-                          formik.values.image === backgroundImage
+                          formik.values.image === ""
                             ? "Select Image"
                             : "Change Image"}
-                          {imgUploading && "Uploading..."}
                         </label>
                         <input
                           disabled={imgUploading}
@@ -442,8 +430,9 @@ function Form() {
                                     closeOnClickOutside: true,
                                     closeOnEsc: true,
                                   });
+                                  setProfileImg(response.data.url);
+                                  setImgUploading(false);
                                 });
-                              setImgUploading(false);
                             } catch (err) {
                               setImgUploading(false);
                               if (err.message === "Image Size Exceeded!") {
@@ -543,14 +532,9 @@ function Form() {
                         <TextField
                           required
                           placeholder="Roll Number"
-                          label="Roll Number"
+                          label="Roll Number (Eg: 2K21/A8/09)"
                           name="roll"
-                          value={
-                            formik.values.roll.startsWith("2K21/")
-                              ? formik.values.roll
-                              : "2K21/"
-                          }
-                          // value={formik.values.roll}
+                          value={formik.values.roll}
                           onChange={formik.handleChange}
                           style={{ width: "100%" }}
                           InputLabelProps={{
@@ -586,7 +570,7 @@ function Form() {
                         <TextField
                           required
                           placeholder="Mobile"
-                          label="Mobile"
+                          label="Mobile (Eg: +XX XXXXXXXXXX)"
                           name="phone"
                           value={formik.values.phone}
                           onChange={formik.handleChange}
@@ -628,14 +612,9 @@ function Form() {
                         <TextField
                           required
                           placeholder="Email"
-                          label="Email"
+                          label="DTU Email Id"
                           name="email"
-                          value={
-                            formik.values.email.endsWith("@dtu.ac.in")
-                              ? formik.values.email
-                              : ""
-                          }
-                          // value={formik.values.email}
+                          value={formik.values.email}
                           onChange={formik.handleChange}
                           style={{ width: "100%" }}
                           InputLabelProps={{
@@ -646,21 +625,6 @@ function Form() {
                           }}
                           InputProps={{ className: "InputLabelStyle" }}
                         />
-                        {/* <TextField
-                          disabled
-                          placeholder=""
-                          label="&nbsp;"
-                          name=""
-                          value={"@dtu.ac.in"}
-                          style={{ width: "100%" }}
-                          InputLabelProps={{
-                            style: {
-                              color: "white",
-                              borderColor: "white",
-                            },
-                          }}
-                          InputProps={{ className: "InputLabelStyle" }}
-                        /> */}
                       </div>
                     </Grid>
                     {formik.errors.email && formik.touched.email && (

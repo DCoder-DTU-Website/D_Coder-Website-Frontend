@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import NavBar from "helpers/library.js";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import "./title.css";
 import "./HomePageSplash.css"
 
@@ -50,12 +50,11 @@ const splash = (props) => {
               {props.subheading}
             </Heading>
           )}
-          <Link to="ContactUs" smooth={true}>
+          <Link to="/recruitment-form">
             <PrimaryAction
               style={{ paddingTop: "8px" }}
-              onClick={(e) => props.onClick()}
             >
-              Get in Touch
+              Join Us 🔔
             </PrimaryAction>
           </Link>
         </Content>

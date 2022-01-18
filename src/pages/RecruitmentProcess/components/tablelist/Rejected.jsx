@@ -210,6 +210,7 @@ export default function CustomizedTables() {
               </StyledTableCell>
             </StyledTableRow>
           ))} */}
+            {rejected.length==0? (<div style={{padding:"10px"}}>Nothing to show here</div>):null}
             {rejected.map((applicant, index) => (
               <Row
                 key={applicant.name}

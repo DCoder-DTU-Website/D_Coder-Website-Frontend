@@ -105,6 +105,9 @@ function App() {
           <Route exact path="/alumni">
             <Alumni />
           </Route>
+          <Route exact path="/admin">
+          <Redirect to="/" />
+          </Route>
           <Route exact path="/admin/dashboard">
             {isAdmin ? (
               <Admin />
@@ -113,7 +116,6 @@ function App() {
                 <Redirect to="/" />
               </Route>
             )}
-            {/* <Admin /> */}
           </Route>
           <Route exact path="/admin/placements">
             {isAdmin ? (

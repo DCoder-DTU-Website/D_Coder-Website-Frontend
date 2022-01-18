@@ -264,6 +264,7 @@ export default function CustomizedTables() {
             </TableRow>
           </TableHead>
           <TableBody>
+          {scheduled.length==0? (<div style={{padding:"10px"}}>Nothing to show here</div>):null}
             {scheduled.map((applicant, index) => (
               <Row
                 key={applicant.name}

@@ -124,6 +124,7 @@ export default function CustomizedTables() {
                 </TableRow>
               </TableHead>
               <TableBody>
+              {recruiters.length==0? (<div style={{padding:"10px"}}>Nothing to show here</div>):null}
                 {recruiters.map((row) => (
                   <StyledTableRow key={row.email}>
                     <StyledTableCell component="th" scope="row">
