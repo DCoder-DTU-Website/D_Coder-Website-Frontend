@@ -119,7 +119,7 @@ function Form() {
     roll: Yup
     .string()
     .matches(
-      /2(k|K)21\/(A|B|a|b)[0-9]{1,2}\/[0-9]{1,2}$/m,
+      /2(K|k)21\/(A\d{1,2}|a\d{1,2}|B(\d{1,2}|d|D)|b(\d{1,2}|d|D))\/[0-9]{1,3}$/m,
       "Enter valid Roll number")
       .required("Roll number is required"),
     phone: Yup
@@ -133,7 +133,7 @@ function Form() {
     .string()
       .required("Email is Required")
       .matches(
-        /[a-z0-9_]+@dtu\.ac\.in/,
+        /[a-z0-9_]+@dtu\.ac\.in$/m,
         "Enter valid DTU Email Id"
       ),
     dob: Yup.date().required("Date of Birth is Required"),
@@ -166,16 +166,27 @@ function Form() {
       interviewerName: "",
     };
     try {
-      await api.post("/applicants", formurlencoded(applicantData));
-      handleOpen();// Success Modal
+        await api.post("/applicants", formurlencoded(applicantData));
+        handleOpen();// Success Modal
     } catch (err) {
-      swal({
-        title: "Unable to submit your application! Try Again Later!",
-        icon: "error",
-        buttons: true,
-        closeOnClickOutside: true,
-        closeOnEsc: true,
-      });
+      if(err.response.status==406){
+        swal({
+          title: err.response.data.message,
+          icon: "error",
+          buttons: true,
+          closeOnClickOutside: true,
+          closeOnEsc: true,
+        });
+      }
+      else{
+        swal({
+          title: "Something went wrong!!",
+          icon: "error",
+          buttons: true,
+          closeOnClickOutside: true,
+          closeOnEsc: true,
+        });
+      }
     }
     setUploading(false);
   };
