@@ -12,7 +12,7 @@ const VisionMission = () => {
     },
     {
       title: "Difference",
-      desc: "We firmly believe that we can make a real big difference in this world by solving real-life problems through technology .",
+      desc: "We firmly believe that we can make a real big difference in this world by solving real-life problems through technology.",
     },
     {
       title: "Zealous",

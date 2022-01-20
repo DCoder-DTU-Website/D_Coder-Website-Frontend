@@ -11,16 +11,17 @@ const Hero = () => {
           {" "}
           We Are Recruiting!!
         </h1>
-        <p className="text-white my-6 text-center sm:text-justify">
-          Yes! You read it right !!! <br/>If you are unsure about how to crack
-          Google, Microsoft, etc and which resources to follow, and if you are
-          someone who seeks your personal, academic as well as social growth,
-          this society is for you. Click on the button below to apply and set
-          your career on the right path.
+        <p className="recruiter-paragraph  text-md sm:text-xl text-white my-6 text-center sm:text-justify mb-8">
+          {" "}
+          Yes! You read it right!!! <br />
+          If you are unsure about how to crack Google, Microsoft, etc and which
+          resources to follow, and if you are someone who seeks your personal,
+          academic as well as social growth, this society is for you. Click on
+          the button below to apply and set your career on the right path.
         </p>
         <div
           className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 border-b-4 border-blue-700 hover:border-blue-500 rounded-full cursor-pointer"
-          onClick={() => history.push("/recruitment-form")}
+          onClick={() => history.push("/registration-form")}
         >
           Apply Now
         </div>

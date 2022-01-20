@@ -9,6 +9,7 @@ import {
   ApplyNow,
 } from "./components";
 import "./index.css";
+import Footer from "../../components/footers/Footer";
 
 const RecruitmentHome = () => {
   return (
@@ -17,9 +18,10 @@ const RecruitmentHome = () => {
       <Hero />
       <WhatWeDo />
       <WhyJoinUs />
-      <Video />
+      {/* <Video /> */}
       <VisionMission />
       <ApplyNow />
+      <Footer />
     </div>
   );
 };

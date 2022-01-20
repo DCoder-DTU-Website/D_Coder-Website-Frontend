@@ -13,14 +13,14 @@ const WhyJoinUs = () => {
           Why Join Us?
         </h1>
         <p
-          className="text-white text-justify"
+          className="text-white text-justify text-md sm:text-xl"
           data-aos="flip-left"
           data-aos-delay="300"
         >
           We don’t just guide our juniors on their internship or placement
           journeys but are also eveready to help out the juniors on any problem
           they face. We do not believe in keeping the society formal or calling
-          our seniors “sir” or “mam”. Rather, the environment is so chilled out
+          our seniors “sir” or “ma'am”. Rather, the environment is so chilled out
           that you can ask anything to anyone without any hesitation
           irrespective of the type of problem you are facing. So, the question
           isn’t really “why join us?”, it's rather “why not?”.

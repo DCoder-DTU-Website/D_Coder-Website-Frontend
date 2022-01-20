@@ -30,7 +30,7 @@ import ThankYou_RF from "../../../images/ThankYou-RF.jpeg";
 import { ReactComponent as InstagramIcon } from "../../../images/instagram-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../../images/youtube-icon.svg";
 import { ReactComponent as LinkedinIcon } from "../../../images/linkedin-icon.svg";
-import { ConnectedFocusError } from 'focus-formik-error'
+import { ConnectedFocusError } from "focus-formik-error";
 
 const BlueCheckbox = withStyles({
   root: {
@@ -49,9 +49,10 @@ const BlueCheckbox = withStyles({
   />
 ));
 
-const backgroundImage =
-  "https://res.cloudinary.com/dcoderdtu/image/upload/v1621400604/WhatsApp_Image_2021-05-19_at_10.21.20_ekkng5.jpg";
+// const backgroundImage =
+//   "https://res.cloudinary.com/dcoderdtu/image/upload/v1621400604/WhatsApp_Image_2021-05-19_at_10.21.20_ekkng5.jpg";
 
+const backgroundImage = `https://www.w3schools.com/howto/img_avatar.png`;
 const theme = createMuiTheme({
   overrides: {
     MuiSelect: {
@@ -108,34 +109,25 @@ function Form() {
   dte = dte.toISOString().substring(0, 10);
   const [imgUploading, setImgUploading] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [profileImg,setProfileImg] = useState(backgroundImage);
+  const [profileImg, setProfileImg] = useState(backgroundImage);
 
   const validationSchema = Yup.object().shape({
-    name: Yup
-      .string()
+    name: Yup.string()
       .min(4, "Name must have atleast 4 characters!")
       .max(30, "Name must have atmost 30 characters!")
       .required("Name is required"),
-    roll: Yup
-    .string()
-    .matches(
-      /2(K|k)21\/(A\d{1,2}|a\d{1,2}|B(\d{1,2}|d|D)|b(\d{1,2}|d|D))\/[0-9]{1,3}$/m,
-      "Enter valid Roll number")
-      .required("Roll number is required"),
-    phone: Yup
-    .string()
-    .matches(
-      /\+([0-9]|\s|\.){12,16}$/m,
-      "Enter valid Mobile Number")
-    .required("Mobile number is required")
-    ,
-    email: Yup
-    .string()
-      .required("Email is Required")
+    roll: Yup.string()
       .matches(
-        /[a-z0-9_]+@dtu\.ac\.in$/m,
-        "Enter valid DTU Email Id"
-      ),
+        /2(K|k)21\/(A\d{1,2}|a\d{1,2}|B(\d{1,2}|d|D)|b(\d{1,2}|d|D))\/[0-9]{1,3}$/m,
+        "Enter valid Roll number"
+      )
+      .required("Roll number is required"),
+    phone: Yup.string()
+      .matches(/\+([0-9]|\s|\.){12,16}$/m, "Enter valid Mobile Number")
+      .required("Mobile number is required"),
+    email: Yup.string()
+      .required("Email is Required")
+      .matches(/[a-z0-9_]+@dtu\.ac\.in$/m, "Enter valid DTU Email Id"),
     dob: Yup.date().required("Date of Birth is Required"),
     branch: Yup.string().required("Branch is Required"),
     whyJoin: Yup.string()
@@ -146,19 +138,17 @@ function Form() {
       .required("Enter your expectations..")
       .min(10, "Content must be greater than 10 characters!")
       .max(100, "Content must be less than 100 characters!"),
-    image: Yup
-    .string()
-    .required("Image is required"),
+    image: Yup.string().required("Image is required"),
   });
 
   const clickSubmit = async (values, actions) => {
     setUploading(true);
-    let applicantData = {...values};
+    let applicantData = { ...values };
     actions.resetForm();
     setProfileImg(backgroundImage);
     applicantData = {
       ...applicantData,
-      phone:+values.phone,
+      phone: +values.phone,
       isAccepted: false,
       interviewCompleted: false,
       interviewLink: "",
@@ -166,10 +156,10 @@ function Form() {
       interviewerName: "",
     };
     try {
-        await api.post("/applicants", formurlencoded(applicantData));
-        handleOpen();// Success Modal
+      await api.post("/applicants", formurlencoded(applicantData));
+      handleOpen(); // Success Modal
     } catch (err) {
-      if(err.response.status==406){
+      if (err.response.status == 406) {
         swal({
           title: err.response.data.message,
           icon: "error",
@@ -177,8 +167,7 @@ function Form() {
           closeOnClickOutside: true,
           closeOnEsc: true,
         });
-      }
-      else{
+      } else {
         swal({
           title: "Something went wrong!!",
           icon: "error",
@@ -230,10 +219,10 @@ function Form() {
       alignItems: "center",
       display: "flex",
       flexDirection: "column",
-      borderRadius:"10px",
-      "@media (max-width: 600px)":{
-        width:300,
-      }
+      borderRadius: "10px",
+      "@media (max-width: 600px)": {
+        width: 300,
+      },
     },
   }));
 
@@ -249,7 +238,7 @@ function Form() {
   };
 
   function getModalStyle() {
-    return { 
+    return {
       top: `${50}%`,
       left: `${50}%`,
       transform: `translate(-${50}%, -${50}%)`,
@@ -294,7 +283,7 @@ function Form() {
       </div>
     </div>
   );
-// Success Modal end
+  // Success Modal end
 
   return (
     <ThemeProvider theme={theme}>
@@ -310,27 +299,27 @@ function Form() {
             email: "@dtu.ac.in",
             dob: "",
             branch: "",
-            techStack: [], 
+            techStack: [],
             codingLanguage: [],
             whyJoin: "",
             expect: "",
-            image:"",
+            image: "",
           }}
           validationSchema={validationSchema}
           onSubmit={clickSubmit}
         >
           {(formik) => (
             <form
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-around",
-              alignItems: "center",
-            }}
-            onSubmit={formik.handleSubmit}
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-around",
+                alignItems: "center",
+              }}
+              onSubmit={formik.handleSubmit}
             >
-            <ConnectedFocusError />
+              <ConnectedFocusError />
               <div
                 style={{
                   backgroundColor: "white",
@@ -338,15 +327,9 @@ function Form() {
                   color: "black",
                   marginBottom: "5em",
                 }}
+                className="py-6"
               >
-                <div
-                  style={{
-                    textAlign: "center",
-                    backgroundColor: "white",
-                    fontWeight: "300",
-                  }}
-                  className="changefont sizeH1"
-                >
+                <div className="changefont sizeH1 text-center bg-white font-bold">
                   Join D_CODER!
                 </div>
                 <div
@@ -378,7 +361,14 @@ function Form() {
                       justifyContent: "center",
                     }}
                   >
-                    <Image id="imgRF" imageSrc={ profileImg==backgroundImage? backgroundImage : profileImg } />
+                    <Image
+                      id="imgRF"
+                      imageSrc={
+                        profileImg == backgroundImage
+                          ? backgroundImage
+                          : profileImg
+                      }
+                    />
                     <Grid
                       item
                       style={{
@@ -403,8 +393,7 @@ function Form() {
                           className="UploadImageLabel RecruitmentForm-img-upload-btn"
                         >
                           {imgUploading && "Uploading..."}
-                          {!imgUploading &&
-                          formik.values.image === ""
+                          {!imgUploading && formik.values.image === ""
                             ? "Select Image"
                             : "Change Image"}
                         </label>
@@ -826,7 +815,7 @@ function Form() {
                 <FormGroup
                   row
                   fullWidth
-                  style={{ display: "flex", justifyContent: "center" }}
+                  className = "flex flex-col sm:flex-row sm:justify-center"
                 >
                   <FormControlLabel
                     control={
@@ -842,6 +831,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
+                    className = "w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -857,6 +847,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
+                    className = "w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -872,6 +863,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
+                    className = "w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -887,6 +879,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
+                    className = "w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -902,6 +895,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
+                    className = "w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -917,6 +911,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
+                    className = "w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -932,6 +927,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
+                    className = "w-full sm:w-auto flex justify-center"
                   />
                 </FormGroup>
               </Grid>

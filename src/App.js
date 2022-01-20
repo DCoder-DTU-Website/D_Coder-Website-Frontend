@@ -204,7 +204,7 @@ function App() {
               </Route>
             )}
           </Route>
-          <Route path="/recruitment-form">
+          <Route path="/registration-form">
             <RecruitmentForm />
           </Route>
           {/* <Route path="/thankyou">

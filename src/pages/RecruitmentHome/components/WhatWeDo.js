@@ -22,7 +22,7 @@ const WhatWeDo = () => {
           What We Do?
         </h1>
         <p
-          className="text-white my-6 text-justify"
+          className="text-white my-6 text-justify text-md sm:text-xl"
           data-aos="flip-right"
           data-aos-delay="300"
         >

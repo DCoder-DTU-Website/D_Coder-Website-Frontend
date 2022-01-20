@@ -17,7 +17,7 @@ const ApplyNow = () => {
       </h1>
       <div
         className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 border-b-4 border-blue-700 hover:border-blue-500 rounded-full cursor-pointer mt-12"
-        onClick={() => history.push("/recruitment-form")}
+        onClick={() => history.push("/registration-form")}
       >
         Apply Now
       </div>

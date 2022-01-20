@@ -1,11 +1,11 @@
 .YearSelection__select {
-  margin: 1em 0;
+  margin: 1em 0 !important;
 }
 
 @media screen and (min-width: 1280px) {
   .YearSelection__select {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 2em;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 2em !important;
   }
 }

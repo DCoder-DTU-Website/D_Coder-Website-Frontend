@@ -492,14 +492,14 @@
   .card__collection {
     position: relative;
     display: block;
-    background: rgba(10, 10, 10, 0.5);
+    // background: rgba(10, 10, 10, 0.5);
     padding: 10px;
     font-family: "Do Hyeon", sans-serif;
     overflow: hidden;
 
     .cards {
-      width: 300px;
-      height: 400px;
+      width: 280px;
+      height: 350px;
       display: block;
       background-size: cover;
       float: left;

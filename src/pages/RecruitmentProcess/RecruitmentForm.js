@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "style.css";
 import "tailwindcss/dist/base.css";
 import Hero from "components/hero/SplashScreenWithHeading";
@@ -8,6 +8,9 @@ import Form from "./components/Form";
 import "./components/Form.css";
 
 export default function RecruitmentForm() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div
       style={{
