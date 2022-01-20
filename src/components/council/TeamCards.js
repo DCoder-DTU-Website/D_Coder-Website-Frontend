@@ -16,13 +16,15 @@ class TeamCards extends React.Component {
             return (
               <li className="TeamCards__members">
                 <div className="TeamCards__member-image">
-                  <img src={data.image} alt="" key={idx}/>
+                  <img src={data.image} alt="" key={idx} />
                 </div>
                 <div className="TeamCards__member-info">
                   <h3 key={idx}>{data.name}</h3>
                   <p key={idx}>{data.postion}</p>
                   <div className="TeamCards__social-link">
-                    <LinkedIn className="fab" />
+                    <a href={data.links} target="_blank">
+                      <LinkedIn className="fab" />
+                    </a>
                   </div>
                 </div>
               </li>
