@@ -68,7 +68,7 @@ const Councils = ({
   },
 }) => {
   const tabsKeys = Object.keys(tabs);
-  const [currentYear, setCurrentYear] = useState("2022");
+  const [currentYear, setCurrentYear] = useState("2021-2022");
   const [activeTab, setActiveTab] = useState(tabsKeys[0]);
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
   const isnotMobile = useMediaQuery({ query: "(min-width: 641px)" });
@@ -105,7 +105,7 @@ const Councils = ({
         <HeaderRow>
           {isMobile && (
             <TabsControls style={{ width: "320px" }}>
-              {currentYear == "2021"
+              {currentYear === "2020-2021"
                 ? Object.keys(tabs).map((tabName, index) => (
                     <TabControls
                       style={{ textAlign: "center" }}
@@ -130,7 +130,7 @@ const Councils = ({
           )}
           {isnotMobile && (
             <TabsControl>
-              {currentYear == "2022"
+              {currentYear === "2021-2022"
                 ? Object.keys(tabs2022).map((tabName, index) => (
                     <TabControl
                       key={index}
@@ -153,7 +153,7 @@ const Councils = ({
           )}
           <YearSelction setCurrentYear={setCurrentYear} />
         </HeaderRow>
-        {currentYear == "2021" ? (
+        {currentYear === "2020-2021" ? (
           <div>
             {tabsKeys.map((tabKey, index) => (
               <TabContent

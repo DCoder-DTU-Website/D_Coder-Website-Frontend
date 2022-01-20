@@ -1,5 +1,7 @@
 .TeamCards__Container{
     font-family: sans-serif;
+    margin-left: 1.5rem;
+    margin-right: 3rem;
 }
 .TeamCards__list-members{
     list-style: none;
@@ -60,7 +62,7 @@
   right: 0;
   transform: translateY(-50%);
 }
-@media screen and (min-width:771px){
+@media screen and (min-width:767px){
     .TeamCards__members:nth-child(4n + 3) .TeamCards__member-info,
     .TeamCards__members:nth-child(4n + 4) .TeamCards__member-info{
         order: 1;
