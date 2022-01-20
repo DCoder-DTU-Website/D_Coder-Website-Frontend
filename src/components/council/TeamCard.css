@@ -1,0 +1,103 @@
+.TeamCards__Container{
+    font-family: sans-serif;
+}
+.TeamCards__list-members{
+    list-style: none;
+    width: 80%;
+    margin: 4% auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgb(0 30 114);
+}
+.TeamCards__members{
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.TeamCards__member-image{
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+.TeamCards__member-image img{
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+}
+.TeamCards__member-image:hover img{
+    transform: scale(1.1);
+}
+.TeamCards__member-info{
+    width: 50%;
+    text-align: center;
+}
+.TeamCards__member-info p{
+    margin: 20px 0;
+}
+.TeamCards__social-link .fab{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #0000;
+    margin: 0  7px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+.TeamCards__social-link .fab:hover{
+    color: rgb(27, 87, 255);
+    transform: translateY(-7px);
+}
+.TeamCards__member-image::after{
+  content: "";
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 15px solid rgb(0 30 114);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+@media screen and (min-width:771px){
+    .TeamCards__members:nth-child(4n + 3) .TeamCards__member-info,
+    .TeamCards__members:nth-child(4n + 4) .TeamCards__member-info{
+        order: 1;
+    }
+    .TeamCards__members:nth-child(4n + 3) .TeamCards__member-image,
+    .TeamCards__members:nth-child(4n + 4) .TeamCards__member-image{
+        order: 2;
+    }
+    .TeamCards__members:nth-child(4n + 3) .TeamCards__member-image::after,
+    .TeamCards__members:nth-child(4n + 4) .TeamCards__member-image::after{
+        left: 0;
+        right: auto;
+        transform: translateY(-50%) rotateZ(180deg);
+    }
+}
+@media screen and (max-width: 700px){
+    .TeamCards__list-members{
+        width: 95%;
+    }
+    .TeamCards__members{
+        flex-basis: 100%;
+        font-size: 14px;
+    }
+    .TeamCards__social-link .fab{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .TeamCards__members:nth-child(even) .TeamCards__member-info{
+        order: 1;
+    }
+    .TeamCards__members:nth-child(even) .TeamCards__member-image{
+        order: 2;
+    }
+    .TeamCards__members:nth-child(even) .TeamCards__member-image::after{
+        left: 0;
+        right: auto;
+        transform: translateY(-50%) rotateZ(180deg);
+    }
+}

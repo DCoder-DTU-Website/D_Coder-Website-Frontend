@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
@@ -11,9 +11,11 @@ import "./council.css";
 import { coheads } from "./Coheads";
 import { developers } from "./Developers";
 import { heads } from "./Heads";
+import YearSelction from "./YearSelction";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import CouncilCard from "./CouncilCard";
+import TeamCards from "./TeamCards";
 
 //Header (Team + Carousel) Styling Starts
 const HeaderRow = tw.div`flex justify-center items-center flex-col xl:flex-row`; // Team Heading +carousel
@@ -51,7 +53,6 @@ const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
 const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
   ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 transform -translate-x-2/3 text-blue-500`}
 `;
-
 //Cards For Heads
 const Councils = ({
   heading = "Team",
@@ -61,12 +62,21 @@ const Councils = ({
     CoHeads: getCoHeads(),
     Developers: getDevelopers(),
   },
+  tabs2022 = {
+    Heads: heads,
+    Developers: getDevelopers(),
+  },
 }) => {
   const tabsKeys = Object.keys(tabs);
+  const [currentYear, setCurrentYear] = useState("2022");
   const [activeTab, setActiveTab] = useState(tabsKeys[0]);
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
   const isnotMobile = useMediaQuery({ query: "(min-width: 641px)" });
+
   AOS.init();
+  useEffect(() => {
+    setActiveTab(tabsKeys[0]);
+  }, [currentYear]);
   return (
     <Container className="councilStyle" style={{ textAlign: "center" }}>
       <ContentWithPaddingXl>
@@ -95,187 +105,241 @@ const Councils = ({
         <HeaderRow>
           {isMobile && (
             <TabsControls style={{ width: "320px" }}>
-              {Object.keys(tabs).map((tabName, index) => (
-                <TabControls
-                  style={{ textAlign: "center" }}
-                  key={index}
-                  active={activeTab === tabName}
-                  onClick={() => setActiveTab(tabName)}
-                >
-                  {tabName}
-                </TabControls>
-              ))}
+              {currentYear == "2021"
+                ? Object.keys(tabs).map((tabName, index) => (
+                    <TabControls
+                      style={{ textAlign: "center" }}
+                      key={index}
+                      active={activeTab === tabName}
+                      onClick={() => setActiveTab(tabName)}
+                    >
+                      {tabName}
+                    </TabControls>
+                  ))
+                : Object.keys(tabs2022).map((tabName, index) => (
+                    <TabControls
+                      style={{ textAlign: "center" }}
+                      key={index}
+                      active={activeTab === tabName}
+                      onClick={() => setActiveTab(tabName)}
+                    >
+                      {tabName}
+                    </TabControls>
+                  ))}
             </TabsControls>
           )}
           {isnotMobile && (
             <TabsControl>
-              {Object.keys(tabs).map((tabName, index) => (
-                <TabControl
-                  key={index}
-                  active={activeTab === tabName}
-                  onClick={() => setActiveTab(tabName)}
-                >
-                  {tabName}
-                </TabControl>
-              ))}
+              {currentYear == "2022"
+                ? Object.keys(tabs2022).map((tabName, index) => (
+                    <TabControl
+                      key={index}
+                      active={activeTab === tabName}
+                      onClick={() => setActiveTab(tabName)}
+                    >
+                      {tabName}
+                    </TabControl>
+                  ))
+                : Object.keys(tabs).map((tabName, index) => (
+                    <TabControl
+                      key={index}
+                      active={activeTab === tabName}
+                      onClick={() => setActiveTab(tabName)}
+                    >
+                      {tabName}
+                    </TabControl>
+                  ))}
             </TabsControl>
           )}
+          <YearSelction setCurrentYear={setCurrentYear} />
         </HeaderRow>
-
-        {tabsKeys.map((tabKey, index) => (
-          <TabContent
-            key={index}
-            variants={{
-              current: {
-                opacity: 1,
-                scale: 1,
-                display: "flex",
-              },
-              hidden: {
-                opacity: 0,
-                scale: 0.8,
-                display: "none",
-              },
-            }}
-            transition={{ duration: 0.4 }}
-            initial={activeTab === tabKey ? "current" : "hidden"}
-            animate={activeTab === tabKey ? "current" : "hidden"}
-          >
-            {tabKey !== "Heads" &&
-              tabs[tabKey].map((card, index) => (
-                <CouncilCard key={index} index={index} card={card} />
-              ))}
-            {tabKey === "Heads" &&
-              tabs["Heads"].president.map((card, index) => (
-                <CouncilCard key={index} index={index} card={card} />
-              ))}
-          </TabContent>
-        ))}
-        {tabsKeys.map((tabKey, index) => (
-          <TabContent
-            key={index}
-            variants={{
-              current: {
-                opacity: 1,
-                scale: 1,
-                display: "flex",
-              },
-              hidden: {
-                opacity: 0,
-                scale: 0.8,
-                display: "none",
-              },
-            }}
-            transition={{ duration: 0.4 }}
-            initial={activeTab === tabKey ? "current" : "hidden"}
-            animate={activeTab === tabKey ? "current" : "hidden"}
-          >
-            {tabKey === "Heads" &&
-              tabs["Heads"].vp.map((card, index) => (
-                <CouncilCard key={index} index={index} card={card} />
-              ))}
-          </TabContent>
-        ))}
-        {tabsKeys.map((tabKey, index) => (
-          <TabContent
-            key={index}
-            variants={{
-              current: {
-                opacity: 1,
-                scale: 1,
-                display: "flex",
-              },
-              hidden: {
-                opacity: 0,
-                scale: 0.8,
-                display: "none",
-              },
-            }}
-            transition={{ duration: 0.4 }}
-            initial={activeTab === tabKey ? "current" : "hidden"}
-            animate={activeTab === tabKey ? "current" : "hidden"}
-          >
-            {tabKey === "Heads" &&
-              tabs["Heads"].gs.map((card, index) => (
-                <CouncilCard key={index} index={index} card={card} />
-              ))}
-          </TabContent>
-        ))}
-        {tabsKeys.map((tabKey, index) => (
-          <TabContent
-            key={index}
-            variants={{
-              current: {
-                opacity: 1,
-                scale: 1,
-                display: "flex",
-              },
-              hidden: {
-                opacity: 0,
-                scale: 0.8,
-                display: "none",
-              },
-            }}
-            transition={{ duration: 0.4 }}
-            initial={activeTab === tabKey ? "current" : "hidden"}
-            animate={activeTab === tabKey ? "current" : "hidden"}
-          >
-            {tabKey === "Heads" &&
-              tabs["Heads"].tl.map((card, index) => (
-                <CouncilCard key={index} index={index} card={card} />
-              ))}
-          </TabContent>
-        ))}
-        {tabsKeys.map((tabKey, index) => (
-          <TabContent
-            key={index}
-            variants={{
-              current: {
-                opacity: 1,
-                scale: 1,
-                display: "flex",
-              },
-              hidden: {
-                opacity: 0,
-                scale: 0.8,
-                display: "none",
-              },
-            }}
-            transition={{ duration: 0.4 }}
-            initial={activeTab === tabKey ? "current" : "hidden"}
-            animate={activeTab === tabKey ? "current" : "hidden"}
-          >
-            {tabKey === "Heads" &&
-              tabs["Heads"].frtgct.map((card, index) => (
-                <CouncilCard key={index} index={index} card={card} />
-              ))}
-          </TabContent>
-        ))}
-        {tabsKeys.map((tabKey, index) => (
-          <TabContent
-            key={index}
-            variants={{
-              current: {
-                opacity: 1,
-                scale: 1,
-                display: "flex",
-              },
-              hidden: {
-                opacity: 0,
-                scale: 0.8,
-                display: "none",
-              },
-            }}
-            transition={{ duration: 0.4 }}
-            initial={activeTab === tabKey ? "current" : "hidden"}
-            animate={activeTab === tabKey ? "current" : "hidden"}
-          >
-            {tabKey === "Heads" &&
-              tabs["Heads"].rl.map((card, index) => (
-                <CouncilCard key={index} index={index} card={card} />
-              ))}
-          </TabContent>
-        ))}
+        {currentYear == "2021" ? (
+          <div>
+            {tabsKeys.map((tabKey, index) => (
+              <TabContent
+                key={index}
+                variants={{
+                  current: {
+                    opacity: 1,
+                    scale: 1,
+                    display: "flex",
+                  },
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.8,
+                    display: "none",
+                  },
+                }}
+                transition={{ duration: 0.4 }}
+                initial={activeTab === tabKey ? "current" : "hidden"}
+                animate={activeTab === tabKey ? "current" : "hidden"}
+              >
+                {tabKey !== "Heads" &&
+                  tabs[tabKey].map((card, index) => (
+                    <CouncilCard key={index} index={index} card={card} />
+                  ))}
+                {tabKey === "Heads" &&
+                  tabs["Heads"].president.map((card, index) => (
+                    <CouncilCard key={index} index={index} card={card} />
+                  ))}
+              </TabContent>
+            ))}
+            {tabsKeys.map((tabKey, index) => (
+              <TabContent
+                key={index}
+                variants={{
+                  current: {
+                    opacity: 1,
+                    scale: 1,
+                    display: "flex",
+                  },
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.8,
+                    display: "none",
+                  },
+                }}
+                transition={{ duration: 0.4 }}
+                initial={activeTab === tabKey ? "current" : "hidden"}
+                animate={activeTab === tabKey ? "current" : "hidden"}
+              >
+                {tabKey === "Heads" &&
+                  tabs["Heads"].vp.map((card, index) => (
+                    <CouncilCard key={index} index={index} card={card} />
+                  ))}
+              </TabContent>
+            ))}
+            {tabsKeys.map((tabKey, index) => (
+              <TabContent
+                key={index}
+                variants={{
+                  current: {
+                    opacity: 1,
+                    scale: 1,
+                    display: "flex",
+                  },
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.8,
+                    display: "none",
+                  },
+                }}
+                transition={{ duration: 0.4 }}
+                initial={activeTab === tabKey ? "current" : "hidden"}
+                animate={activeTab === tabKey ? "current" : "hidden"}
+              >
+                {tabKey === "Heads" &&
+                  tabs["Heads"].gs.map((card, index) => (
+                    <CouncilCard key={index} index={index} card={card} />
+                  ))}
+              </TabContent>
+            ))}
+            {tabsKeys.map((tabKey, index) => (
+              <TabContent
+                key={index}
+                variants={{
+                  current: {
+                    opacity: 1,
+                    scale: 1,
+                    display: "flex",
+                  },
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.8,
+                    display: "none",
+                  },
+                }}
+                transition={{ duration: 0.4 }}
+                initial={activeTab === tabKey ? "current" : "hidden"}
+                animate={activeTab === tabKey ? "current" : "hidden"}
+              >
+                {tabKey === "Heads" &&
+                  tabs["Heads"].tl.map((card, index) => (
+                    <CouncilCard key={index} index={index} card={card} />
+                  ))}
+              </TabContent>
+            ))}
+            {tabsKeys.map((tabKey, index) => (
+              <TabContent
+                key={index}
+                variants={{
+                  current: {
+                    opacity: 1,
+                    scale: 1,
+                    display: "flex",
+                  },
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.8,
+                    display: "none",
+                  },
+                }}
+                transition={{ duration: 0.4 }}
+                initial={activeTab === tabKey ? "current" : "hidden"}
+                animate={activeTab === tabKey ? "current" : "hidden"}
+              >
+                {tabKey === "Heads" &&
+                  tabs["Heads"].frtgct.map((card, index) => (
+                    <CouncilCard key={index} index={index} card={card} />
+                  ))}
+              </TabContent>
+            ))}
+            {tabsKeys.map((tabKey, index) => (
+              <TabContent
+                key={index}
+                variants={{
+                  current: {
+                    opacity: 1,
+                    scale: 1,
+                    display: "flex",
+                  },
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.8,
+                    display: "none",
+                  },
+                }}
+                transition={{ duration: 0.4 }}
+                initial={activeTab === tabKey ? "current" : "hidden"}
+                animate={activeTab === tabKey ? "current" : "hidden"}
+              >
+                {tabKey === "Heads" &&
+                  tabs["Heads"].rl.map((card, index) => (
+                    <CouncilCard key={index} index={index} card={card} />
+                  ))}
+              </TabContent>
+            ))}
+          </div>
+        ) : (
+          <div>
+            {tabsKeys.map((tabKey, index) => (
+              <TabContent
+                key={index}
+                variants={{
+                  current: {
+                    opacity: 1,
+                    scale: 1,
+                    display: "flex",
+                  },
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.8,
+                    display: "none",
+                  },
+                }}
+                transition={{ duration: 0.4 }}
+                initial={activeTab === tabKey ? "current" : "hidden"}
+                animate={activeTab === tabKey ? "current" : "hidden"}
+              >
+                {tabKey !== "Heads" &&
+                  tabs[tabKey].map((card, index) => (
+                    <CouncilCard key={index} index={index} card={card} />
+                  ))}
+                {tabKey === "Heads" && <TeamCards />}
+              </TabContent>
+            ))}
+          </div>
+        )}
       </ContentWithPaddingXl>
       <DecoratorBlob1 />
       <DecoratorBlob2 />
