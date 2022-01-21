@@ -17,13 +17,15 @@ const WhyJoinUs = () => {
           data-aos="flip-left"
           data-aos-delay="300"
         >
-          We don’t just guide our juniors on their internship or placement
-          journeys but are also eveready to help out the juniors on any problem
-          they face. We do not believe in keeping the society formal or calling
-          our seniors “sir” or “ma'am”. Rather, the environment is so chilled out
-          that you can ask anything to anyone without any hesitation
-          irrespective of the type of problem you are facing. So, the question
-          isn’t really “why join us?”, it's rather “why not?”.
+          D_CODER is not only a solution for your technical worries, but it also
+          focuses on your communication skills, management skills, thus
+          developing your personality to a whole new level. We improve each
+          other as a coterie and bring out the best in each other. All this
+          happens when we do our creative adventures like organizing webinars,
+          events, group discussions, and much more fun activities. These
+          activities are a great medium to assimilate a good amount of soft
+          skills needed in real life. The persisting question should not be “Why
+          to join us ?”; rather, it should be “Why Not indeed? “.
         </p>
       </div>
       <div className="hidden sm:flex w-full justify-content items-center">
