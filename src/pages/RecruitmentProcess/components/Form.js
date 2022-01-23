@@ -571,7 +571,7 @@ function Form() {
                         <TextField
                           required
                           placeholder="Mobile"
-                          label="Mobile (Eg: +XX XXXXXXXXXX)"
+                          label="Mobile"
                           name="phone"
                           value={formik.values.phone}
                           onChange={formik.handleChange}
