@@ -134,11 +134,11 @@ function Form() {
     whyJoin: Yup.string()
       .required("Reason for joining is Required")
       .min(10, "Content must be greater than 10 characters!")
-      .max(100, "Content must be less than 100 characters!"),
+      .max(1000, "Content must be less than 1000 characters!"),
     expect: Yup.string()
       .required("Enter your expectations..")
       .min(10, "Content must be greater than 10 characters!")
-      .max(100, "Content must be less than 100 characters!"),
+      .max(1000, "Content must be less than 1000 characters!"),
     image: Yup.string().required("Image is required"),
   });
 
