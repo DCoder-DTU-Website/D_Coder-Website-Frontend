@@ -100,6 +100,7 @@ const RState = (props) => {
     codingSkillsScore,
     enthusiasmScore,
     remarksByRecruiter
+    
   ) => {
     try {
       if (!remarksByRecruiter) {

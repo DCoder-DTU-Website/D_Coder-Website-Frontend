@@ -122,9 +122,10 @@ function Form() {
         "Enter valid Roll number"
       )
       .required("Roll number is required"),
-    phone: Yup.string()
-      .matches(/\+([0-9]|\s|\.){12,16}$/m, "Enter valid Mobile Number")
-      .required("Mobile number is required"),
+    // phone: Yup.string()
+    //   .matches(/\+([0-9]|\s|\.){12,16}$/m, "Enter valid Mobile Number")
+    //   .required("Mobile number is required"),
+    phone: Yup.string().required("Mobile number is required"),
     email: Yup.string()
       .required("Email is Required")
       .matches(/[a-z0-9_]+@dtu\.ac\.in$/m, "Enter valid DTU Email Id"),
@@ -815,7 +816,7 @@ function Form() {
                 <FormGroup
                   row
                   fullWidth
-                  className = "flex flex-col sm:flex-row sm:justify-center"
+                  className="flex flex-col sm:flex-row sm:justify-center"
                 >
                   <FormControlLabel
                     control={
@@ -831,7 +832,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
-                    className = "w-full sm:w-auto flex justify-center"
+                    className="w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -847,7 +848,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
-                    className = "w-full sm:w-auto flex justify-center"
+                    className="w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -863,7 +864,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
-                    className = "w-full sm:w-auto flex justify-center"
+                    className="w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -879,7 +880,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
-                    className = "w-full sm:w-auto flex justify-center"
+                    className="w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -895,7 +896,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
-                    className = "w-full sm:w-auto flex justify-center"
+                    className="w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -911,7 +912,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
-                    className = "w-full sm:w-auto flex justify-center"
+                    className="w-full sm:w-auto flex justify-center"
                   />
                   <FormControlLabel
                     control={
@@ -927,7 +928,7 @@ function Form() {
                       />
                     }
                     style={{ margin: "20px 1em 0" }}
-                    className = "w-full sm:w-auto flex justify-center"
+                    className="w-full sm:w-auto flex justify-center"
                   />
                 </FormGroup>
               </Grid>
