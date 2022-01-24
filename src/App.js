@@ -41,6 +41,7 @@ import Recruiter from "pages/Recruiter/App";
 import Scheduled from "pages/Recruiter/Scheduled/App.js";
 import UnScheduled from "pages/Recruiter/UnScheduled/App.js";
 import RecruitmentHome from "pages/RecruitmentHome/index.js";
+import FormClosed from "pages/FormClosed/FormClosed";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -93,7 +94,7 @@ function App() {
             <Achievements />
           </Route>
           <Route exact path="/recruitment">
-            <RecruitmentHome />
+            <FormClosed />
           </Route>
           <Route exact path="/forms/:id">
             <FormEmbed />
@@ -205,7 +206,7 @@ function App() {
             )}
           </Route>
           <Route path="/registration-form">
-            <RecruitmentForm />
+            <FormClosed />
           </Route>
           {/* <Route path="/thankyou">
             <ThankYouPage />
