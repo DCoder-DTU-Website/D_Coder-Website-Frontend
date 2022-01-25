@@ -4,7 +4,7 @@ import MinNavbar from "components/hero/MinNavbar";
 // import fakeData from "./BlogData";
 // import BlogCard from "./BlogCard";
 import Footer from "components/footers/Footer";
-import Home from "../../components/Blogs/routes/Home/Home";
+import Home from "../../components/blogs/routes/Home/Home";
 function Blog() {
   return (
     <>

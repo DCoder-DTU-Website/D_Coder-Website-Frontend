@@ -3,9 +3,9 @@ import ImageUploading from "react-images-uploading";
 import "./style.css";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
-const Upload = ({ images, setImages, disabled }) => {
+const Upload = ({ images, setImages, disabled, title }) => {
   const classes = useStyles();
   const maxNumber = 1;
 
@@ -49,7 +49,7 @@ const Upload = ({ images, setImages, disabled }) => {
               disabled={disabled}
               startIcon={<CloudUploadIcon />}
             >
-              Upload Image
+              {title ?? "Upload Image"}
             </Button>
             &nbsp;
             {imageList.map((image, index) => (

@@ -51,7 +51,8 @@ function App() {
     setIsLoggedIn(true);
   }, [user]);
 
-  const isAdmin = isLoggedIn && user && user.isAdmin;
+  const isAdmin = true;
+  // const isAdmin = isLoggedIn && user && user.isAdmin;
   const isUser = isLoggedIn && user && !user.isAdmin;
   const isRecruiter = isLoggedIn && user && user.isRecruiter;
 
