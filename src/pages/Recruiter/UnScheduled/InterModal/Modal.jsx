@@ -43,7 +43,7 @@ const Modal = (props) => {
           id="time"
           label="Time of Interview"
           type="time"
-          defaultValue={time}
+          value={time}
           InputLabelProps={{
             shrink: true,
           }}
@@ -58,7 +58,7 @@ const Modal = (props) => {
         <TextField
           id="date"
           label="Google Meet Link"
-          defaultValue={gMeet}
+          value={gMeet}
           fullWidth
           InputLabelProps={{
             shrink: true,

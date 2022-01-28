@@ -24,6 +24,7 @@ import MarksModal from "../InterModal/MarksModal";
 import { useMediaQuery } from "react-responsive";
 import RContext from "../../Context/RContext";
 import "./Table.css";
+import Loader from "../../../../helpers/Loader";
 import useUser from "useUser";
 
 function Row(props) {
@@ -104,7 +105,12 @@ function Row(props) {
             effect="fadeInUp"
             onClickAway={() => setMarksModalOpen(false)}
           >
-            <MarksModal close={setMarksModalOpen} id={applicant._id} />
+            <MarksModal
+              close={setMarksModalOpen}
+              id={applicant._id}
+              anyChange={anyChange}
+              setAnyChange={setAnyChange}
+            />
           </Modal>
         </TableCell>
         <TableCell className="table-cell">
@@ -142,10 +148,11 @@ export default function CollapsibleTable({ scheduled }) {
   // }
   applicantData = applicants.filter((a) => {
     if (scheduled) {
-      return a.interviewLink;
+      return a.interviewLink && !a.remarksByRecruiter;
     }
     return !a.interviewLink;
   });
+  applicantData = applicantData.slice(0, 4);
   console.log(applicantData, "Applicant Data");
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
@@ -156,45 +163,49 @@ export default function CollapsibleTable({ scheduled }) {
   return (
     <div className="table-side">
       <TableContainer component={Paper} style={{ padding: "0% 5%" }}>
-        <Table aria-label="collapsible table">
-          <TableHead>
-            {isPC && (
-              <TableRow style={{ padding: "5px" }}>
-                <TableCell />
-                <TableCell>
-                  <h1 className="head-title">Name</h1>
-                </TableCell>
-                {isPC && (
-                  <TableCell align="left">
-                    <h1 className="head-title">Roll No.</h1>
+        {!applicantData.length ? (
+          <Loader isWhite={true} />
+        ) : (
+          <Table aria-label="collapsible table">
+            <TableHead>
+              {isPC && (
+                <TableRow style={{ padding: "5px" }}>
+                  <TableCell />
+                  <TableCell>
+                    <h1 className="head-title">Name</h1>
                   </TableCell>
-                )}
-                {!scheduled ? (
-                  <TableCell align="left">
-                    <h1 className="head-title">Schedule Interview</h1>
-                  </TableCell>
-                ) : (
-                  <TableCell align="left">
-                    <h1 className="head-title">Set Marks</h1>
-                  </TableCell>
-                )}
-                <TableCell />
-              </TableRow>
-            )}
-          </TableHead>
-          <TableBody>
-            {applicantData.map((applicant, index) => (
-              <Row
-                key={applicant.name}
-                applicant={applicant}
-                pos={index}
-                scheduled={scheduled}
-                anyChange={anyChange}
-                setAnyChange={setAnyChange}
-              />
-            ))}
-          </TableBody>
-        </Table>
+                  {isPC && (
+                    <TableCell align="left">
+                      <h1 className="head-title">Roll No.</h1>
+                    </TableCell>
+                  )}
+                  {!scheduled ? (
+                    <TableCell align="left">
+                      <h1 className="head-title">Schedule Interview</h1>
+                    </TableCell>
+                  ) : (
+                    <TableCell align="left">
+                      <h1 className="head-title">Set Marks</h1>
+                    </TableCell>
+                  )}
+                  <TableCell />
+                </TableRow>
+              )}
+            </TableHead>
+            <TableBody>
+              {applicantData.map((applicant, index) => (
+                <Row
+                  key={applicant.name}
+                  applicant={applicant}
+                  pos={index}
+                  scheduled={scheduled}
+                  anyChange={anyChange}
+                  setAnyChange={setAnyChange}
+                />
+              ))}
+            </TableBody>
+          </Table>
+        )}
       </TableContainer>
     </div>
   );

@@ -13,6 +13,7 @@ const Modal = (props) => {
   const handleSubmit = async () => {
     const { setMarks } = context;
     await setMarks(props.id, taskCompletion, codingSkills, enthusiasm, remarks);
+    props.setAnyChange(!props.anyChange);
   };
   return (
     <div className="main-div">
