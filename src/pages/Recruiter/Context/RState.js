@@ -28,11 +28,13 @@ const RState = (props) => {
   };
   useEffect(() => {
     getProfile();
-    getApplicants();
   }, [user]);
   useEffect(() => {
-    getApplicants();
-  }, [anyChange]);
+    if (data?._id) {
+      console.log("FUNCTION UPDATE CALLED!");
+      getApplicants();
+    }
+  }, [anyChange, data]);
   const recruiter = {
     name: `${data.firstName + " " + data.lastName}`,
     image: `${data.image}`,
