@@ -73,15 +73,20 @@ function Row(props) {
             <Button
               variant="contained"
               style={{
-                backgroundColor: "rgb(26,32,44)",
+                backgroundColor: !applicant.remarksByRecruiter
+                  ? "rgb(26,32,44)"
+                  : "#808080",
                 color: "white",
                 borderRadius: "999px",
               }}
               size={!isPC ? "small" : "large"}
               startIcon={<AssessmentIcon />}
               onClick={() => setMarksModalOpen(true)}
+              disabled={applicant.remarksByRecruiter}
             >
-              <h1 className="sch-btn">Set Marks</h1>
+              <h1 className="sch-btn">
+                {!applicant.remarksByRecruiter ? "Set Marks" : "Marked"}
+              </h1>
             </Button>
           )}
           <Modal
@@ -138,22 +143,14 @@ function Row(props) {
 
 export default function CollapsibleTable({ scheduled }) {
   const context = useContext(RContext);
-  let { applicants, data, anyChange, setAnyChange } = context;
+  let { applicants, data, anyChange, setAnyChange, loading } = context;
   let applicantData = [];
-  // for (let i = 0; i < applicants.length; i++) {
-  //   console.log(applicants[i]);
-  //   if (applicants[i].interviewLink === "") {
-  //     applicantData.push(applicants[i]);
-  //   }
-  // }
   applicantData = applicants.filter((a) => {
     if (scheduled) {
-      return a.interviewLink && !a.remarksByRecruiter;
+      return a.interviewLink;
     }
     return !a.interviewLink;
   });
-  applicantData = applicantData.slice(0, 4);
-  console.log(applicantData, "Applicant Data");
   const isPC = useMediaQuery({
     query: "(min-device-width: 690px)",
   });
@@ -162,10 +159,12 @@ export default function CollapsibleTable({ scheduled }) {
   });
   return (
     <div className="table-side">
-      <TableContainer component={Paper} style={{ padding: "0% 5%" }}>
-        {!applicantData.length ? (
-          <Loader isWhite={true} />
-        ) : (
+      {loading ? (
+        <Loader isWhite={true} />
+      ) : applicantData.length === 0 ? (
+        <div className="text-3xl">No Data Available</div>
+      ) : (
+        <TableContainer component={Paper} style={{ padding: "0% 5%" }}>
           <Table aria-label="collapsible table">
             <TableHead>
               {isPC && (
@@ -205,8 +204,8 @@ export default function CollapsibleTable({ scheduled }) {
               ))}
             </TableBody>
           </Table>
-        )}
-      </TableContainer>
+        </TableContainer>
+      )}
     </div>
   );
 }
