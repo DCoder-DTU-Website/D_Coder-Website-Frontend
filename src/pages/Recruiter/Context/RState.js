@@ -11,6 +11,7 @@ const RState = (props) => {
   const [applicants, setApplicants] = useState([]);
   const [openNav, setOpenNav] = useState(false);
   const [anyChange, setAnyChange] = useState(false);
+  const [loading, setLoading] = useState(false);
   const getProfile = async () => {
     const res = await api.post("/userprofile", { user });
     const userProfile = res.data;
@@ -18,12 +19,14 @@ const RState = (props) => {
   };
 
   const getApplicants = async () => {
+    setLoading(true);
     console.log("hello");
     const res = await api.post("/applicants/all-recruiter", {
       userId: data._id,
     });
     const app = res.data;
     setApplicants(app);
+    setLoading(false);
     // console.log(applicants, "applicants");
   };
   useEffect(() => {
@@ -184,6 +187,7 @@ const RState = (props) => {
         setMarks,
         anyChange,
         setAnyChange,
+        loading,
       }}
     >
       {props.children}
