@@ -29,7 +29,10 @@ const RState = (props) => {
   useEffect(() => {
     getProfile();
     getApplicants();
-  }, [user, anyChange]);
+  }, [user]);
+  useEffect(() => {
+    getApplicants();
+  }, [anyChange]);
   const recruiter = {
     name: `${data.firstName + " " + data.lastName}`,
     image: `${data.image}`,
@@ -100,7 +103,6 @@ const RState = (props) => {
     codingSkillsScore,
     enthusiasmScore,
     remarksByRecruiter
-    
   ) => {
     try {
       if (!remarksByRecruiter) {
