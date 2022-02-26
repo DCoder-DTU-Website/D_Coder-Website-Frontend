@@ -75,17 +75,17 @@ function Row(props) {
               style={{
                 backgroundColor: !applicant.remarksByRecruiter
                   ? "rgb(26,32,44)"
-                  : "#808080",
+                  : "#ac3c3c",
                 color: "white",
                 borderRadius: "999px",
               }}
               size={!isPC ? "small" : "large"}
               startIcon={<AssessmentIcon />}
               onClick={() => setMarksModalOpen(true)}
-              disabled={applicant.remarksByRecruiter}
+              // disabled={applicant.remarksByRecruiter}
             >
               <h1 className="sch-btn">
-                {!applicant.remarksByRecruiter ? "Set Marks" : "Marked"}
+                {!applicant.remarksByRecruiter ? "Set Marks" : "Edit"}
               </h1>
             </Button>
           )}
@@ -101,20 +101,20 @@ function Row(props) {
               id={applicant._id}
               anyChange={anyChange}
               setAnyChange={setAnyChange}
-            />
+              />
           </Modal>
           <Modal
             visible={marksModalOpen}
             width={isPC ? "600" : "300"}
             height="450"
             effect="fadeInUp"
-            onClickAway={() => setMarksModalOpen(false)}
-          >
+            >
             <MarksModal
               close={setMarksModalOpen}
               id={applicant._id}
               anyChange={anyChange}
               setAnyChange={setAnyChange}
+              applicant={applicant}
             />
           </Modal>
         </TableCell>
